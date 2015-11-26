@@ -18,9 +18,9 @@ var ResultLogoArr = Array(["7080_1.jpg"], ["7080_2.jpg"], ["7080_3.jpg"], ["7080
 var radNum = 0;
 
 var shareTitle = "你的童年完整吗？"; //标题
-var imgUrl = "http://game.luqinwenda.com/images/logo70.jpg"; //图片
-var descContent = '你的童年完整吗'; //简介
-var lineLink = "http://game.luqinwenda.com/7080/default.aspx"; //链接
+var shareImg = "http://game.luqinwenda.com/images/logo70.jpg"; //图片
+var shareContent = '你的童年完整吗'; //简介
+var shareLink = "http://game.luqinwenda.com/7080/default.aspx"; //链接
 
 /*
 var QAJsonStr = [{
@@ -109,7 +109,7 @@ $(document).ready(function () {
     fillData(QAJson);
 
     $("#retryA").click(function() {
-        location.href = "page.html?rdm=" + parseInt(Math.random() * 100);
+        location.href = "page.aspx";
     });
 
     //提示
@@ -338,33 +338,33 @@ function shareBtn() {
 function showResult() {
     $("#gameResult").show();
 
-    if (parseInt(score) < 20) {
+    if (score < 10) {
         $('#sp_content').html("经鉴定，你从来就没有过童年！");
-        descContent = "得分" + score + "，我没有过童年！"
+        shareContent = "得分" + score + "，我没有过童年！"
     }
-    else if (parseInt(score) >= 20 && parseInt(score) < 50) {
+    else if (score >= 10 && score < 30) {
         $('#sp_content').html("小盆友，你有过童年吗！！！");
-        descContent = "得分" + score + "，我的童年让狗吃了"
+        shareContent = "得分" + score + "，我的童年让狗吃了"
     }
-    else if (parseInt(score) >= 50 && parseInt(score) < 100) {
+    else if (score >= 30 && score < 60) {
         $('#sp_content').html("你的童年很丰富！");
-        descContent = "得分" + score + "，我的童年很精彩！"
+        shareContent = "得分" + score + "，我的童年很精彩！"
     }
-    else if (parseInt(score) >= 100 && parseInt(score) < 150) {
+    else if (score >= 60 && score < 70) {
         $('#sp_content').html("你的童年很完整！");
-        descContent = "得分" + score + "，我有个很完整的童年！"
+        shareContent = "得分" + score + "，我有个很完整的童年！"
     }
-    else if (parseInt(score) >= 150 && parseInt(score) < 180) {
+    else if (score >= 70 && score < 90) {
         $('#sp_content').html("经鉴定，你有个非常完美的童年！");
-        descContent = "得分" + score + "，我有个很完美的童年！"
+        shareContent = "得分" + score + "，我有个很完美的童年！"
     }
-    else if (parseInt(score) >= 180) {
+    else if (score >= 90) {
         $('#sp_content').html("你的童年里除了吃喝玩乐还有别的吗？");
-        descContent = "得分" + score + "，我是在吃喝玩乐中长大的！"
+        shareContent = "得分" + score + "，我是在吃喝玩乐中长大的！"
     }
 
     $('#sp_score').html(score);
+    shareImg = 'http://game.luqinwenda.com/7080/images/' + ResultLogoArr[radNum];
 
-    imgUrl = "http://game.luqinwenda.com/7080/images/" + ResultLogoArr[radNum];
 }
 
