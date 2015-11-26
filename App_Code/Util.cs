@@ -94,6 +94,48 @@ public class Util
         return str;
     }
 
+
+    public static string GetToken()
+    {
+        DateTime nowDate = DateTime.Now;
+        if (nowDate - tokenTime > new TimeSpan(0, 10, 0))
+        {
+            token = ForceGetToken();
+        }
+        return token;
+    }
+
+    public static string ForceGetToken()
+    {
+        DateTime nowDate = DateTime.Now;
+        token = GetAccessToken(System.Configuration.ConfigurationManager.AppSettings["wxappid"].Trim(),
+                System.Configuration.ConfigurationManager.AppSettings["wxappsecret"].Trim());
+        tokenTime = nowDate;
+        return token;
+
+    }
+
+    public static string GetAccessToken(string appId, string appSecret)
+    {
+        string token = "";
+        string url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" + appId.Trim() + "&secret=" + appSecret.Trim();
+        HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
+        HttpWebResponse res = (HttpWebResponse)req.GetResponse();
+        Stream s = res.GetResponseStream();
+        string ret = (new StreamReader(s)).ReadToEnd();
+        s.Close();
+        res.Close();
+        req.Abort();
+
+        JavaScriptSerializer serializer = new JavaScriptSerializer();
+        Dictionary<string, object> json = (Dictionary<string, object>)serializer.DeserializeObject(ret);
+        object v;
+        json.TryGetValue("access_token", out v);
+        token = v.ToString();
+
+        return token;
+    }
+
     public static string GetSimpleJsonValueByKey(string jsonStr, string key)
     {
         JavaScriptSerializer serializer = new JavaScriptSerializer();
