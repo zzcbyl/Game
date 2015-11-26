@@ -18,15 +18,8 @@ public class Util
 {
 
     public static string ConnectionString = System.Configuration.ConfigurationSettings.AppSettings["constr"].Trim();
-    
-    public static string ApiDomainString = System.Configuration.ConfigurationSettings.AppSettings["apiDomain"].Trim();
-    public static string WebDomainString = System.Configuration.ConfigurationSettings.AppSettings["webDomain"].Trim();
-
-
     protected static string token = "";
-
     protected static DateTime tokenTime = DateTime.MinValue;
-
 
 	public Util()
 	{
