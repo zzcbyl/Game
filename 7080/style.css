@@ -1,0 +1,49 @@
+﻿body{font-family:宋体; background:#FFEA01; color:#000;}
+.clear {
+    clear: both;
+}
+.mainContent { width:auto; margin:5px; line-height:25px; }
+.mainContent .score { width:auto; text-align:center; line-height:35px; padding:5px 0; position:relative;}
+.mainContent .score .titleNumber { float:left;}
+.mainContent .score .scoreResult { padding:5px; font-weight:bold;  }
+.mainContent #scoreVal { font-weight:bold; margin:0 5px;}
+.mainContent .QNO { border-bottom:1px solid #000; line-height:22px; }
+.mainContent .Prompt { border-bottom:1px solid #000; padding:5px 0; position:relative; }
+.mainContent .Prompt .QuestionTitle {  float:left; }
+.mainContent .Prompt .QuestionContent { margin-left:40px; }
+.mainContent .Prompt .PromptLeft { float:left; }
+.mainContent .Prompt .PromptRight { margin-left:40pt; }
+.mainContent .score .next_btn { float:right;  text-align:center; cursor:pointer; margin-top:5px; }
+.mainContent .score .next_btn a { padding:0 5px;  display:block;  line-height:25px; color:#fff; background:#990000}
+.mainContent .input_grid { margin:10px 0; text-align:center; position:relative;}
+.mainContent .input_grid .grid a { border:1px solid #000; margin:5px 3px; display:inline-table; width:30px; height:30px; cursor:pointer;line-height: 30px; background:#fff; }
+.mainContent .input_grid .submit_btn a { padding:3pt 6pt 1pt 6pt; border:1px solid #000; display:block; line-height:20px; color:#fff;}
+.mainContent .change_grid { padding:0; text-align:center; position:relative; border-bottom:1px solid #000; border-right:1px solid #000; width:264px; margin:0 auto; height:99px; background:#fff;}
+.mainContent .change_grid a { padding:2px; border-top:1px solid #000; border-left:1px solid #000; margin:0px;  width:28px; height:28px; cursor:pointer; display:block; float:left; line-height:28px; }
+.mainContent .submit_btn { position:absolute; right:0px; top:7px; cursor:pointer;}
+.mainContent .openInfo { position:absolute; top:-20pt;  width:95%; text-align:center; display:none; }
+.mainContent .openInfo a { background:#fff; padding:5px 10px; border:1px solid #000;}
+
+.yuanjiao  
+{
+    border: 1px solid #990000;
+    text-align: center;
+}
+
+.beijing
+{
+    -webkit-box-shadow: #666 0px 0px 5px;
+    -moz-box-shadow: #666 0px 0px 5px;
+    box-shadow: #666 0px 0px 5px;
+    background: #990000;
+}
+
+.yuanjiao1
+{
+    border: 1px solid #990000;
+    text-align: center;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    
+}
