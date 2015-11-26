@@ -358,7 +358,6 @@ function showResult() {
     $('#sp_score').html(resultScore);
 
     imgUrl = "http://game.luqinwenda.com/7080/images/" + ResultLogoArr[radNum];
-    lineLink = "http://game.luqinwenda.com/7080/";
 }
 
 function shareBtn() {
