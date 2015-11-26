@@ -22,69 +22,6 @@ var shareImg = "http://game.luqinwenda.com/images/logo70.jpg"; //图片
 var shareContent = '你的童年完整吗'; //简介
 var shareLink = "http://game.luqinwenda.com/7080/default.aspx"; //链接
 
-/*
-var QAJsonStr = [{
-"id": "111111",
-"prompt": ["提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1", "提示2", "提示3", "提示4"],
-"answercount": "2",
-"answer": "足球",
-"options": ["提", "提", "提", "提", "提", "提", "足", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "球", "提", "提"]
-}, {
-"id": "222222",
-"prompt": ["提示11", "提示12", "提示13", "提示14"],
-"answercount": "3",
-"answer": "篮球的",
-"options": ["足", "篮", "提", "提", "提", "提", "足", "球", "提", "的", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "球", "提", "提"]
-}, {
-"id": "222222",
-"prompt": ["提示11", "提示12", "提示13", "提示14"],
-"answercount": "3",
-"answer": "篮球的",
-"options": ["足", "篮", "提", "提", "提", "提", "足", "球", "提", "的", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "球", "提", "提"]
-}, {
-"id": "222222",
-"prompt": ["提示11", "提示12", "提示13", "提示14"],
-"answercount": "3",
-"answer": "篮球的",
-"options": ["足", "篮", "提", "提", "提", "提", "足", "球", "提", "的", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "球", "提", "提"]
-}, {
-"id": "222222",
-"prompt": ["提示11", "提示12", "提示13", "提示14"],
-"answercount": "3",
-"answer": "篮球的",
-"options": ["足", "篮", "提", "提", "提", "提", "足", "球", "提", "的", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "球", "提", "提"]
-}, {
-"id": "222222",
-"prompt": ["提示11", "提示12", "提示13", "提示14"],
-"answercount": "3",
-"answer": "篮球的",
-"options": ["足", "篮", "提", "提", "提", "提", "足", "球", "提", "的", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "球", "提", "提"]
-}, {
-"id": "222222",
-"prompt": ["提示11", "提示12", "提示13", "提示14"],
-"answercount": "3",
-"answer": "篮球的",
-"options": ["足", "篮", "提", "提", "提", "提", "足", "球", "提", "的", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "球", "提", "提"]
-}, {
-"id": "222222",
-"prompt": ["提示11", "提示12", "提示13", "提示14"],
-"answercount": "3",
-"answer": "篮球的",
-"options": ["足", "篮", "提", "提", "提", "提", "足", "球", "提", "的", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "球", "提", "提"]
-}, {
-"id": "222222",
-"prompt": ["提示11", "提示12", "提示13", "提示14"],
-"answercount": "3",
-"answer": "篮球的",
-"options": ["足", "篮", "提", "提", "提", "提", "足", "球", "提", "的", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "球", "提", "提"]
-}, {
-"id": "222222",
-"prompt": ["提示11", "提示12", "提示13", "提示14"],
-"answercount": "3",
-"answer": "篮球的",
-"options": ["足", "篮", "提", "提", "提", "提", "足", "球", "提", "的", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "球", "提", "提"]}];
-*/
-
 $(document).ready(function () {
     //if (!browserRedirect()) {
     //    document.write('暂不支持当前版本');
@@ -104,22 +41,12 @@ $(document).ready(function () {
     });
     
     //初始化数据
-    //QAJsonArr = eval(QAJsonStr);
     QAJson = QAJsonArr[questionNO];
     fillData(QAJson);
 
     $("#retryA").click(function() {
         location.href = "page.aspx";
     });
-
-    //提示
-    //$('.next_btn').click(function() {
-    //    if (showTag <= QAJson.prompt.length) {
-    //        $('#PromptRightLi a').eq(showTag).css("background", "#FFEA01");
-    //        $('#PromptRightLi a').eq(showTag).html(QAJson.prompt[showTag]);
-    //        showTag++;
-    //    }
-    //});
 
     //随机结果图片logo
     radNum = Math.round(Math.random() * 8);
@@ -140,35 +67,6 @@ function submitBtn() {
         $('#addScore').html("＋10");
         score += 10;
         
-        //switch (showTag) {
-        //    case 1:
-        //        var cc = AddCountScore + 20;
-        //        $('#addScore').html("+" + cc);
-        //        score += cc;
-        //        continue1++;
-        //        total1++;
-        //        break;
-        //    case 2:
-        //        var cc = AddCountScore + 15;
-        //        $('#addScore').html("+" + cc);
-        //        score += cc;
-        //        continue2++;
-        //        total2++;
-        //        break;
-        //    case 3:
-        //        var cc = AddCountScore + 5;
-        //        $('#addScore').html("+" + cc);
-        //        score += cc;
-        //        continue3++;
-        //        total3++;
-        //        break;
-        //    default:
-        //        var cc = AddCountScore + 2;
-        //        $('#addScore').html("+" + cc);
-        //        score += cc;
-        //        total4++;
-        //        break;
-        //}
 
         continueAll++;
         $('#addScore').css('display', 'block');
@@ -193,26 +91,18 @@ function submitBtn() {
         showInfo("<span style='color:#990000'>很遗憾,回答错误</span>");
     }
     questionNO++;
-    //for (var i = 0; i < QAJson.prompt.length; i++) {
-    //    $('#PromptRightLi a').eq(i).css("background", "#FFEA01");
-    //    $('#PromptRightLi a').eq(i).html(QAJson.prompt[i]);
-    //}
+
     $('#PromptRightLi img').attr('src', QAJson.promptimg);
     $('#Qcontent').html(QAJson.question);
     
     if (questionNO < QAJsonArr.length) {
         QAJson = QAJsonArr[questionNO];
         setTimeout('fillData(QAJson);', 2000);
-        //fillData(QAJson);
     }
     else {
-        //setTimeout('showResult();', 1000);
         showResult();
     }
 }
-//function jumpResult() {
-//    location.href = "result.htm?score=" + score + "&continuetotal=" + continueTotal + "&total1=" + total1 + "&total2=" + total2 + "&total3=" + total3 + "&total4=" + total4;
-//}
 
 //填充数据
 function fillData(QAJson) {
@@ -224,14 +114,7 @@ function fillData(QAJson) {
     answer = QAJson.answer;
     $("#QANum").html(QAJson.id);
     $("#currentNum").html(questionNO+1);
-    //$('#PromptRightLi a').each(function() {
-    //    $(this).html(QAJson.prompt[i]);
-    //    if (i > 0) {
-    //        $(this).html("　　　　");
-    //        $(this).css("background", "#676767")
-    //    }
-    //    i++;
-    //});
+
     $('#PromptRightLi img').attr('src', QAJson.promptimg);
     $('#Qcontent').html(QAJson.question);
 
