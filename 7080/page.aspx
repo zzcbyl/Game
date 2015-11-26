@@ -1,6 +1,33 @@
-﻿<!DOCTYPE html>
+﻿<%@ Page Language="C#" %>
+
+<!DOCTYPE html>
+
+<script runat="server">
+    public string timeStamp = "";
+    public string nonceStr = "ab56e0d1f0fe4wga9s34d2fd565ae7f";
+    public string ticket = "";
+    public string shaParam = "";
+    public string appId = System.Configuration.ConfigurationSettings.AppSettings["wxappid"];
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        try
+        {
+            timeStamp = Util.GetTimeStamp();
+            string jsonStrForTicket = Util.GetWebContent("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token="
+                + Util.GetToken() + "&type=jsapi", "get", "", "form-data");
+            ticket = Util.GetSimpleJsonValueByKey(jsonStrForTicket, "ticket");
+            string shaString = "jsapi_ticket=" + ticket.Trim() + "&noncestr=" + nonceStr.Trim()
+                + "&timestamp=" + timeStamp.Trim() + "&url=" + Request.Url.ToString().Trim();
+            shaParam = Util.GetSHA1(shaString);
+        }
+        catch { }
+    }
+</script>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width" />
     <title>你的童年完整吗</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
@@ -8,7 +35,6 @@
     <script src="../script/common.js"></script>
     <script src="../script/ready.js"></script>
     <script src="script.js" type="text/javascript"></script>
-    <script src="share.js" type="text/javascript"></script>
 </head>
 <body>
     <div id="mainContain" class="mainContent" style="display:">
@@ -66,4 +92,6 @@
         </div>
     </div>
 </body>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="share.js" type="text/javascript"></script>
 </html>
