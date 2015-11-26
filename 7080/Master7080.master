@@ -46,10 +46,6 @@
     
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
-        var shareTitle = "你的童年完整吗？"; //标题
-        var imgUrl = "http://game.luqinwenda.com/images/logo70.jpg"; //图片
-        var descContent = '你的童年完整吗'; //简介
-        var lineLink = "http://game.luqinwenda.com/7080/default.aspx"; //链接
         
         wx.config({
             debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。

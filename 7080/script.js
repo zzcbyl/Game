@@ -17,7 +17,11 @@ var total4 = 0;
 var ResultLogoArr = Array(["7080_1.jpg"], ["7080_2.jpg"], ["7080_3.jpg"], ["7080_4.jpg"], ["7080_5.jpg"], ["7080_6.jpg"], ["7080_7.jpg"], ["7080_8.jpg"], ["7080_9.jpg"]);
 var radNum = 0;
 
-var resultScore = "";
+var shareTitle = "你的童年完整吗？"; //标题
+var imgUrl = "http://game.luqinwenda.com/images/logo70.jpg"; //图片
+var descContent = '你的童年完整吗'; //简介
+var lineLink = "http://game.luqinwenda.com/7080/default.aspx"; //链接
+
 /*
 var QAJsonStr = [{
 "id": "111111",
@@ -202,13 +206,13 @@ function submitBtn() {
         //fillData(QAJson);
     }
     else {
-        setTimeout('showResult();', 2000);
+        setTimeout('showResult();', 1000);
         //showResult();
     }
 }
-function jumpResult() {
-    location.href = "result.htm?score=" + score + "&continuetotal=" + continueTotal + "&total1=" + total1 + "&total2=" + total2 + "&total3=" + total3 + "&total4=" + total4;
-}
+//function jumpResult() {
+//    location.href = "result.htm?score=" + score + "&continuetotal=" + continueTotal + "&total1=" + total1 + "&total2=" + total2 + "&total3=" + total3 + "&total4=" + total4;
+//}
 
 //填充数据
 function fillData(QAJson) {
@@ -327,35 +331,33 @@ function showInfo(info) {
 
 function showResult() {
     $("#gameResult").show();
-
-    resultScore = score;
-
-    if (parseInt(resultScore) < 20) {
+    
+    if (parseInt(score) < 20) {
         $('#sp_content').html("经鉴定，你从来就没有过童年！");
-        descContent = "得分" + resultScore + "，我没有过童年！"
+        descContent = "得分" + score + "，我没有过童年！"
     }
-    else if (parseInt(resultScore) >= 20 && parseInt(resultScore) < 50) {
+    else if (parseInt(score) >= 20 && parseInt(score) < 50) {
         $('#sp_content').html("小盆友，你有过童年吗！！！");
-        descContent = "得分" + resultScore + "，我的童年让狗吃了"
+        descContent = "得分" + score + "，我的童年让狗吃了"
     }
-    else if (parseInt(resultScore) >= 50 && parseInt(resultScore) < 100) {
+    else if (parseInt(score) >= 50 && parseInt(score) < 100) {
         $('#sp_content').html("你的童年很丰富！");
-        descContent = "得分" + resultScore + "，我的童年很精彩！"
+        descContent = "得分" + score + "，我的童年很精彩！"
     }
-    else if (parseInt(resultScore) >= 100 && parseInt(resultScore) < 150) {
+    else if (parseInt(score) >= 100 && parseInt(score) < 150) {
         $('#sp_content').html("你的童年很完整！");
-        descContent = "得分" + resultScore + "，我有个很完整的童年！"
+        descContent = "得分" + score + "，我有个很完整的童年！"
     }
-    else if (parseInt(resultScore) >= 150 && parseInt(resultScore) < 180) {
+    else if (parseInt(score) >= 150 && parseInt(score) < 180) {
         $('#sp_content').html("经鉴定，你有个非常完美的童年！");
-        descContent = "得分" + resultScore + "，我有个很完美的童年！"
+        descContent = "得分" + score + "，我有个很完美的童年！"
     }
-    else if (parseInt(resultScore) >= 180) {
+    else if (parseInt(score) >= 180) {
         $('#sp_content').html("你的童年里除了吃喝玩乐还有别的吗？");
-        descContent = "得分" + resultScore + "，我是在吃喝玩乐中长大的！"
+        descContent = "得分" + score + "，我是在吃喝玩乐中长大的！"
     }
 
-    $('#sp_score').html(resultScore);
+    $('#sp_score').html(score);
 
     imgUrl = "http://game.luqinwenda.com/7080/images/" + ResultLogoArr[radNum];
 }
