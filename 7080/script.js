@@ -88,7 +88,7 @@ $(document).ready(function () {
     $.ajax({
         type: "GET",
         async: false,
-        url: "http://192.168.1.38:8002/api/guess7080.aspx?season=7080",
+        url: "http://game.luqinwenda.com/api/guess7080.aspx?season=7080",
         success: function (data) {
             var jsonData = JSON.parse(data);
             var gameData = jsonData.game;
