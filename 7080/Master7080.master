@@ -4,10 +4,10 @@
 
 <script runat="server">
     public string timeStamp = "";
-    public string nonceStr = "ab56e0d1f0fe4wga9s34d2fd565ae7f";
+    public string nonceStr = "e4bf6e00dd1f0br0fcab93bd5ae8f";
     public string ticket = "";
     public string shaParam = "";
-    public string appId = System.Configuration.ConfigurationSettings.AppSettings["wxappid"];
+    public string appId = System.Configuration.ConfigurationManager.AppSettings["wxappid"];
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -47,10 +47,10 @@
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
         var shareTitle = "你的童年完整吗？"; //标题
-        var imgUrl = "http://game.luqinwenda.com/images/start70.jpg"; //图片
+        var imgUrl = "http://game.luqinwenda.com/images/logo70.jpg"; //图片
         var descContent = '你的童年完整吗'; //简介
-        var lineLink = "http://game.luqinwenda.com/7080/"; //链接
-
+        var lineLink = "http://game.luqinwenda.com/7080/default.aspx"; //链接
+        
         wx.config({
             debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
             appId: '<%=appId%>', // 必填，公众号的唯一标识
