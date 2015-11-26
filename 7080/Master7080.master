@@ -21,7 +21,7 @@
                 + "&timestamp=" + timeStamp.Trim() + "&url=" + Request.Url.ToString().Trim();
             shaParam = Util.GetSHA1(shaString);
         }
-        catch { }
+        catch(Exception ex) { }
     }
 </script>
 
