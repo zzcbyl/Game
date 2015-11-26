@@ -334,7 +334,6 @@ function shareBtn() {
     $("#showShare").show();
 }
 
-
 function showResult() {
     $("#gameResult").show();
 

@@ -61,5 +61,6 @@
             <div style="width:200px; height:200px;  color:#000; position:absolute; top:40pt; margin-left:70pt; z-index:20; font-size:15pt; line-height:30pt; text-align:center;">点击右上角“┇”<br />分享到朋友圈</div>
         </div>
     </div>
+    <script src="script.js"></script>
 </asp:Content>
 
