@@ -16,6 +16,8 @@ var total3 = 0;
 var total4 = 0;
 var ResultLogoArr = Array(["7080_1.jpg"], ["7080_2.jpg"], ["7080_3.jpg"], ["7080_4.jpg"], ["7080_5.jpg"], ["7080_6.jpg"], ["7080_7.jpg"], ["7080_8.jpg"], ["7080_9.jpg"]);
 var radNum = 0;
+
+var resultScore = "";
 /*
 var QAJsonStr = [{
 "id": "111111",
@@ -85,6 +87,7 @@ $(document).ready(function () {
     //    document.close();
     //    return false;
     //}
+    
     $.ajax({
         type: "GET",
         async: false,
@@ -95,7 +98,7 @@ $(document).ready(function () {
             QAJsonArr = gameData.questions;
         }
     });
-
+    
     //初始化数据
     //QAJsonArr = eval(QAJsonStr);
     QAJson = QAJsonArr[questionNO];
@@ -320,6 +323,46 @@ function showInfo(info) {
     $('.openInfo a').eq(0).html(info);
     $('.openInfo').fadeIn(1000);
     $('.openInfo').fadeOut(1000);
+}
+
+function showResult() {
+    $("#gameResult").show();
+
+    resultScore = score;
+
+    if (parseInt(resultScore) < 20) {
+        $('#sp_content').html("经鉴定，你从来就没有过童年！");
+        descContent = "得分" + resultScore + "，我没有过童年！"
+    }
+    else if (parseInt(resultScore) >= 20 && parseInt(resultScore) < 50) {
+        $('#sp_content').html("小盆友，你有过童年吗！！！");
+        descContent = "得分" + resultScore + "，我的童年让狗吃了"
+    }
+    else if (parseInt(resultScore) >= 50 && parseInt(resultScore) < 100) {
+        $('#sp_content').html("你的童年很丰富！");
+        descContent = "得分" + resultScore + "，我的童年很精彩！"
+    }
+    else if (parseInt(resultScore) >= 100 && parseInt(resultScore) < 150) {
+        $('#sp_content').html("你的童年很完整！");
+        descContent = "得分" + resultScore + "，我有个很完整的童年！"
+    }
+    else if (parseInt(resultScore) >= 150 && parseInt(resultScore) < 180) {
+        $('#sp_content').html("经鉴定，你有个非常完美的童年！");
+        descContent = "得分" + resultScore + "，我有个很完美的童年！"
+    }
+    else if (parseInt(resultScore) >= 180) {
+        $('#sp_content').html("你的童年里除了吃喝玩乐还有别的吗？");
+        descContent = "得分" + resultScore + "，我是在吃喝玩乐中长大的！"
+    }
+
+    $('#sp_score').html(resultScore);
+
+    imgUrl = "http://game.luqinwenda.com/7080/images/" + ResultLogoArr[radNum];
+    lineLink = "http://game.luqinwenda.com/7080/";
+}
+
+function shareBtn() {
+    $("#showShare").show();
 }
 
 

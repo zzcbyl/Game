@@ -1,42 +1,12 @@
-﻿<%@ Page Language="C#" %>
-
-<!DOCTYPE html>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/7080/Master7080.master" %>
 
 <script runat="server">
-    public string timeStamp = "";
-    public string nonceStr = "ab56e0d1f0fe4wga9s34d2fd565ae7f";
-    public string ticket = "";
-    public string shaParam = "";
-    public string appId = System.Configuration.ConfigurationSettings.AppSettings["wxappid"];
 
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        try
-        {
-            timeStamp = Util.GetTimeStamp();
-            string jsonStrForTicket = Util.GetWebContent("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token="
-                + Util.GetToken() + "&type=jsapi", "get", "", "form-data");
-            ticket = Util.GetSimpleJsonValueByKey(jsonStrForTicket, "ticket");
-            string shaString = "jsapi_ticket=" + ticket.Trim() + "&noncestr=" + nonceStr.Trim()
-                + "&timestamp=" + timeStamp.Trim() + "&url=" + Request.Url.ToString().Trim();
-            shaParam = Util.GetSHA1(shaString);
-        }
-        catch { }
-    }
 </script>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="viewport" content="width=device-width" />
-    <title>你的童年完整吗</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <script src="../script/jquery-1.3.2.min.js"></script>
-    <script src="../script/common.js"></script>
-    <script src="../script/ready.js"></script>
-    <script src="script.js" type="text/javascript"></script>
-</head>
-<body>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div id="mainContain" class="mainContent" style="display:">
         <div style="font-weight:bold;">根据下面四个提示，猜出相关联的词语</div>
         <div class="score">
@@ -91,7 +61,5 @@
             <div style="width:200px; height:200px;  color:#000; position:absolute; top:40pt; margin-left:70pt; z-index:20; font-size:15pt; line-height:30pt; text-align:center;">点击右上角“┇”<br />分享到朋友圈</div>
         </div>
     </div>
-</body>
-<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-<script src="share.js" type="text/javascript"></script>
-</html>
+</asp:Content>
+

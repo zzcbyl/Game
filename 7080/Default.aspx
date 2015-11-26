@@ -1,14 +1,18 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
-    <title>你的童年完整吗</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <script src="../jquery-1.3.2.min.js" type="text/javascript"></script>
-    <script src="../ready.js" type="text/javascript"></script>
-</head>
-<body style="background:#860000; color:#000;">
-    <div style="width: auto; text-align: center; ">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/7080/Master7080.master" %>
+
+<script runat="server">
+
+</script>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <style type="text/css">
+        body {
+            background:#860000; color:#000;
+        }
+    </style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <div style="width: auto; text-align: center;  ">
         <div>
             <img src="../images/logo70.jpg" width="250pt" />
         </div>
@@ -24,5 +28,5 @@
             </table>
         </div>
     </div>
-</body>
-</html>
+</asp:Content>
+
