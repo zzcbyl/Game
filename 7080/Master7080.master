@@ -53,9 +53,7 @@
             signature: '<%=shaParam %>', // 必填，签名，见附录1
             jsApiList: [
                     'onMenuShareTimeline',
-                    'onMenuShareAppMessage',
-                    'onMenuShareQQ',
-                    'onMenuShareWeibo']
+                    'onMenuShareAppMessage']
         });
 
         wx.ready(function () {
