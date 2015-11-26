@@ -17,69 +17,10 @@ var total4 = 0;
 var ResultLogoArr = Array(["7080_1.jpg"], ["7080_2.jpg"], ["7080_3.jpg"], ["7080_4.jpg"], ["7080_5.jpg"], ["7080_6.jpg"], ["7080_7.jpg"], ["7080_8.jpg"], ["7080_9.jpg"]);
 var radNum = 0;
 
-var resultScore = "";
-/*
-var QAJsonStr = [{
-"id": "111111",
-"prompt": ["提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1提示1", "提示2", "提示3", "提示4"],
-"answercount": "2",
-"answer": "足球",
-"options": ["提", "提", "提", "提", "提", "提", "足", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "球", "提", "提"]
-}, {
-"id": "222222",
-"prompt": ["提示11", "提示12", "提示13", "提示14"],
-"answercount": "3",
-"answer": "篮球的",
-"options": ["足", "篮", "提", "提", "提", "提", "足", "球", "提", "的", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "球", "提", "提"]
-}, {
-"id": "222222",
-"prompt": ["提示11", "提示12", "提示13", "提示14"],
-"answercount": "3",
-"answer": "篮球的",
-"options": ["足", "篮", "提", "提", "提", "提", "足", "球", "提", "的", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "球", "提", "提"]
-}, {
-"id": "222222",
-"prompt": ["提示11", "提示12", "提示13", "提示14"],
-"answercount": "3",
-"answer": "篮球的",
-"options": ["足", "篮", "提", "提", "提", "提", "足", "球", "提", "的", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "球", "提", "提"]
-}, {
-"id": "222222",
-"prompt": ["提示11", "提示12", "提示13", "提示14"],
-"answercount": "3",
-"answer": "篮球的",
-"options": ["足", "篮", "提", "提", "提", "提", "足", "球", "提", "的", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "球", "提", "提"]
-}, {
-"id": "222222",
-"prompt": ["提示11", "提示12", "提示13", "提示14"],
-"answercount": "3",
-"answer": "篮球的",
-"options": ["足", "篮", "提", "提", "提", "提", "足", "球", "提", "的", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "球", "提", "提"]
-}, {
-"id": "222222",
-"prompt": ["提示11", "提示12", "提示13", "提示14"],
-"answercount": "3",
-"answer": "篮球的",
-"options": ["足", "篮", "提", "提", "提", "提", "足", "球", "提", "的", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "球", "提", "提"]
-}, {
-"id": "222222",
-"prompt": ["提示11", "提示12", "提示13", "提示14"],
-"answercount": "3",
-"answer": "篮球的",
-"options": ["足", "篮", "提", "提", "提", "提", "足", "球", "提", "的", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "球", "提", "提"]
-}, {
-"id": "222222",
-"prompt": ["提示11", "提示12", "提示13", "提示14"],
-"answercount": "3",
-"answer": "篮球的",
-"options": ["足", "篮", "提", "提", "提", "提", "足", "球", "提", "的", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "球", "提", "提"]
-}, {
-"id": "222222",
-"prompt": ["提示11", "提示12", "提示13", "提示14"],
-"answercount": "3",
-"answer": "篮球的",
-"options": ["足", "篮", "提", "提", "提", "提", "足", "球", "提", "的", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "提", "球", "提", "提"]}];
-*/
+var shareTitle = "你的童年完整吗？"; //标题
+var shareImg = "http://game.luqinwenda.com/images/logo70.jpg"; //图片
+var shareContent = '你的童年完整吗'; //简介
+var shareLink = "http://game.luqinwenda.com/7080/default.aspx"; //链接
 
 $(document).ready(function () {
     //if (!browserRedirect()) {
@@ -100,22 +41,12 @@ $(document).ready(function () {
     });
     
     //初始化数据
-    //QAJsonArr = eval(QAJsonStr);
     QAJson = QAJsonArr[questionNO];
     fillData(QAJson);
 
     $("#retryA").click(function() {
-        location.href = "page.html?rdm=" + parseInt(Math.random() * 100);
+        location.href = "page.aspx";
     });
-
-    //提示
-    //$('.next_btn').click(function() {
-    //    if (showTag <= QAJson.prompt.length) {
-    //        $('#PromptRightLi a').eq(showTag).css("background", "#FFEA01");
-    //        $('#PromptRightLi a').eq(showTag).html(QAJson.prompt[showTag]);
-    //        showTag++;
-    //    }
-    //});
 
     //随机结果图片logo
     radNum = Math.round(Math.random() * 8);
@@ -136,35 +67,6 @@ function submitBtn() {
         $('#addScore').html("＋10");
         score += 10;
         
-        //switch (showTag) {
-        //    case 1:
-        //        var cc = AddCountScore + 20;
-        //        $('#addScore').html("+" + cc);
-        //        score += cc;
-        //        continue1++;
-        //        total1++;
-        //        break;
-        //    case 2:
-        //        var cc = AddCountScore + 15;
-        //        $('#addScore').html("+" + cc);
-        //        score += cc;
-        //        continue2++;
-        //        total2++;
-        //        break;
-        //    case 3:
-        //        var cc = AddCountScore + 5;
-        //        $('#addScore').html("+" + cc);
-        //        score += cc;
-        //        continue3++;
-        //        total3++;
-        //        break;
-        //    default:
-        //        var cc = AddCountScore + 2;
-        //        $('#addScore').html("+" + cc);
-        //        score += cc;
-        //        total4++;
-        //        break;
-        //}
 
         continueAll++;
         $('#addScore').css('display', 'block');
@@ -189,25 +91,17 @@ function submitBtn() {
         showInfo("<span style='color:#990000'>很遗憾,回答错误</span>");
     }
     questionNO++;
-    //for (var i = 0; i < QAJson.prompt.length; i++) {
-    //    $('#PromptRightLi a').eq(i).css("background", "#FFEA01");
-    //    $('#PromptRightLi a').eq(i).html(QAJson.prompt[i]);
-    //}
+
     $('#PromptRightLi img').attr('src', QAJson.promptimg);
     $('#Qcontent').html(QAJson.question);
     
     if (questionNO < QAJsonArr.length) {
         QAJson = QAJsonArr[questionNO];
         setTimeout('fillData(QAJson);', 2000);
-        //fillData(QAJson);
     }
     else {
-        setTimeout('showResult();', 2000);
-        //showResult();
+        showResult();
     }
-}
-function jumpResult() {
-    location.href = "result.htm?score=" + score + "&continuetotal=" + continueTotal + "&total1=" + total1 + "&total2=" + total2 + "&total3=" + total3 + "&total4=" + total4;
 }
 
 //填充数据
@@ -220,14 +114,7 @@ function fillData(QAJson) {
     answer = QAJson.answer;
     $("#QANum").html(QAJson.id);
     $("#currentNum").html(questionNO+1);
-    //$('#PromptRightLi a').each(function() {
-    //    $(this).html(QAJson.prompt[i]);
-    //    if (i > 0) {
-    //        $(this).html("　　　　");
-    //        $(this).css("background", "#676767")
-    //    }
-    //    i++;
-    //});
+
     $('#PromptRightLi img').attr('src', QAJson.promptimg);
     $('#Qcontent').html(QAJson.question);
 
@@ -325,44 +212,41 @@ function showInfo(info) {
     $('.openInfo').fadeOut(1000);
 }
 
-function showResult() {
-    $("#gameResult").show();
-
-    resultScore = score;
-
-    if (parseInt(resultScore) < 20) {
-        $('#sp_content').html("经鉴定，你从来就没有过童年！");
-        descContent = "得分" + resultScore + "，我没有过童年！"
-    }
-    else if (parseInt(resultScore) >= 20 && parseInt(resultScore) < 50) {
-        $('#sp_content').html("小盆友，你有过童年吗！！！");
-        descContent = "得分" + resultScore + "，我的童年让狗吃了"
-    }
-    else if (parseInt(resultScore) >= 50 && parseInt(resultScore) < 100) {
-        $('#sp_content').html("你的童年很丰富！");
-        descContent = "得分" + resultScore + "，我的童年很精彩！"
-    }
-    else if (parseInt(resultScore) >= 100 && parseInt(resultScore) < 150) {
-        $('#sp_content').html("你的童年很完整！");
-        descContent = "得分" + resultScore + "，我有个很完整的童年！"
-    }
-    else if (parseInt(resultScore) >= 150 && parseInt(resultScore) < 180) {
-        $('#sp_content').html("经鉴定，你有个非常完美的童年！");
-        descContent = "得分" + resultScore + "，我有个很完美的童年！"
-    }
-    else if (parseInt(resultScore) >= 180) {
-        $('#sp_content').html("你的童年里除了吃喝玩乐还有别的吗？");
-        descContent = "得分" + resultScore + "，我是在吃喝玩乐中长大的！"
-    }
-
-    $('#sp_score').html(resultScore);
-
-    imgUrl = "http://game.luqinwenda.com/7080/images/" + ResultLogoArr[radNum];
-}
 
 function shareBtn() {
     $("#showShare").show();
 }
 
+function showResult() {
+    $("#gameResult").show();
+    var str_content = '';
+    if (score < 10) {
+        $('#sp_content').html("经鉴定，你从来就没有过童年！");
+        str_content = "得分" + score + "，我没有过童年！"
+    }
+    else if (score >= 10 && score < 30) {
+        $('#sp_content').html("小盆友，你有过童年吗！！！");
+        str_content = "得分" + score + "，我的童年让狗吃了"
+    }
+    else if (score >= 30 && score < 60) {
+        $('#sp_content').html("你的童年很丰富！");
+        str_content = "得分" + score + "，我的童年很精彩！"
+    }
+    else if (score >= 60 && score < 70) {
+        $('#sp_content').html("你的童年很完整！");
+        str_content = "得分" + score + "，我有个很完整的童年！"
+    }
+    else if (score >= 70 && score < 90) {
+        $('#sp_content').html("经鉴定，你有个非常完美的童年！");
+        str_content = "得分" + score + "，我有个很完美的童年！"
+    }
+    else if (score >= 90) {
+        $('#sp_content').html("你的童年里除了吃喝玩乐还有别的吗？");
+        str_content = "得分" + score + "，我是在吃喝玩乐中长大的！"
+    }
 
+    $('#sp_score').html(score);
+    shareImg = 'http://game.luqinwenda.com/7080/images/' + ResultLogoArr[radNum];
+    shareContent = str_content;
+}
 

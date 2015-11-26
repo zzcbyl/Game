@@ -8,7 +8,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div id="mainContain" class="mainContent" style="display:">
-        <div style="font-weight:bold;">根据下面四个提示，猜出相关联的词语</div>
+        <div style="font-weight:bold;">根据下面图片，猜出答案</div>
         <div class="score">
             <div class="titleNumber"><a id="currentNum">1</a>/10</div>
             <a class="scoreResult">
@@ -61,5 +61,6 @@
             <div style="width:200px; height:200px;  color:#000; position:absolute; top:40pt; margin-left:70pt; z-index:20; font-size:15pt; line-height:30pt; text-align:center;">点击右上角“┇”<br />分享到朋友圈</div>
         </div>
     </div>
+    <script src="script.js"></script>
 </asp:Content>
 
