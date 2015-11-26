@@ -3,6 +3,8 @@ var resultScore = "";
 var rate = "50%";
 var shareContent = '';
 var scoreid = 0;
+var shareImgUrl = '';
+var shareLink = '';
 
 function showResult() {
     $("#gameResult").show();
@@ -36,17 +38,8 @@ function showResult() {
 
     $('#sp_score').html(resultScore);
 
-
-    window.shareData.imgUrl = "http://game.luqinwenda.com/7080/images/" + ResultLogoArr[radNum];
-    window.shareData.timeLineLink = "http://game.luqinwenda.com/7080/";
-    window.shareData.sendFriendLink = "http://game.luqinwenda.com/7080/";
-    window.shareData.weiboLink = "http://game.luqinwenda.com/7080/"
-
-    window.shareData.tTitle = shareContent;
-    window.shareData.tContent = shareContent;
-    window.shareData.fTitle = shareContent;
-    window.shareData.fContent = shareContent;
-    window.shareData.wContent = shareContent;
+    shareImgUrl = "http://game.luqinwenda.com/7080/images/" + ResultLogoArr[radNum];
+    shareLink = "http://game.luqinwenda.com/7080/";
 }
 
 function shareBtn() {
@@ -55,10 +48,10 @@ function shareBtn() {
 
 document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
     window.shareData = {
-        "imgUrl": "http://game.luqinwenda.com/7080/images/" + ResultLogoArr[radNum],
-        "timeLineLink": "http://game.luqinwenda.com/7080/",
-        "sendFriendLink": "http://game.luqinwenda.com/7080/",
-        "weiboLink": "http://game.luqinwenda.com/7080/",
+        "imgUrl": shareImgUrl,
+        "timeLineLink": shareLink,
+        "sendFriendLink": shareLink,
+        "weiboLink": shareLink,
         "tTitle": shareContent,
         "tContent": shareContent,
         "fTitle": shareContent,
