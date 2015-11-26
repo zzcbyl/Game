@@ -28,5 +28,11 @@
             </table>
         </div>
     </div>
+    <script type="text/javascript">
+        var shareTitle = "你的童年完整吗？"; //标题
+        var imgUrl = "http://game.luqinwenda.com/images/logo70.jpg"; //图片
+        var descContent = '你的童年完整吗'; //简介
+        var lineLink = "http://game.luqinwenda.com/7080/default.aspx"; //链接
+    </script>
 </asp:Content>
 

@@ -203,8 +203,8 @@ function submitBtn() {
         //fillData(QAJson);
     }
     else {
-        setTimeout('showResult();', 1000);
-        //showResult();
+        //setTimeout('showResult();', 1000);
+        showResult();
     }
 }
 //function jumpResult() {
