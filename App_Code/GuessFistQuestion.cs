@@ -23,7 +23,6 @@ public class GuessFistQuestion
 
 	public GuessFistQuestion()
 	{
-		
 
 	}
 
@@ -166,6 +165,17 @@ public class GuessFistQuestion
    
     public static string GetOptions(string answer, string oriOptions, int count)
     {
+        foreach (char o in oriOptions.ToCharArray())
+        {
+            foreach (char c in answer.ToCharArray())
+            {
+                if (c == o)
+                {
+                    oriOptions = oriOptions.Replace(o.ToString(), "");
+                }
+            }
+        }
+
         Random rnd = new Random(DateTime.Now.Millisecond);
         char[] oriOptionsArr = (answer + oriOptions).ToCharArray();
         /*
