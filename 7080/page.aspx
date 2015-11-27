@@ -31,7 +31,7 @@
                     <div>2、<a></a></div>
                     <div>3、<a></a></div>
                     <div>4、<a></a></div>-->
-                    <img style="max-width:90%;" />
+                    <img style="max-width:90%; max-height:200px;" />
                 </div>
             </div>
 
