@@ -97,7 +97,7 @@ function submitBtn() {
     
     if (questionNO < QAJsonArr.length) {
         QAJson = QAJsonArr[questionNO];
-        setTimeout('fillData(QAJson);', 2000);
+        setTimeout('fillData(QAJson);', 1500);
     }
     else {
         showResult();
@@ -208,8 +208,8 @@ function changeButton() {
 //加分效果
 function showInfo(info) {
     $('.openInfo a').eq(0).html(info);
-    $('.openInfo').fadeIn(1000);
-    $('.openInfo').fadeOut(1000);
+    $('.openInfo').fadeIn(800);
+    $('.openInfo').fadeOut(800);
 }
 
 
