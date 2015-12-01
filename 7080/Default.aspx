@@ -7,7 +7,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
         body {
-            background:#860000; color:#000;
+            background:#860000; color:#ffffff;
         }
     </style>
 </asp:Content>
@@ -19,7 +19,7 @@
         <div style="margin-top:0pt;">
             <a href="page.aspx" style="display:block; width:200px; margin:0 auto;"><img src="../images/start70.jpg" width="200px" /></a>
         </div>
-        <div style="margin-top: 10pt; text-align: left; line-height: 16pt; color:#000;">
+        <div style="margin-top: 10pt; text-align: left; line-height: 16pt; color:#ffffff;">
             游戏说明：<br />
             <table>
                 <tr><td style="vertical-align:top;">1、</td><td>根据图片猜出答案；</td></tr>
