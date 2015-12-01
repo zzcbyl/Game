@@ -260,5 +260,35 @@ function showResult() {
     $('#sp_score').html(score);
     shareImg = 'http://game.luqinwenda.com/7080/images/' + ResultLogoArr[radNum];
     shareContent = str_content;
+
+
+    wx.ready(function () {
+        //分享到朋友圈
+        wx.onMenuShareTimeline({
+            title: shareContent, // 分享标题
+            link: shareLink, // 分享链接
+            imgUrl: shareImg, // 分享图标
+            success: function () {
+                // 用户确认分享后执行的回调函数
+                //alert(shareContent);
+
+            }
+        });
+
+        //分享给朋友
+        wx.onMenuShareAppMessage({
+            title: shareTitle, // 分享标题
+            desc: shareContent, // 分享描述
+            link: shareLink, // 分享链接
+            imgUrl: shareImg, // 分享图标
+            success: function () {
+                // 用户确认分享后执行的回调函数
+                alert(shareContent);
+                location.href = "http://game.luqinwenda.com/7080/default.aspx";
+            }
+        });
+    });
+
+
 }
 

@@ -56,31 +56,6 @@
                     'onMenuShareAppMessage']
         });
 
-        wx.ready(function () {
-            //分享到朋友圈
-            wx.onMenuShareTimeline({
-                title: "aa", // 分享标题
-                link: shareLink, // 分享链接
-                imgUrl: shareImg, // 分享图标
-                success: function () {
-                    // 用户确认分享后执行的回调函数
-                    //alert(shareContent);
-                    
-                }
-            });
-
-            //分享给朋友
-            wx.onMenuShareAppMessage({
-                title: "bb", // 分享标题
-                desc: "bbbb", // 分享描述
-                link: shareLink, // 分享链接
-                imgUrl: shareImg, // 分享图标
-                success: function () {
-                    // 用户确认分享后执行的回调函数
-                    alert(shareContent);
-                    location.href = "http://game.luqinwenda.com/7080/default.aspx";
-                }
-            });
-        });
+        
     </script>
 </html>
