@@ -279,7 +279,7 @@ function showResult() {
             success: function () {
                 // 用户确认分享后执行的回调函数
                 //alert(shareContent);
-
+                location.href = "http://www.luqinwenda.com";
             }
         });
 
