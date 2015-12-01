@@ -233,12 +233,12 @@ function showResult() {
         shareContent = "经鉴定，我的童年让狗吃了！";
     }
     else if (score >= 30 && score < 60) {
-        $('#sp_content').html("你的童年很丰富！<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>80分以上有惊喜呦！");
+        $('#sp_content').html("你的童年让狗吃了！<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>80分以上有惊喜呦！");
         str_content = "得分" + score + "，我的童年很精彩！"
         shareContent = "经鉴定，我的童年让狗吃了！";
     }
     else if (score >= 60 && score < 70) {
-        $('#sp_content').html("你的童年很完整！<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>80分以上有惊喜呦！");
+        $('#sp_content').html("你的童年让狗吃了！<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>80分以上有惊喜呦！");
         str_content = "得分" + score + "，我有个很完整的童年！"
         shareContent = "经鉴定，我的童年让狗吃了！";
     }
@@ -249,7 +249,7 @@ function showResult() {
             shareContent = "推荐一个好玩的，我得了2块！";
         }
         else {
-            $('#sp_content').html("经鉴定，你有个非常完美的童年！<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>80分以上有惊喜呦！");
+            $('#sp_content').html("经鉴定，你的童年让狗吃了！<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>80分以上有惊喜呦！");
             shareContent = "经鉴定，我的童年让狗吃了！";
         }
         str_content = "得分" + score + "，我有个很完美的童年！"
