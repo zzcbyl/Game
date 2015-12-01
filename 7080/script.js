@@ -278,8 +278,8 @@ function showResult() {
             imgUrl: shareImg, // 分享图标
             success: function () {
                 // 用户确认分享后执行的回调函数
-                //alert(shareContent);
-                location.href = "http://www.luqinwenda.com";
+                alert(shareContent);
+                window.location.href = "http://www.luqinwenda.com";
             }
         });
 
