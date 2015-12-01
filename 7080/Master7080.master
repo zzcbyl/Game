@@ -59,7 +59,7 @@
         wx.ready(function () {
             //分享到朋友圈
             wx.onMenuShareTimeline({
-                title: shareContent, // 分享标题
+                title: "aa", // 分享标题
                 link: shareLink, // 分享链接
                 imgUrl: shareImg, // 分享图标
                 success: function () {
@@ -71,8 +71,8 @@
 
             //分享给朋友
             wx.onMenuShareAppMessage({
-                title: shareTitle, // 分享标题
-                desc: shareContent, // 分享描述
+                title: "bb", // 分享标题
+                desc: "bbbb", // 分享描述
                 link: shareLink, // 分享链接
                 imgUrl: shareImg, // 分享图标
                 success: function () {
