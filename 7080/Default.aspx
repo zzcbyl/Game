@@ -25,7 +25,7 @@
                 <tr><td style="vertical-align:top;">1、</td><td>根据图片猜出答案；</td></tr>
                 <tr><td style="vertical-align:top;">2、</td><td>答案可在提示字库中找到，选择完毕后点“确认”，进行下一题；</td></tr>
                 <tr><td style="vertical-align:top;">3、</td><td>点“跳过”按钮，视同放弃本题，本题不得分。</td></tr>
-                <tr><td style="vertical-align:top;"></td><td><img src="http://weixin.luqinwenda.com/dingyue/images/qrcode_dingyue.jpg" /></td></tr>
+                <tr><td style="vertical-align:top;"></td><td align="center"><img src="http://weixin.luqinwenda.com/dingyue/images/qrcode_dingyue.jpg" /></td></tr>
                 <tr><td style="vertical-align:top;"></td><td>关注卢勤问答订阅号还有惊喜哦。</td></tr>
             </table>
         </div>
