@@ -224,6 +224,7 @@ function showResult() {
         $('#sp_content').html("经鉴定，你从来就没有过童年！<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>80分以上有惊喜呦！");
         str_content = "得分" + score + "，我没有过童年！"
         shareTitle = "aaaa";
+        shareContent = "aaaa";
     }
     else if (score >= 10 && score < 30) {
         $('#sp_content').html("小盆友，你有过童年吗！！！<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>80分以上有惊喜呦！");
