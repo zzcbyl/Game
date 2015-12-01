@@ -221,27 +221,37 @@ function showResult() {
     $("#gameResult").show();
     var str_content = '';
     if (score < 10) {
-        $('#sp_content').html("经鉴定，你从来就没有过童年！");
+        $('#sp_content').html("经鉴定，你从来就没有过童年！<br/>80分以上有惊喜呦！");
         str_content = "得分" + score + "，我没有过童年！"
     }
     else if (score >= 10 && score < 30) {
-        $('#sp_content').html("小盆友，你有过童年吗！！！");
+        $('#sp_content').html("小盆友，你有过童年吗！！！<br/>80分以上有惊喜呦！");
         str_content = "得分" + score + "，我的童年让狗吃了"
     }
     else if (score >= 30 && score < 60) {
-        $('#sp_content').html("你的童年很丰富！");
+        $('#sp_content').html("你的童年很丰富！<br/>80分以上有惊喜呦！");
         str_content = "得分" + score + "，我的童年很精彩！"
     }
     else if (score >= 60 && score < 70) {
-        $('#sp_content').html("你的童年很完整！");
+        $('#sp_content').html("你的童年很完整！<br/>80分以上有惊喜呦！");
         str_content = "得分" + score + "，我有个很完整的童年！"
     }
     else if (score >= 70 && score < 90) {
-        $('#sp_content').html("经鉴定，你有个非常完美的童年！");
+        
+        if (score == 80) {
+            $('#sp_content').html("经鉴定，你有个非常完美的童年！<br/>恭喜你获得2元抵用券<br/>分享至朋友圈<br/>并截图发到“卢勤问答”订阅号，领用抵用券。");
+        }
+        else {
+            $('#sp_content').html("经鉴定，你有个非常完美的童年！<br/>80分以上有惊喜呦！");
+        }
         str_content = "得分" + score + "，我有个很完美的童年！"
     }
     else if (score >= 90) {
-        $('#sp_content').html("你的童年里除了吃喝玩乐还有别的吗？");
+        $('#sp_content').html("你的童年里除了吃喝玩乐还有别的吗？<br/>恭喜你获得2元抵用券<br/>分享至朋友圈<br/>并截图发到“卢勤问答”订阅号，领用抵用券。");
+        str_content = "得分" + score + "，我是在吃喝玩乐中长大的！"
+    }
+    else if (score == 100) {
+        $('#sp_content').html("你的童年里除了吃喝玩乐还有别的吗？<br/>恭喜你获得5元抵用券<br/>分享至朋友圈<br/>并截图发到“卢勤问答”订阅号，领用抵用券。");
         str_content = "得分" + score + "，我是在吃喝玩乐中长大的！"
     }
 
