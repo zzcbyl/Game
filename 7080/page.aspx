@@ -51,7 +51,7 @@
             <div style="margin-top:10px;"><img id="resultLogoImg" src="images/7080_1.jpg" /></div>
             <div style="font-size:20px; margin-top:10pt">得分：<span id="sp_score"></span></div>
             <div style="margin-top:15px; font-size:18px; font-weight:bold; text-align:center;"><span id="sp_content"></span></div>
-            <div style="margin-top:15px;"><a id="retryA" style="display:block; cursor:pointer;font-weight:bold;">再试一次</a></div>
+            <div style="margin-top:15px;"><a id="retryA" style="display:block; cursor:pointer;font-weight:bold;font-size:18px; ">再试一次</a></div>
             <div style="margin-top:15px;"><img src="http://weixin.luqinwenda.com/dingyue/images/qrcode_dingyue.jpg" width="200" height="200" /></div>
         </div>
         <div id="showShare" style="display:none; z-index:10;" onclick="javascript:document.getElementById('showShare').style.display='none';">
