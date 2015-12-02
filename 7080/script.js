@@ -268,7 +268,6 @@ function showResult() {
             imgUrl: shareImg, // 分享图标
             success: function () {
                 // 用户确认分享后执行的回调函数
-                
                 shareRedirt();
             }
         });
@@ -281,7 +280,6 @@ function showResult() {
             imgUrl: shareImg, // 分享图标
             success: function () {
                 // 用户确认分享后执行的回调函数
-                
                 shareRedirt();
             }
         });
@@ -308,17 +306,14 @@ function shareRedirt()
     $.ajax({
         type: "GET",
         async: true,
-        url: "http://game.luqinwenda.com/api/coupon_create.aspx",
+        url: "http://game.luqinwenda.com/api/coupon_create.aspx?season=7080",
         data: { amount: couponAmount, rdm: Math.random() },
         success: function (data) {
             var obj = eval('(' + data + ')');
             if (obj.status == 0) {
-                couponAmount = obj.amount;
-                couponCode = obj.code;
+                location.href = "http://game.luqinwenda.com/7080/coupon.aspx?amount=" + obj.amount + "&code=" + obj.code;
             }
         }
     });
-
-    window.location.href = "http://game.luqinwenda.com/7080/coupon.aspx?amount=" + couponAmount + "&code=" + couponCode;
 }
 
