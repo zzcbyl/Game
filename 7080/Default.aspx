@@ -7,7 +7,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
         body {
-            background:#860000; color:#000;
+            background:#860000; color:#ffffff;
         }
     </style>
 </asp:Content>
@@ -19,12 +19,16 @@
         <div style="margin-top:0pt;">
             <a href="page.aspx" style="display:block; width:200px; margin:0 auto;"><img src="../images/start70.jpg" width="200px" /></a>
         </div>
-        <div style="margin-top: 10pt; text-align: left; line-height: 16pt; color:#000;">
+        <div style="margin-top: 10pt; text-align: left; line-height: 16pt; color:#ffffff;">
             游戏说明：<br />
             <table>
-                <tr><td style="vertical-align:top;">1、</td><td>根据提示猜出与之相关联的词语；</td></tr>
+                <tr><td style="vertical-align:top;">1、</td><td>根据图片猜出答案；</td></tr>
                 <tr><td style="vertical-align:top;">2、</td><td>答案可在提示字库中找到，选择完毕后点“确认”，进行下一题；</td></tr>
                 <tr><td style="vertical-align:top;">3、</td><td>点“跳过”按钮，视同放弃本题，本题不得分。</td></tr>
+                <tr><td colspan="2" >&nbsp;</td></tr>
+                <tr><td style="vertical-align:top;"></td><td align="center"><img src="http://weixin.luqinwenda.com/dingyue/images/qrcode_dingyue.jpg" width="200" height="200" /> &nbsp; &nbsp; &nbsp; </td></tr>
+                <tr><td colspan="2" >&nbsp;</td></tr>
+                <tr><td style="vertical-align:top;"></td><td>关注卢勤问答订阅号还有惊喜哦。</td></tr>
             </table>
         </div>
     </div>

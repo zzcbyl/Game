@@ -212,7 +212,6 @@ function showInfo(info) {
     $('.openInfo').fadeOut(800);
 }
 
-
 function shareBtn() {
     $("#showShare").show();
 }
@@ -221,32 +220,100 @@ function showResult() {
     $("#gameResult").show();
     var str_content = '';
     if (score < 10) {
-        $('#sp_content').html("经鉴定，你从来就没有过童年！");
+        $('#sp_content').html("经鉴定，你从来就没有过童年！<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>80分以上有惊喜呦！");
         str_content = "得分" + score + "，我没有过童年！"
+        shareContent = "经鉴定，我的童年让狗吃了！";
     }
     else if (score >= 10 && score < 30) {
-        $('#sp_content').html("小盆友，你有过童年吗！！！");
+        $('#sp_content').html("小盆友，你有过童年吗！！！<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>80分以上有惊喜呦！");
         str_content = "得分" + score + "，我的童年让狗吃了"
+        shareContent = "经鉴定，我的童年让狗吃了！";
     }
     else if (score >= 30 && score < 60) {
-        $('#sp_content').html("你的童年很丰富！");
+        $('#sp_content').html("经鉴定，你的童年让狗吃了！<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>80分以上有惊喜呦！");
         str_content = "得分" + score + "，我的童年很精彩！"
+        shareContent = "经鉴定，我的童年让狗吃了！";
     }
     else if (score >= 60 && score < 70) {
-        $('#sp_content').html("你的童年很完整！");
+        $('#sp_content').html("经鉴定，你的童年让狗吃了！<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>80分以上有惊喜呦！");
         str_content = "得分" + score + "，我有个很完整的童年！"
+        shareContent = "经鉴定，我的童年让狗吃了！";
     }
-    else if (score >= 70 && score < 90) {
-        $('#sp_content').html("经鉴定，你有个非常完美的童年！");
+    else if (score >= 70 && score < 80) {
+        $('#sp_content').html("经鉴定，你的童年让狗吃了！<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>80分以上有惊喜呦！");
         str_content = "得分" + score + "，我有个很完美的童年！"
+        shareContent = "经鉴定，我的童年让狗吃了！";
     }
-    else if (score >= 90) {
-        $('#sp_content').html("你的童年里除了吃喝玩乐还有别的吗？");
+    else if (score >= 80 && score < 100) {
+        $('#sp_content').html("你的童年里除了吃喝玩乐还有别的吗？<br/>恭喜你获得2元抵用券<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>领取抵用券。");
         str_content = "得分" + score + "，我是在吃喝玩乐中长大的！"
+        shareContent = "推荐一个好玩的，我得了2块！";
+    }
+    else if (score == 100) {
+        $('#sp_content').html("你的童年里除了吃喝玩乐还有别的吗？<br/>恭喜你获得5元抵用券<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>领取抵用券。");
+        str_content = "得分" + score + "，我是在吃喝玩乐中长大的！"
+        shareContent = "推荐一个好玩的，我得了5块！";
     }
 
     $('#sp_score').html(score);
     shareImg = 'http://game.luqinwenda.com/7080/images/' + ResultLogoArr[radNum];
-    shareContent = str_content;
+    //shareContent = str_content;
+
+
+    wx.ready(function () {
+        //分享到朋友圈
+        wx.onMenuShareTimeline({
+            title: shareContent, // 分享标题
+            link: shareLink, // 分享链接
+            imgUrl: shareImg, // 分享图标
+            success: function () {
+                // 用户确认分享后执行的回调函数
+                shareRedirt();
+            }
+        });
+
+        //分享给朋友
+        wx.onMenuShareAppMessage({
+            title: shareTitle, // 分享标题
+            desc: shareContent, // 分享描述
+            link: shareLink, // 分享链接
+            imgUrl: shareImg, // 分享图标
+            success: function () {
+                // 用户确认分享后执行的回调函数
+                shareRedirt();
+            }
+        });
+    });
+
+
+}
+
+function shareRedirt()
+{
+    var couponAmount = 0;
+    if (score < 80)
+        return;
+    else if (score >= 80 && score < 100) {
+        couponAmount = 200;
+    }
+    else if (score >= 100) {
+        couponAmount = 500;
+    }
+    else
+        return;
+
+    var couponCode = '';
+    $.ajax({
+        type: "GET",
+        async: true,
+        url: "http://game.luqinwenda.com/api/coupon_create.aspx?season=7080",
+        data: { amount: couponAmount, rdm: Math.random() },
+        success: function (data) {
+            var obj = eval('(' + data + ')');
+            if (obj.status == 0) {
+                location.href = "http://game.luqinwenda.com/7080/coupon.aspx?amount=" + obj.amount + "&code=" + obj.code;
+            }
+        }
+    });
 }
 

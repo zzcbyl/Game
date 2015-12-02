@@ -18,6 +18,7 @@ public class Util
 {
 
     public static string ConnectionString = System.Configuration.ConfigurationSettings.AppSettings["constr"].Trim();
+    public static string ConnectionStringMall = System.Configuration.ConfigurationSettings.AppSettings["constrMall"].Trim();
     protected static string token = "";
     protected static DateTime tokenTime = DateTime.MinValue;
 
