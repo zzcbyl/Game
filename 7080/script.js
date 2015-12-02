@@ -244,13 +244,13 @@ function showResult() {
         str_content = "得分" + score + "，我有个很完美的童年！"
         shareContent = "经鉴定，我的童年让狗吃了！";
     }
-    else if (score >= 80) {
-        $('#sp_content').html("你的童年里除了吃喝玩乐还有别的吗？<br/>恭喜你获得2元抵用券<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>并截图发到“卢勤问答”订阅号，领用抵用券。");
+    else if (score >= 80 && score < 100) {
+        $('#sp_content').html("你的童年里除了吃喝玩乐还有别的吗？<br/>恭喜你获得2元抵用券<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>领取抵用券。");
         str_content = "得分" + score + "，我是在吃喝玩乐中长大的！"
         shareContent = "推荐一个好玩的，我得了2块！";
     }
     else if (score == 100) {
-        $('#sp_content').html("你的童年里除了吃喝玩乐还有别的吗？<br/>恭喜你获得5元抵用券<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>并截图发到“卢勤问答”订阅号，领用抵用券。");
+        $('#sp_content').html("你的童年里除了吃喝玩乐还有别的吗？<br/>恭喜你获得5元抵用券<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>领取抵用券。");
         str_content = "得分" + score + "，我是在吃喝玩乐中长大的！"
         shareContent = "推荐一个好玩的，我得了5块！";
     }
