@@ -306,7 +306,7 @@ function shareRedirt()
     $.ajax({
         type: "GET",
         async: true,
-        url: "http://game.luqinwenda.com/api/coupon_create.aspx?season=7080",
+        url: "http://game.luqinwenda.com/api/coupon_create.aspx",
         data: { amount: couponAmount, rdm: Math.random() },
         success: function (data) {
             var obj = eval('(' + data + ')');
