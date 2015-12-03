@@ -23,11 +23,11 @@ var shareContent = '你的童年完整吗'; //简介
 var shareLink = "http://game.luqinwenda.com/7080/default.aspx"; //链接
 
 $(document).ready(function () {
-    //if (!browserRedirect()) {
-    //    document.write('暂不支持当前版本');
-    //    document.close();
-    //    return false;
-    //}
+    if (!browserRedirect()) {
+        document.write('暂不支持当前版本');
+        document.close();
+        return false;
+    }
     
     $.ajax({
         type: "GET",
