@@ -18,6 +18,8 @@ public class DBHelper
 		//
 	}
 
+    
+
     public static int UpdateData(string tableName, 
         KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] updateParameters,
         KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] keyParameters, string connectionString)
@@ -84,6 +86,41 @@ public class DBHelper
         cmd.Dispose();
         conn.Dispose();
         return i;
+    }
+
+    public static int InsertData(string tableName, string[,] parameters, string connectionString)
+    {
+        KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] parametersKeyValuePairArr
+            = new KeyValuePair<string,System.Collections.Generic.KeyValuePair<SqlDbType,object>>[parameters.Length];
+        for (int i = 0; i < parameters.Length; i++)
+        {
+            parametersKeyValuePairArr[i] = new KeyValuePair<string, KeyValuePair<SqlDbType, object>>(parameters[i, 0].Trim(),
+                new KeyValuePair<SqlDbType, object>(GetSqlDbType(parameters[i, 1].Trim()), (object)parameters[i, 2].Trim()));
+        }
+        
+        return InsertData(tableName, parametersKeyValuePairArr, connectionString);
+    }
+
+
+    public static SqlDbType GetSqlDbType(string type)
+    {
+        SqlDbType sqlType;
+        switch (type.ToLower())
+        { 
+            case "int":
+                sqlType = SqlDbType.Int;
+                break;
+            case "varchar":
+                sqlType = SqlDbType.VarChar;
+                break;
+            case "datetime":
+                sqlType = SqlDbType.DateTime;
+                break;
+            default:
+                sqlType = SqlDbType.VarChar;
+                break;
+        }
+        return sqlType;
     }
 
     public static int InsertData(string tableName, KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] parameters, string connectionString)
