@@ -21,7 +21,7 @@
                 timelineForward = TimelineForward.CreateForward(userId, actId, fatherId);
             }
             
-            Response.Write("{\"status\" : 0 , \"timeline_forward_id\" : " + timelineForward.ID.ToString()+"}";
+            Response.Write("{\"status\" : 0 , \"timeline_forward_id\" : " + timelineForward.ID.ToString()+"}");
         }
         else
         { 
