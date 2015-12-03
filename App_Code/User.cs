@@ -59,9 +59,26 @@ public class Users
 
 
 
+
     public int ID { get; set; }
     public string Name { get; set; }
     public string Sex { get; set; }
+
+    public string Nick
+    {
+        get
+        {
+            return _fields["nick"].ToString().Trim();
+        }
+        set
+        {
+            string nick = value.Trim();
+            string[,] updateParameters = { { "nick", "varchar", nick } };
+            string[,] keyParameters = { { "id", "int", ID.ToString() } };
+            DBHelper.UpdateData("m_user", updateParameters, keyParameters, Util.ConnectionStringMall);
+        }
+    }
+   
 
     public static int CheckToken(string token)
     {
