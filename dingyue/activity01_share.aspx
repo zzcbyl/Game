@@ -1,7 +1,36 @@
 ﻿<%@ Page Title="卢勤支招：如何让孩子告别磨蹭、拖拉的坏习惯" Language="C#" MasterPageFile="~/dingyue/Master.master" %>
-
+<%@ Import Namespace="System.Web.Script.Serialization" %>
 <script runat="server">
+    public string token = "";
+    public int userId = 0;
+    public string forward_count = "0";
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (Session["user_token"] != null)
+        {
+            token = Session["user_token"].ToString().Trim();
+        }
+        else
+        {
+            token = Util.GetSafeRequestValue(Request, "token", "");
+        }
 
+        userId = Users.CheckToken(token);
+        if (userId <= 0)
+        {
+            Response.Redirect("authorize.aspx", true);
+        }
+        
+        //读取转发数
+        JavaScriptSerializer json = new JavaScriptSerializer();
+        string getNumUrl = "http://game.luqinwenda.com/api/timeline_get_forward_num.aspx?actid=1&userid=" + Util.GetSafeRequestValue(Request, "fuid", "0");
+        string resultNum = HTTPHelper.Get_Http(getNumUrl);
+        Dictionary<string, object> dicNum = json.Deserialize<Dictionary<string, object>>(resultNum);
+        if (dicNum["status"].Equals("0"))
+        {
+            forward_count = dicNum["forward_count"].ToString();
+        }
+    }
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
@@ -65,12 +94,15 @@
                         </p>
                     </div>
                     <div class="rich_media_tool" id="js_toobar3">
-                        <a class="media_tool_meta meta_primary" id="js_view_source" href="javascript:void(0);">阅读原文</a>
+                        <div style="text-align:center; font-size:16pt;"><img src="images/zan_icon_0.png" style="width:57px; height:57px;" onclick="showShare();" onmouseover="zanUp(this);" onmouseout ="zanDown(this);" /></div>
+                        <div style="text-align:center; font-size:10pt; color:#808080; font-family:微软雅黑;">已有<%=forward_count %>人赞过</div>
+
+                        <%--<a class="media_tool_meta meta_primary" id="js_view_source" href="javascript:void(0);">阅读原文</a>
                         <a id="js_report_article3" class="media_tool_meta tips_global meta_extra" href="javascript:void(0);" onclick="showShare();">
                             <span style="margin-right:10px;" class="media_tool_meta meta_primary tips_global meta_praise" id="like3">
                                 <i class="icon_praise_gray"></i><span class="praise_num" id="likeNum3">5</span>
                             </span>
-                        </a>
+                        </a>--%>
                     </div>
                 </div>
             </div>
@@ -80,7 +112,17 @@
         var shareTitle = "卢勤支招：如何让孩子告别磨蹭、拖拉的坏习惯"; //标题
         var shareImg = "http://game.luqinwenda.com/dingyue/images/act1_1.jpg"; //图片
         var shareContent = '中小学生过重的课业负担，不仅来自学校，也来自家长。家长总是把孩子的时间装在自己的口袋里，用“施舍”的办法逼孩子学这个学那个，结果令孩子失去了自己支配时间的能力，减负赢得的时间又白白浪费掉了。'; //简介
-        var shareLink = "http://game.luqinwenda.com/dingyue/activity01_share.aspx"; //链接
+        var shareLink = "http://game.luqinwenda.com/dingyue/activity01_share.aspx?fuid=0"; //链接
+        var Token = '<%=token %>';
+        var Fatheruid = 0;
+
+        $(document).ready(function () {
+            if(QueryString("fuid")!=null)
+            {
+                Fatheruid = QueryString("fuid");
+                shareLink = "http://game.luqinwenda.com/dingyue/activity01_share.aspx?fuid=" + Fatheruid;
+            }
+        });
 
         wx.ready(function () {
             //分享到朋友圈

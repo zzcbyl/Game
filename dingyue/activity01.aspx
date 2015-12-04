@@ -1,11 +1,12 @@
 ﻿<%@ Page Title="卢勤支招：如何让孩子告别磨蹭、拖拉的坏习惯" Language="C#" MasterPageFile="~/dingyue/Master.master" %>
 <%@ Import Namespace="System.Web.Script.Serialization" %>
 <script runat="server">
-    public int IsUName = 1;
-
+    public int IsUName = 0;
+    public string token = "";
+    public int userId = 0;
+    public string forward_count = "0";
     protected void Page_Load(object sender, EventArgs e)
     {
-        string token = "";
         if (Session["user_token"] != null)
         {
             token = Session["user_token"].ToString().Trim();
@@ -14,8 +15,8 @@
         {
             token = Util.GetSafeRequestValue(Request, "token", "");
         }
-        
-        int userId = Users.CheckToken(token);
+
+        userId = Users.CheckToken(token);
         if (userId <= 0)
         {
             Response.Redirect("authorize.aspx", true);
@@ -31,8 +32,13 @@
         }
         
         //读取转发数
-        
-        
+        string getNumUrl = "http://game.luqinwenda.com/api/timeline_get_forward_num.aspx?actid=1&userid=" + userId;
+        string resultNum = HTTPHelper.Get_Http(getNumUrl);
+        Dictionary<string, object> dicNum = json.Deserialize<Dictionary<string, object>>(resultNum);
+        if (dicNum["status"].Equals("0"))
+        {
+            forward_count = dicNum["forward_count"].ToString();
+        }
     }
 </script>
 
@@ -98,7 +104,7 @@
                     </div>
                     <div class="rich_media_tool" id="js_toobar3">
                         <div style="text-align:center; font-size:16pt;"><img src="images/zan_icon_0.png" style="width:57px; height:57px;" onclick="showShare();" onmouseover="zanUp(this);" onmouseout ="zanDown(this);" /></div>
-                        <div style="text-align:center; font-size:10pt; color:#808080; font-family:微软雅黑;">已有380人赞过</div>
+                        <div style="text-align:center; font-size:10pt; color:#808080; font-family:微软雅黑;">已有<%=forward_count %>人赞过</div>
 
                         <%--<a class="media_tool_meta meta_primary" id="js_view_source" href="javascript:void(0);">阅读原文</a>
                         <a id="js_report_article3" class="media_tool_meta tips_global meta_extra" href="javascript:void(0);" onclick="showShare();">
@@ -115,16 +121,17 @@
     <div id="showUName" style="display:none; z-index:10;">
         <div style="width:100%; height:100%; background:#ccc; color:#000; position:absolute; top:0px; left:0px; text-align:center; filter:alpha(opacity=90); -moz-opacity:1;-khtml-opacity: 1; opacity: 1;  z-index:9;"></div>
         <div style="width:200px; height:200px;  color:#000; position:absolute; top:40pt; z-index:20; font-size:12pt; line-height:20pt; text-align:center;">
-            请输入昵称：<br /><input type="text" id="uname" value="" style="padding:5px; margin:10px 0;" /><br /><button style="padding:3px 10px;">提交</button>
+            请输入昵称：<br /><input type="text" id="uname" value="" style="padding:5px; margin:10px 0;" /><span style="display:none; color:red; padding-bottom:10px;" id="errorMsg"></span><br /><button style="padding:3px 10px;" onclick="submitUName();">提交</button>
         </div>
     </div>
     <script>
         var shareTitle = "卢勤支招：如何让孩子告别磨蹭、拖拉的坏习惯"; //标题
         var shareImg = "http://game.luqinwenda.com/dingyue/images/act1_1.jpg"; //图片
         var shareContent = '中小学生过重的课业负担，不仅来自学校，也来自家长。家长总是把孩子的时间装在自己的口袋里，用“施舍”的办法逼孩子学这个学那个，结果令孩子失去了自己支配时间的能力，减负赢得的时间又白白浪费掉了。'; //简介
-        var shareLink = "http://game.luqinwenda.com/dingyue/activity01_share.aspx"; //链接
+        var shareLink = 'http://game.luqinwenda.com/dingyue/activity01_share.aspx?fuid=<%=userId %>'; //链接
         var ExitName = <%=IsUName %>;
-
+        var Token = '<%=token %>';
+        var Fatheruid = <%=userId %>;
         $(document).ready(function () {
             if(ExitName == 0)
                 inputName();
@@ -142,13 +149,32 @@
             $('#showUName').show();
         }
 
-        function zanDown(obj)
+        function submitUName()
         {
-            $(obj).attr('src','images/zan_icon_0.png');
-        }
-        function zanUp(obj)
-        {
-            $(obj).attr('src','images/zan_icon_1.png');
+            if($('#uname').val().Trim()=="")
+            {
+                $('#errorMsg').show();
+                $('#errorMsg').html('<br />昵称不能为空');
+                return;
+            }
+            $('#errorMsg').html('');
+            $('#errorMsg').hide();
+            $.ajax({
+                type: "GET",
+                async: false,
+                url: "http://game.luqinwenda.com/api/user_nick_set.aspx",
+                data: { token: Token, nick: $('#uname').val().Trim() },
+                success: function (data) {
+                    var jsonData = JSON.parse(data);
+                    if (jsonData.status == 0) {
+                        $('#showUName').hide();
+                    }
+                    else {
+                        $('#errorMsg').show();
+                        $('#errorMsg').html('<br />' + jsonData.error_message);
+                    }
+                }
+            });
         }
 
         wx.ready(function () {
