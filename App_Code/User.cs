@@ -23,7 +23,8 @@ public class Users
 
     public Users(int userId)
     {
-        SqlDataAdapter da = new SqlDataAdapter(" select * from m_user where uid = " + userId.ToString(), Util.ConnectionString);
+        SqlDataAdapter da = new SqlDataAdapter(" select * from m_user where uid = " + userId.ToString(), Util.ConnectionStringMall);
+        Util.ConnectionStringMall;
         DataTable dt = new DataTable();
         da.Fill(dt);
         da.Dispose();
@@ -44,7 +45,7 @@ public class Users
             + (new Random()).Next(10000).ToString().PadLeft(4,'0');
         string token = Util.GetMd5(stringWillBeToken)+Util.GetSHA1(stringWillBeToken);
 
-        SqlConnection conn = new SqlConnection(Util.ConnectionString);
+        SqlConnection conn = new SqlConnection(Util.ConnectionStringMall);
         SqlCommand cmd = new SqlCommand(" update m_token set isvalid = 0 where uid = '" + _fields["uid"].ToString().Trim() + "'  ",conn);
         conn.Open();
         cmd.ExecuteNonQuery();
@@ -83,7 +84,7 @@ public class Users
     public static int CheckToken(string token)
     {
         int ret = 0;
-        SqlDataAdapter da = new SqlDataAdapter(" select * from m_token where token = '" + token.Trim().Replace("'", "").Trim() + "' ", Util.ConnectionString);
+        SqlDataAdapter da = new SqlDataAdapter(" select * from m_token where token = '" + token.Trim().Replace("'", "").Trim() + "' ", Util.ConnectionStringMall);
         DataTable dt = new DataTable();
         da.Fill(dt);
         da.Dispose();
@@ -118,7 +119,7 @@ public class Users
                 break;
         }
         int uid = 0;
-        SqlConnection conn = new SqlConnection(Util.ConnectionString);
+        SqlConnection conn = new SqlConnection(Util.ConnectionStringMall);
         SqlCommand cmd = new SqlCommand(sql, conn);
         conn.Open();
         cmd.ExecuteNonQuery();
@@ -172,7 +173,7 @@ public class Users
                 break;
         }
         Users user = new Users();
-        SqlDataAdapter da = new SqlDataAdapter(sql, Util.ConnectionString.Trim());
+        SqlDataAdapter da = new SqlDataAdapter(sql, Util.ConnectionStringMall.Trim());
         DataTable dt = new DataTable();
         da.Fill(dt);
         if (dt.Rows.Count == 0)
