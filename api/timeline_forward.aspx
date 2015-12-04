@@ -5,13 +5,17 @@
     {
         string token = Util.GetSafeRequestValue(Request, "token", "");
 
-        int fatherId = int.Parse(Util.GetSafeRequestValue(Request, "fatherid", "0"));
+        int fatherUserId = int.Parse(Util.GetSafeRequestValue(Request, "fatheruserid", "0"));
 
         int userId = Users.CheckToken(token);
 
         int actId = int.Parse(Util.GetSafeRequestValue(Request, "actid", "1"));
+        
+        
 
-        TimelineForward timelineForward;
+        TimelineForward timelineForward = new TimelineForward(fatherUserId, actId);
+
+        int fatherId = timelineForward.ID;
 
         if (userId > 0)
         {
