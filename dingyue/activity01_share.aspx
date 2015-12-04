@@ -18,7 +18,7 @@
         userId = Users.CheckToken(token);
         if (userId <= 0)
         {
-            Response.Redirect("authorize.aspx", true);
+            Response.Redirect("../authorize.aspx", true);
         }
         
         //读取转发数

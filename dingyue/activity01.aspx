@@ -19,7 +19,7 @@
         userId = Users.CheckToken(token);
         if (userId <= 0)
         {
-            Response.Redirect("authorize.aspx", true);
+            Response.Redirect("../authorize.aspx", true);
         }
 
         JavaScriptSerializer json = new JavaScriptSerializer();
