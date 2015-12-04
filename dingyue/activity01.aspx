@@ -14,12 +14,13 @@
         else
         {
             token = Util.GetSafeRequestValue(Request, "token", "");
+            Session["user_token"] = token;
         }
 
         userId = Users.CheckToken(token);
         if (userId <= 0)
         {
-            Response.Redirect("../authorize.aspx?callback=" + Request.Url.ToString(), true);
+            Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString(), true);
         }
 
         JavaScriptSerializer json = new JavaScriptSerializer();
