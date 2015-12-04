@@ -7,22 +7,26 @@
     public string forward_count = "0";
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["user_token"] != null)
+
+
+        token = Util.GetSafeRequestValue(Request, "token", "");
+
+        if (token.Trim().Equals(""))
         {
-            token = Session["user_token"].ToString().Trim();
+            if (Session["user_token"] != null)
+            {
+                token = Session["user_token"].ToString().Trim();
+            }
         }
-        else
-        {
-            token = Util.GetSafeRequestValue(Request, "token", "");
-            Session["user_token"] = token;
-        }
+        
+        
 
         userId = Users.CheckToken(token);
         if (userId <= 0)
         {
             Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString(), true);
         }
-
+        Session["user_token"] = token;
         JavaScriptSerializer json = new JavaScriptSerializer();
         string getUrl = "http://game.luqinwenda.com/api/user_info_get.aspx?token=" + token;
         string result = HTTPHelper.Get_Http(getUrl);
