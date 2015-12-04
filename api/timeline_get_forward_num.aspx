@@ -4,9 +4,9 @@
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        string token = Util.GetSafeRequestValue(Request, "token", "");
+        //string token = Util.GetSafeRequestValue(Request, "token", "");
         int actid = int.Parse(Util.GetSafeRequestValue(Request, "actid", "1"));
-        int userId = Users.CheckToken(token);
+        int userId = int.Parse(Util.GetSafeRequestValue(Request, "userid", "0"));
         if (userId > 0)
         {
             TimelineForward timelineForward = new TimelineForward(userId, actid);
