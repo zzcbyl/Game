@@ -36,6 +36,12 @@ public class TimelineForward
         }
     }
 
+    public int GetSubForwardNum()
+    {
+
+        return 0;
+    }
+
     public int ID
     {
         get
