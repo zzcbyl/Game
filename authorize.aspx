@@ -8,6 +8,8 @@
     {
         string callBack = Util.GetSafeRequestValue(Request, "callback",
             ((Request.UrlReferrer==null) ? "" : Request.UrlReferrer.ToString().Trim()));
+
+        
         
         string redirectUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" 
             + System.Configuration.ConfigurationSettings.AppSettings["wxappid"].Trim()   
