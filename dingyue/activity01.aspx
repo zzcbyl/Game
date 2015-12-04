@@ -11,6 +11,9 @@
 
         token = Util.GetSafeRequestValue(Request, "token", "");
 
+        Response.Write(token);
+        Response.End();
+        
         if (token.Trim().Equals(""))
         {
             if (Session["user_token"] != null)
