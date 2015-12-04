@@ -5,23 +5,19 @@
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <link href="wx_dingyue.css" rel="stylesheet" />
-    <link href="wx_dingyue1.css" rel="stylesheet" />
+    <link href="common/wx_dingyue.css" rel="stylesheet" />
+    <link href="common/wx_dingyue1.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div id="js_article" class="rich_media">
         <div class="rich_media_inner">
             <div id="page-content">
                 <div class="rich_media_area_primary" id="img-content">
-                    <h2 id="activity-name" class="rich_media_title">卢勤支招：如何让孩子告别磨蹭、拖拉的坏习惯 
-                    </h2>
+                    <h2 id="activity-name" class="rich_media_title">卢勤支招：如何让孩子告别磨蹭、拖拉的坏习惯</h2>
                     <div class="rich_media_meta_list">
                         <em class="rich_media_meta rich_media_meta_text" id="post-date">2015-12-07</em>
-
                         <a id="post-user" href="javascript:void(0);" class="rich_media_meta rich_media_meta_link rich_media_meta_nickname">卢勤问答平台</a>
-
                     </div>
-
                     <div id="js_content" class="rich_media_content ">
 
                         <p style="">
@@ -65,24 +61,18 @@
                             <span style="font-size: 16px;"></span>
                         </p>
                         <p>
-                            <img data-w="500" data-ratio="1.116" data-type="gif" style="width: 500px ! important; visibility: visible ! important; height: 558px ! important;" src="images/guanzhu.gif"><br>
+                            <img data-w="500" data-ratio="1.116" data-type="gif" style="width: 500px ! important; visibility: visible ! important; height: auto ! important;" src="images/guanzhu.gif"><br>
                         </p>
                     </div>
-
-
-
                     <div class="rich_media_tool" id="js_toobar3">
                         <a class="media_tool_meta meta_primary" id="js_view_source" href="javascript:void(0);">阅读原文</a>
-
-                        <a id="js_report_article3" style="display: ;" class="media_tool_meta tips_global meta_extra" href="javascript:void(0);">
-                            <span style="display: ;" class="media_tool_meta meta_primary tips_global meta_praise" id="like3">
+                        <a id="js_report_article3" class="media_tool_meta tips_global meta_extra" href="javascript:void(0);" onclick="showShare();">
+                            <span style="margin-right:10px;" class="media_tool_meta meta_primary tips_global meta_praise" id="like3">
                                 <i class="icon_praise_gray"></i><span class="praise_num" id="likeNum3">5</span>
                             </span>
                         </a>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -100,7 +90,7 @@
                 imgUrl: shareImg, // 分享图标
                 success: function () {
                     // 用户确认分享后执行的回调函数
-                    shareRedirt();
+                    shareSuccess();
                 }
             });
 
@@ -112,7 +102,7 @@
                 imgUrl: shareImg, // 分享图标
                 success: function () {
                     // 用户确认分享后执行的回调函数
-                    shareRedirt();
+                    
                 }
             });
         });

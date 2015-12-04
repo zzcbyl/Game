@@ -1,12 +1,44 @@
 ﻿<%@ Page Title="卢勤支招：如何让孩子告别磨蹭、拖拉的坏习惯" Language="C#" MasterPageFile="~/dingyue/Master.master" %>
-
+<%@ Import Namespace="System.Web.Script.Serialization" %>
 <script runat="server">
+    public int IsUName = 1;
 
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        string token = "";
+        if (Session["user_token"] != null)
+        {
+            token = Session["user_token"].ToString().Trim();
+        }
+        else
+        {
+            token = Util.GetSafeRequestValue(Request, "token", "");
+        }
+        
+        int userId = Users.CheckToken(token);
+        if (userId <= 0)
+        {
+            Response.Redirect("authorize.aspx", true);
+        }
+
+        JavaScriptSerializer json = new JavaScriptSerializer();
+        string getUrl = "http://game.luqinwenda.com/api/user_info_get.aspx?token=" + token;
+        string result = HTTPHelper.Get_Http(getUrl);
+        Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(result);
+        if (dic["status"].Equals("1"))
+        {
+            IsUName = 0;
+        }
+        
+        //读取转发数
+        
+        
+    }
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <link href="wx_dingyue.css" rel="stylesheet" />
-    <link href="wx_dingyue1.css" rel="stylesheet" />
+    <link href="common/wx_dingyue.css" rel="stylesheet" />
+    <link href="common/wx_dingyue1.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div id="js_article" class="rich_media">
@@ -61,30 +93,29 @@
                             <span style="font-size: 16px;"></span>
                         </p>
                         <p>
-                            <img data-w="500" data-ratio="1.116" data-type="gif" style="width: 500px ! important; visibility: visible ! important; height: 558px ! important;" src="images/guanzhu.gif"><br>
+                            <img data-w="500" data-ratio="1.116" data-type="gif" style="width: 500px ! important; visibility: visible ! important; height: auto ! important;" src="images/guanzhu.gif"><br>
                         </p>
                     </div>
-
-
-
                     <div class="rich_media_tool" id="js_toobar3">
-                        <a class="media_tool_meta meta_primary" id="js_view_source" href="javascript:void(0);">阅读原文</a>
+                        <div style="text-align:center; font-size:16pt;"><img src="images/zan_icon_0.png" style="width:57px; height:57px;" onclick="showShare();" onmouseover="zanUp(this);" onmouseout ="zanDown(this);" /></div>
+                        <div style="text-align:center; font-size:10pt; color:#808080; font-family:微软雅黑;">已有380人赞过</div>
 
-                        <a id="js_report_article3" style="display: ;" class="media_tool_meta tips_global meta_extra" href="javascript:void(0);">
-                            <span style="display: ;" class="media_tool_meta meta_primary tips_global meta_praise" id="like3">
+                        <%--<a class="media_tool_meta meta_primary" id="js_view_source" href="javascript:void(0);">阅读原文</a>
+                        <a id="js_report_article3" class="media_tool_meta tips_global meta_extra" href="javascript:void(0);" onclick="showShare();">
+                            <span style="margin-right:10px;" class="media_tool_meta meta_primary tips_global meta_praise" id="like3">
                                 <i class="icon_praise_gray"></i><span class="praise_num" id="likeNum3">5</span>
                             </span>
-                        </a>
+                        </a>--%>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="showShare" style="display:none; z-index:10;">
-        <div style="width:100%; height:100%; background:#ccc; color:#000; position:absolute; top:0px; left:0px; text-align:center; filter:alpha(opacity=90); -moz-opacity:0.9;-khtml-opacity: 0.9; opacity: 0.9;  z-index:9;"></div>
-        <div style="width:200px; height:200px;  color:#000; position:absolute; top:40pt; margin-left:70pt; z-index:20; font-size:12pt; line-height:20pt; text-align:center;">
-            请输入昵称：<br /><input type="text" id="uname" value="" /><br /><button>提交</button>
+    <div id="showUName" style="display:none; z-index:10;">
+        <div style="width:100%; height:100%; background:#ccc; color:#000; position:absolute; top:0px; left:0px; text-align:center; filter:alpha(opacity=90); -moz-opacity:1;-khtml-opacity: 1; opacity: 1;  z-index:9;"></div>
+        <div style="width:200px; height:200px;  color:#000; position:absolute; top:40pt; z-index:20; font-size:12pt; line-height:20pt; text-align:center;">
+            请输入昵称：<br /><input type="text" id="uname" value="" style="padding:5px; margin:10px 0;" /><br /><button style="padding:3px 10px;">提交</button>
         </div>
     </div>
     <script>
@@ -92,13 +123,33 @@
         var shareImg = "http://game.luqinwenda.com/dingyue/images/act1_1.jpg"; //图片
         var shareContent = '中小学生过重的课业负担，不仅来自学校，也来自家长。家长总是把孩子的时间装在自己的口袋里，用“施舍”的办法逼孩子学这个学那个，结果令孩子失去了自己支配时间的能力，减负赢得的时间又白白浪费掉了。'; //简介
         var shareLink = "http://game.luqinwenda.com/dingyue/activity01_share.aspx"; //链接
+        var ExitName = <%=IsUName %>;
 
         $(document).ready(function () {
-            
-            var bh = document.body.offsetHeight;
-            $('#showShare div').eq(0).css({ 'height': bh + 'px' });
-            $('#showShare').show();
+            if(ExitName == 0)
+                inputName();
         });
+
+        function inputName() {
+            if (document.documentElement.scrollTop == 0) {
+                $('#showUName div').eq(1).css({ top: document.body.scrollTop + 50 + "px" });
+            }
+            else {
+                $('#showUName div').eq(1).css({ top: document.documentElement.scrollTop + 50 + "px" });
+            }
+            $('#showUName div').eq(1).css({ left: bw / 2 - 100 + "px" });
+            $('#showUName div').eq(0).css({ 'height': bh + 'px' });
+            $('#showUName').show();
+        }
+
+        function zanDown(obj)
+        {
+            $(obj).attr('src','images/zan_icon_0.png');
+        }
+        function zanUp(obj)
+        {
+            $(obj).attr('src','images/zan_icon_1.png');
+        }
 
         wx.ready(function () {
             //分享到朋友圈
@@ -125,9 +176,7 @@
             });
         });
 
-        function shareSuccess() {
-
-        }
+        
     </script>
 </asp:Content>
 

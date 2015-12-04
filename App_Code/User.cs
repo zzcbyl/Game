@@ -24,13 +24,14 @@ public class Users
     public Users(int userId)
     {
         SqlDataAdapter da = new SqlDataAdapter(" select * from m_user where uid = " + userId.ToString(), Util.ConnectionStringMall);
-        Util.ConnectionStringMall;
+        //Util.ConnectionStringMall;
         DataTable dt = new DataTable();
         da.Fill(dt);
         da.Dispose();
         if (dt.Rows.Count == 0)
         {
-            throw new Exception("User is not exists.");
+            //throw new Exception("User is not exists.");
+            _fields = null;
         }
         else
         {
