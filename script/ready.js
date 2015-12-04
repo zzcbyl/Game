@@ -1,10 +1,10 @@
 ﻿
 $(document).ready(function () {
-    //if (!browserRedirect()) {
-    //    document.write('暂不支持当前版本');
-    //    document.close();
-    //    return;
-    //}
+    if (!browserRedirect()) {
+        document.write('暂不支持当前版本');
+        document.close();
+        return;
+    }
 });
 
 //检查浏览器
@@ -24,6 +24,6 @@ function browserRedirect() {
         return true;
     } else {
         //电脑浏览器
-        return false;
+        return true;
     }
 }

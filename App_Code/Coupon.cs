@@ -19,7 +19,7 @@ public class Coupon
 		//TODO: 在此处添加构造函数逻辑
 		//
 
-        DataTable dt = DBHelper.GetDataTable(" select * from coupon where code = '" + code.Replace("'", "") + "'  ", Util.ConnectionString);
+        DataTable dt = DBHelper.GetDataTable(" select * from coupon where code = '" + code.Replace("'", "") + "'  ", Util.ConnectionStringMall);
         if (dt.Rows.Count == 1)
         {
             _fields = dt.Rows[0];

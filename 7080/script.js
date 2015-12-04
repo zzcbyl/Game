@@ -23,11 +23,11 @@ var shareContent = '你的童年完整吗'; //简介
 var shareLink = "http://game.luqinwenda.com/7080/default.aspx"; //链接
 
 $(document).ready(function () {
-    //if (!browserRedirect()) {
-    //    document.write('暂不支持当前版本');
-    //    document.close();
-    //    return false;
-    //}
+    if (!browserRedirect()) {
+        document.write('暂不支持当前版本');
+        document.close();
+        return false;
+    }
     
     $.ajax({
         type: "GET",
@@ -212,7 +212,6 @@ function showInfo(info) {
     $('.openInfo').fadeOut(800);
 }
 
-
 function shareBtn() {
     $("#showShare").show();
 }
@@ -223,8 +222,6 @@ function showResult() {
     if (score < 10) {
         $('#sp_content').html("经鉴定，你从来就没有过童年！<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>80分以上有惊喜呦！");
         str_content = "得分" + score + "，我没有过童年！"
-        //shareTitle = "aaaa";
-        //shareContent = "aaaa";
         shareContent = "经鉴定，我的童年让狗吃了！";
     }
     else if (score >= 10 && score < 30) {
@@ -233,34 +230,27 @@ function showResult() {
         shareContent = "经鉴定，我的童年让狗吃了！";
     }
     else if (score >= 30 && score < 60) {
-        $('#sp_content').html("你的童年让狗吃了！<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>80分以上有惊喜呦！");
+        $('#sp_content').html("经鉴定，你的童年让狗吃了！<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>80分以上有惊喜呦！");
         str_content = "得分" + score + "，我的童年很精彩！"
         shareContent = "经鉴定，我的童年让狗吃了！";
     }
     else if (score >= 60 && score < 70) {
-        $('#sp_content').html("你的童年让狗吃了！<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>80分以上有惊喜呦！");
+        $('#sp_content').html("经鉴定，你的童年让狗吃了！<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>80分以上有惊喜呦！");
         str_content = "得分" + score + "，我有个很完整的童年！"
         shareContent = "经鉴定，我的童年让狗吃了！";
     }
-    else if (score >= 70 && score < 90) {
-        
-        if (score == 80) {
-            $('#sp_content').html("经鉴定，你有个非常完美的童年！<br/>恭喜你获得2元抵用券<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>并截图发到“卢勤问答”订阅号，领用抵用券。");
-            shareContent = "推荐一个好玩的，我得了2块！";
-        }
-        else {
-            $('#sp_content').html("经鉴定，你的童年让狗吃了！<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>80分以上有惊喜呦！");
-            shareContent = "经鉴定，我的童年让狗吃了！";
-        }
+    else if (score >= 70 && score < 80) {
+        $('#sp_content').html("经鉴定，你的童年让狗吃了！<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>80分以上有惊喜呦！");
         str_content = "得分" + score + "，我有个很完美的童年！"
+        shareContent = "经鉴定，我的童年让狗吃了！";
     }
-    else if (score >= 90) {
-        $('#sp_content').html("你的童年里除了吃喝玩乐还有别的吗？<br/>恭喜你获得2元抵用券<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>并截图发到“卢勤问答”订阅号，领用抵用券。");
+    else if (score >= 80 && score < 100) {
+        $('#sp_content').html("你的童年里除了吃喝玩乐还有别的吗？<br/>恭喜你获得2元抵用券<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>领取抵用券。");
         str_content = "得分" + score + "，我是在吃喝玩乐中长大的！"
         shareContent = "推荐一个好玩的，我得了2块！";
     }
     else if (score == 100) {
-        $('#sp_content').html("你的童年里除了吃喝玩乐还有别的吗？<br/>恭喜你获得5元抵用券<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>并截图发到“卢勤问答”订阅号，领用抵用券。");
+        $('#sp_content').html("你的童年里除了吃喝玩乐还有别的吗？<br/>恭喜你获得5元抵用券<br/><a href='javascript:void(0);' onclick='shareBtn();' >分享至朋友圈</a><br/>领取抵用券。");
         str_content = "得分" + score + "，我是在吃喝玩乐中长大的！"
         shareContent = "推荐一个好玩的，我得了5块！";
     }
@@ -278,8 +268,7 @@ function showResult() {
             imgUrl: shareImg, // 分享图标
             success: function () {
                 // 用户确认分享后执行的回调函数
-                //alert(shareContent);
-                //window.location.href = "http://www.luqinwenda.com";
+                shareRedirt();
             }
         });
 
@@ -291,12 +280,40 @@ function showResult() {
             imgUrl: shareImg, // 分享图标
             success: function () {
                 // 用户确认分享后执行的回调函数
-                alert(shareContent);
-                location.href = "http://game.luqinwenda.com/7080/default.aspx";
+                shareRedirt();
             }
         });
     });
 
 
+}
+
+function shareRedirt()
+{
+    var couponAmount = 0;
+    if (score < 80)
+        return;
+    else if (score >= 80 && score < 100) {
+        couponAmount = 200;
+    }
+    else if (score >= 100) {
+        couponAmount = 500;
+    }
+    else
+        return;
+
+    var couponCode = '';
+    $.ajax({
+        type: "GET",
+        async: true,
+        url: "http://game.luqinwenda.com/api/coupon_create.aspx",
+        data: { amount: couponAmount, rdm: Math.random() },
+        success: function (data) {
+            var obj = eval('(' + data + ')');
+            if (obj.status == 0) {
+                location.href = "http://game.luqinwenda.com/7080/coupon.aspx?amount=" + obj.amount + "&code=" + obj.code;
+            }
+        }
+    });
 }
 
