@@ -36,10 +36,29 @@ public class TimelineForward
         }
     }
 
+    public TimelineForward[] GetSubForward()
+    {
+        DataTable dt = DBHelper.GetDataTable(" select * from timeline_forward where fatherid = " + ID.ToString(),
+            Util.ConnectionStringMall.Trim());
+        TimelineForward[] timelineForwardArr = new TimelineForward[dt.Rows.Count];
+        for (int i = 0; i < dt.Rows.Count; i++)
+        {
+            timelineForwardArr[i] = new TimelineForward();
+            timelineForwardArr[i]._fields = dt.Rows[i];
+        }
+        return timelineForwardArr;
+    }
+
+
     public int GetSubForwardNum()
     {
-
-        return 0;
+        TimelineForward[] timelineForwardArr = GetSubForward();
+        int num = timelineForwardArr.Length;
+        foreach (TimelineForward timelineForward in timelineForwardArr)
+        {
+            num = num + timelineForward.GetSubForwardNum();
+        }
+        return num;
     }
 
     public int ID
