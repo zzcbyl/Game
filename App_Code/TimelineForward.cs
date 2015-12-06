@@ -34,6 +34,10 @@ public class TimelineForward
         {
             _fields = dt.Rows[0];
         }
+        else
+        {
+            CreateForward(userId, actId, 0);
+        }
     }
 
     public TimelineForward[] GetSubForward()
