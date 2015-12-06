@@ -6,7 +6,7 @@
     {
         //string token = Util.GetSafeRequestValue(Request, "token", "");
         int actid = int.Parse(Util.GetSafeRequestValue(Request, "actid", "1"));
-        int userId = int.Parse(Util.GetSafeRequestValue(Request, "userid", "0"));
+        int userId = int.Parse(Util.GetSafeRequestValue(Request, "userid", "16"));
         if (userId > 0)
         {
             TimelineForward timelineForward = new TimelineForward(userId, actid);
