@@ -16,12 +16,12 @@
             }
             else
             {
-                Response.Write("{\"status\":1 \"forward_count\": 0 , \"error_message\":\"User is not exists.\" }");
+                Response.Write("{\"status\":1 , \"forward_count\": 0 , \"error_message\":\"User is not exists.\" }");
             }
         }
         else
         {
-            Response.Write("{\"status\":1 \"error_message\":\"Token is invalid.\" }");
+            Response.Write("{\"status\":1 , \"error_message\":\"Token is invalid.\" }");
         }
         
         //TimelineForward timelineForward = new TimelineForward(
