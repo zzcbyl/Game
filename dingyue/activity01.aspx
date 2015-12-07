@@ -136,6 +136,34 @@
         $(document).ready(function () {
             if(ExitName == 0)
                 inputName();
+
+
+
+            wx.ready(function () {
+                //分享到朋友圈
+                wx.onMenuShareTimeline({
+                    title: shareTitle, // 分享标题
+                    link: shareLink, // 分享链接
+                    imgUrl: shareImg, // 分享图标
+                    success: function () {
+                        // 用户确认分享后执行的回调函数
+                        shareSuccess();
+                    }
+                });
+
+                //分享给朋友
+                wx.onMenuShareAppMessage({
+                    title: shareTitle, // 分享标题
+                    desc: shareContent, // 分享描述
+                    link: shareLink, // 分享链接
+                    imgUrl: shareImg, // 分享图标
+                    success: function () {
+                        // 用户确认分享后执行的回调函数
+                        location.href = shareLink;
+                        shareSuccess();
+                    }
+                });
+            });
         });
 
         function inputName() {
@@ -178,30 +206,7 @@
             });
         }
 
-        wx.ready(function () {
-            //分享到朋友圈
-            wx.onMenuShareTimeline({
-                title: shareTitle, // 分享标题
-                link: shareLink, // 分享链接
-                imgUrl: shareImg, // 分享图标
-                success: function () {
-                    // 用户确认分享后执行的回调函数
-                    shareSuccess();
-                }
-            });
-
-            //分享给朋友
-            wx.onMenuShareAppMessage({
-                title: shareTitle, // 分享标题
-                desc: shareContent, // 分享描述
-                link: shareLink, // 分享链接
-                imgUrl: shareImg, // 分享图标
-                success: function () {
-                    // 用户确认分享后执行的回调函数
-                    shareSuccess();
-                }
-            });
-        });
+        
 
         
     </script>

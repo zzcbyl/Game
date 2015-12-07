@@ -20,7 +20,7 @@ function showShare() {
 }
 
 function shareSuccess() {
-    location.href = shareLink;
+    alert('123');
     $.ajax({
         type: "GET",
         async: false,
