@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="卢勤支招：如何让孩子告别磨蹭、拖拉的坏习惯" Language="C#" MasterPageFile="~/dingyue/Master.master" %>
 <%@ Import Namespace="System.Web.Script.Serialization" %>
 <script runat="server">
-    public int IsUName = 0;
+    public int IsUName = 1;
     public string token = "";
     public int userId = 0;
     public string forward_count = "0";
@@ -17,8 +17,6 @@
             }
         }
         
-        
-
         userId = Users.CheckToken(token);
         if (userId <= 0)
         {
@@ -29,7 +27,7 @@
         string getUrl = "http://game.luqinwenda.com/api/user_info_get.aspx?token=" + token;
         string result = HTTPHelper.Get_Http(getUrl);
         Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(result);
-        if (dic["status"].Equals("1"))
+        if (dic["status"].Equals("1") || dic["nick"].Equals(""))
         {
             IsUName = 0;
         }
@@ -174,7 +172,7 @@
                     }
                     else {
                         $('#errorMsg').show();
-                        $('#errorMsg').html('<br />' + jsonData.error_message);
+                        $('#errorMsg').html('<br />昵称已存在');
                     }
                 }
             });
