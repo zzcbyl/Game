@@ -16,7 +16,7 @@
             }
             else
             {
-                Response.Write("{\"status\":1 , \"forward_count\": 0 , \"error_message\":\"User is not exists.\" }");
+                Response.Write("{\"status\":1 , \"forward_count\": 0 , \"error_message\":\"User forward is not exists.\" }");
             }
         }
         else
