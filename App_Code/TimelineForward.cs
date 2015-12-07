@@ -42,7 +42,7 @@ public class TimelineForward
 
     public TimelineForward[] GetSubForward()
     {
-        DataTable dt = DBHelper.GetDataTable(" select * from timeline_forward where fatherid = " + ID.ToString(),
+        DataTable dt = DBHelper.GetDataTable(" select * from timeline_forward where from_id = " + ID.ToString(),
             Util.ConnectionStringMall.Trim());
         TimelineForward[] timelineForwardArr = new TimelineForward[dt.Rows.Count];
         for (int i = 0; i < dt.Rows.Count; i++)

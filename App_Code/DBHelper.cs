@@ -21,8 +21,8 @@ public class DBHelper
     public static KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] ConvertStringArryToKeyValuePairArray(string[,] parameters)
     {
         KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] parametersKeyValuePairArr
-            = new KeyValuePair<string, KeyValuePair<SqlDbType, object>>[parameters.Length];
-        for (int i = 0; i < parameters.Length; i++)
+            = new KeyValuePair<string, KeyValuePair<SqlDbType, object>>[parameters.Length/3];
+        for (int i = 0; i < parameters.Length/3; i++)
         {
             parametersKeyValuePairArr[i] = new KeyValuePair<string, KeyValuePair<SqlDbType, object>>(parameters[i, 0].Trim(),
                 new KeyValuePair<SqlDbType, object>(GetSqlDbType(parameters[i, 1].Trim()), (object)parameters[i, 2].Trim()));
