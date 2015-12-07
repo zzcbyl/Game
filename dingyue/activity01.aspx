@@ -7,13 +7,8 @@
     public string forward_count = "0";
     protected void Page_Load(object sender, EventArgs e)
     {
-
-
         token = Util.GetSafeRequestValue(Request, "token", "");
 
-        Response.Write(token);
-        Response.End();
-        
         if (token.Trim().Equals(""))
         {
             if (Session["user_token"] != null)
