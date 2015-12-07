@@ -124,32 +124,35 @@
                 Fatheruid = QueryString("fuid");
                 shareLink = "http://game.luqinwenda.com/dingyue/activity01_share.aspx?fuid=" + Fatheruid;
             }
+
+
+            wx.ready(function () {
+                //分享到朋友圈
+                wx.onMenuShareTimeline({
+                    title: shareContent, // 分享标题
+                    link: shareLink, // 分享链接
+                    imgUrl: shareImg, // 分享图标
+                    success: function () {
+                        // 用户确认分享后执行的回调函数
+                        shareSuccess();
+                    }
+                });
+
+                //分享给朋友
+                wx.onMenuShareAppMessage({
+                    title: shareTitle, // 分享标题
+                    desc: shareContent, // 分享描述
+                    link: shareLink, // 分享链接
+                    imgUrl: shareImg, // 分享图标
+                    success: function () {
+                        // 用户确认分享后执行的回调函数
+
+                    }
+                });
+            });
         });
 
-        wx.ready(function () {
-            //分享到朋友圈
-            wx.onMenuShareTimeline({
-                title: shareContent, // 分享标题
-                link: shareLink, // 分享链接
-                imgUrl: shareImg, // 分享图标
-                success: function () {
-                    // 用户确认分享后执行的回调函数
-                    shareSuccess();
-                }
-            });
-
-            //分享给朋友
-            wx.onMenuShareAppMessage({
-                title: shareTitle, // 分享标题
-                desc: shareContent, // 分享描述
-                link: shareLink, // 分享链接
-                imgUrl: shareImg, // 分享图标
-                success: function () {
-                    // 用户确认分享后执行的回调函数
-                    
-                }
-            });
-        });
+       
     </script>
     <script src="common/activity_js.js"></script>
 </asp:Content>
