@@ -76,7 +76,7 @@ public class Users
         {
             string nick = value.Trim();
             string[,] updateParameters = { { "nick", "varchar", nick } };
-            string[,] keyParameters = { { "id", "int", ID.ToString() } };
+            string[,] keyParameters = { { "uid", "int", ID.ToString() } };
             DBHelper.UpdateData("m_user", updateParameters, keyParameters, Util.ConnectionStringMall);
         }
     }
