@@ -63,7 +63,12 @@ public class Users
 
 
 
-    public int ID { get; set; }
+    public int ID {
+        get
+        {
+            return int.Parse(_fields["uid"].ToString().Trim());
+        }
+    }
     public string Name { get; set; }
     public string Sex { get; set; }
 
