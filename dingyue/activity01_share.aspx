@@ -28,7 +28,7 @@
         string getNumUrl = "http://game.luqinwenda.com/api/timeline_get_forward_num.aspx?actid=1&userid=" + Util.GetSafeRequestValue(Request, "fuid", "0");
         string resultNum = HTTPHelper.Get_Http(getNumUrl);
         Dictionary<string, object> dicNum = json.Deserialize<Dictionary<string, object>>(resultNum);
-        if (dicNum["status"].Equals("0"))
+        if (dicNum["status"].Equals(0))
         {
             forward_count = dicNum["forward_count"].ToString();
         }
