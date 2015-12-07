@@ -11,8 +11,16 @@
             if (userId > 0)
             {
                 Users user = new Users(userId);
-                user.Nick = nick.Trim();
-                Response.Write("{\"status\" : 0 }");
+                try
+                {
+                    user.Nick = nick.Trim();
+                    Response.Write("{\"status\" : 0 }");
+                }
+                catch
+                {
+                    Response.Write("{\"status\":1 , \"error_message\": \"Duplicate nick.\"}");
+                }
+                
             }
             else
             {
