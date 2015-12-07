@@ -10,7 +10,14 @@
         if (userId > 0)
         {
             TimelineForward timelineForward = new TimelineForward(userId, actid);
-            Response.Write("{\"status\":0 \"forward_count\": " + timelineForward.GetSubForwardNum().ToString() + " }");
+            if (timelineForward._fields != null)
+            {
+                Response.Write("{\"status\":0 \"forward_count\": " + timelineForward.GetSubForwardNum().ToString() + " }");
+            }
+            else
+            {
+                Response.Write("{\"status\":1 \"forward_count\": 0 , \"error_message\":\"User is not exists.\" }");
+            }
         }
         else
         {
