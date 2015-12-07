@@ -62,6 +62,9 @@ public class TimelineForward
         {
             num = num + timelineForward.GetSubForwardNum();
         }
+        string[,] updateParameters = { { "forward_times", "int", num.ToString() } };
+        string[,] keyParameters = { { "id", "int", ID.ToString() } };
+        DBHelper.UpdateData("timeline_forward", updateParameters, keyParameters, Util.ConnectionStringMall);
         return num;
     }
 
@@ -89,6 +92,20 @@ public class TimelineForward
             timeLineForward = new TimelineForward();
         }
         return timeLineForward;
+    }
+
+    public static void ComputeForwardTimesForOriginUsers(int actId)
+    {
+        DataTable dt = DBHelper.GetDataTable(" select * from timeline_forward where from_id = 0 and act_id = " + actId.ToString(), Util.ConnectionStringMall);
+        foreach (DataRow dr in dt.Rows)
+        {
+            if (int.Parse(dr["from_id"].ToString().Trim()) == 0)
+            {
+                TimelineForward timelineForward = new TimelineForward();
+                timelineForward._fields = dr;
+                timelineForward.GetSubForwardNum();
+            }
+        }
     }
 
     
