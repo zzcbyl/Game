@@ -11,8 +11,6 @@
 
         int actId = int.Parse(Util.GetSafeRequestValue(Request, "actid", "1"));
         
-        
-
         TimelineForward timelineForward = new TimelineForward(fatherUserId, actId);
 
         int fatherId = 0;
@@ -22,8 +20,6 @@
             fatherId = timelineForward.ID;
         }
         
-        
-
         if (userId > 0)
         {
             timelineForward = new TimelineForward(userId, actId);
