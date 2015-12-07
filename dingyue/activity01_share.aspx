@@ -129,7 +129,7 @@
             wx.ready(function () {
                 //分享到朋友圈
                 wx.onMenuShareTimeline({
-                    title: shareContent, // 分享标题
+                    title: shareTitle, // 分享标题
                     link: shareLink, // 分享链接
                     imgUrl: shareImg, // 分享图标
                     success: function () {

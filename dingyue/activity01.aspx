@@ -36,7 +36,7 @@
         string getNumUrl = "http://game.luqinwenda.com/api/timeline_get_forward_num.aspx?actid=1&userid=" + userId;
         string resultNum = HTTPHelper.Get_Http(getNumUrl);
         Dictionary<string, object> dicNum = json.Deserialize<Dictionary<string, object>>(resultNum);
-        if (dicNum["status"].Equals("0"))
+        if (dicNum["status"].Equals(0))
         {
             forward_count = dicNum["forward_count"].ToString();
         }
@@ -153,7 +153,7 @@
                 wx.onMenuShareAppMessage({
                     title: shareTitle, // 分享标题
                     desc: shareContent, // 分享描述
-                    link: shareLink, // 分享链接
+                    link: 'http://game.luqinwenda.com/dingyue/activity01.aspx', // 分享链接
                     imgUrl: shareImg, // 分享图标
                     success: function () {
                         // 用户确认分享后执行的回调函数
