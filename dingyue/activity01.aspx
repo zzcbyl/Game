@@ -205,5 +205,6 @@
 
         
     </script>
+    <script src="common/activity_js.js"></script>
 </asp:Content>
 
