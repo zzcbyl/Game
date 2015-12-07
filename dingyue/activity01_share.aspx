@@ -6,20 +6,22 @@
     public string forward_count = "0";
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["user_token"] != null)
+        token = Util.GetSafeRequestValue(Request, "token", "");
+
+        if (token.Trim().Equals(""))
         {
-            token = Session["user_token"].ToString().Trim();
-        }
-        else
-        {
-            token = Util.GetSafeRequestValue(Request, "token", "");
+            if (Session["user_token"] != null)
+            {
+                token = Session["user_token"].ToString().Trim();
+            }
         }
 
         userId = Users.CheckToken(token);
         if (userId <= 0)
         {
-            Response.Redirect("../authorize.aspx?callback=" + Request.Url.ToString(), true);
+            Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString(), true);
         }
+        Session["user_token"] = token;
         
         //读取转发数
         JavaScriptSerializer json = new JavaScriptSerializer();

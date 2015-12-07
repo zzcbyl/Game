@@ -20,6 +20,7 @@ function showShare() {
 }
 
 function shareSuccess() {
+    location.href = shareLink;
     $.ajax({
         type: "GET",
         async: false,
