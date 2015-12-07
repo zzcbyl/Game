@@ -36,7 +36,7 @@ public class TimelineForward
         }
         else
         {
-            CreateForward(userId, actId, 0);
+            //CreateForward(userId, actId, 0);
         }
     }
 

@@ -12,7 +12,7 @@
             TimelineForward timelineForward = new TimelineForward(userId, actid);
             if (timelineForward._fields != null)
             {
-                Response.Write("{\"status\":0 \"forward_count\": " + timelineForward.GetSubForwardNum().ToString() + " }");
+                Response.Write("{\"status\":0, \"forward_count\": " + timelineForward.GetSubForwardNum().ToString() + " }");
             }
             else
             {
