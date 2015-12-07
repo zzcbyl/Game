@@ -3,7 +3,7 @@
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        string token = Util.GetSafeRequestValue(Request, "token", "");
+        string token = Util.GetSafeRequestValue(Request, "token", "31cd4d73a3bb0be15fa03b64e704b2fc02d0f6f973901078d34093f2ba7929e6746413f0");
 
         int fatherUserId = int.Parse(Util.GetSafeRequestValue(Request, "fatheruserid", "0"));
 
@@ -15,7 +15,14 @@
 
         TimelineForward timelineForward = new TimelineForward(fatherUserId, actId);
 
-        int fatherId = timelineForward.ID;
+        int fatherId = 0;
+
+        if (timelineForward._fields != null)
+        {
+            fatherId = timelineForward.ID;
+        }
+        
+        
 
         if (userId > 0)
         {
