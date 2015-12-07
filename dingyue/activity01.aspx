@@ -132,12 +132,10 @@
         var shareLink = 'http://game.luqinwenda.com/dingyue/activity01_share.aspx?fuid=<%=userId %>'; //链接
         var ExitName = <%=IsUName %>;
         var Token = '<%=token %>';
-        var Fatheruid = <%=userId %>;
+        var Fatheruid = 0;
         $(document).ready(function () {
             if(ExitName == 0)
                 inputName();
-
-
 
             wx.ready(function () {
                 //分享到朋友圈

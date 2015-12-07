@@ -26,7 +26,7 @@ function shareSuccess() {
         url: "http://game.luqinwenda.com/api/timeline_forward.aspx",
         data: { token: Token, fatheruserid: Fatheruid, actid: 1 },
         success: function (data) {
-            alert(Fatheruid);
+            alert('123');
         }
     });
 }
