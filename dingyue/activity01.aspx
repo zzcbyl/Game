@@ -24,13 +24,13 @@
         }
         Session["user_token"] = token;
         JavaScriptSerializer json = new JavaScriptSerializer();
-        string getUrl = "http://game.luqinwenda.com/api/user_info_get.aspx?token=" + token;
-        string result = HTTPHelper.Get_Http(getUrl);
-        Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(result);
-        if (dic["status"].Equals("1") || dic["nick"].Equals(""))
-        {
-            IsUName = 0;
-        }
+        //string getUrl = "http://game.luqinwenda.com/api/user_info_get.aspx?token=" + token;
+        //string result = HTTPHelper.Get_Http(getUrl);
+        //Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(result);
+        //if (dic["status"].Equals("1") || dic["nick"].Equals(""))
+        //{
+        //    IsUName = 0;
+        //}
         
         //读取转发数
         string getNumUrl = "http://game.luqinwenda.com/api/timeline_get_forward_num.aspx?actid=1&userid=" + userId;
