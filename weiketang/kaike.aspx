@@ -7,10 +7,11 @@
     public string code = "";
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Request["code"] != null)
-            code = Request["code"];
         if (Request["id"] != null && Request["id"] != "")
         {
+            code = Request["id"].ToString();
+            code = code.PadLeft(4, '0');
+            code = "K" + code;
             System.Web.Script.Serialization.JavaScriptSerializer json = new System.Web.Script.Serialization.JavaScriptSerializer();
             string getNumUrl = "http://weixin.luqinwenda.com/dingyue/api/group_master_get_vote_num.aspx?id=" + Request["id"].ToString();
             string resultNum = HTTPHelper.Get_Http(getNumUrl);
@@ -21,6 +22,7 @@
             }
         }
     }
+    
 </script>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
