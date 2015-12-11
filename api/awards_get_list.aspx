@@ -8,8 +8,14 @@
         string awardedOpenId = "";
         foreach (DataRow dr in dt.Rows)
         {
-            awardedOpenId = awardedOpenId + ",{\"open_id\":\"" + dr["open_id"].ToString() + "\" , \"draw_date_time\":\""
-                + dr["create_date_time"].ToString() + "\" }";
+            string fieldsJson = "";
+            foreach (DataColumn c in dt.Columns)
+            { 
+                fieldsJson = fieldsJson + ",\"" + c.Caption.Trim() + "\":\"" + dr[c].ToString().Trim() + "\"" 
+            }
+            if (fieldsJson.StartsWith(","))
+                fieldsJson = fieldsJson.Remove(0,1);
+            awardedOpenId = awardedOpenId + ",{" + fieldsJson  + " }";
         }
         if (awardedOpenId.StartsWith(","))
             awardedOpenId = awardedOpenId.Remove(0, 1);
