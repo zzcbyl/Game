@@ -21,7 +21,7 @@
         string mobile = Request.Form["mobile"].ToString();
 
         JavaScriptSerializer json = new JavaScriptSerializer();
-        string getUrl = "http://game.luqinwenda.com/api/awards_set_address.aspx.aspx?openid=" + openid
+        string getUrl = "http://game.luqinwenda.com/api/awards_set_address.aspx?openid=" + openid
             + "&name=" + Server.UrlEncode(consignee) + "&cell=" + Server.UrlEncode(mobile) + "&address=" + Server.UrlEncode(address);
         string result = HTTPHelper.Get_Http(getUrl);
         Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(result);
