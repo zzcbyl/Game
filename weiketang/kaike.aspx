@@ -88,6 +88,7 @@
         function SupportVote(obj)
         {
             $(obj).css({ background: "#999", color: "#ccc" });
+            $(obj).attr("onclick", "");
             alert("谢谢支持！");
         }
     </script>
