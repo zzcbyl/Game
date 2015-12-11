@@ -33,7 +33,13 @@
                 if (ddd.Keys.Contains("open_id"))
                 {
                     if (openid == ddd["open_id"].ToString())
+                    {
                         isAward = 1;
+                        if (ddd.Keys.Contains("name") && ddd["name"] != "")
+                            this.btn_Draw.Enabled = false;
+                        else
+                            this.btn_Draw.Enabled = true;
+                    }
                     
                     nickName = getUserName(ddd["open_id"].ToString());
                     if (!nickName.Equals(""))
@@ -130,7 +136,7 @@
     </div>
     <script type="text/javascript">
         var cookieName = '<%=cName %>';
-        var isDraw = <%=isAward %>;
+        var isDraw = '<%=isAward %>';
         var result = "";
         $(document).ready(function () {
             if (isDraw != null) {
@@ -148,6 +154,8 @@
             setSupportCss();
             setCookieT(cookieName, "1", 1000000000);
             alert(result);
+            if (isDraw == "1")
+                document.forms[0].submit();
         }
         function setSupportCss() {
             $("#btnSupport").css({ background: "#999", color: "#ccc" });
