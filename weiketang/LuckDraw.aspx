@@ -100,7 +100,7 @@
         .comment_people li { padding: 3px 10px; margin:0; border-bottom: 1px dashed #C81623; overflow: hidden; line-height:30px; }
         .comment_people li .comment_name { float:left;}
         .comment_people li .comment_time { float:right;}
-        .btnCss { width: 100px; height: 40px; background: #E51925; color: #fff;  font-size: 14pt; border-radius: 5px; border: 0;}
+        .btnCss { width: 100px; height: 40px; background: #E51925; color: #fff;  font-size: 14pt; border-radius: 5px; border: 0; text-indent:0; line-height:40px;}
     </style>
     <script src="../script/jquery-1.3.2.min.js"></script>
     <script src="../script/common.js"></script>
@@ -115,9 +115,10 @@
             <a id="ASupported"></a>
             <div style="text-align:center;">
                 <form runat="server">
-                    <button id="btnSupport" class="btnCss" onclick="SupportVote(this);">抽 奖</button>
+                    <a id="btnSupport" class="btnCss" style="display:inline-block; margin:0 auto;" onclick="SupportVote(this);">抽 奖</a>
                     <asp:Button ID="btn_Draw" runat="server" Text="领 奖" CssClass="btnCss" Style="margin-left:10px;" Visible="false" OnClick="btn_Draw_Click" />
                 </form>
+                <div style="clear:both;"></div>
             </div>
         </div>
         <div class="comment_people">
