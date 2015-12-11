@@ -59,10 +59,10 @@
         HttpCookie cookie = Request.Cookies[cName];
         if (cookie != null && cookie.Value.Equals("1"))
         {
-            if (Request["id"] != null && Request["id"].ToString().Equals("1") && isAward == 1)
-            {
+            if (isAward == 1)
                 this.btn_Draw.Visible = true;
-            }
+            else
+                this.btn_Draw.Visible = false;
         }
     }
 
