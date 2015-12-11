@@ -16,22 +16,50 @@
     protected void Button1_Click(object sender, EventArgs e)
     {
         string openid = Request["openid"].ToString();
-        string address = Request.Form["hidprovince"].ToString() + Request.Form["hidcity"].ToString() + Request.Form["address"].ToString();
-        string consignee = Request.Form["consignee"].ToString();
-        string mobile = Request.Form["mobile"].ToString();
-
+        int isAward = 0;
         JavaScriptSerializer json = new JavaScriptSerializer();
-        string getUrl = "http://game.luqinwenda.com/api/awards_set_address.aspx?openid=" + openid
-            + "&name=" + Server.UrlEncode(consignee) + "&cell=" + Server.UrlEncode(mobile) + "&address=" + Server.UrlEncode(address);
+        string getUrl = "http://game.luqinwenda.com/api/awards_get_list.aspx";
         string result = HTTPHelper.Get_Http(getUrl);
         Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(result);
-        if (dic.Keys.Contains("status") && dic["status"].ToString() == "0")
+        if (dic["status"].Equals(0))
         {
-            Response.Redirect("SubmitSuccess.aspx");
+            ArrayList userList = (ArrayList)dic["awarded_users"];
+            foreach (var user in userList)
+            {
+                Dictionary<string, object> ddd = (Dictionary<string, object>)user;
+                if (ddd.Keys.Contains("open_id"))
+                {
+                    if (openid == ddd["open_id"].ToString())
+                    {
+                        isAward = 1;
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (isAward == 1)
+        {
+            string address = Request.Form["hidprovince"].ToString() + Request.Form["hidcity"].ToString() + Request.Form["address"].ToString();
+            string consignee = Request.Form["consignee"].ToString();
+            string mobile = Request.Form["mobile"].ToString();
+            getUrl = "http://game.luqinwenda.com/api/awards_set_address.aspx?openid=" + openid
+                + "&name=" + Server.UrlEncode(consignee) + "&cell=" + Server.UrlEncode(mobile) + "&address=" + Server.UrlEncode(address);
+            result = HTTPHelper.Get_Http(getUrl);
+            dic = json.Deserialize<Dictionary<string, object>>(result);
+            if (dic.Keys.Contains("status") && dic["status"].ToString() == "0")
+            {
+                Response.Redirect("SubmitSuccess.aspx");
+            }
+            else
+            {
+                Response.Write("提交失败");
+                Response.End();
+            }
         }
         else
         {
-            Response.Write("提交失败");
+            Response.Write("很遗憾，您没有中奖！");
             Response.End();
         }
     }
