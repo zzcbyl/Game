@@ -30,6 +30,7 @@ public class DBHelper
         return parametersKeyValuePairArr;
     }
 
+
     public static int UpdateData(string tableName, string[,] updateParameters, string[,] keyParameters, string connectionString)
     {
         return UpdateData(tableName, ConvertStringArryToKeyValuePairArray(updateParameters),
