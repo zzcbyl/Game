@@ -39,9 +39,9 @@
                     if (!nickName.Equals(""))
                     {
                         if (nickName.Length > 2)
-                        {
                             nickName = nickName.Substring(0, 2) + "**";
-                        }
+                        else
+                            nickName = nickName + "**";
                     }
                     else
                         nickName = "匿名网友";
