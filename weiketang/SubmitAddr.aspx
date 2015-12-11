@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" %>
+<%@ Import Namespace="System.Web.Script.Serialization" %>
 
 <!DOCTYPE html>
 
@@ -14,7 +15,25 @@
 
     protected void Button1_Click(object sender, EventArgs e)
     {
+        string openid = Request["openid"].ToString();
+        string address = Request.Form["hidprovince"].ToString() + Request.Form["hidcity"].ToString() + Request.Form["address"].ToString();
+        string consignee = Request.Form["consignee"].ToString();
+        string mobile = Request.Form["mobile"].ToString();
 
+        JavaScriptSerializer json = new JavaScriptSerializer();
+        string getUrl = "http://game.luqinwenda.com/api/awards_set_address.aspx.aspx?openid=" + openid
+            + "&name=" + Server.UrlEncode(consignee) + "&cell=" + Server.UrlEncode(mobile) + "&address=" + Server.UrlEncode(address);
+        string result = HTTPHelper.Get_Http(getUrl);
+        Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(result);
+        if (dic.Keys.Contains("status") && dic["status"].ToString() == "0")
+        {
+            Response.Redirect("SubmitSuccess.aspx");
+        }
+        else
+        {
+            Response.Write("提交失败");
+            Response.End();
+        }
     }
 </script>
 
@@ -61,6 +80,8 @@
                 <div style="margin-top:10px; text-align:center;">
                     <div style="padding-bottom:10px;"><span id="errorMsg" style="color:red;"></span></div>
                     <asp:Button ID="Button1" runat="server" Text="提交" CssClass="btnCss" OnClientClick="return SubOrder();" OnClick="Button1_Click" />
+                    <input type="hidden" id="hidprovince" name="hidprovince" />
+                    <input type="hidden" id="hidcity" name="hidcity" />
                 </div>
             </div>
         </div>
@@ -101,14 +122,17 @@
             if ($("#address").val().Trim() == "") {
                 $("#errorMsg").html("请输入详细地址");
                 return false;
-            }      
+            }
+
+            $("#hidprovince").val($("#province option:selected").text());
+            $("#hidcity").val($("#city option:selected").text());
         }
 
         function so_fillProvince() {
             $.ajax({
                 type: "get",
                 async: false,
-                url: 'http://192.168.1.38:8002/api/area_get_subarea_by_parentid.aspx',
+                url: 'http://game.luqinwenda.com/api/area_get_subarea_by_parentid.aspx',
                 data: { random: Math.random() },
                 success: function (data, textStatus) {
                     var obj = eval('(' + data + ')');
@@ -129,7 +153,7 @@
             $.ajax({
                 type: "get",
                 async: false,
-                url: 'http://192.168.1.38:8002/api/area_get_subarea_by_parentid.aspx',
+                url: 'http://game.luqinwenda.com/api/area_get_subarea_by_parentid.aspx',
                 data: { parentid: pid, random: Math.random() },
                 success: function (data, textStatus) {
                     var obj = eval('(' + data + ')');

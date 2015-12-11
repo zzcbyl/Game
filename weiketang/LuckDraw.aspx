@@ -1,19 +1,83 @@
 ﻿<%@ Page Language="C#" %>
+<%@ Import Namespace="System.Web.Script.Serialization" %>
 
 <!DOCTYPE html>
 
 <script runat="server">
     public string cName = "IamName_Draw";
+    public string ListStr = "";
+    public int isAward = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Request["openid"] == null)
+        {
+            Response.Write("参数错误");
+            Response.End();
+        }
+        string openid = Request["openid"].ToString();
+        
+        JavaScriptSerializer json = new JavaScriptSerializer();
+        string getUrl = "http://game.luqinwenda.com/api/awards_get_list.aspx";
+        string result = HTTPHelper.Get_Http(getUrl);
+        Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(result);
+        if (dic["status"].Equals(0))
+        {
+            ArrayList userList = (ArrayList)dic["awarded_users"];
+            string nickName = "";
+            string dt = "";
+            foreach (var user in userList)
+            {
+                nickName = "";
+                dt = "";
+                Dictionary<string, object> ddd = (Dictionary<string, object>)user;
+                if (ddd.Keys.Contains("open_id"))
+                {
+                    if (openid == ddd["open_id"].ToString())
+                        isAward = 1;
+                    
+                    nickName = getUserName(ddd["open_id"].ToString());
+                    if (!nickName.Equals(""))
+                    {
+                        if (nickName.Length > 2)
+                        {
+                            nickName = nickName.Substring(0, 2) + "**";
+                        }
+                    }
+                    else
+                        nickName = "匿名网友";
+                }
+                if (ddd.Keys.Contains("draw_date_time"))
+                {
+                    dt = ddd["draw_date_time"].ToString();
+                }
+
+                string str = "<li><div class=\"comment_name\">{0}</div><div class=\"comment_time\">{1}</div></li>";
+                ListStr += string.Format(str, nickName, dt);
+            }
+        }
+
         HttpCookie cookie = Request.Cookies[cName];
         if (cookie != null && cookie.Value.Equals("1"))
         {
-            if (Request["id"] != null && Request["id"].ToString().Equals("1"))
+            if (Request["id"] != null && Request["id"].ToString().Equals("1") && isAward == 1)
             {
                 this.btn_Draw.Visible = true;
             }
         }
+    }
+
+    private string getUserName(string openid)
+    {
+        string name = "";
+        JavaScriptSerializer json = new JavaScriptSerializer();
+        string getUrl = "http://weixin.luqinwenda.com/dingyue/getuserinfo.aspx?openid=" + openid;
+        string result = HTTPHelper.Get_Http(getUrl);
+        Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(result);
+        if (dic.Keys.Contains("nickname"))
+        {
+            name = dic["nickname"].ToString();
+        }
+        return name;
     }
 
     protected void btn_Draw_Click(object sender, EventArgs e)
@@ -59,20 +123,13 @@
         <div class="comment_people">
             <h4>中奖用户</h4>
             <ul id="commentlist">
-                <li>
-                    <div class="comment_name">匿名网友</div>
-                    <div class="comment_time">2015-08-17 21:58:25</div>
-                </li>
-                <li>
-                    <div class="comment_name">匿名网友</div>
-                    <div class="comment_time">2015-08-17 21:58:13</div>
-                </li>
+                <%=ListStr %>
             </ul>
         </div>
     </div>
     <script type="text/javascript">
         var cookieName = '<%=cName %>';
-        var isDraw = QueryString("id");
+        var isDraw = <%=isAward %>;
         var result = "";
         $(document).ready(function () {
             if (isDraw != null) {
@@ -83,9 +140,7 @@
             }
 
             if (getCookie(cookieName) != null) {
-                if (isDraw != null) {
-                    setSupportCss()
-                }
+                setSupportCss()
             }
         });
         function SupportVote() {
