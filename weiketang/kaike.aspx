@@ -31,6 +31,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>微课邀请函</title>
     <script src="../script/jquery-1.3.2.min.js"></script>
+    <script src="../script/common.js"></script>
 </head>
 <body>
     <div style="max-width: 640px; margin: 0 auto;">
@@ -78,17 +79,35 @@
             </div>
             <div>群邀请码：<span style="font-family:微软雅黑; font-size:14pt; font-weight:bold;"><%=code %></span></div>
             <div>
-                <button style="width:90px; height:40px; background:#E51925; color:#fff; display:block; line-height:40px; margin:30px auto 0; font-size:14pt; border-radius:5px; border:0;" onclick="SupportVote(this);">支 持</button>
+                <button id="btnSupport" style="width:90px; height:40px; background:#E51925; color:#fff; display:block; line-height:40px; margin:30px auto 0; font-size:14pt; border-radius:5px; border:0;" onclick="SupportVote(this);">支 持</button>
             </div>
-            <div style="text-align:center; font-size:11pt; color:#808080; font-family:微软雅黑;">已有<%=forward_count %>人支持</div>
+            <div style="text-align:center; font-size:11pt; color:#808080; font-family:微软雅黑;">已有<span id="spCount"><%=forward_count %></span>人支持</div>
         </div>
         <br /><br /><br />
     </div>
     <script type="text/javascript">
-        function SupportVote(obj)
+        var cookieName = '<%=code %>';
+        var isCookie = 0;
+        $(document).ready(function () {
+            if (getCookie(cookieName) != null) {
+                setSupportCss();
+                isCookie = 1;
+            }
+            else {
+                if (parseInt($("#spCount").html()) > 0)
+                    $("#spCount").html(parseInt($("#spCount").html()) - 1);
+            }
+        });
+        function setSupportCss()
         {
-            $(obj).css({ background: "#999", color: "#ccc" });
-            $(obj).attr("onclick", "");
+            $("#btnSupport").css({ background: "#999", color: "#ccc" });
+            $("#btnSupport").attr("onclick", "");
+        }
+        function SupportVote()
+        {
+            $("#spCount").html(parseInt($("#spCount").html()) + 1);
+            setSupportCss();
+            setCookieT(cookieName, "1", 1000000000);
             alert("谢谢支持！");
         }
     </script>
