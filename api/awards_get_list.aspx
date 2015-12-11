@@ -10,8 +10,8 @@
         {
             string fieldsJson = "";
             foreach (DataColumn c in dt.Columns)
-            { 
-                fieldsJson = fieldsJson + ",\"" + c.Caption.Trim() + "\":\"" + dr[c].ToString().Trim() + "\"" 
+            {
+                fieldsJson = fieldsJson + ",\"" + c.Caption.Trim() + "\":\"" + dr[c].ToString().Trim() + "\""; 
             }
             if (fieldsJson.StartsWith(","))
                 fieldsJson = fieldsJson.Remove(0,1);
