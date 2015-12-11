@@ -36,9 +36,10 @@
                     {
                         isAward = 1;
                         if (ddd.Keys.Contains("name") && ddd["name"] != "")
+                        {
                             this.btn_Draw.Enabled = false;
-                        else
-                            this.btn_Draw.Enabled = true;
+                            isAward = 2;
+                        }
                     }
                     
                     nickName = getUserName(ddd["open_id"].ToString());
@@ -65,7 +66,7 @@
         HttpCookie cookie = Request.Cookies[cName];
         if (cookie != null && cookie.Value.Equals("1"))
         {
-            if (isAward == 1)
+            if (isAward >= 1)
                 this.btn_Draw.Visible = true;
             else
                 this.btn_Draw.Visible = false;
@@ -142,8 +143,12 @@
             if (isDraw != null) {
                 if (isDraw == "0")
                     result = "很遗憾，您没有中奖。";
-                else
+                else if (isDraw == "1")
                     result = "恭喜您，已中奖！";
+                else if (isDraw == "2") {
+                    result = "恭喜您，已中奖且已领奖！";
+                    $('#<%=btn_Draw.ClientID %>').css({ background: "#999", color: "#ccc" });
+                }
             }
 
             if (getCookie(cookieName) != null) {
