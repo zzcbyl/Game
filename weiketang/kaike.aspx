@@ -78,8 +78,9 @@
                 请点击下面的支持按钮哦！
             </div>
             <div>群邀请码：<span style="font-family:微软雅黑; font-size:14pt; font-weight:bold;"><%=code %></span></div>
-            <div>
-                <button id="btnSupport" style="width:90px; height:40px; background:#E51925; color:#fff; display:block; line-height:40px; margin:30px auto 0; font-size:14pt; border-radius:5px; border:0;" onclick="SupportVote(this);">支 持</button>
+            <div style="margin-top:30px;">
+                <a id="ASupported" style="display:none;">您已支持，谢谢！</a>
+                <button id="btnSupport" style="width:90px; height:40px; background:#E51925; color:#fff; display:block; line-height:40px; margin:0px auto; font-size:14pt; border-radius:5px; border:0;" onclick="SupportVote(this);">支 持</button>
             </div>
             <div style="text-align:center; font-size:11pt; color:#808080; font-family:微软雅黑;">已有<span id="spCount"><%=forward_count %></span>人支持</div>
         </div>
@@ -92,6 +93,7 @@
             if (getCookie(cookieName) != null) {
                 setSupportCss();
                 isCookie = 1;
+                $("#ASupported").show();
             }
             else {
                 if (parseInt($("#spCount").html()) > 0)
@@ -106,6 +108,7 @@
         function SupportVote()
         {
             $("#spCount").html(parseInt($("#spCount").html()) + 1);
+            $("#ASupported").show();
             setSupportCss();
             setCookieT(cookieName, "1", 1000000000);
             alert("谢谢支持！");
