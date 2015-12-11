@@ -30,6 +30,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>微课堂邀请函</title>
+    <script src="../script/jquery-1.3.2.min.js"></script>
 </head>
 <body>
     <div style="max-width: 640px; margin: 0 auto;">
@@ -76,12 +77,19 @@
                 请点击下面的支持按钮哦！
             </div>
             <div>群邀请码：<span style="font-family:微软雅黑; font-size:14pt; font-weight:bold;"><%=code %></span></div>
-            <div style="margin-top:30px;">
-                <a><img src="../images/btn_zhichi.png" style="width:200px;" /> </a>
+            <div>
+                <a style="width:90px; height:40px; background:#E51925; color:#fff; display:block; line-height:40px; margin:30px auto 0; font-size:14pt; border-radius:5px;" onclick="SupportVote(this);">支 持</a>
             </div>
             <div style="text-align:center; font-size:11pt; color:#808080; font-family:微软雅黑;">已有<%=forward_count %>人支持</div>
         </div>
         <br /><br /><br />
     </div>
+    <script type="text/javascript">
+        function SupportVote(obj)
+        {
+            $(obj).css({ background: "#999", color: "#ccc" });
+            alert("谢谢支持！");
+        }
+    </script>
 </body>
 </html>
