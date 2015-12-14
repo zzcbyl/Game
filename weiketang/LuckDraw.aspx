@@ -179,8 +179,8 @@
         </div>
         <div style="margin-top: 5px; background: #fff; padding: 10px;">
             　<b>活动规则：</b><br />
-            　1. 活动期间内，用户微信搜索并关注“luqinwendapingtai”订阅号，输入“抽奖”；<br />
-            　2. 弹出抽奖图文消息，点击进入进行抽奖；<br />
+            　1. 活动期间内，用户微信搜索并关注“luqinwendapingtai”，输入“抽奖”；<br />
+            　2. 弹出抽奖图文消息，点击进入，进行抽奖；<br />
             　3. 每个用户只可参与一次。
         </div>
         <div style="margin-top: 5px; background: #fff; padding: 10px;">
