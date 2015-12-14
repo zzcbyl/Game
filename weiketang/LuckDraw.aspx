@@ -113,10 +113,25 @@
     <script src="../script/common.js"></script>
 </head>
 <body style="background: #C81623;">
-    <div style="max-width: 640px; margin: 0 auto;">
+    <div style="max-width: 640px; margin: 0 auto; font-size:12pt;">
         <img src="../images/draw_banner.jpg" width="100%" />
-        <div style="margin-top: 5px; text-indent: 20px; line-height: 28px; background: #fff; padding: 10px;">
-            感谢大家参加“卢勤公益微课堂”，迄今为止，“微课堂”已经讲了三期，感谢父母们对“微课堂”的关注和热情支持，为了回馈广大听众，我们特地为今天的听众准备了抽奖活动，中奖用户可获得卢勤老师亲笔签名书一本，以感谢广大听众的热情参与，中奖的听众请及时填写邮寄信息，未中奖听众也不要灰心，请持续关注下期的回馈活动。
+        <div style="margin-top: 5px; line-height: 25px; background: #fff; padding: 10px;">
+            　抽奖啦！！！感谢大家参加“卢勤公益微课堂”，迄今为止，“微课堂”已经讲了三期，感谢父母们对“微课堂”的关注和热情支持，为了回馈广大听众，我们特地为今天的听众准备了抽奖活动，中奖用户有机会获得卢老师亲笔签名书一本，名额有限，望大家积极参与，中奖的听众请及时填写邮寄信息，未中奖听众也不要灰心，请持续关注下期的回馈活动。
+        </div>
+        <div style="margin-top: 5px; line-height: 22px; background: #fff; padding: 10px;">
+            　<b>活动规则：</b><br />
+            　1. 活动期间内，用户微信搜索并关注“luqinwendapingtai”订阅号，输入“抽奖”；<br />
+            　2. 弹出抽奖图文消息，点击进入进行抽奖;<br />
+            　3. 每个用户只可参与一次。
+        </div>
+        <div style="margin-top: 5px; line-height: 22px; background: #fff; padding: 10px;">
+            　<b>活动奖励：</b><br />
+            　1. “我要学演说”冬令营免费参营券；参加“我要说演说”让孩子敢说话，会说话，说自己的话，善于运用语言的力量；<br />
+            　2. 卢勤老师亲笔签名书《和烦恼说再见》、浓缩了卢勤30多年教育思想和方法的精华。全书29个单元，每个单元围绕孩子成长过程中不可回避的一类烦恼，比如歧视、误解、嫉妒、自卑等等；<br />
+            　3. 卢勤老师亲笔签名书《长大不容易》、书中以数百个生动、鲜活的家教实例，让人深刻体味到“成长有规律，长大不容易”，是家长与孩子可以共同阅读一生的教育书、亲情书；<br />
+            　4. 5元书城抵用券；<br />
+            　5. 2元书城抵用券。<br />
+            　此次活动最终解释权归卢勤问答平台所有。
         </div>
         <div style="margin-top: 5px; text-indent: 20px; line-height: 28px; background: #fff; padding: 10px; text-align:center;">
             <a id="ASupported"></a>
