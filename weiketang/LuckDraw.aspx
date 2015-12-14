@@ -86,10 +86,12 @@
                     string _award = ddd["award"].ToString().Trim();
                     if (_award.IndexOf(":") > -1)
                         _award = _award.Substring(0, 1) + "元代金券";
+                    else if (_award == "“我要学演说”冬令营免费参营券")
+                    { }
                     else
                         _award = "《" + _award + "》";
 
-                    nickName += " 获得" + _award;
+                    nickName += " 获得 <span style='color:red;'>" + _award + "</span>";
                 }
                 if (ddd.Keys.Contains("create_date_time"))
                 {
@@ -114,7 +116,7 @@
     private string getUserName(string openid)
     {
         if (openid == "o5gjRtzY3ed3x7eIeLtGqtUSMvvs")
-            return "山东果妈";
+            return "果妈山东";
         if (openid == "o5gjRtzY3ed3x7e56tGq34tUMxyc")
             return "曼曼爸 沈阳";
         
