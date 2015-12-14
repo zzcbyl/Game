@@ -6,7 +6,7 @@
 <script runat="server">
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Request["openid"] == null)
+        if (Request["openid"] == null || Request["id"] == null)
         {
             Response.Write("参数错误");
             Response.End();
@@ -16,27 +16,19 @@
     protected void Button1_Click(object sender, EventArgs e)
     {
         string openid = Request["openid"].ToString();
+        string id = Request["id"].ToString();
         int isAward = 0;
         JavaScriptSerializer json = new JavaScriptSerializer();
-        string getUrl = "http://game.luqinwenda.com/api/awards_get_list.aspx";
+        string getUrl = "http://game.luqinwenda.com/api/awards_get_info.aspx?id=" + id + "&openid=" + openid;
         string result = HTTPHelper.Get_Http(getUrl);
         Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(result);
         if (dic["status"].Equals(0))
         {
-            ArrayList userList = (ArrayList)dic["awarded_users"];
-            foreach (var user in userList)
-            {
-                Dictionary<string, object> ddd = (Dictionary<string, object>)user;
-                if (ddd.Keys.Contains("open_id"))
-                {
-                    if (openid == ddd["open_id"].ToString())
-                    {
-                        isAward = 1;
-                        break;
-                    }
-                }
-            }
+            isAward = 1;
         }
+        else
+            isAward = 0;
+        
 
         if (isAward == 1)
         {

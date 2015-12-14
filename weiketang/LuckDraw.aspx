@@ -132,7 +132,7 @@
             if (AwardType == 1)
                 Response.Redirect("Coupon_draw.aspx?amount=" + CouponAmount + "&code=" + CouponCode);
             else
-                Response.Redirect("SubmitAddr.aspx?openid=" + Request["openid"].ToString());
+                Response.Redirect("SubmitAddr.aspx?id=" + Request["id"].ToString() + "&openid=" + Request["openid"].ToString());
         }
     }
 </script>
