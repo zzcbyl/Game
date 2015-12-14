@@ -165,7 +165,7 @@
     <div style="max-width: 640px; margin: 0 auto; font-size:11pt; line-height: 22px;">
         <img src="../images/draw_banner.jpg" width="100%" />
         <div style="margin-top: 5px; background: #fff; padding: 10px;">
-            　抽奖啦！！！感谢大家参加“卢勤公益微课堂”，迄今为止，“微课堂”已经讲了三期，感谢父母们对“微课堂”的关注和热情支持，为了回馈广大听众，我们特地为今天的听众准备了抽奖活动，以感谢广大听众的热情参与。
+            　抽奖啦！！！“卢勤公益微课堂”在父母们的关注和热情支持下已经开讲三期，为了回馈父母们的持续热情，我们特地为今天的父母们准备了抽奖活动，欢迎广大听众踊跃参与。
         </div>
         <div style="margin-top: 5px; text-indent: 20px; line-height: 28px; background: #fff; padding: 10px; text-align:center;">
             <a id="ASupported"></a>
