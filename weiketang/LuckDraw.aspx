@@ -47,13 +47,10 @@
             isAward = 0;
         
         
-        
-        
-        
-        
-        
-        
-        /*if (dic["status"].Equals(0))
+        getUrl = "http://game.luqinwenda.com/api/awards_get_list.aspx";
+        result = HTTPHelper.Get_Http(getUrl);
+        dic = json.Deserialize<Dictionary<string, object>>(result);
+        if (dic["status"].Equals(0))
         {
             ArrayList userList = (ArrayList)dic["awarded_users"];
             string nickName = "";
@@ -74,7 +71,7 @@
                             isAward = 2;
                         }
                     }
-                    
+
                     nickName = getUserName(ddd["open_id"].ToString());
                     if (!nickName.Equals(""))
                     {
@@ -85,16 +82,24 @@
                     }
                     else
                         nickName = "匿名网友";
+
+                    string _award = ddd["award"].ToString().Trim();
+                    if (_award.IndexOf(":") > -1)
+                        _award = _award.Substring(0, 1) + "元代金券";
+                    else
+                        _award = "《" + _award + "》";
+
+                    nickName += " 获得" + _award;
                 }
-                if (ddd.Keys.Contains("draw_date_time"))
+                if (ddd.Keys.Contains("create_date_time"))
                 {
-                    dt = ddd["draw_date_time"].ToString();
+                    dt = ddd["create_date_time"].ToString();
                 }
 
                 string str = "<li><div class=\"comment_name\">{0}</div><div class=\"comment_time\">{1}</div></li>";
                 ListStr += string.Format(str, nickName, dt);
             }
-        }*/
+        }
 
         HttpCookie cookie = Request.Cookies[cName];
         if (cookie != null && cookie.Value.Equals("1"))
@@ -143,11 +148,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>卢勤微课堂幸运抽奖活动</title>
     <style type="text/css">
-        .comment_people { background:#fff; margin-top:5px; padding:10px 0; }
+        .comment_people { background:#fff; margin-top:5px; padding:5px 0; }
         .comment_people p { margin:0;}
         .comment_people h4 { padding:10px 0 0 10px; margin:0;}
-        .comment_people ul {  border-top: 1px solid #C81623; padding:10px 0 0; font-size:11pt; color:#4f4f4f;}
-        .comment_people li { padding: 3px 10px; margin:0; border-bottom: 1px dashed #C81623; overflow: hidden; line-height:30px; }
+        .comment_people ul {  border-top: 1px solid #C81623; padding:5px 0 0; font-size:10pt; color:#4f4f4f;}
+        .comment_people li { padding: 3px 10px; margin:0; border-bottom: 1px dashed #C81623; overflow: hidden; line-height:25px; }
         .comment_people li .comment_name { float:left;}
         .comment_people li .comment_time { float:right;}
         .btnCss { width: 100px; height: 40px; background: #E51925; color: #fff;  font-size: 14pt; border-radius: 5px; border: 0; text-indent:0; line-height:40px;}
