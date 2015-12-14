@@ -26,6 +26,8 @@ public class Coupon
         }
 	}
 
+
+
     public int Id
     {
         get
