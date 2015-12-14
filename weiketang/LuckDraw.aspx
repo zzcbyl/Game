@@ -64,7 +64,6 @@
                 {
                     if (openid == ddd["open_id"].ToString())
                     {
-                        isAward = 1;
                         if (ddd.Keys.Contains("name") && ddd["name"] != "")
                         {
                             this.btn_Draw.Enabled = false;
@@ -213,9 +212,9 @@
                 if (isDraw == "0")
                     result = "很遗憾，您没有中奖。";
                 else if (isDraw == "1")
-                    result = "恭喜您，获得" + AwardName + "!";
+                    result = "恭喜您，获得" + AwardName + "！";
                 else if (isDraw == "2") {
-                    result = "恭喜您，获得" + AwardName + "!，您已领奖！";
+                    result = "恭喜您，获得" + AwardName + "，您已领奖！";
                     $('#<%=btn_Draw.ClientID %>').css({ background: "#999", color: "#ccc" });
                 }
             }
