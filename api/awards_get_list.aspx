@@ -42,16 +42,22 @@
             dt.Rows.Add(dr);
         }
         string awardedOpenId = "";
+        int i = 0;
         foreach (DataRow dr in dt.Rows)
         {
+            
             string fieldsJson = "";
             foreach (DataColumn c in dt.Columns)
             {
                 fieldsJson = fieldsJson + ",\"" + c.Caption.Trim() + "\":\"" + dr[c].ToString().Trim() + "\"";
+                
             }
             if (fieldsJson.StartsWith(","))
                 fieldsJson = fieldsJson.Remove(0, 1);
             awardedOpenId = awardedOpenId + ",{" + fieldsJson + " }";
+            i++;
+            if (i > 60)
+                break;
         }
         if (awardedOpenId.StartsWith(","))
             awardedOpenId = awardedOpenId.Remove(0, 1);
