@@ -64,7 +64,7 @@
                 {
                     if (openid == ddd["open_id"].ToString())
                     {
-                        if (ddd.Keys.Contains("name") && ddd["name"] != "")
+                        if (ddd.Keys.Contains("name") && ddd["name"].ToString() != "")
                         {
                             this.btn_Draw.Enabled = false;
                             isAward = 2;
@@ -118,16 +118,20 @@
             return "果妈山东";
         if (openid == "o5gjRtzY3ed3x7e56tGq34tUMxyc")
             return "曼曼爸 沈阳";
-        
-        string name = "";
-        JavaScriptSerializer json = new JavaScriptSerializer();
-        string getUrl = "http://weixin.luqinwenda.com/dingyue/getuserinfo.aspx?openid=" + openid;
-        string result = HTTPHelper.Get_Http(getUrl);
-        Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(result);
-        if (dic.Keys.Contains("nickname"))
+
+        string name = "匿名网友";
+        try
         {
-            name = dic["nickname"].ToString();
+            JavaScriptSerializer json = new JavaScriptSerializer();
+            string getUrl = "http://weixin.luqinwenda.com/dingyue/getuserinfo.aspx?openid=" + openid;
+            string result = HTTPHelper.Get_Http(getUrl);
+            Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(result);
+            if (dic.Keys.Contains("nickname"))
+            {
+                name = dic["nickname"].ToString();
+            }
         }
+        catch { }
         return name;
     }
 
@@ -200,6 +204,10 @@
             <ul id="commentlist">
                 <%=ListStr %>
             </ul>
+            <div id="pageDiv" style="text-align:center; margin-top:10px;">
+				<button class="btn btn-danger" >上一页</button>　
+				<button class="btn btn-danger" >下一页</button>
+			</div>
         </div>
     </div>
     <script type="text/javascript">
