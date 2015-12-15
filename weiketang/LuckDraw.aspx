@@ -123,7 +123,7 @@
         try
         {
             JavaScriptSerializer json = new JavaScriptSerializer();
-            string getUrl = "http://weixin.luqinwenda.com/dingyue/getuserinfo.aspx?openid=" + openid;
+            string getUrl = "http://weixin.luqinwenda.com/dingyue/get_user_info.aspx?openid=" + openid;
             string result = HTTPHelper.Get_Http(getUrl);
             Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(result);
             if (dic.Keys.Contains("nickname"))
