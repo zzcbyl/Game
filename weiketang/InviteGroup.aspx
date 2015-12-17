@@ -58,6 +58,7 @@
         <img src="../images/wkt_invite.jpg" width="100%" />
         <div style="text-align:center; line-height:30px; background:#fff; padding:10px;">
             <div style="margin-top:10px;">群邀请码：<span style="font-family:微软雅黑; font-size:14pt; font-weight:bold;"><%=code %></span></div>
+            <div style="text-align:center; font-size:11pt; color:#808080; font-family:微软雅黑;">已有<span id="spCount"><%=forward_count %></span>人支持</div>
             <div style="text-align:left; margin-top:10px;">
                 　　参与活动说明：我要参加卢勤公益微课堂报名，请大家支持我，这是我盼望已久的事情！<br />
                 　　1. 首次报名在线讲座，请先关注卢勤问答平台微信公号（ID：luqinwendapingtai）<br />
@@ -65,11 +66,12 @@
                 　　如果您集满10票，就可以申请加入卢勤微课群。<br />
                 　　满300票可以邀请卢勤公益微课堂在您的群（群里的人数需要超过300）中授课。</div>
             <div style="margin-top:10px;">群邀请码：<span style="font-family:微软雅黑; font-size:14pt; font-weight:bold;"><%=code %></span></div>
+            <div style="text-align:center; font-size:11pt; color:#808080; font-family:微软雅黑;">已有<span id="spCount"><%=forward_count %></span>人支持</div>
             <div style="margin-top:30px;">
                 <a id="ASupported" style="display:none;">您已支持，谢谢！</a>
                 <button id="btnSupport" style="width:90px; height:40px; background:#E51925; color:#fff; display:block; line-height:40px; margin:0px auto; font-size:14pt; border-radius:5px; border:0;" onclick="SupportVote(this);">支 持</button>
+                <br />
             </div>
-            <div style="text-align:center; font-size:11pt; color:#808080; font-family:微软雅黑;">已有<span id="spCount"><%=forward_count %></span>人支持</div>
         </div>
         <div style="text-align:left; line-height:30px; background:#fff; padding:10px; margin-top:10px;">
             <p style="text-align:center;">
