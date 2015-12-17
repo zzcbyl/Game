@@ -50,6 +50,8 @@
     <script src="../script/jquery-1.3.2.min.js"></script>
     <script src="../script/common.js"></script>
     <style type="text/css">
+        div { line-height:25px; }
+        p { line-height:25px; }
         .promptDiv { width:180px; height:200px;  color:#000; position:absolute; z-index:20; font-size:14pt; line-height:30pt; text-align:center;}
     </style>
 </head>
@@ -62,6 +64,7 @@
             <div style="text-align:left; margin-top:10px;">
                 　　参与活动说明：我要参加卢勤公益微课堂报名，请大家支持我，这是我盼望已久的事情！<br />
                 　　1. 首次报名在线讲座，请先关注卢勤问答平台微信公号（ID：luqinwendapingtai）<br />
+                    <div style="text-align:center;"><img src="../images/dyh_code_min.jpg" width="40%" /></div>
                 　　2. 在微信公众号直接回复关键词：微课，查询申请入群的方法。<br />
                 　　如果您集满10票，就可以申请加入卢勤微课群。<br />
                 　　满300票可以邀请卢勤公益微课堂在您的群（群里的人数需要超过300）中授课。</div>
