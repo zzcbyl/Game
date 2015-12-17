@@ -101,11 +101,12 @@
             <img src="../images/dyh_code1.jpg" style="width:100%; " />
         </div>
     </div>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
         var shareTitle = "请大家支持我，完成我的心愿，分享最棒的资源"; //标题
         var shareImg = "http://game.luqinwenda.com/images/wkt_share_icon.jpg"; //图片
         var shareContent = '我要参加卢勤公益微课堂报名，请大家支持我，这是我盼望已久的事情！'; //简介
-        var shareLink = ''; //链接
+        var shareLink = document.URL; //链接
 
         wx.config({
             debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
@@ -117,8 +118,10 @@
                     'onMenuShareTimeline',
                     'onMenuShareAppMessage']
         });
+
         $(document).ready(function () {
             shareLink = document.URL;
+
             wx.ready(function () {
                 //分享到朋友圈
                 wx.onMenuShareTimeline({
@@ -135,7 +138,7 @@
                 wx.onMenuShareAppMessage({
                     title: shareTitle, // 分享标题
                     desc: shareContent, // 分享描述
-                    link: 'http://game.luqinwenda.com/dingyue/activity01.aspx', // 分享链接
+                    link: shareLink, // 分享链接
                     imgUrl: shareImg, // 分享图标
                     success: function () {
                         // 用户确认分享后执行的回调函数
