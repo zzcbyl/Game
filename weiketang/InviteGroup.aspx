@@ -88,7 +88,9 @@
             <p>　　一个人没有孝心是不能称其为人的。父母最牵挂的就是自己的孩子，让孩子认知父母现在所做的一切，在父母晚年的时候能赡养、善待父母。如何让孩子去用心地体会父母，倾听父母？本次，卢勤老师将带来本年度最感人的一节课，关于孝心和榜样。父母和孩子共同收听，一起收获感动的力量。</p>
             <p><b>课程名称：</b>孝心，凝聚家人的力量</p>
             <p><b>开课时间：</b>12月22日（周二）20:00-21:00</p>
-            <p><b>课程形式：</b>卢勤问答平台微信群</p>
+            <p><b>课程形式：</b>卢勤和她的朋友们微课堂群<br />
+                　　　　　合作转播群<br />
+                　　　　　（申请转播细则请在订阅号中查询）</p>
             <p><b>适合人群：</b>愿意为孩子创造良好家庭教育环境的家长、准家长、教育工作者等。</p>
         </div>
     </div>
@@ -100,9 +102,8 @@
         </div>
     </div>
     <script type="text/javascript">
-
         var shareTitle = "请大家支持我，完成我的心愿，分享最棒的资源"; //标题
-        var shareImg = "http://game.luqinwenda.com/dingyue/images/act1_1.jpg"; //图片
+        var shareImg = "http://game.luqinwenda.com/images/wkt_share_icon.jpg"; //图片
         var shareContent = '我要参加卢勤公益微课堂报名，请大家支持我，这是我盼望已久的事情！'; //简介
         var shareLink = ''; //链接
         $(document).ready(function () {
