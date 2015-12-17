@@ -92,6 +92,7 @@
     <div id="showShare" style="display:none;" onclick="javascript:document.getElementById('showShare').style.display='none';">
         <div class="bgDiv" style="width:100%; height:100%; background:#ccc; color:#000; position:absolute; top:-10px; left:0px; text-align:center; filter:alpha(opacity=90); -moz-opacity:0.9;-khtml-opacity: 0.9; opacity: 0.9;  z-index:9;"></div>
         <div class="promptDiv" style="font-size:12pt; width:80%; top:20pt; left:10%; background:#fff;">
+            <div style="line-height:20px; text-align:left; padding:10px;">长按指纹识别二维码，关注“卢勤问答平台”，回复邀请码进行支持</div>
             <img src="../images/dyh_code1.jpg" style="width:100%; " />
         </div>
     </div>
