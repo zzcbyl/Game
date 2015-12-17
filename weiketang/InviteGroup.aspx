@@ -27,7 +27,7 @@
             {
                 code = Request["id"].ToString();
                 code = code.PadLeft(4, '0');
-                code = "K" + code;
+                code = "W" + code;
                 System.Web.Script.Serialization.JavaScriptSerializer json = new System.Web.Script.Serialization.JavaScriptSerializer();
                 string getNumUrl = "http://weixin.luqinwenda.com/dingyue/api/group_master_get_vote_num.aspx?id=" + Request["id"].ToString();
                 string resultNum = HTTPHelper.Get_Http(getNumUrl);
