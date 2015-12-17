@@ -22,8 +22,11 @@
             string shaString = "jsapi_ticket=" + ticket.Trim() + "&noncestr=" + nonceStr.Trim()
                 + "&timestamp=" + timeStamp.Trim() + "&url=" + Request.Url.ToString().Trim();
             shaParam = Util.GetSHA1(shaString);
-
-            if (Request["id"] != null && Request["id"] != "")
+        }
+        catch { }
+        if (Request["id"] != null && Request["id"] != "")
+        {
+            try
             {
                 code = Request["id"].ToString();
                 code = code.PadLeft(4, '0');
@@ -37,8 +40,8 @@
                     forward_count = dicNum["num"].ToString();
                 }
             }
+            catch { }
         }
-        catch { }
     }
 </script>
 
