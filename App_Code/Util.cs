@@ -203,4 +203,25 @@ public class Util
         bmpOut2.Dispose();
         lastbmp.Dispose();
     }
+
+    public static string ticket = string.Empty;
+    public static DateTime ticketTime = DateTime.MinValue;
+    public static string GetTicket()
+    {
+        if (ticketTime < DateTime.Now)
+        {
+            try
+            {
+                string jsonStrForTicket = Util.GetWebContent("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token="
+                        + Util.GetToken() + "&type=jsapi", "get", "", "form-data");
+                JavaScriptSerializer serializer = new JavaScriptSerializer();
+                Dictionary<string, object> json = (Dictionary<string, object>)serializer.DeserializeObject(jsonStrForTicket);
+                object v;
+                ticket = json.TryGetValue("ticket", out v).ToString();
+                ticketTime = DateTime.Now.AddMinutes(10);
+            }
+            catch { }
+        }
+        return ticket;
+    }
 }
