@@ -91,14 +91,9 @@ public class Util
 
     public static string GetToken()
     {
-        DateTime nowDate = DateTime.Now;
-        if (nowDate - tokenTime > new TimeSpan(0, 10, 0))
-        {
-            token = ForceGetToken();
-        }
-        return token;
+        return GetWebContent("http://weixin.luqinwenda.com/dingyue/get_token.aspx", "get", "", "html/xml");
     }
-
+    /*
     public static string ForceGetToken()
     {
         DateTime nowDate = DateTime.Now;
@@ -107,7 +102,7 @@ public class Util
         tokenTime = nowDate;
         return token;
 
-    }
+    }*/
 
     public static string GetAccessToken(string appId, string appSecret)
     {
