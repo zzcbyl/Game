@@ -4,8 +4,10 @@
 <!DOCTYPE html>
 
 <script runat="server">
-    public string cName = "IamName_Draw";
+    public string cName = "ActivityDraw2";
     public string ListStr = "";
+    public string ListStr1 = "";
+    public string ListStr2 = "";
     public int isAward = 0;
     public string AwardName = "";
     private int AwardType = 1;
@@ -47,7 +49,7 @@
             isAward = 0;
         
         
-        getUrl = "http://game.luqinwenda.com/api/awards_get_list.aspx";
+        getUrl = "http://game.luqinwenda.com/api/awards_get_list.aspx?actid=2";
         result = HTTPHelper.Get_Http(getUrl);
         dic = json.Deserialize<Dictionary<string, object>>(result);
         if (dic["status"].Equals(0))
@@ -55,8 +57,10 @@
             ArrayList userList = (ArrayList)dic["awarded_users"];
             string nickName = "";
             string dt = "";
+            int i = 0;
             foreach (var user in userList)
             {
+                i++;
                 nickName = "";
                 dt = "";
                 Dictionary<string, object> ddd = (Dictionary<string, object>)user;
@@ -98,7 +102,12 @@
                 }
 
                 string str = "<li><div class=\"comment_name\">{0}</div><div class=\"comment_time\">{1}</div></li>";
-                ListStr += string.Format(str, nickName, dt);
+                if (i < 20)
+                    ListStr += string.Format(str, nickName, dt);
+                else if (i >= 20 && i < 40)
+                    ListStr1 += string.Format(str, nickName, dt);
+                else
+                    ListStr2 += string.Format(str, nickName, dt);
             }
         }
 
@@ -114,10 +123,10 @@
 
     private string getUserName(string openid)
     {
-        if (openid == "o5gjRtzY3ed3x7eIeLtGqtUSMvvs")
-            return "果妈山东";
-        if (openid == "o5gjRtzY3ed3x7e56tGq34tUMxyc")
-            return "曼曼爸 沈阳";
+        //if (openid == "o5gjRtzY3ed3x7eIeLtGqtUSMvvs")
+        //    return "果妈山东";
+        //if (openid == "o5gjRtzY3ed3x7e56tGq34tUMxyc")
+        //    return "曼曼爸 沈阳";
 
         string name = "匿名网友";
         try
@@ -205,8 +214,8 @@
                 <%=ListStr %>
             </ul>
             <div id="pageDiv" style="text-align:center; margin-top:10px;">
-				<button class="btn btn-danger" >上一页</button>　
-				<button class="btn btn-danger" >下一页</button>
+				<button class="btn btn-danger" onclick="prePage();">上一页</button>　
+				<button class="btn btn-danger" onclick="nextPage()" >下一页</button>
 			</div>
         </div>
     </div>
@@ -244,6 +253,35 @@
             $("#btnSupport").css({ background: "#999", color: "#ccc" });
             $("#btnSupport").attr("onclick", "");
             $("#ASupported").html(result);
+        }
+        var m = 0;
+        function prePage() {
+            if (m > 0) {
+                m--;
+            }
+            if (m == 0) {
+                $('#commentlist').html('<%=ListStr %>');
+            }
+            else if (m == 1) {
+                $('#commentlist').html('<%=ListStr1 %>');
+            }
+            else if (m == 2) {
+                $('#commentlist').html('<%=ListStr2 %>');
+            }
+        }
+        function nextPage() {
+            if (m < 2) {
+                m++;
+            }
+            if (m == 0) {
+                $('#commentlist').html('<%=ListStr %>');
+            }
+            else if (m == 1) {
+                $('#commentlist').html('<%=ListStr1 %>');
+            }
+            else if (m == 2) {
+                $('#commentlist').html('<%=ListStr2 %>');
+            }
         }
     </script>
 </body>
