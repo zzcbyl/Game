@@ -175,7 +175,8 @@
         <div style="text-indent: 20px; line-height: 28px; background: #fff; padding: 10px; text-align:center;">
             <a id="ASupported"></a>
             <div style="text-align:center; background:#fff;">
-                <a id="btnSupport" style="display:block; margin:0 auto; background:#fff; color:#C81623;" onclick="SupportVote(this);"><img src="../images/btn_draw.png" /></a>
+                <a id="btnSupport" style="display:block; margin:0 auto; background:#fff; color:#C81623;" onclick="SupportVote(this);">
+                    <img src="../images/btn_draw.jpg" /></a>
                 <div style="clear:both;"></div>
             </div>
         </div>
@@ -236,7 +237,7 @@
         }
 
         function setSupportCss() {
-            $("#btnSupport img").eq(0).attr("src", "../images/btn_draw_1.png");
+            $("#btnSupport img").eq(0).attr("src", "../images/btn_draw_1.jpg");
             $("#btnSupport").attr("onclick", "");
             $("#ASupported").html(result);
         }
