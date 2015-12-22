@@ -8,7 +8,7 @@
         DataTable dtCamp = DBHelper.GetDataTable("select * from random_awards where award = '“我要学演说”冬令营免费参营券' "
             + " and act_id = " + actId.ToString() + " and create_date_time < getdate() order by create_date_time desc ", Util.ConnectionString);
         DataTable dtBook = DBHelper.GetDataTable("select * from random_awards where (award like '%烦恼%' or award like '%长大%' ) "
-            + " and act_id = " + actId.ToString() + " 1 and create_date_time < getdate() order by create_date_time desc ", Util.ConnectionString);
+            + " and act_id = " + actId.ToString() + "  and create_date_time < getdate() order by create_date_time desc ", Util.ConnectionString);
         DataTable dtCoupon = DBHelper.GetDataTable("select * from random_awards where award like '%优惠券%'  "
             + " and act_id = " + actId.ToString() + " and create_date_time < getdate() order by create_date_time desc ", Util.ConnectionString);
         DataTable dt = dtCamp.Clone();
