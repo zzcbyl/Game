@@ -161,7 +161,7 @@
         .comment_people li { padding: 3px 10px; margin:0; border-bottom: 1px dashed #C81623; overflow: hidden; line-height:25px; }
         .comment_people li .comment_name { float:left;}
         .comment_people li .comment_time { float:right;}
-        .btnCss { width: 100px; height: 40px; background: #E51925; color: #fff;  font-size: 14pt; border-radius: 5px; border: 0; text-indent:0; line-height:40px;}
+        .btnCss { width: 100px; height: 40px; background: #fff; color: #fff;  font-size: 14pt; border-radius: 5px; border: 0; text-indent:0; line-height:40px;}
     </style>
     <script src="../script/jquery-1.3.2.min.js"></script>
     <script src="../script/common.js"></script>
@@ -174,8 +174,8 @@
         </div>
         <div style="text-indent: 20px; line-height: 28px; background: #fff; padding: 10px; text-align:center;">
             <a id="ASupported"></a>
-            <div style="text-align:center;">
-                <a id="btnSupport" class="btnCss" style="display:block; margin:0 auto;" onclick="SupportVote(this);">抽 奖</a>
+            <div style="text-align:center; background:#fff;">
+                <a id="btnSupport" style="display:block; margin:0 auto; background:#fff; color:#C81623;" onclick="SupportVote(this);"><img src="../images/btn_draw.png" /></a>
                 <div style="clear:both;"></div>
             </div>
         </div>
@@ -236,7 +236,7 @@
         }
 
         function setSupportCss() {
-            $("#btnSupport").css({ background: "#999", color: "#ccc" });
+            $("#btnSupport img").eq(0).attr("src", "../images/btn_draw_1.png");
             $("#btnSupport").attr("onclick", "");
             $("#ASupported").html(result);
         }
