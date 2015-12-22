@@ -47,7 +47,7 @@
                     AwardName = AwardArr[0].Substring(0, 1) + "元卢勤问答平台书城代金券";
                     if (cookie != null && cookie.Value == "1")
                     {
-                        //this.Response.Redirect("Coupon_draw.aspx?amount=" + CouponAmount + "&code=" + CouponCode);
+                        this.Response.Redirect("Coupon_draw.aspx?amount=" + CouponAmount + "&code=" + CouponCode);
                     }
                 }
                 else
