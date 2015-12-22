@@ -56,7 +56,7 @@
                     AwardName = "卢勤老师亲笔签名《" + AwardName + "》一本";
                     if (cookie != null && cookie.Value == "1")
                     {
-                        if (dic["award"].ToString().Trim().Equals(""))
+                        if (dic["name"].ToString().Trim().Equals(""))
                             this.Response.Redirect("SubmitAddr.aspx?id=" + id + "&openid=" + openid);
                         else
                             this.Response.Redirect("SubmitSuccess.aspx");
