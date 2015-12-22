@@ -47,7 +47,7 @@
                     AwardName = AwardArr[0].Substring(0, 1) + "元卢勤问答平台书城代金券";
                     if (cookie != null && cookie.Value == "1")
                     {
-                        this.Response.Redirect("Coupon_draw.aspx?amount=" + CouponAmount + "&code=" + CouponCode);
+                        //this.Response.Redirect("Coupon_draw.aspx?amount=" + CouponAmount + "&code=" + CouponCode);
                     }
                 }
                 else
@@ -170,31 +170,22 @@
     <div style="max-width: 640px; margin: 0 auto; font-size:11pt; line-height: 22px;">
         <img src="../images/draw_banner1.jpg" width="100%" />
         <div style="margin-top: 5px; background: #fff; padding: 10px;">
-            　抽奖啦！！！“卢勤公益微课堂”在父母们的关注和热情支持下已经开讲三期，为了回馈父母们的持续热情，我们特地为今天的父母们准备了抽奖活动，欢迎广大听众踊跃参与。
+            　“卢勤和她的朋友们公益系列微课堂”在父母们的关注和热情支持下已经开讲四期，创造了500群，20万人次的直播。感谢大家对“卢勤和她的朋友们公益系列微课堂”支持以及热爱，我们将继续为大家贡献更加优质的内容。
         </div>
-        <div style="margin-top: 5px; text-indent: 20px; line-height: 28px; background: #fff; padding: 10px; text-align:center;">
+        <div style="text-indent: 20px; line-height: 28px; background: #fff; padding: 10px; text-align:center;">
             <a id="ASupported"></a>
             <div style="text-align:center;">
                 <a id="btnSupport" class="btnCss" style="display:block; margin:0 auto;" onclick="SupportVote(this);">抽 奖</a>
                 <div style="clear:both;"></div>
             </div>
         </div>
-        <div style="margin-top: 5px; background: #fff; padding: 10px;">
-            　<b>活动规则：</b><br />
-            　1. 活动期间内，用户微信搜索并关注“luqinwendapingtai”，输入“抽奖”；<br />
-            　2. 弹出抽奖图文消息，点击进入，进行抽奖；<br />
-            　3. 每个用户只可参与一次。
-        </div>
-        <div style="margin-top: 5px; background: #fff; padding: 10px;">
+        <div style="background: #fff; padding: 10px;">
             　<b>活动奖励：</b><br />
-            　1. “我要学演说”冬令营免费参营券2张；<br />
-            　参加“我要说演说”让孩子敢说话，会说话，说自己的话，善于运用语言的力量；<br />
-            　2. 卢勤老师亲笔签名书《和烦恼说再见》30本；<br />
+            　1. 卢勤老师所著新书《和烦恼说再见》50本；<br />
             　浓缩了卢勤30多年教育思想和方法的精华，全书29个单元，每个单元围绕孩子成长过程中不可回避的一类烦恼，比如歧视、误解、嫉妒、自卑等等；<br />
-            　3. 卢勤老师亲笔签名书《长大不容易》10本；<br />
-            　书中以数百个生动、鲜活的家教实例，让人深刻体味到“成长有规律，长大不容易”，是家长与孩子可以共同阅读一生的教育书、亲情书；<br />
-            　4. 5元代金券；<br />
-            　5. 2元代金券。<br />
+            　2. 10元书城代金券；<br />
+            　3. 5元书城代金券；<br />
+            　4. 2元书城代金券；<br />
             　<div style="font-size:10pt">　此次活动最终解释权归卢勤问答平台所有。</div>
         </div>
         <div class="comment_people">
@@ -221,16 +212,12 @@
             openid = QueryString('openid');
             
             if (isDraw != null) {
-                if (isDraw == "0")
+                if (isDraw == "0"){
                     result = "很遗憾，您没有中奖。";
-                else if (isDraw == "1")
-                    result = "恭喜您，获得" + AwardName + "！";
-                else if (isDraw == "2") {
-                    result = "恭喜您，获得" + AwardName + "，您已领奖！";
                 }
             }
 
-            if (getCookie(cookieName) != null) {
+            if (getCookie(cookieName) != null){
                 setSupportCss();
             }
         });
