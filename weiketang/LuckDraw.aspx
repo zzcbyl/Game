@@ -127,6 +127,12 @@
                     ListStr2 += string.Format(str, nickName, dt);
             }
         }
+        if (ListStr1.Equals(""))
+            ListStr1 = ListStr;
+        if (!ListStr1.Equals("") && ListStr2.Equals(""))
+            ListStr2 = ListStr1;
+        if (ListStr1.Equals("") && ListStr2.Equals(""))
+            ListStr2 = ListStr;
     }
 
     private string getUserName(string openid)
