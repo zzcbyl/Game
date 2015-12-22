@@ -10,9 +10,9 @@
     public string ListStr2 = "";
     public int isAward = 0;
     public string AwardName = "";
-    private int AwardType = 1;
-    private string CouponCode = "";
-    private int CouponAmount = 0;
+    public int AwardType = 1;
+    public string CouponCode = "";
+    public int CouponAmount = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Request["openid"] == null || Request["id"] == null)
@@ -22,28 +22,43 @@
         }
         string openid = Request["openid"].ToString();
         string id = Request["id"].ToString();
-        
+
+        HttpCookie cookie = Request.Cookies[cName];
+            
         JavaScriptSerializer json = new JavaScriptSerializer();
-        string getUrl = "http://game.luqinwenda.com/api/awards_get_info.aspx?id=" + id + "&openid=" + openid;
+        string getUrl = "http://game.luqinwenda.com/api/awards_get_info.aspx?actid=2&id=" + id + "&openid=" + openid;
         string result = HTTPHelper.Get_Http(getUrl);
         Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(result);
         if (dic["status"].Equals(0))
         {
             isAward = 1;
             AwardName = dic["award"].ToString().Trim();
-            if (AwardName.IndexOf(":") > -1)
+            if (AwardName.Equals(""))
             {
-                AwardType = 1;
-                string[] AwardArr = AwardName.Split(':');
-                CouponAmount = Convert.ToInt32(AwardArr[0].Substring(0, 1)) * 100;
-                CouponCode = AwardArr[1];
-                AwardName = AwardArr[0].Substring(0, 1) + "元卢勤问答平台书城代金券";
+                isAward = 0;
             }
             else
-            {
-                AwardType = 2;
-                AwardName = "卢勤老师亲笔签名《" + AwardName + "》一本";
-            }
+                if (AwardName.IndexOf(":") > -1)
+                {
+                    AwardType = 1;
+                    string[] AwardArr = AwardName.Split(':');
+                    CouponAmount = Convert.ToInt32(AwardArr[0].Substring(0, 1)) * 100;
+                    CouponCode = AwardArr[1];
+                    AwardName = AwardArr[0].Substring(0, 1) + "元卢勤问答平台书城代金券";
+                    if (cookie != null && cookie.Value == "1")
+                    {
+                        this.Response.Redirect("Coupon_draw.aspx?amount=" + CouponAmount + "&code=" + CouponCode);
+                    }
+                }
+                else
+                {
+                    AwardType = 2;
+                    AwardName = "卢勤老师亲笔签名《" + AwardName + "》一本";
+                    if (cookie != null && cookie.Value == "1")
+                    {
+                        this.Response.Redirect("SubmitAddr.aspx?id=" + id + "&openid=" + openid);
+                    }
+                }
         }
         else
             isAward = 0;
@@ -70,7 +85,6 @@
                     {
                         if (ddd.Keys.Contains("name") && ddd["name"].ToString() != "")
                         {
-                            this.btn_Draw.Enabled = false;
                             isAward = 2;
                         }
                     }
@@ -94,7 +108,7 @@
                     else
                         _award = "《" + _award + "》";
 
-                    nickName += " 获得 <span style='color:red;'>" + _award + "</span>";
+                    nickName += " 获得 <span style=\"color:red;\">" + _award + "</span>";
                 }
                 if (ddd.Keys.Contains("create_date_time"))
                 {
@@ -110,24 +124,10 @@
                     ListStr2 += string.Format(str, nickName, dt);
             }
         }
-
-        HttpCookie cookie = Request.Cookies[cName];
-        if (cookie != null && cookie.Value.Equals("1"))
-        {
-            if (isAward >= 1)
-                this.btn_Draw.Visible = true;
-            else
-                this.btn_Draw.Visible = false;
-        }
     }
 
     private string getUserName(string openid)
     {
-        //if (openid == "o5gjRtzY3ed3x7eIeLtGqtUSMvvs")
-        //    return "果妈山东";
-        //if (openid == "o5gjRtzY3ed3x7e56tGq34tUMxyc")
-        //    return "曼曼爸 沈阳";
-
         string name = "匿名网友";
         try
         {
@@ -142,17 +142,6 @@
         }
         catch { }
         return name;
-    }
-
-    protected void btn_Draw_Click(object sender, EventArgs e)
-    {
-        if (Request["openid"] != null)
-        {
-            if (AwardType == 1)
-                Response.Redirect("Coupon_draw.aspx?amount=" + CouponAmount + "&code=" + CouponCode);
-            else
-                Response.Redirect("SubmitAddr.aspx?id=" + Request["id"].ToString() + "&openid=" + Request["openid"].ToString());
-        }
     }
 </script>
 
@@ -176,17 +165,14 @@
 </head>
 <body style="background: #C81623;">
     <div style="max-width: 640px; margin: 0 auto; font-size:11pt; line-height: 22px;">
-        <img src="../images/draw_banner.jpg" width="100%" />
+        <img src="../images/draw_banner1.jpg" width="100%" />
         <div style="margin-top: 5px; background: #fff; padding: 10px;">
             　抽奖啦！！！“卢勤公益微课堂”在父母们的关注和热情支持下已经开讲三期，为了回馈父母们的持续热情，我们特地为今天的父母们准备了抽奖活动，欢迎广大听众踊跃参与。
         </div>
         <div style="margin-top: 5px; text-indent: 20px; line-height: 28px; background: #fff; padding: 10px; text-align:center;">
             <a id="ASupported"></a>
             <div style="text-align:center;">
-                <form runat="server">
-                    <a id="btnSupport" class="btnCss" style="display:inline-block; margin:0 auto;" onclick="SupportVote(this);">抽 奖</a>
-                    <asp:Button ID="btn_Draw" runat="server" Text="领 奖" CssClass="btnCss" Style="margin-left:10px;" Visible="false" OnClick="btn_Draw_Click" />
-                </form>
+                <a id="btnSupport" class="btnCss" style="display:block; margin:0 auto;" onclick="SupportVote(this);">抽 奖</a>
                 <div style="clear:both;"></div>
             </div>
         </div>
@@ -224,7 +210,13 @@
         var isDraw = '<%=isAward %>';
         var AwardName = '<%=AwardName %>';
         var result = "";
+        var type = '<%=AwardType %>';
+        var id = 0;
+        var openid = '';
         $(document).ready(function () {
+            id = QueryString('id');
+            openid = QueryString('openid');
+            
             if (isDraw != null) {
                 if (isDraw == "0")
                     result = "很遗憾，您没有中奖。";
@@ -232,21 +224,25 @@
                     result = "恭喜您，获得" + AwardName + "！";
                 else if (isDraw == "2") {
                     result = "恭喜您，获得" + AwardName + "，您已领奖！";
-                    $('#<%=btn_Draw.ClientID %>').css({ background: "#999", color: "#ccc" });
                 }
             }
 
             if (getCookie(cookieName) != null) {
-                setSupportCss()
+                setSupportCss();
             }
         });
 
         function SupportVote() {
             setSupportCss();
             setCookieT(cookieName, "1", 1000000000);
-            alert(result);
-            if (isDraw == "1")
-                document.forms[0].submit();
+            if (isDraw != 0) {
+                if (type == '1') {
+                    location.href = 'Coupon_draw.aspx?amount=<%=CouponAmount %>&code=<%=CouponCode %>';
+                }
+                else {
+                    location.href = 'SubmitAddr.aspx?id=' + id + '&openid=' + openid;
+                }
+            }
         }
 
         function setSupportCss() {

@@ -19,7 +19,7 @@
         string id = Request["id"].ToString();
         int isAward = 0;
         JavaScriptSerializer json = new JavaScriptSerializer();
-        string getUrl = "http://game.luqinwenda.com/api/awards_get_info.aspx?id=" + id + "&openid=" + openid;
+        string getUrl = "http://game.luqinwenda.com/api/awards_get_info.aspx?actid=2&id=" + id + "&openid=" + openid;
         string result = HTTPHelper.Get_Http(getUrl);
         Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(result);
         if (dic["status"].Equals(0))
@@ -35,7 +35,7 @@
             string address = Request.Form["hidprovince"].ToString() + Request.Form["hidcity"].ToString() + Request.Form["address"].ToString();
             string consignee = Request.Form["consignee"].ToString();
             string mobile = Request.Form["mobile"].ToString();
-            getUrl = "http://game.luqinwenda.com/api/awards_set_address.aspx?openid=" + openid
+            getUrl = "http://game.luqinwenda.com/api/awards_set_address.aspx?actid=2&openid=" + openid
                 + "&name=" + Server.UrlEncode(consignee) + "&cell=" + Server.UrlEncode(mobile) + "&address=" + Server.UrlEncode(address);
             result = HTTPHelper.Get_Http(getUrl);
             dic = json.Deserialize<Dictionary<string, object>>(result);
@@ -79,7 +79,7 @@
         <div style="max-width: 640px; margin: 0 auto;">    
             <img src="../images/draw_banner.jpg" width="100%" />
             <div style="margin-top: 5px; text-indent: 20px; line-height: 28px; background: #fff; padding: 10px;">
-                恭喜您，获得卢勤老师亲笔签名书一本，请您仔细填写邮寄地址，活动结束后由卢勤问答平台统一发出。
+                恭喜您，获得卢勤老师亲笔签名书《和烦恼说再见》，请您仔细填写邮寄地址，活动结束后由卢勤问答平台统一发出。
             </div>
             <div style="margin-top: 5px; text-indent: 20px; line-height: 28px; background: #fff; padding: 10px 0 30px;">
                 <p class="add_list_p rel">

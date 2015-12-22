@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 
 <script runat="server">
+    public string code = "";
     protected void Page_Load(object sender, EventArgs e)
     {
         try
@@ -11,6 +12,7 @@
             {
                 this.lbl_amount.Text = (Convert.ToInt32(Request["amount"].ToString()) / 100).ToString();
                 this.lbl_code.Text = Request["code"].ToString();
+                code = Request["code"].ToString();
             }
             else
                 Response.End();
@@ -27,6 +29,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>卢勤微课堂幸运抽奖活动</title>
+    <style type="text/css">
+        .btnCss { width: 100px; height: 40px; background: #E51925; color: #fff;  font-size: 14pt; border-radius: 5px; border: 0; text-indent:0; line-height:40px;}
+    </style>
 </head>
 <body>
     <div style="width: auto; text-align: center;  ">
@@ -39,6 +44,7 @@
         <p>
             您的代金券码是：<span style="font-family:黑体; font-size:20px; font-weight:bold;"><asp:Literal ID="lbl_code" runat="server"></asp:Literal></span>
         </p>
+        <p><a id="btnSupport" class="btnCss" style="display:block; margin:0 auto;" href="http://mall.luqinwenda.com/Default.aspx?couponCode=<%=code %>">去购书</a></p>
         <div style="text-align:left; line-height:22px;">
             <div>1．该券只能在卢勤问答平台订阅号书城中使用。</div>
             <div>2．每单只能使用一张。</div>
