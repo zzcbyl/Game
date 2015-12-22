@@ -56,7 +56,8 @@
                     AwardName = "卢勤老师亲笔签名《" + AwardName + "》一本";
                     if (cookie != null && cookie.Value == "1")
                     {
-                        this.Response.Redirect("SubmitAddr.aspx?id=" + id + "&openid=" + openid);
+
+                        this.Response.Redirect("SubmitSuccess.aspx");
                     }
                 }
         }
