@@ -105,7 +105,10 @@
 
                     string _award = ddd["award"].ToString().Trim();
                     if (_award.IndexOf(":") > -1)
-                        _award = _award.Substring(0, 1) + "元代金券";
+                    {
+                        string[] _awardArr = _award.Split(':');
+                        _award = _awardArr[0] + "元代金券";
+                    }
                     else if (_award == "“我要学演说”冬令营免费参营券")
                     { }
                     else
