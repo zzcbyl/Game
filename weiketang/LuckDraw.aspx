@@ -107,7 +107,7 @@
                     if (_award.IndexOf(":") > -1)
                     {
                         string[] _awardArr = _award.Split(':');
-                        _award = _awardArr[0] + "元代金券";
+                        _award = _awardArr[0];
                     }
                     else if (_award == "“我要学演说”冬令营免费参营券")
                     { }
