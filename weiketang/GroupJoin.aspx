@@ -16,9 +16,7 @@
         try
         {
             timeStamp = Util.GetTimeStamp();
-            string jsonStrForTicket = Util.GetWebContent("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token="
-                + Util.GetToken() + "&type=jsapi", "get", "", "form-data");
-            ticket = Util.GetSimpleJsonValueByKey(jsonStrForTicket, "ticket");
+            ticket = Util.GetTicket(); 
             string shaString = "jsapi_ticket=" + ticket.Trim() + "&noncestr=" + nonceStr.Trim()
                 + "&timestamp=" + timeStamp.Trim() + "&url=" + Request.Url.ToString().Trim();
             shaParam = Util.GetSHA1(shaString);
@@ -120,7 +118,7 @@
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
         var shareTitle = "请大家支持我，完成我的心愿，分享最棒的资源"; //标题
-        var shareImg = "http://game.luqinwenda.com/images/wkt_share_icon.jpg"; //图片
+        var shareImg = "http://game.luqinwenda.com/images/wkt_share30.jpg"; //图片
         var shareContent = '我要参加卢勤公益微课堂报名，请大家支持我，这是我盼望已久的事情！'; //简介
         var shareLink = document.URL; //链接
 
