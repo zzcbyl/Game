@@ -6,7 +6,7 @@
     public string forward_count = "0";
     public string code = "";
     public string timeStamp = "";
-    public string nonceStr = "r1y6wa1df1fd0br0sfcwb7bfep";
+    public string nonceStr = "r1y6wa1df1fd0bfr0sfcwb7bfep";
     public string ticket = "";
     public string shaParam = "";
     public string appId = System.Configuration.ConfigurationManager.AppSettings["wxappid_dingyue"];
@@ -15,7 +15,9 @@
         try
         {
             timeStamp = Util.GetTimeStamp();
-            ticket = Util.GetTicket();
+            string jsonStrForTicket = Util.GetWebContent("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token="
+                + Util.GetToken() + "&type=jsapi", "get", "", "form-data");
+            ticket = Util.GetSimpleJsonValueByKey(jsonStrForTicket, "ticket");
             string shaString = "jsapi_ticket=" + ticket.Trim() + "&noncestr=" + nonceStr.Trim()
                 + "&timestamp=" + timeStamp.Trim() + "&url=" + Request.Url.ToString().Trim();
             shaParam = Util.GetSHA1(shaString);
