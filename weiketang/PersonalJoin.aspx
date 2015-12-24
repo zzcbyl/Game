@@ -65,9 +65,10 @@
                 　　卢勤和她的朋友们微课堂<br />
                 　　2016年12月30日<br />
                 　　给孩子一个自信的世界！<br />
-                　　个人申请加入听课群，仅限 500个名额！<br />
-                　　申请结束时间：2015年12月30日12:00，额满为止。<br />
-                <span style="font-weight:bold; background:#ccc; display:inline-block; padding:5px; margin:3px 0;">申请听课群细则：</span><br />
+                <span style="font-weight:bold; background:#ccc; display:inline-block; padding:5px; margin:3px 0;">个人申请进入听课群资格：</span><br />
+                　　● 申请活动截止时间：2015年12月30日12:00。之后将不再接受申请。<br />
+                　　● 仅限500个席位，满额之后将不再接受申请。<br />
+                <span style="font-weight:bold; background:#ccc; display:inline-block; padding:5px; margin:3px 0;">个人申请进入听课群细则：</span><br />
                 　　1. 首次报名在线讲座，请先关注卢勤问答平台微信公众号（ID：luqinwendapingtai）；<br />
                     <div style="text-align:center;"><img src="../images/dyh_code_min.jpg" width="40%" /></div>
                 　　2. 在卢勤问答平台微信公众号中回复关键词：微课，领取属于自己的邀请码；<br />
