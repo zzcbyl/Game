@@ -71,7 +71,7 @@
                 　　1. 首次报名在线讲座，请先关注卢勤问答平台微信公众号（ID：luqinwendapingtai）；<br />
                     <div style="text-align:center;"><img src="../images/dyh_code_min.jpg" width="40%" /></div>
                 　　2. 在卢勤问答平台微信公众号中回复关键词：微课，领取属于自己的邀请码；<br />
-                　　3. 邀请朋友，在公众号中输入您的邀请码，为您投上一票支持；<br />
+                　　3. 邀请朋友，在公众号中输入您的邀请码（<b><%=code %></b>），为您投上一票支持；<br />
                 　　4.当您的支持票数超过10票后，请在12月30日12:00前将支持票数截图给卢勤问答平台小助手，然后由小助手安排您入群，额满后将不再拉人入群。<br />
                 　　卢勤问答平台小助手微信（luqinwenda001）。<br />
                     <div style="text-align:center;"><img src="../images/xiaozhushou.jpg" width="40%" /></div>

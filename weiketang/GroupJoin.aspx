@@ -77,7 +77,7 @@
                 　　2. 只有群主可以领取申请邀请码；<br />
                 　　3. 群主在卢勤问答平台微信公众号中回复关键词：申请转播群，领取属于自己的邀请码；<br />
                     <div style="text-align:center;"><img src="../images/dyh_code_min.jpg" width="40%" /></div>
-                　　4. 邀请群里或朋友圈的朋友，在卢勤问答平台公众号中输入您的邀请码(<%=code %>)，为您的群投上一票支持；<br />
+                　　4. 邀请群里或朋友圈的朋友，在卢勤问答平台公众号中输入您的邀请码（<b><%=code %></b>），为您的群投上一票支持；<br />
                 　　5. 支持票数满300票之后，群主请将您的支持票数截图给旭老师，并安排加群事宜；<br />
                 　　旭老师微信（xulaoshi0224）<br />
                     <div style="text-align:center;"><img src="../images/xulaoshi.jpg" width="40%" /></div>
