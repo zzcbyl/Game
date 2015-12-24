@@ -6,7 +6,7 @@
     public string forward_count = "0";
     public string code = "";
     public string timeStamp = "";
-    public string nonceStr = "s4f6ea21d1fd0br0fcwb9bfa9d";
+    public string nonceStr = "r1y6wa1df1fd0br0sfcwb7bfep";
     public string ticket = "";
     public string shaParam = "";
     public string appId = System.Configuration.ConfigurationManager.AppSettings["wxappid"];
@@ -29,7 +29,7 @@
             {
                 code = Request["id"].ToString();
                 code = code.PadLeft(6, '0');
-                code = "W" + code;
+                code = "A" + code;
                 System.Web.Script.Serialization.JavaScriptSerializer json = new System.Web.Script.Serialization.JavaScriptSerializer();
                 string getNumUrl = "http://weixin.luqinwenda.com/dingyue/api/group_master_get_vote_num.aspx?id=" + Request["id"].ToString();
                 string resultNum = HTTPHelper.Get_Http(getNumUrl);
@@ -60,22 +60,28 @@
 <body style="background:#ac1616">
     <div style="max-width: 640px; margin: 0 auto;">
         <img src="../images/wkt_invite.jpg" width="100%" />
-        <div style="text-align:center; line-height:30px; background:#fff; padding:10px;">
-            <div style="margin-top:10px;">群邀请码：<span style="font-family:微软雅黑; font-size:14pt; font-weight:bold;"><%=code %></span></div>
-            <div style="text-align:center; font-size:11pt; color:#808080; font-family:微软雅黑;">已有<span id="spCount"><%=forward_count %></span>人支持</div>
+        <div style="text-align:center; line-height:30px; background:#fff; padding:10px 10px 20px;">
+            <div style="margin-top:10px;">邀请码：<span style="font-family:微软雅黑; font-size:14pt; font-weight:bold;"><%=code %></span></div>
+            <div style="text-align:center; font-size:11pt; color:#808080; font-family:微软雅黑;">已有<span id="spCount"><%=forward_count %></span>票支持</div>
             <div style="text-align:left; margin-top:10px;">
-                　　参与活动说明：我要参加卢勤公益微课堂报名，请大家支持我，这是我盼望已久的事情！<br />
-                　　1. 首次报名在线讲座，请先关注卢勤问答平台微信公号（ID：luqinwendapingtai）<br />
+                　　你已经与我们的微课堂N次擦肩而过？你至今还没有报名成功？<br />
+                　　今天小编再来帮你一把：报名通道又要开启啦！机会又要放在你面前啦！<br />
+                　　仅限 495个名额！<br />
+                　　申请结束时间：2015年12月29日12:00，额满为止。<br />
+                　　1. 首次报名在线讲座，请先关注卢勤问答平台微信公众号（ID：luqinwendapingtai）；<br />
                     <div style="text-align:center;"><img src="../images/dyh_code_min.jpg" width="40%" /></div>
                 　　2. 在微信公众号直接回复关键词：微课，查询申请入群的方法。<br />
-                　　如果您集满10票，就可以申请加入卢勤微课群。<br />
-                　　满300票可以邀请卢勤公益微课堂在您的群（群里的人数需要超过300）中授课。</div>
-            <div style="margin-top:10px;">群邀请码：<span style="font-family:微软雅黑; font-size:14pt; font-weight:bold;"><%=code %></span></div>
-            <div style="text-align:center; font-size:11pt; color:#808080; font-family:微软雅黑;">已有<span id="spCount"><%=forward_count %></span>人支持</div>
-            <div style="margin-top:30px;">
+                　　3. 当您的支持票数超过10票后，请在12月29日12:00前将支持票数截图给卢勤问答平台小助手，然后由小助手安排您入群，额满后将不再拉人入群。卢勤问答平台小助手微信（luqinwenda001）。</div>
+            <div style="margin-top:10px;">邀请码：<span style="font-family:微软雅黑; font-size:14pt; font-weight:bold;"><%=code %></span></div>
+            <div style="text-align:center; font-size:11pt; color:#808080; font-family:微软雅黑;">已有<span id="spCount"><%=forward_count %></span>票支持</div>
+            <div style="margin-top:10px;">
                 <a id="ASupported" style="display:none;">您已支持，谢谢！</a>
                 <button id="btnSupport" style="width:90px; height:40px; background:#E51925; color:#fff; display:block; line-height:40px; margin:0px auto; font-size:14pt; border-radius:5px; border:0;" onclick="SupportVote(this);">支 持</button>
-                <br />
+            </div>
+            <div style="margin-top:20px; text-align:left;">
+                <div><b>加群必知：</b></div>
+                <div>　　1. 上次微课报名中已集够10个支持，但未进群的朋友，请将截图直接发送给卢勤问答平台小助手，小助手将安排您入群。</div>
+                <div>　　2. 已加入12月22日微课直播群的朋友不用再重复申请入群，可以继续收听。</div>
             </div>
         </div>
         <div style="text-align:left; line-height:30px; background:#fff; padding:10px; margin-top:10px;">
@@ -86,13 +92,11 @@
             <p>　　三十多年来,卢勤老师致力于对少年儿童及家长心理健康的研究。在长期主持《中国少年报》“知心姐姐”栏目过程中，积累了大量的一线家庭教育实践经验，是中国上亿家长及儿童最喜爱、最信任的权威教育专家，深受亿万家长和孩子的爱戴。</p>
         </div>
         <div style="text-align:left; line-height:30px; background:#fff; padding:10px; margin-top:10px;">
-            <p><h3 style="text-align:center;">本年度最感人的一课即将开讲！</h3></p>
-            <p>　　一个人没有孝心是不能称其为人的。父母最牵挂的就是自己的孩子，让孩子认知父母现在所做的一切，在父母晚年的时候能赡养、善待父母。如何让孩子去用心地体会父母，倾听父母？本次，卢勤老师将带来本年度最感人的一节课，关于孝心和榜样。父母和孩子共同收听，一起收获感动的力量。</p>
-            <p><b>课程名称：</b>孝心，凝聚家人的力量</p>
-            <p><b>开课时间：</b>12月22日（周二）20:00-21:00</p>
-            <p><b>课程形式：</b>卢勤和她的朋友们微课堂群<br />
-                　　　　　合作转播群<br />
-                　　　　　（申请转播细则请在订阅号中查询）</p>
+            <p><h3 style="text-align:center;">本年度最精彩的一课即将开讲！</h3></p>
+            <p>　　每个孩子都像一个未被开发的宝藏，而如何挖掘，让他们发挥出应有的价值，需要我们每一个人用心去探索。而自信，是开启宝藏最重要的钥匙。一个人真正内在的自信，是从小培养出来的。那么，家长们如何培养孩子树立自信呢？本次课程，卢勤老师将带来本年度最精彩的一课，告诉您如何给孩子一个自信的世界！</p>
+            <p><b>课程名称：</b>自信，让孩子喊出“我能行”！</p>
+            <p><b>开课时间：</b>12月30日（周三）20:00-21:00</p>
+            <p><b>课程形式：</b>卢勤和她的朋友们微课堂群</p>
             <p><b>适合人群：</b>愿意为孩子创造良好家庭教育环境的家长、准家长、教育工作者等。</p>
         </div>
     </div>
