@@ -48,7 +48,7 @@
 <head runat="server">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>微课邀请函</title>
+    <title>申请合作转播群</title>
     <script src="../script/jquery-1.3.2.min.js"></script>
     <script src="../script/common.js"></script>
     <style type="text/css">
