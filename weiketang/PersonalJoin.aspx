@@ -64,14 +64,19 @@
             <div style="margin-top:10px;">邀请码：<span style="font-family:微软雅黑; font-size:14pt; font-weight:bold;"><%=code %></span></div>
             <div style="text-align:center; font-size:11pt; color:#808080; font-family:微软雅黑;">已有<span id="spCount"><%=forward_count %></span>票支持</div>
             <div style="text-align:left; margin-top:10px;">
-                　　你已经与我们的微课堂N次擦肩而过？你至今还没有报名成功？<br />
-                　　今天小编再来帮你一把：报名通道又要开启啦！机会又要放在你面前啦！<br />
-                　　仅限 495个名额！<br />
-                　　申请结束时间：2015年12月29日12:00，额满为止。<br />
+                　　卢勤和她的朋友们微课堂<br />
+                　　2016年12月30日<br />
+                　　给孩子一个自信的世界！<br />
+                　　个人申请加入听课群，仅限 500个名额！<br />
+                　　申请结束时间：2015年12月30日12:00，额满为止。<br />
                 　　1. 首次报名在线讲座，请先关注卢勤问答平台微信公众号（ID：luqinwendapingtai）；<br />
                     <div style="text-align:center;"><img src="../images/dyh_code_min.jpg" width="40%" /></div>
-                　　2. 在微信公众号直接回复关键词：微课，查询申请入群的方法。<br />
-                　　3. 当您的支持票数超过10票后，请在12月29日12:00前将支持票数截图给卢勤问答平台小助手，然后由小助手安排您入群，额满后将不再拉人入群。卢勤问答平台小助手微信（luqinwenda001）。</div>
+                　　2. 在卢勤问答平台微信公众号中回复关键词：微课，领取属于自己的邀请码；<br />
+                　　3. 邀请朋友，在公众号中输入您的邀请码，为您投上一票支持；<br />
+                　　4.当您的支持票数超过10票后，请在12月30日12:00前将支持票数截图给卢勤问答平台小助手，然后由小助手安排您入群，额满后将不再拉人入群。<br />
+                　　卢勤问答平台小助手微信（luqinwenda001）。<br />
+                    <div style="text-align:center;"><img src="../images/xiaozhushou.jpg" width="40%" /></div>
+            </div>
             <div style="margin-top:10px;">邀请码：<span style="font-family:微软雅黑; font-size:14pt; font-weight:bold;"><%=code %></span></div>
             <div style="text-align:center; font-size:11pt; color:#808080; font-family:微软雅黑;">已有<span id="spCount"><%=forward_count %></span>票支持</div>
             <div style="margin-top:10px;">
@@ -81,7 +86,7 @@
             <div style="margin-top:20px; text-align:left;">
                 <div><b>加群必知：</b></div>
                 <div>　　1. 上次微课报名中已集够10个支持，但未进群的朋友，请将截图直接发送给卢勤问答平台小助手，小助手将安排您入群。</div>
-                <div>　　2. 已加入12月22日微课直播群的朋友不用再重复申请入群，可以继续收听。</div>
+                <div>　　2. 已加入12月22日微课直播群（卢勤和她的朋友们微课堂001、卢勤和她的朋友们微课堂002）的朋友不用再重复申请入群，可以继续收听。</div>
             </div>
         </div>
         <div style="text-align:left; line-height:30px; background:#fff; padding:10px; margin-top:10px;">
