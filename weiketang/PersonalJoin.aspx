@@ -23,13 +23,11 @@
             shaParam = Util.GetSHA1(shaString);
         }
         catch { }
-        if (Request["id"] != null && Request["id"] != "")
+        if (Request["id"] != null && Request["id"] != "" && Request["code"] != null && Request["code"] != "")
         {
             try
             {
-                code = Request["id"].ToString();
-                code = code.PadLeft(6, '0');
-                code = "A" + code;
+                code = Request["code"].ToString();
                 System.Web.Script.Serialization.JavaScriptSerializer json = new System.Web.Script.Serialization.JavaScriptSerializer();
                 string getNumUrl = "http://weixin.luqinwenda.com/dingyue/api/group_master_get_vote_num.aspx?id=" + Request["id"].ToString();
                 string resultNum = HTTPHelper.Get_Http(getNumUrl);
@@ -59,7 +57,7 @@
 </head>
 <body style="background:#ac1616">
     <div style="max-width: 640px; margin: 0 auto;">
-        <img src="../images/wkt_invite.jpg" width="100%" />
+        <img src="../images/personaljoinBanner.jpg" width="100%" />
         <div style="text-align:center; line-height:30px; background:#fff; padding:10px 10px 20px;">
             <div style="margin-top:10px;">邀请码：<span style="font-family:微软雅黑; font-size:14pt; font-weight:bold;"><%=code %></span></div>
             <div style="text-align:center; font-size:11pt; color:#808080; font-family:微软雅黑;">已有<span id="spCount"><%=forward_count %></span>票支持</div>
