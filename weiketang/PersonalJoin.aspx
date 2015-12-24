@@ -83,7 +83,7 @@
                 <button id="btnSupport" style="width:90px; height:40px; background:#E51925; color:#fff; display:block; line-height:40px; margin:0px auto; font-size:14pt; border-radius:5px; border:0;" onclick="SupportVote(this);">支 持</button>
             </div>
             <div style="margin-top:20px; text-align:left;">
-                <div><b>加群必知：</b></div>
+                <div><b style="color:red;">加群必知：</b></div>
                 <div>　　1. 上次微课报名中已集够10个支持，但未进群的朋友，请将截图直接发送给卢勤问答平台小助手，小助手将安排您入群。</div>
                 <div>　　2. 已加入12月22日微课直播群（卢勤和她的朋友们微课堂001、卢勤和她的朋友们微课堂002）的朋友不用再重复申请入群，可以继续收听。</div>
             </div>
