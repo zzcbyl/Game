@@ -105,13 +105,13 @@ public class NewYearBox
 
     public bool Support(string openId)
     {
-        if (!openId.Trim().Equals(_field["open_id"].ToString().Trim()))
+        if (openId.Trim().Equals(_field["open_id"].ToString().Trim()))
             return false;
         DataTable dt = DBHelper.GetDataTable(" select * from new_year_box_support_list where master_id = " + ID.ToString()
             + " and open_id = '" + openId.Trim() + "'  ", Util.ConnectionString);
         if (dt.Rows.Count == 0)
         {
-            string[,] insertParameters = { { "master_id", "int", ID.ToString() }, { "open_id", "int", openId.Trim() } };
+            string[,] insertParameters = { { "master_id", "int", ID.ToString() }, { "open_id", "varchar", openId.Trim() } };
             int i = DBHelper.InsertData("new_year_box_support_list", insertParameters, Util.ConnectionString);
             if (i == 1)
             {
