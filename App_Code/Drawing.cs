@@ -33,11 +33,10 @@ public class Drawing
         return i;
     }
 
+
+
     public static int NewDrawing(string opneId, int actId)
     {
-
-
-
         int numZhangda = 0;
         int numFannao = 0;
 
