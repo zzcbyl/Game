@@ -163,7 +163,7 @@
         var openedBox = '<%=openedBoxList %>';
 
         var shareTitle = "我想要新年礼盒，请大家帮帮我"; //标题
-        var shareImg = "http://game.luqinwenda.com/images/wkt_share30.jpg"; //图片
+        var shareImg = "http://game.luqinwenda.com/newyear/images/gift_max.png"; //图片
         var shareContent = '我想要新年礼盒，请大家帮帮我！'; //简介
         var shareLink = document.URL; //链接
 
