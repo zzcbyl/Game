@@ -70,9 +70,9 @@
     <style type="text/css">
         body, div { font-family:SimSun;}
         .bgContent { background:#595167; max-width: 640px; margin: 0 auto; min-height:600px; padding-bottom:10px; }
-        .header { min-height:150px; background:#B6092F; }
-        .header #leftlogo { float:left; width:50%; max-height:150px;  }
-        .header #rightlogo { float:right; width:45%; max-height:150px; margin-top:5%; margin-right:5%; }
+        .header { min-height:120px; background:#B6092F; }
+        .header #leftlogo { float:left; width:50%; max-height:120px;  }
+        .header #rightlogo { float:right; width:45%; max-height:120px; margin-top:5%; margin-right:5%; }
         .header img { width:100%; }
         .maincontent { padding:0 20px 20px; }
         .maincontent div { margin-top:10px;  }
