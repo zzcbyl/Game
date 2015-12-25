@@ -181,7 +181,7 @@
         });
 
         $(document).ready(function () {
-            shareLink = document.URL;
+            shareLink = document.URL + '?id=<%=id %>';
 
             wx.ready(function () {
                 //分享到朋友圈
@@ -230,14 +230,15 @@
                     giftImgArr[i] = LqwdgiftImgArr[i];
                 }
             }
-
-            var boxArr = openedBox.split(',');
-            openCount = boxArr.length;
-            for (var i = 0; i < boxArr.length; i++) {
-                if (boxArr[i] == '4')
-                    $('.maincontent img').eq(boxArr[i]).attr("src", "images/gift_max_gray.png");
-                else
-                    $('.maincontent img').eq(boxArr[i]).attr("src", "images/gift_gray.png");
+            if (openedBox != "") {
+                var boxArr = openedBox.split(',');
+                openCount = boxArr.length;
+                for (var i = 0; i < boxArr.length; i++) {
+                    if (boxArr[i] == '4')
+                        $('.maincontent img').eq(boxArr[i]).attr("src", "images/gift_max_gray.png");
+                    else
+                        $('.maincontent img').eq(boxArr[i]).attr("src", "images/gift_gray.png");
+                }
             }
 
             bindGiftList();
