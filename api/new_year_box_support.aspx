@@ -10,13 +10,13 @@
         Users user = new Users(Users.CheckToken(token));
         NewYearBox newYearBox = new NewYearBox(id);
         bool ret = false;
-        if (newYearBox._field["open_id"].ToString().Trim().Equals(user._fields["uname"].ToString().Trim()))
+        if (newYearBox._field["open_id"].ToString().Trim().Equals(user.OpenId.Trim()))
         {
             ret = false;
         }
         else
         {
-            ret = newYearBox.Support(user._fields["uname"].ToString().Trim());
+            ret = newYearBox.Support(user.OpenId.Trim());
         }
         if (ret)
         {

@@ -39,6 +39,21 @@ public class Users
         }
     }
 
+    public string OpenId
+    {
+        get
+        {
+            if (_fields["uname"].ToString().Trim().Equals(""))
+            {
+                return _fields["openid"].ToString().Trim();
+            }
+            else
+            {
+                return _fields["uname"].ToString().Trim();
+            }
+        }
+    }
+
     public string CreateToken(DateTime expireDate)
     {
         string stringWillBeToken = _fields["uid"].ToString()+Util.GetLongTimeStamp(DateTime.Now)

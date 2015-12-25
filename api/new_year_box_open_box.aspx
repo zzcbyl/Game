@@ -8,7 +8,7 @@
         int actId = int.Parse(Util.GetSafeRequestValue(Request, "actid", "1"));
 
         Users user = new Users(Users.CheckToken(token));
-        NewYearBox newYearBox = new NewYearBox(user._fields["uname"].ToString().Trim(), actId);
+        NewYearBox newYearBox = new NewYearBox(user.OpenId.ToString().Trim(), actId);
 
         bool ret = newYearBox.OpenABox(boxId);
 

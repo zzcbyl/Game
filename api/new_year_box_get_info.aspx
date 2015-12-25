@@ -4,14 +4,14 @@
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        string token = Util.GetSafeRequestValue(Request, "token", "0aa811b8076b797c667d75afb31554a35572e925580ea9977dbcaa4a03712f9c0e1ddd99");
+        string token = Util.GetSafeRequestValue(Request, "token", "957bac9dd85c13311a6f9153a2e571d41ba6edd9d57aae04a25da08a5fc83b8df0dc4131");
         Users user = new Users(Users.CheckToken(token));
         int id = int.Parse(Util.GetSafeRequestValue(Request, "id", "0"));
         int actId = int.Parse(Util.GetSafeRequestValue(Request, "actid", "1"));
         NewYearBox newYearBox;
         if (id == 0)
         {
-            newYearBox = new NewYearBox(user._fields["uname"].ToString().Trim(), actId);
+            newYearBox = new NewYearBox(user.OpenId.Trim(), actId);
 
         }
         else
