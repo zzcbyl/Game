@@ -4,11 +4,12 @@
 <!DOCTYPE html>
 
 <script runat="server">
-    public string token = "";
+    public string token = "";// "40cb055dfc2f090fe90426dc15e571300a1bc2a99575eac106f50bd04febf4031bcb13ac";
     public string id = "";
     public string totalCount = "0";
     public string surplusCount = "0";
     public string openedBoxList = "";
+    
     public string timeStamp = "";
     public string nonceStr = "3y2wsqsa121fqad0bfw0sf90fq6cw7fb";
     public string ticket = "";
@@ -16,12 +17,12 @@
     public string appId = System.Configuration.ConfigurationManager.AppSettings["wxappid_dingyue"];
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Request["token"] == null || Request["token"] == string.Empty)
+        token = Util.GetSafeRequestValue(Request, "token", "");
+        if (token == null || token == "")
         {
-            Response.Redirect("http://game.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString());
+            Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString());
         }
-        token = Request["token"].ToString();
-
+        
         try
         {
             timeStamp = Util.GetTimeStamp();
@@ -143,10 +144,11 @@
         <div class="bgDiv" style="width:100%; height:100%; background:#ccc; color:#000; position:absolute; top:-10px; left:0px; text-align:center; filter:alpha(opacity=90); -moz-opacity:0.9;-khtml-opacity: 0.9; opacity: 0.9;  z-index:9;"></div>
         <div class="promptDiv" style="font-size:12pt; width:80%; top:20pt; left:10%; background:#fff;">
             <div id="shareText" style="line-height:20px; text-align:left; padding:10px;">长按指纹识别二维码，关注“卢勤问答平台”，帮TA拆礼盒</div>
-            <img src="../images/dyh_code1.jpg" style="width:100%; " />
+            <img id="erweima" src="../images/dyh_code1.jpg" style="width:100%; " />
         </div>
     </div>
     </form>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
         var Token = '<%=token %>';
         var ZxjjgiftArr = ['011', '122', '233', '344', '455', '566', '677', '788', '899', '900'];
@@ -163,7 +165,7 @@
         var openedBox = '<%=openedBoxList %>';
 
         var shareTitle = "我想要新年礼盒，请大家帮帮我"; //标题
-        var shareImg = "http://game.luqinwenda.com/newyear/images/gift_max.png"; //图片
+        var shareImg = "http://game.luqinwenda.com/newyear/images/ny_share_icon.jpg"; //图片
         var shareContent = '我想要新年礼盒，请大家帮帮我！'; //简介
         var shareLink = document.URL; //链接
 
@@ -228,7 +230,6 @@
                     giftImgArr[i] = LqwdgiftImgArr[i];
                 }
             }
-
 
             var boxArr = openedBox.split(',');
             openCount = boxArr.length;
@@ -345,6 +346,10 @@
             else {
                 $('#shareText').html('请将当前页面发送给朋友或者朋友圈，请他们来帮你拆礼盒');
             }
+
+            var codeArr = ['../images/dyh_code1.jpg', 'images/di8jie.jpg'];
+            var n = Math.floor(Math.random() * 2);
+            $('#erweima').attr('src', codeArr[n]);
 
             showShare();
         }
