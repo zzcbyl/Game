@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 
 <script runat="server">
-    public string token = "957bac9dd85c13311a6f9153a2e571d41ba6edd9d57aae04a25da08a5fc83b8df0dc4131";
+    public string token = "";
     public string id = "";
     public string totalCount = "0";
     public string surplusCount = "0";
@@ -16,11 +16,11 @@
     public string appId = System.Configuration.ConfigurationManager.AppSettings["wxappid_dingyue"];
     protected void Page_Load(object sender, EventArgs e)
     {
-        //if (Request["token"] == null || Request["token"] == string.Empty)
-        //{
-        //    Response.Redirect("http://game.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString());
-        //}
-        //token = Request["token"].ToString();
+        if (Request["token"] == null || Request["token"] == string.Empty)
+        {
+            Response.Redirect("http://game.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString());
+        }
+        token = Request["token"].ToString();
 
         try
         {
