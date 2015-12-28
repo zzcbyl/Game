@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 
 <script runat="server">
-    public string token = ""; // "1f534e0dc3b6ce16c841dc356b06b8fba98911458cd04374b13751509e13db8b5dc1249a";
+    public string token = "c2f8745ca41de5c64fc25dd61b69e33e4650037e0cfeb44509ea150f5b671ec6fdc29d28";
     public string id = "";
     public string totalCount = "0";
     public string surplusCount = "0";
@@ -19,11 +19,11 @@
     public string isHelp = "1";
     protected void Page_Load(object sender, EventArgs e)
     {
-        token = Util.GetSafeRequestValue(Request, "token", "");
-        if (token == null || token == "")
-        {
-            Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString());
-        }
+        //token = Util.GetSafeRequestValue(Request, "token", "");
+        //if (token == null || token == "")
+        //{
+        //    Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString());
+        //}
         
         try
         {
@@ -284,10 +284,11 @@
             var proCount = 0;
             var tolCount = 0;
             var rC = 0;
+            var lsCount = remainCount;
             for (var i = openCount; i < getCountArr.length; i++) {
-                var SubCount = parseInt(remainCount) - getCountArr[i];
+                var SubCount = parseInt(lsCount) - getCountArr[i];
                 if (SubCount > 0) {
-                    remainCount = parseInt(remainCount) - getCountArr[i];
+                    lsCount = parseInt(lsCount) - getCountArr[i];
                     rC++;
                 }
                 else {
