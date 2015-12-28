@@ -84,7 +84,7 @@
         .maincontent .tab2 { width:33%; float:left; text-align:center; }
         .maincontent .tab3 { width:33%; float:left; text-align:center; }
         .maincontent .tab1 img, .maincontent .tab2 img, .maincontent .tab3 img { width:60%; margin:5px auto; }
-        .progress { width:40%; float:left; height:30px; border:2px solid #332942; }
+        .progress { width:40%; float:left; height:20px; border:2px solid #332942; }
         .giftList { margin-left:20px;}
         .giftList div { margin:0; font-size:16px; color:#392D4C; width:100%; height:25px; line-height:25px; overflow:hidden;}
         .promptDiv { width:180px; height:200px;  color:#000; position:absolute; z-index:20; font-size:14pt; line-height:30pt; text-align:center;}
