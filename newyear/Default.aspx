@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 
 <script runat="server">
-    public string token = ""; // "c2f8745ca41de5c64fc25dd61b69e33e4650037e0cfeb44509ea150f5b671ec6fdc29d28";
+    public string token = "";// "866653799b1665f9a0ab48b5a1909aba65036485f889373d73475f05ed81f84beb5d08cd";
     public string id = "";
     public string totalCount = "0";
     public string surplusCount = "0";
@@ -120,8 +120,8 @@
         .maincontent .tab3 { width:33%; float:left; text-align:center; }
         .maincontent .tab1 img, .maincontent .tab2 img, .maincontent .tab3 img { width:60%; margin:5px auto; }
         .progress { width:40%; float:left; height:20px; border:2px solid #332942; }
-        .giftList { margin-left:20px;}
-        .giftList div { margin:0; font-size:16px; color:#392D4C; width:100%; height:25px; line-height:25px;}
+        .giftList { margin-left:20px; margin-top:5px;}
+        .giftList div { margin:0; font-size:16px; color:#392D4C; width:100%;  line-height:25px;}
         .promptDiv { width:180px; height:200px;  color:#000; position:absolute; z-index:20; font-size:14pt; line-height:30pt; text-align:center;}
     </style>
 </head>
@@ -131,9 +131,6 @@
         <div class="header">
             <div id="leftlogo"><img src="images/ny_logo1.png" /></div>
             <div id="rightlogo"><img src="images/ny_logo2.png" /></div>
-        </div>
-        <div style="color:#fff; text-align:center; padding:20px;">
-            <img src="images/ny_text1.png" style="width:50%;" />
         </div>
         <div class="maincontent">
             <div class="tab1"><img src="images/gift_yellow.png" hiddata="0" /></div>
@@ -167,7 +164,10 @@
         </div>
         <div style="margin:30px 20px 20px;">
             <div style="padding:10px 30px;">
-                <div style="color:#473D56;"><img src="images/ny_text2.png" style="width:45%" /></div>
+                <div style="color:#473D56;"><img src="images/ny_text2.png" style="width:45%" />
+                    <a onclick="alert('请在2016年1月5日活动结束之后再来领奖！');" style="display:inline-block; float:right; height:30px; line-height:30px; width:60px; text-align:center; background:#473D56; border-radius:3px; border:1px solid #585555; color:#807b7b;">
+                        领 奖</a>
+                </div>
                 <div id="giftedList" class="giftList">
                 </div>
             </div>
@@ -177,6 +177,12 @@
                 </div>
             </div>
         </div>
+        <div style="margin-top:10px;  text-align:center;">
+            <a href="ActRule.aspx" style="display:inline-block; text-decoration:none; height:30px; line-height:30px; width:180px; text-align:center; background:#473D56; border-radius:3px; border:1px solid #000; color:#ccc;">
+                活动规则和领奖办法</a>
+        </div>
+        <br />
+        <br />
         <div style="clear:both"></div>
     </div>
     <div id="showShare" style="display:none;" onclick="javascript:document.getElementById('showShare').style.display='none';">
