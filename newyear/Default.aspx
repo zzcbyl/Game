@@ -11,7 +11,7 @@
     public string openedBoxList = "";
     
     public string timeStamp = "";
-    public string nonceStr = "3y2wsqsa121fqad0bfw0sf90fq6cw7fb";
+    public string nonceStr = "3y2wsqsa121fq2ad0bfsw0sf90fq6cw7fb";
     public string ticket = "";
     public string shaParam = "";
     public string appId = System.Configuration.ConfigurationManager.AppSettings["wxappid_dingyue"];
@@ -102,7 +102,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>大家都来拆礼盒</title>
+    <title>卢勤问答平台新年大礼盒</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
     <script src="../script/jquery-1.3.2.min.js"></script>
     <script src="../script/common.js"></script>
@@ -200,7 +200,7 @@
 
         var shareTitle = "我想要新年礼盒，请大家帮帮我"; //标题
         var shareImg = "http://game.luqinwenda.com/newyear/images/ny_share_icon.jpg"; //图片
-        var shareContent = '我想要新年礼盒，请大家帮帮我！'; //简介
+        var shareContent = '卢勤问答平台新年大礼盒！'; //简介
         var shareLink = 'http://game.luqinwenda.com/newyear/default.aspx'; //链接
 
         wx.config({
@@ -261,7 +261,7 @@
             $('.maincontent img').click(function () {
                 if ($(this).attr("src") != "images/gift_gray.png" && $(this).attr("src") != "images/gift_max_gray.png") {
                     if($(this).attr("hiddata") == "4" && openCount < 8) {
-                        alert("你需要把小盒子都打开才能开启大盒子！");
+                        alert("你需要把8个小盒子都打开才能开启这个终极大礼盒！");
                         return;
                     }
                     var cStr = $('#spCount').html();
@@ -273,7 +273,7 @@
                             $(this).attr("src", "images/gift_gray.png");
                     }
                     else {
-                        alert("快去找您的朋友帮你来拆礼盒吧！");
+                        alert("请将当前页面发送给朋友或者发送到朋友圈，请你的朋友帮你开启礼盒！");
                     }
                 }
             });
@@ -301,7 +301,7 @@
             if (parseInt(rC) != 0)
                 $('#spCount').html("X" + parseInt(rC));
             else
-                $('#spCount').html('');
+                $('#spCount').html('X0');
 
             var proTotal = 0;
             for (var i = 0; i < parseInt(proCount / (tolCount / 10)) ; i++) {
@@ -320,14 +320,14 @@
             var giftnoStr = "";
             //alert(giftArr.length);
             if(openCount < 9)
-                giftnoStr += "<div>" + giftArr[8] + "</div>";
+                giftnoStr += "<div><img height=\"15px\" src=\"images/gift_max.png\" /> " + giftArr[8] + "</div>";
             else
-                giftedStr += "<div>" + giftArr[8] + "</div>";
+                giftedStr += "<div><img height=\"15px\" src=\"images/gift_max.png\" /> " + giftArr[8] + "</div>";
             var m = 0;
             var giftArr1 = new Array();
             for (var i = 0 ; i < giftArr.length - 1; i++) {
                 if (i < openCount) {
-                    giftedStr += "<div>" + giftArr[i] + "</div>";
+                    giftedStr += "<div><img height=\"15px\" src=\"images/gift_yellow.png\" /> " + giftArr[i] + "</div>";
                 }
                 else {
                     giftArr1[m] = giftArr[i];
@@ -338,7 +338,7 @@
             giftArr1.sort(function () { return 0.5 - Math.random() });
             //alert(giftArr1.toString());
             for (var i = 0; i < giftArr1.length; i++) {
-                giftnoStr += "<div>" + giftArr1[i] + "</div>";
+                giftnoStr += "<div><img height=\"15px\" src=\"images/gift_yellow.png\" /> " + giftArr1[i] + "</div>";
             }
 
             $('#giftedList').html(giftedStr);
@@ -351,8 +351,20 @@
                 alert("您已帮助过TA拆礼盒，每人只能帮助一次");
                 return;
             }
+
+            var codeArr = ['http://game.luqinwenda.com/images/dyh_code_min.jpg', 'http://game.luqinwenda.com/newyear/images/zxjj_code.jpg'];
+            var n = Math.floor(Math.random() * 10);
+            //alert(n);
+            if (n < 5){
+                $('#shareText').html('长按二维码，关注“知心姐姐团队”，帮TA拆礼盒');
+                $('#erweima').attr('src', codeArr[1]);
+            }
+            else{
+                $('#shareText').html('长按二维码，关注“卢勤问答平台”，帮TA拆礼盒');
+                $('#erweima').attr('src', codeArr[0]);
+            }
+
             if (QueryString("id") != null) {
-                $('#shareText').html('长按指纹识别二维码，关注“卢勤问答平台”，帮TA拆礼盒');
                 if (clickcount == 0) {
                     clickcount = 1;
                     $.ajax({
@@ -366,24 +378,13 @@
                 }
             }
             else {
-                $('#shareText').html('请将当前页面发送给朋友或者朋友圈，请他们来帮你拆礼盒');
+                $('#shareText').html('请将当前页面发送给朋友或者发送到朋友圈，让你的朋友关注下方二维码，10-30个关注即可开启一个礼盒');
             }
-
-            var codeArr = ['http://game.luqinwenda.com/images/dyh_code_min.jpg', 'http://game.luqinwenda.com/newyear/images/zxjj_code.jpg', 'http://game.luqinwenda.com/newyear/images/zxjjdy_code.jpg'];
-            var n = Math.floor(Math.random() * 10);
-            //alert(n);
-            if (n < 4)
-                $('#erweima').attr('src', codeArr[1]);
-            else if (n >= 4 && n < 8)
-                $('#erweima').attr('src', codeArr[2]);
-            else
-                $('#erweima').attr('src', codeArr[0]);
-
             showShare();
         }
 
         function getMyGift() {
-            $('#shareText').html('长按指纹识别二维码，关注“卢勤问答平台”，点击下方菜单“新年礼物”获取你的礼物盒子');
+            $('#shareText').html('长按指纹识别二维码，关注“卢勤问答平台”，点击下方菜单“商城”-“礼盒”领取属于你的新年礼盒');
             $('#erweima').attr('src', "http://game.luqinwenda.com/images/dyh_code1.jpg");
             showShare();
         }
@@ -409,7 +410,7 @@
                 success: function (data) {
                     var obj = eval('(' + data + ')');
                     if (obj.status == 1) {
-                        alert("请将当前页面发送给朋友或者朋友圈，请他们来帮你拆礼盒");
+                        alert("这是您朋友的礼盒您不能开启，请点击“领取我的礼盒”按钮");
                     }
                     else {
                         alert("恭喜您，获得 " + giftArr[openCount]);
