@@ -63,7 +63,7 @@
             <div style="text-align:center; font-size:11pt; color:#808080; font-family:微软雅黑;">已有<span id="spCount"><%=forward_count %></span>票支持</div>
             <div style="text-align:left; margin-top:10px;">
                 　　卢勤和她的朋友们微课堂<br />
-                　　2016年12月30日<br />
+                　　2015年12月30日<br />
                 　　给孩子一个自信的世界！<br />
                 <span style="font-weight:bold; background:#ccc; display:inline-block; padding:5px; margin:3px 0;">个人申请进入听课群资格：</span><br />
                 　　● 申请活动截止时间：2015年12月30日12:00，之后将不再接受申请；<br />
