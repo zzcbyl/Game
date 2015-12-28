@@ -4,7 +4,7 @@
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        string token = Util.GetSafeRequestValue(Request, "token", "957bac9dd85c13311a6f9153a2e571d41ba6edd9d57aae04a25da08a5fc83b8df0dc4131");
+        string token = Util.GetSafeRequestValue(Request, "token", "d4a893f6c7bba58696e2039051873f758882b979a6ef1ea2810b99d4fad911e0c025b5d2");
         Users user = new Users(Users.CheckToken(token));
         int id = int.Parse(Util.GetSafeRequestValue(Request, "id", "0"));
         int actId = int.Parse(Util.GetSafeRequestValue(Request, "actid", "1"));
@@ -40,7 +40,14 @@
         string mainJson = "";
         foreach (DataColumn c in newYearBox._field.Table.Columns)
         {
-            mainJson = mainJson + ",\"" + c.Caption.Trim() + "\" : \"" + newYearBox._field[c].ToString().Trim() + "\" ";
+            if (c.Caption.Trim().Equals("award_list_json"))
+            {
+                mainJson = mainJson + ",\"award_list\" : [" + newYearBox._field[c].ToString().Trim() + "] ";
+            }
+            else
+            {
+                mainJson = mainJson + ",\"" + c.Caption.Trim() + "\" : \"" + newYearBox._field[c].ToString().Trim() + "\" ";
+            }
         }
 
         mainJson = "\"status\" : 0 " + mainJson;

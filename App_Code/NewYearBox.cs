@@ -18,6 +18,16 @@ public class NewYearBox
 
     public int totalBoxNumber = 9;
 
+    public static string[][] awardArray = { new string[]{"礼品1"}, 
+                                   new string[]{"礼品2"},
+                                   new string[]{"礼品31","礼品32"},
+                                   new string[]{"礼品4"},
+                                   new string[]{"礼品5"},
+                                   new string[]{"礼品6"},
+                                   new string[]{"礼品7"},
+                                   new string[]{"礼品8"},
+                                   new string[]{"礼品9"}};
+
     public NewYearBox(int id)
     {
         DataTable dt = DBHelper.GetDataTable(" select * from new_year_box_master where [id] = " + id.ToString().Trim(), Util.ConnectionString);
@@ -32,7 +42,16 @@ public class NewYearBox
         DataTable dt = DBHelper.GetDataTable(" select * from new_year_box_master where open_id = '" + openId.Trim() + "' and act_id = " + actId.ToString().Trim(), Util.ConnectionString);
         if (dt.Rows.Count == 0)
         {
-            string[,] insertParameter = { { "open_id", "varchar", openId.Trim() } , {"act_id", "varchar", actId.ToString().Trim() } };
+            string[] currentAwardList = GetRamdomAwardList();
+            string currentAwardListJsonStr = "";
+            foreach (string awardName in currentAwardList)
+            {
+                currentAwardListJsonStr = currentAwardListJsonStr + ",{\"award_name\":\"" + awardName.Trim() + "\"}";
+            }
+            if (currentAwardListJsonStr.StartsWith(","))
+                currentAwardListJsonStr = currentAwardListJsonStr.Remove(0, 1);
+
+            string[,] insertParameter = { { "open_id", "varchar", openId.Trim() }, { "act_id", "varchar", actId.ToString().Trim() }, { "award_list_json", "varchar", currentAwardListJsonStr } };
             int i = DBHelper.InsertData("new_year_box_master", insertParameter, Util.ConnectionString.Trim());
             if (i == 1)
             {
@@ -209,5 +228,16 @@ public class NewYearBox
             string[,] keyParameter = { { "id", "int", ID.ToString() } };
             DBHelper.UpdateData("new_year_box_master", updateParameter, keyParameter, Util.ConnectionString);
         }
+    }
+
+    public static string[] GetRamdomAwardList()
+    {
+        string[] awardListArray = new string[awardArray.Length];
+        for (int i = 0; i < awardListArray.Length; i++)
+        {
+            int seed = (new Random()).Next(awardArray[i].Length);
+            awardListArray[i] = awardArray[i][seed];
+        }
+        return awardListArray;
     }
 }
