@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 
 <script runat="server">
-    public string token = ""; // "c335962e54826366ea593b67cb9e2afe14e3a8230cf64cf3948db2e085ff38005fdbd23f";
+    public string token = "";//"d4a893f6c7bba58696e2039051873f758882b979a6ef1ea2810b99d4fad911e0c025b5d2";
     public string id = "";
     public string totalCount = "0";
     public string surplusCount = "0";
@@ -15,6 +15,7 @@
     public string ticket = "";
     public string shaParam = "";
     public string appId = System.Configuration.ConfigurationManager.AppSettings["wxappid_dingyue"];
+    public string awardJson = "";
     protected void Page_Load(object sender, EventArgs e)
     {
         token = Util.GetSafeRequestValue(Request, "token", "");
@@ -57,6 +58,17 @@
                     Dictionary<string, object> ddd = (Dictionary<string, object>)box;
                     openedBoxList += ddd["box_id"].ToString() + ",";
                 }
+
+                awardJson = "[";
+                ArrayList awardList = (ArrayList)dic["award_list"];
+                foreach (var award in awardList)
+                {
+                    Dictionary<string, object> awarddic = (Dictionary<string, object>)award;
+                    awardJson += "\"" + awarddic["award_name"].ToString() + "\",";
+                }
+                awardJson = awardJson.Length > 2 ? awardJson.Substring(0, awardJson.Length - 1) : awardJson;
+                awardJson += "]";
+                
                 openedBoxList = openedBoxList.Length > 0 ? openedBoxList.Substring(0, openedBoxList.Length - 1) : "";
             }
         }
@@ -155,7 +167,7 @@
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
         var Token = '<%=token %>';
-        var giftArr = ['000', '111', '222', '333', '444', '555', '666', '777', '888', '999'];
+        var giftArr = '<%=awardJson %>';
         var giftImgArr = ['000', '111', '222', '333', '444', '555', '666', '777', '888', '999'];
         var percent = [8, 12, 18, 4, 9, 14, 5, 17, 7, 6];
         var openCount = 0;
@@ -206,7 +218,8 @@
                 });
             });
 
-            
+            //alert(giftArr.toString());
+
             if (openedBox != "") {
                 var boxArr = openedBox.split(',');
                 openCount = boxArr.length;
