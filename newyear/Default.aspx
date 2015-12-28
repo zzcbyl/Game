@@ -309,17 +309,21 @@
             $('#giftnoList').html(giftnoStr);
         }
         
+        var clickcount = 0;
         function helpYou() {
             if (QueryString("id") != null) {
                 $('#shareText').html('长按指纹识别二维码，关注“卢勤问答平台”，帮TA拆礼盒');
-                $.ajax({
-                    type: "GET",
-                    async: false,
-                    url: "http://game.luqinwenda.com/api/new_year_box_support.aspx",
-                    data: { token: Token, id: QueryString("id") },
-                    success: function (data) {
-                    }
-                });
+                if (clickcount == 0) {
+                    clickcount = 1;
+                    $.ajax({
+                        type: "GET",
+                        async: false,
+                        url: "http://game.luqinwenda.com/api/new_year_box_support.aspx",
+                        data: { token: Token, id: QueryString("id") },
+                        success: function (data) {
+                        }
+                    });
+                }
             }
             else {
                 $('#shareText').html('请将当前页面发送给朋友或者朋友圈，请他们来帮你拆礼盒');
