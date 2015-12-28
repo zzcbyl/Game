@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 
 <script runat="server">
-    public string token = ""; //"26acc9e42ad656e577c6261071012337555f0731e4cc4c7695b47967c5a2a6667e75e55b";
+    public string token = ""; //"c3bbee8bddecc4389add9867eff34975526648f024b0f30e00a9ca7534eae26e09bc681e";
     public string id = "";
     public string totalCount = "0";
     public string surplusCount = "0";
@@ -311,14 +311,28 @@
             var giftedStr = "";
             var giftnoStr = "";
             //alert(giftArr.length);
-            for (var i = 0 ; i < giftArr.length; i++) {
+            if(openCount < 9)
+                giftnoStr += "<div>" + giftArr[8] + "</div>";
+            else
+                giftedStr += "<div>" + giftArr[8] + "</div>";
+            var m = 0;
+            var giftArr1 = new Array();
+            for (var i = 0 ; i < giftArr.length - 1; i++) {
                 if (i < openCount) {
                     giftedStr += "<div>" + giftArr[i] + "</div>";
                 }
                 else {
-                    giftnoStr += "<div>" + giftArr[i] + "</div>";
+                    giftArr1[m] = giftArr[i];
+                    m++;
                 }
             }
+            
+            giftArr1.sort(function () { return 0.5 - Math.random() });
+            //alert(giftArr1.toString());
+            for (var i = 0; i < giftArr1.length; i++) {
+                giftnoStr += "<div>" + giftArr1[i] + "</div>";
+            }
+
             $('#giftedList').html(giftedStr);
             $('#giftnoList').html(giftnoStr);
         }
