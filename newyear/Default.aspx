@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 
 <script runat="server">
-    public string token = "";//"d4a893f6c7bba58696e2039051873f758882b979a6ef1ea2810b99d4fad911e0c025b5d2";
+    public string token = ""; //"26acc9e42ad656e577c6261071012337555f0731e4cc4c7695b47967c5a2a6667e75e55b";
     public string id = "";
     public string totalCount = "0";
     public string surplusCount = "0";
@@ -64,7 +64,7 @@
                 foreach (var award in awardList)
                 {
                     Dictionary<string, object> awarddic = (Dictionary<string, object>)award;
-                    awardJson += "\"" + awarddic["award_name"].ToString() + "\",";
+                    awardJson += "'" + awarddic["award_name"].ToString() + "',";
                 }
                 awardJson = awardJson.Length > 2 ? awardJson.Substring(0, awardJson.Length - 1) : awardJson;
                 awardJson += "]";
@@ -167,7 +167,7 @@
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
         var Token = '<%=token %>';
-        var giftArr = '<%=awardJson %>';
+        var giftArr = <%=awardJson %>;
         var giftImgArr = ['000', '111', '222', '333', '444', '555', '666', '777', '888', '999'];
         var percent = [8, 12, 18, 4, 9, 14, 5, 17, 7, 6];
         var openCount = 0;
@@ -310,6 +310,7 @@
         function bindGiftList() {
             var giftedStr = "";
             var giftnoStr = "";
+            //alert(giftArr.length);
             for (var i = 0 ; i < giftArr.length; i++) {
                 if (i < openCount) {
                     giftedStr += "<div>" + giftArr[i] + "</div>";
