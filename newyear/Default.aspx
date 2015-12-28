@@ -165,7 +165,7 @@
         var shareTitle = "我想要新年礼盒，请大家帮帮我"; //标题
         var shareImg = "http://game.luqinwenda.com/newyear/images/ny_share_icon.jpg"; //图片
         var shareContent = '我想要新年礼盒，请大家帮帮我！'; //简介
-        var shareLink = document.URL; //链接
+        var shareLink = 'http://game.luqinwenda.com/newyear/default.aspx'; //链接
 
         wx.config({
             debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
@@ -179,7 +179,7 @@
         });
 
         $(document).ready(function () {
-            shareLink = document.URL + '?id=<%=id %>';
+            shareLink = 'http://game.luqinwenda.com/newyear/default.aspx?id=<%=id %>';
 
             wx.ready(function () {
                 //分享到朋友圈
