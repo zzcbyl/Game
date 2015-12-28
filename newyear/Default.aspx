@@ -279,8 +279,8 @@
             });
         });
 
+        var getCountArr = [10, 20, 20, 30, 30, 30, 30, 30, 300];
         function fillProgress() {
-            var getCountArr = [10, 20, 20, 30, 30, 30, 30, 30, 300];
             var proCount = 0;
             var tolCount = 0;
             var rC = 0;
@@ -413,8 +413,7 @@
                     else {
                         alert("恭喜您，获得 " + giftArr[openCount]);
                         openCount++;
-                        if (openCount < 9)
-                            remainCount -= 10;
+                        remainCount -= getCountArr[openCount];
                         fillProgress();
                         bindGiftList();
                     }
