@@ -12,6 +12,12 @@ public class NewYearBox
 
     public DataRow _field;
 
+    public KeyValuePair<int, int>[] specialBoxSupportNumArray = new KeyValuePair<int, int>[1] { new KeyValuePair<int, int>(4, 100) };
+
+    public int defaultSupportNum = 10;
+
+    public int totalBoxNumber = 9;
+
     public NewYearBox(int id)
     {
         DataTable dt = DBHelper.GetDataTable(" select * from new_year_box_master where [id] = " + id.ToString().Trim(), Util.ConnectionString);
@@ -40,8 +46,49 @@ public class NewYearBox
         }
 	}
 
+    public bool OpenABox(int id)
+    {
+
+        if (id >= totalBoxNumber)
+            return false;
+
+        int neededSupportNumber = GetNeededSupportNum(id);
+
+        if (CurrentSupportNumber >= neededSupportNumber)
+        {
+            string[,] insertParameters = { { "master_id", "int", ID.ToString() }, { "box_id", "int", id.ToString().Trim() } };
+            int i = DBHelper.InsertData("new_year_box_detail", insertParameters, Util.ConnectionString);
+            if (i == 1)
+            {
+                CurrentSupportNumber = CurrentSupportNumber - neededSupportNumber;
+                return true;
+            }
+        }
+        return false;
+
+    }
+
+    public int GetNeededSupportNum(int id)
+    {
+        if (id >= totalBoxNumber)
+            return int.MaxValue;
+
+        int neededSupportNum = defaultSupportNum;
+
+        foreach (KeyValuePair<int, int> specialBox in specialBoxSupportNumArray)
+        {
+            if (specialBox.Key == id)
+            {
+                neededSupportNum = specialBox.Value;
+                break;
+            }
+        }
+
+        return neededSupportNum;
+    }
 
 
+/*
     public bool OpenABox(int id)
     {
         if (id > 8)
@@ -90,7 +137,7 @@ public class NewYearBox
         }
         
     }
-
+    */
     public KeyValuePair<int, DateTime>[] GetOpenedBox()
     {
         DataTable dt = DBHelper.GetDataTable(" select * from new_year_box_detail where master_id = " + ID.ToString(), Util.ConnectionString);
