@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 
 <script runat="server">
-    public string token = "1f534e0dc3b6ce16c841dc356b06b8fba98911458cd04374b13751509e13db8b5dc1249a";
+    public string token = ""; // "1f534e0dc3b6ce16c841dc356b06b8fba98911458cd04374b13751509e13db8b5dc1249a";
     public string id = "";
     public string totalCount = "0";
     public string surplusCount = "0";
@@ -19,11 +19,11 @@
     public string isHelp = "1";
     protected void Page_Load(object sender, EventArgs e)
     {
-        //token = Util.GetSafeRequestValue(Request, "token", "");
-        //if (token == null || token == "")
-        //{
-        //    Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString());
-        //}
+        token = Util.GetSafeRequestValue(Request, "token", "");
+        if (token == null || token == "")
+        {
+            Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString());
+        }
         
         try
         {
