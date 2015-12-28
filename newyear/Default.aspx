@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 
 <script runat="server">
-    public string token = ""; //"c3bbee8bddecc4389add9867eff34975526648f024b0f30e00a9ca7534eae26e09bc681e";
+    public string token = "1f534e0dc3b6ce16c841dc356b06b8fba98911458cd04374b13751509e13db8b5dc1249a";
     public string id = "";
     public string totalCount = "0";
     public string surplusCount = "0";
@@ -16,13 +16,14 @@
     public string shaParam = "";
     public string appId = System.Configuration.ConfigurationManager.AppSettings["wxappid_dingyue"];
     public string awardJson = "";
+    public string isHelp = "1";
     protected void Page_Load(object sender, EventArgs e)
     {
-        token = Util.GetSafeRequestValue(Request, "token", "");
-        if (token == null || token == "")
-        {
-            Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString());
-        }
+        //token = Util.GetSafeRequestValue(Request, "token", "");
+        //if (token == null || token == "")
+        //{
+        //    Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString());
+        //}
         
         try
         {
@@ -41,7 +42,9 @@
             JavaScriptSerializer json = new JavaScriptSerializer();
             string getUrl="";
             if (Request["id"] != null && Request["id"] != "")
+            {
                 getUrl = "http://game.luqinwenda.com/api/new_year_box_get_info.aspx?id=" + Request["id"].ToString();
+            }
             else
                 getUrl = "http://game.luqinwenda.com/api/new_year_box_get_info.aspx?token=" + token;
             string result = HTTPHelper.Get_Http(getUrl);
@@ -70,6 +73,26 @@
                 awardJson += "]";
                 
                 openedBoxList = openedBoxList.Length > 0 ? openedBoxList.Substring(0, openedBoxList.Length - 1) : "";
+
+                if (Request["id"] != null && Request["id"] != "")
+                {
+                    string currentGetUrl = "http://game.luqinwenda.com/api/new_year_box_get_info.aspx?token=" + token;
+                    string currentResult = HTTPHelper.Get_Http(currentGetUrl);
+                    Dictionary<string, object> currentDic = json.Deserialize<Dictionary<string, object>>(currentResult);
+                    if (currentDic["status"].Equals(0))
+                    {
+                        foreach (var support in supportList)
+                        {
+                            Dictionary<string, object> sss = (Dictionary<string, object>)support;
+                            if (sss["open_id"].ToString() == currentDic["open_id"].ToString())
+                            {
+                                isHelp = "0";
+                                break;
+                            }
+                        }
+                        
+                    }
+                }
             }
         }
         catch { }
@@ -173,6 +196,7 @@
         var openCount = 0;
         var remainCount = parseInt('<%=surplusCount %>');
         var openedBox = '<%=openedBoxList %>';
+        var isHelp='<%=isHelp %>';
 
         var shareTitle = "我想要新年礼盒，请大家帮帮我"; //标题
         var shareImg = "http://game.luqinwenda.com/newyear/images/ny_share_icon.jpg"; //图片
@@ -256,59 +280,38 @@
         });
 
         function fillProgress() {
+            var getCountArr = [10, 20, 20, 30, 30, 30, 30, 30, 300];
             var proCount = 0;
-            if (openCount < 8) {
-                var rC = parseInt(remainCount / 10);
-                if ((8 - openCount) > rC) {
-                    if (parseInt(rC) != 0)
-                        $('#spCount').html("X" + parseInt(rC));
-                    else
-                        $('#spCount').html('');
-                    proCount = remainCount % 10;
-
-                    var proTotal = 0;
-                    for (var i = 0; i < parseInt(proCount) ; i++) {
-                        proTotal += percent[i];
-                    }
-                    $('#progressFill').css({ width: proTotal + "%" });
+            var tolCount = 0;
+            var rC = 0;
+            for (var i = openCount; i < getCountArr.length; i++) {
+                var SubCount = parseInt(remainCount) - getCountArr[i];
+                if (SubCount > 0) {
+                    remainCount = parseInt(remainCount) - getCountArr[i];
+                    rC++;
                 }
                 else {
-                    var lastCount = remainCount - ((8 - openCount) * 10);
-                    if (lastCount < 100) {
-                        $('#spCount').html("X" + parseInt(8 - openCount));
-                        proCount = lastCount;
-
-                        var proTotal = 0;
-                        for (var i = 0; i < parseInt(proCount / 10) ; i++) {
-                            proTotal += percent[i];
-                        }
-                        $('#progressFill').css({ width: proTotal + "%" });
-                    }
-                    else {
-                        $('#spCount').html("X" + parseInt(8 - openCount + 1));
-                        proCount = 100;
-                        $('#progressFill').css({ width: "100%" });
-                    }
+                    tolCount = getCountArr[i];
+                    proCount = getCountArr[i] + SubCount;
+                    break;
                 }
             }
-            else if (openCount == 8) {
-                var lastCount = remainCount;
-                if (lastCount < 100) {
-                    $('#spCount').html('');
-                    proCount = lastCount;
 
-                    var proTotal = 0;
-                    for (var i = 0; i < parseInt(proCount / 10) ; i++) {
-                        proTotal += percent[i];
-                    }
-                    $('#progressFill').css({ width: proTotal + "%" });
-                }
-                else {
-                    $('#spCount').html("X1");
-                    proCount = 100;
-                    $('#progressFill').css({ width: "100%" });
-                }
+            if (parseInt(rC) != 0)
+                $('#spCount').html("X" + parseInt(rC));
+            else
+                $('#spCount').html('');
+
+            var proTotal = 0;
+            for (var i = 0; i < parseInt(proCount / (tolCount / 10)) ; i++) {
+                proTotal += percent[i];
             }
+            
+            if((openCount + parseInt(rC)) == 9)
+                $('#progressFill').css({ width: "100%" });
+            else
+                $('#progressFill').css({ width: proTotal + "%" });
+
         }
 
         function bindGiftList() {
@@ -343,6 +346,10 @@
         
         var clickcount = 0;
         function helpYou() {
+            if(isHelp == "0") {
+                alert("您已帮助过TA拆礼盒，每人只能帮助一次");
+                return;
+            }
             if (QueryString("id") != null) {
                 $('#shareText').html('长按指纹识别二维码，关注“卢勤问答平台”，帮TA拆礼盒');
                 if (clickcount == 0) {
@@ -409,6 +416,7 @@
                         if (openCount < 9)
                             remainCount -= 10;
                         fillProgress();
+                        bindGiftList();
                     }
                 }
             });
