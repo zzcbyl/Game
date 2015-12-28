@@ -12,21 +12,25 @@ public class NewYearBox
 
     public DataRow _field;
 
-    public KeyValuePair<int, int>[] specialBoxSupportNumArray = new KeyValuePair<int, int>[1] { new KeyValuePair<int, int>(4, 100) };
+    public static KeyValuePair<int, int>[] specialBoxSupportNumArray 
+        = new KeyValuePair<int, int>[] { new KeyValuePair<int, int>(0, 10),
+        new KeyValuePair<int, int>(1, 20),
+        new KeyValuePair<int, int>(2, 20),
+        new KeyValuePair<int, int>(8, 100)};
 
-    public int defaultSupportNum = 10;
+    public static int defaultSupportNum = 30;
 
-    public int totalBoxNumber = 9;
+    public static int totalBoxNumber = 9;
 
-    public static string[][] awardArray = { new string[]{"礼品1"}, 
-                                   new string[]{"礼品2"},
-                                   new string[]{"礼品31","礼品32"},
-                                   new string[]{"礼品4"},
-                                   new string[]{"礼品5"},
-                                   new string[]{"礼品6"},
-                                   new string[]{"礼品7"},
-                                   new string[]{"礼品8"},
-                                   new string[]{"礼品9"}};
+    public static string[][] awardArray = { new string[]{"10元卢勤书城抵用券"}, 
+                                   new string[]{"卢勤著作：《和烦恼说再见》图书1本"},
+                                   new string[]{"《知心姐姐杂志》2016年1月季度刊3本"},
+                                   new string[]{"“知心姐姐平安新春大礼包”1套"},
+                                   new string[]{"卢勤著作：《长大不容易》图书1本"},
+                                   new string[]{"卢勤著作：《告诉孩子，你真棒》图书1本"},
+                                   new string[]{"卢勤著作：《把孩子培养成财富》图书1本"},
+                                   new string[]{"《家庭教育专题讲座》典藏光盘一套"},
+                                   new string[]{"星空侠儿童安全电话智能手表"}};
 
     public NewYearBox(int id)
     {
@@ -87,7 +91,7 @@ public class NewYearBox
 
     }
 
-    public int GetNeededSupportNum(int id)
+    public static int GetNeededSupportNum(int id)
     {
         if (id >= totalBoxNumber)
             return int.MaxValue;
