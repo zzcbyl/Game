@@ -144,12 +144,12 @@
         </div>
         <div style="margin:30px 20px 20px;">
             <div style="padding:10px 30px;">
-                <div style="color:#473D56;"><img src="images/ny_text2.png" style="width:37%" /></div>
+                <div style="color:#473D56;"><img src="images/ny_text2.png" style="width:45%" /></div>
                 <div id="giftedList" class="giftList">
                 </div>
             </div>
             <div style="padding:10px 30px;">
-                <div style="color:#473D56;"><img src="images/ny_text3.png" style="width:50%" /></div>
+                <div style="color:#473D56;"><img src="images/ny_text3.png" style="width:58%" /></div>
                 <div id="giftnoList" class="giftList">
                 </div>
             </div>
