@@ -83,8 +83,8 @@
         .maincontent .tab1 { width:33%; float:left; text-align:center; }
         .maincontent .tab2 { width:33%; float:left; text-align:center; }
         .maincontent .tab3 { width:33%; float:left; text-align:center; }
-        .maincontent .tab1 img, .maincontent .tab2 img, .maincontent .tab3 img { width:50%; margin:5px auto; }
-        .progress { width:40%; float:left; height:20px; border:2px solid #332942; }
+        .maincontent .tab1 img, .maincontent .tab2 img, .maincontent .tab3 img { width:60%; margin:5px auto; }
+        .progress { width:40%; float:left; height:30px; border:2px solid #332942; }
         .giftList { margin-left:20px;}
         .giftList div { margin:0; font-size:16px; color:#392D4C; width:100%; height:25px; line-height:25px; overflow:hidden;}
         .promptDiv { width:180px; height:200px;  color:#000; position:absolute; z-index:20; font-size:14pt; line-height:30pt; text-align:center;}
@@ -116,7 +116,7 @@
         </div>
         <div style="padding:20px 20px; margin-top:10px;">
             <div style="color:#fff; float:left; width:30%; margin-left:8%; margin-right:1%; margin-top:3px; text-align:right;">
-                <img src="images/ny_text4.png" style="width:80%;" />
+                <img src="images/ny_text4.png" style="width:90%;" />
             </div>
             <div class="progress">
                 <div id="progressFill" style="height:100%; background:#84B822;"></div>
@@ -125,10 +125,10 @@
             <div style="clear:both"></div>
         </div>
         <div style="margin-top:30px; text-align:center;">
-            <img src="images/btn_help.png" style="width:40%; border:0;" onclick="helpYou();" />
+            <img src="images/btn_help.png" style="width:60%; border:0;" onclick="helpYou();" />
         </div>
         <div style="margin-top:10px;  text-align:center;">
-            <img src="images/btn_mygift.png" style="width:40%; border:0;" onclick="getMyGift();" />
+            <img src="images/btn_mygift.png" style="width:60%; border:0;" onclick="getMyGift();" />
         </div>
         <div style="margin:30px 20px 20px;">
             <div style="padding:10px 30px;">
