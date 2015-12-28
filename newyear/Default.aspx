@@ -342,7 +342,7 @@
                 $('#shareText').html('请将当前页面发送给朋友或者朋友圈，请他们来帮你拆礼盒');
             }
 
-            var codeArr = ['http://game.luqinwenda.com/images/dyh_code1.jpg', 'http://game.luqinwenda.com/newyear/images/zxjj_code.jpg', 'http://game.luqinwenda.com/newyear/images/zxjjdy_code.jpg'];
+            var codeArr = ['http://game.luqinwenda.com/images/dyh_code_min.jpg', 'http://game.luqinwenda.com/newyear/images/zxjj_code.jpg', 'http://game.luqinwenda.com/newyear/images/zxjjdy_code.jpg'];
             var n = Math.floor(Math.random() * 10);
             //alert(n);
             if (n < 4)
