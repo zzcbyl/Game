@@ -374,6 +374,7 @@
 
         function getMyGift() {
             $('#shareText').html('长按指纹识别二维码，关注“卢勤问答平台”，点击下方菜单“新年礼物”获取你的礼物盒子');
+            $('#erweima').attr('src', "http://game.luqinwenda.com/images/dyh_code1.jpg");
             showShare();
         }
 
