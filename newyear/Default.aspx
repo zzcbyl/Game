@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 
 <script runat="server">
-    public string token = "c335962e54826366ea593b67cb9e2afe14e3a8230cf64cf3948db2e085ff38005fdbd23f";
+    public string token = ""; // "c335962e54826366ea593b67cb9e2afe14e3a8230cf64cf3948db2e085ff38005fdbd23f";
     public string id = "";
     public string totalCount = "0";
     public string surplusCount = "0";
@@ -17,11 +17,11 @@
     public string appId = System.Configuration.ConfigurationManager.AppSettings["wxappid_dingyue"];
     protected void Page_Load(object sender, EventArgs e)
     {
-        //token = Util.GetSafeRequestValue(Request, "token", "");
-        //if (token == null || token == "")
-        //{
-        //    Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString());
-        //}
+        token = Util.GetSafeRequestValue(Request, "token", "");
+        if (token == null || token == "")
+        {
+            Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString());
+        }
         
         try
         {
