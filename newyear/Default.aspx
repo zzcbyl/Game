@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 
 <script runat="server">
-    public string token = "";// "40cb055dfc2f090fe90426dc15e571300a1bc2a99575eac106f50bd04febf4031bcb13ac";
+    public string token = "c335962e54826366ea593b67cb9e2afe14e3a8230cf64cf3948db2e085ff38005fdbd23f";
     public string id = "";
     public string totalCount = "0";
     public string surplusCount = "0";
@@ -17,11 +17,11 @@
     public string appId = System.Configuration.ConfigurationManager.AppSettings["wxappid_dingyue"];
     protected void Page_Load(object sender, EventArgs e)
     {
-        token = Util.GetSafeRequestValue(Request, "token", "");
-        if (token == null || token == "")
-        {
-            Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString());
-        }
+        //token = Util.GetSafeRequestValue(Request, "token", "");
+        //if (token == null || token == "")
+        //{
+        //    Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString());
+        //}
         
         try
         {
@@ -38,7 +38,11 @@
         try
         {
             JavaScriptSerializer json = new JavaScriptSerializer();
-            string getUrl = "http://game.luqinwenda.com/api/new_year_box_get_info.aspx?token=" + token;
+            string getUrl="";
+            if (Request["id"] != null && Request["id"] != "")
+                getUrl = "http://game.luqinwenda.com/api/new_year_box_get_info.aspx?id=" + Request["id"].ToString();
+            else
+                getUrl = "http://game.luqinwenda.com/api/new_year_box_get_info.aspx?token=" + token;
             string result = HTTPHelper.Get_Http(getUrl);
             Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(result);
             if (dic["status"].Equals(0))
@@ -151,12 +155,6 @@
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
         var Token = '<%=token %>';
-        var ZxjjgiftArr = ['011', '122', '233', '344', '455', '566', '677', '788', '899', '900'];
-        var ZxjjgiftImgArr = ['011', '122', '233', '344', '455', '566', '677', '788', '899', '900'];
-        var ZxdygiftArr = ['001', '112', '223', '334', '445', '556', '667', '778', '889', '990'];
-        var ZxdygiftImgArr = ['001', '112', '223', '334', '445', '556', '667', '778', '889', '990'];
-        var LqwdgiftArr = ['000', '111', '222', '333', '444', '555', '666', '777', '888', '999'];
-        var LqwdgiftImgArr = ['000', '111', '222', '333', '444', '555', '666', '777', '888', '999'];
         var giftArr = ['000', '111', '222', '333', '444', '555', '666', '777', '888', '999'];
         var giftImgArr = ['000', '111', '222', '333', '444', '555', '666', '777', '888', '999'];
         var percent = [8, 12, 18, 4, 9, 14, 5, 17, 7, 6];
@@ -208,28 +206,7 @@
                 });
             });
 
-            for (var i = 0; i < LqwdgiftArr.length; i++) {
-                var m = Math.floor(Math.random() * 3);
-                if (i == 0 || i == 9 || i == 8 || i == 7) {
-                    m = 0;
-                }
-                if (m == 0) {
-                    giftArr[i] = LqwdgiftArr[i];
-                    giftImgArr[i] = LqwdgiftImgArr[i];
-                }
-                else if (m == 1) {
-                    giftArr[i] = ZxjjgiftArr[i];
-                    giftImgArr[i] = ZxjjgiftImgArr[i];
-                }
-                else if (m == 2) {
-                    giftArr[i] = ZxdygiftArr[i];
-                    giftImgArr[i] = ZxdygiftImgArr[i];
-                }
-                else {
-                    giftArr[i] = LqwdgiftArr[i];
-                    giftImgArr[i] = LqwdgiftImgArr[i];
-                }
-            }
+            
             if (openedBox != "") {
                 var boxArr = openedBox.split(',');
                 openCount = boxArr.length;
@@ -264,54 +241,54 @@
         function fillProgress() {
             var proCount = 0;
             if (openCount < 8) {
-                var rC = parseInt(remainCount / 20);
+                var rC = parseInt(remainCount / 10);
                 if ((8 - openCount) > rC) {
                     if (parseInt(rC) != 0)
                         $('#spCount').html("X" + parseInt(rC));
                     else
                         $('#spCount').html('');
-                    proCount = remainCount % 20;
+                    proCount = remainCount % 10;
 
                     var proTotal = 0;
-                    for (var i = 0; i < parseInt(proCount / 2) ; i++) {
+                    for (var i = 0; i < parseInt(proCount) ; i++) {
                         proTotal += percent[i];
                     }
                     $('#progressFill').css({ width: proTotal + "%" });
                 }
                 else {
-                    var lastCount = remainCount - ((8 - openCount) * 20);
-                    if (lastCount < 200) {
+                    var lastCount = remainCount - ((8 - openCount) * 10);
+                    if (lastCount < 100) {
                         $('#spCount').html("X" + parseInt(8 - openCount));
                         proCount = lastCount;
 
                         var proTotal = 0;
-                        for (var i = 0; i < parseInt(proCount / 20) ; i++) {
+                        for (var i = 0; i < parseInt(proCount / 10) ; i++) {
                             proTotal += percent[i];
                         }
                         $('#progressFill').css({ width: proTotal + "%" });
                     }
                     else {
                         $('#spCount').html("X" + parseInt(8 - openCount + 1));
-                        proCount = 200;
+                        proCount = 100;
                         $('#progressFill').css({ width: "100%" });
                     }
                 }
             }
             else if (openCount == 8) {
                 var lastCount = remainCount;
-                if (lastCount < 200) {
+                if (lastCount < 100) {
                     $('#spCount').html('');
                     proCount = lastCount;
 
                     var proTotal = 0;
-                    for (var i = 0; i < parseInt(proCount / 20) ; i++) {
+                    for (var i = 0; i < parseInt(proCount / 10) ; i++) {
                         proTotal += percent[i];
                     }
                     $('#progressFill').css({ width: proTotal + "%" });
                 }
                 else {
                     $('#spCount').html("X1");
-                    proCount = 200;
+                    proCount = 100;
                     $('#progressFill').css({ width: "100%" });
                 }
             }
@@ -348,9 +325,15 @@
                 $('#shareText').html('请将当前页面发送给朋友或者朋友圈，请他们来帮你拆礼盒');
             }
 
-            var codeArr = ['../images/dyh_code1.jpg', 'images/di8jie.jpg'];
-            var n = Math.floor(Math.random() * 2);
-            $('#erweima').attr('src', codeArr[n]);
+            var codeArr = ['../images/dyh_code1.jpg', 'images/zxjj_code.jpg', 'images/zxjjdy_code.jpg'];
+            var n = Math.floor(Math.random() * 10);
+            //alert(n);
+            if (n < 4)
+                $('#erweima').attr('src', codeArr[1]);
+            else if (n >= 4 && n < 8)
+                $('#erweima').attr('src', codeArr[2]);
+            else
+                $('#erweima').attr('src', codeArr[0]);
 
             showShare();
         }
@@ -379,11 +362,17 @@
                 url: "http://game.luqinwenda.com/api/new_year_box_open_box.aspx",
                 data: { token: Token, boxId: boxid },
                 success: function (data) {
-                    alert("恭喜您，获得 " + giftArr[openCount]);
-                    openCount++;
-                    if (openCount < 9)
-                        remainCount -= 20;
-                    fillProgress();
+                    var obj = eval('(' + data + ')');
+                    if (obj.status == 1) {
+                        alert("请将当前页面发送给朋友或者朋友圈，请他们来帮你拆礼盒");
+                    }
+                    else {
+                        alert("恭喜您，获得 " + giftArr[openCount]);
+                        openCount++;
+                        if (openCount < 9)
+                            remainCount -= 10;
+                        fillProgress();
+                    }
                 }
             });
         }

@@ -48,13 +48,13 @@ public class NewYearBox
             return false;
         if (id == 4)
         {
-            if (CurrentSupportNumber >= 200)
+            if (CurrentSupportNumber >= 100)
             {
                 string[,] insertParameters = { { "master_id", "int", ID.ToString() }, { "box_id", "int", id.ToString().Trim() } };
                 int i = DBHelper.InsertData("new_year_box_detail", insertParameters, Util.ConnectionString);
                 if (i == 1)
                 {
-                    CurrentSupportNumber = CurrentSupportNumber - 200;
+                    CurrentSupportNumber = CurrentSupportNumber - 100;
                     return true;
                 }
                 else
@@ -69,13 +69,13 @@ public class NewYearBox
         }
         else
         {
-            if (CurrentSupportNumber >= 20)
+            if (CurrentSupportNumber >= 10)
             {
                 string[,] insertParameters = { { "master_id", "int", ID.ToString() }, { "box_id", "int", id.ToString().Trim() } };
                 int i = DBHelper.InsertData("new_year_box_detail", insertParameters, Util.ConnectionString);
                 if (i == 1)
                 {
-                    CurrentSupportNumber = CurrentSupportNumber - 20;
+                    CurrentSupportNumber = CurrentSupportNumber - 10;
                     return true;
                 }
                 else
