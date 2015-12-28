@@ -43,7 +43,7 @@ public class Users
     {
         get
         {
-            if (_fields["uname"].ToString().Trim().Equals(""))
+            if (_fields["uname"] != null && _fields["uname"].ToString().Trim().Equals(""))
             {
                 return _fields["openid"].ToString().Trim();
             }
