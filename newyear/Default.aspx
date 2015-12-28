@@ -236,8 +236,10 @@
 
             $('.maincontent img').click(function () {
                 if ($(this).attr("src") != "images/gift_gray.png" && $(this).attr("src") != "images/gift_max_gray.png") {
-                    if($(this).attr("hiddata") == "4" && openCount < 8)
+                    if($(this).attr("hiddata") == "4" && openCount < 8) {
                         alert("你需要把小盒子都打开才能开启大盒子！");
+                        return;
+                    }
                     var cStr = $('#spCount').html();
                     if (cStr != "" && parseInt(cStr.substr(1, 1)) > 0) {
                         OpenBox($(this).attr("hiddata"));
