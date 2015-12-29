@@ -130,7 +130,7 @@ function OpenBox(boxid) {
     $.ajax({
         type: "GET",
         async: false,
-        url: "http://192.168.1.38:8002/api/new_year_box_open_box.aspx",
+        url: "http://game.luqinwenda.com/api/new_year_box_open_box.aspx",
         data: { token: Token, boxId: boxid },
         dataType: "json",
         success: function (data) {

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/dingyue/Master.master" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/newyear/Master.master" %>
 
 <script runat="server">
 
@@ -6,26 +6,6 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <script src="../script/jquery-2.1.1.min.js"></script>
-    <script src="../script/common.js"></script>
-    <style type="text/css">
-        body, div { font-family:SimSun;}
-        .bgContent { background:#595167; max-width: 640px; margin: 0 auto; min-height:600px; padding-bottom:10px; }
-        .header { min-height:120px; background:#B6092F; }
-        .header #leftlogo { float:left; width:50%; max-height:120px;  }
-        .header #rightlogo { float:right; width:45%; max-height:120px; margin-top:5%; margin-right:5%; }
-        .header img { width:100%; }
-        .maincontent { padding:0 20px 20px; }
-        .maincontent div { margin-top:10px;  }
-        .maincontent .tab1 { width:33%; float:left; text-align:center; }
-        .maincontent .tab2 { width:33%; float:left; text-align:center; }
-        .maincontent .tab3 { width:33%; float:left; text-align:center; }
-        .maincontent .tab1 img, .maincontent .tab2 img, .maincontent .tab3 img { width:60%; margin:5px auto; }
-        .progress { width:40%; float:left; height:20px; border:2px solid #332942; }
-        .giftList { margin-left:20px; margin-top:5px;}
-        .giftList div { margin:0; font-size:16px; color:#392D4C; width:100%;  line-height:25px;}
-        .promptDiv { width:180px; height:200px;  color:#000; position:absolute; z-index:20; font-size:14pt; line-height:30pt; text-align:center;}
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="bgContent">
@@ -56,10 +36,6 @@
     </div>
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
-        var shareTitle = "我想要新年礼盒，请大家帮帮我"; //标题
-        var shareImg = "http://game.luqinwenda.com/newyear/images/ny_share_icon.jpg"; //图片
-        var shareContent = '卢勤问答平台新年大礼盒！'; //简介
-        var shareLink = 'http://game.luqinwenda.com/newyear/default.aspx'; //链接
 
         $(document).ready(function () {
             shareLink = 'http://game.luqinwenda.com/newyear/default.aspx?id=' + QueryString("id");

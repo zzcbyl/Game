@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/dingyue/Master.master" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/newyear/Master.master" %>
 <%@ Import Namespace="System.Web.Script.Serialization" %>
 
 <script runat="server">
-    public string token = "ad98e490bebe2518000a5164903af833a5319c9f99a07b4564dc4f8387199a7c6e5f2df1";
+    public string token = ""; // "ad98e490bebe2518000a5164903af833a5319c9f99a07b4564dc4f8387199a7c6e5f2df1";
     public string id = "";
     public string totalCount = "0";
     public string surplusCount = "0";
@@ -12,15 +12,16 @@
     public string allJson = "";
     protected void Page_Load(object sender, EventArgs e)
     {
-        //token = Util.GetSafeRequestValue(Request, "token", "");
-        //if (token == null || token == "")
-        //{
-        //    Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString());
-        //}
+        token = Util.GetSafeRequestValue(Request, "token", "");
+        if (token == null || token == "")
+        {
+            Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString());
+        }
 
-
+        try
+        {
             JavaScriptSerializer json = new JavaScriptSerializer();
-            string getUrl="";
+            string getUrl = "";
             if (Request["id"] != null && Request["id"] != "")
             {
                 getUrl = "http://game.luqinwenda.com/api/new_year_box_get_info.aspx?id=" + Request["id"].ToString();
@@ -33,9 +34,8 @@
             {
                 allJson = result;
                 id = dic["id"].ToString();
+                code = dic["code"].ToString();
                 surplusCount = dic["current_support_num"].ToString();
-                //ArrayList supportList = (ArrayList)dic["support_list"];
-                //totalCount = supportList.Count.ToString();
                 if (dic.ContainsKey("opened_box"))
                 {
                     ArrayList boxList = (ArrayList)dic["opened_box"];
@@ -46,56 +46,13 @@
                     }
                 }
                 openedBoxList = openedBoxList.Length > 0 ? openedBoxList.Substring(0, openedBoxList.Length - 1) : "";
-
-                //if (Request["id"] != null && Request["id"] != "")
-                //{
-                //    string currentGetUrl = "http://game.luqinwenda.com/api/new_year_box_get_info.aspx?token=" + token;
-                //    string currentResult = HTTPHelper.Get_Http(currentGetUrl);
-                //    Dictionary<string, object> currentDic = json.Deserialize<Dictionary<string, object>>(currentResult);
-                //    if (currentDic["status"].Equals(0))
-                //    {
-                //        foreach (var support in supportList)
-                //        {
-                //            Dictionary<string, object> sss = (Dictionary<string, object>)support;
-                //            if (sss["open_id"].ToString() == currentDic["open_id"].ToString())
-                //            {
-                //                isHelp = "0";
-                //                break;
-                //            }
-                //        }
-                //    }
-                //}
             }
-
+        }
+        catch { }
     }
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <script src="../script/jquery-2.1.1.min.js"></script>
-    <script src="../script/common.js"></script>
-    <script src="../script/bootstrap.min.js"></script>
-    <link href="../style/bootstrap.min.css" rel="stylesheet" />
-    <style type="text/css">
-        body, div { font-family:SimSun;}
-        .bgContent { background:#595167; max-width: 640px; margin: 0 auto; min-height:600px; padding-bottom:10px; }
-        .header { min-height:120px; background:#B6092F; }
-        .header #leftlogo { float:left; width:50%; max-height:120px;  }
-        .header #rightlogo { float:right; width:45%; max-height:120px; margin-top:5%; margin-right:5%; }
-        .header img { width:100%; }
-        .maincontent { padding:0 20px 20px; }
-        .maincontent div { margin-top:10px;  }
-        .maincontent .tab1 { width:33%; float:left; text-align:center; }
-        .maincontent .tab2 { width:33%; float:left; text-align:center; }
-        .maincontent .tab3 { width:33%; float:left; text-align:center; }
-        .maincontent .tab1 img, .maincontent .tab2 img, .maincontent .tab3 img { width:60%; margin:5px auto; }
-        .giftprogress { width:40%; float:left; height:25px; margin-top:3px; border:2px solid #332942; border-radius:4px; }
-        .giftList { margin-left:20px; margin-top:5px;}
-        .giftList div { margin:0; font-size:16px; color:#392D4C; width:100%;  line-height:25px;}
-        .giftList div img { margin-top:-5px;}
-        .promptDiv { width:180px; height:200px;  color:#000; position:absolute; z-index:20; font-size:14pt; line-height:30pt; text-align:center;}
-        .modal-title { height:8px; }
-        .modal-dialog { margin-top:100px;}
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="bgContent">
@@ -146,7 +103,7 @@
         <div style="padding:10px 20px; font-size:10pt; line-height:18px; color:#fff; text-align:center; font-weight:bold;">
             <div>（本活动将于2016年1月7日12点结束，1月8日后可领奖）</div>
             <a onclick="alert('请在2016年1月8日来领奖！');" style="text-decoration:none; margin-top:12px; font-size:12pt; display:inline-table; height:30px; line-height:30px; width:70px; text-align:center; background:#473D56; border-radius:3px; border:1px solid #635F5D; color:#807b7b;">领 奖</a>
-            <a href="" style="display:inline-table; text-decoration:none; font-size:12pt; letter-spacing:1px; margin-left:10px; height:30px; line-height:30px; width:150px; text-align:center; background:#473D56; border-radius:3px; border:1px solid #000; color:#ccc;">查看奖品详情</a>
+            <a href="Awardlist.aspx?id=<%=id %>" style="display:inline-table; text-decoration:none; font-size:12pt; letter-spacing:1px; margin-left:10px; height:30px; line-height:30px; width:150px; text-align:center; background:#473D56; border-radius:3px; border:1px solid #000; color:#ccc;">查看奖品详情</a>
         </div>
         <div style="margin:30px 20px 20px;">
             <div style="padding:10px 30px;">
@@ -165,7 +122,7 @@
             </div>
         </div>
         <div style="margin-top:10px;  text-align:center;">
-            <a href="ActRule.aspx" style="display:inline-block; text-decoration:none; height:30px; line-height:30px; width:180px; text-align:center; background:#473D56; border-radius:3px; border:1px solid #000; color:#ccc;">
+            <a href="ActRule.aspx?id=<%=id %>" style="display:inline-block; text-decoration:none; height:30px; line-height:30px; width:180px; text-align:center; background:#473D56; border-radius:3px; border:1px solid #000; color:#ccc;">
                 活动规则和领奖办法</a>
         </div>
         <br />
@@ -201,10 +158,6 @@
         var percent = [8, 12, 18, 4, 9, 14, 5, 17, 7, 6];
         var getCountArr = [5, 10, 20, 20, 20, 30, 40, 100, 200];
         var alljson = <%=allJson %>;
-        var shareTitle = "我想要新年礼盒，请大家帮帮我"; //标题
-        var shareImg = "http://game.luqinwenda.com/newyear/images/ny_share_icon.jpg"; //图片
-        var shareContent = '卢勤问答平台新年大礼盒！'; //简介
-        var shareLink = 'http://game.luqinwenda.com/newyear/default.aspx'; //链接
 
         $(document).ready(function () {
             shareLink = 'http://game.luqinwenda.com/newyear/default.aspx?id=<%=id %>';
