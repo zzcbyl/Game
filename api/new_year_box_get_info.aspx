@@ -52,7 +52,7 @@
             mainJson = mainJson + ",\"" + c.Caption.Trim() + "\" : \"" + newYearBox._field[c].ToString().Trim() + "\" ";
         }
 
-        mainJson = "\"status\" : 0 , \"code\": \"b" + newYearBox.ID.ToString().PadLeft(4,'0') +  "\"  " + mainJson;
+        mainJson = "\"status\" : 0 , \"code\": \"g" + newYearBox.ID.ToString().PadLeft(4,'0') +  "\"  " + mainJson;
 
         string unAwardJson = "";
         for (int i = openedBoxList.Length; i < NewYearBox.awardTotalList.Length; i++)
