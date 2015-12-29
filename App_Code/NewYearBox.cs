@@ -223,7 +223,7 @@ public class NewYearBox
     public KeyValuePair<int, string>[] GetOpenedBoxWithGift()
     {
         DataTable dt = DBHelper.GetDataTable(" select * from new_year_box_detail where master_id = " 
-            + ID.ToString() + "  order by  box_id ", Util.ConnectionString);
+            + ID.ToString() + "  order by  create_date_time desc ", Util.ConnectionString);
         KeyValuePair<int, string>[] openedBoxList = new KeyValuePair<int, string>[dt.Rows.Count];
         for (int i = 0; i < dt.Rows.Count; i++)
         {
