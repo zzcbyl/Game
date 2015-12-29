@@ -34,7 +34,7 @@
             {
                 allJson = result;
                 id = dic["id"].ToString();
-                code = dic["code"].ToString();
+                code = dic["code"].ToString().ToUpper();
                 surplusCount = dic["current_support_num"].ToString();
                 if (dic.ContainsKey("opened_box"))
                 {
