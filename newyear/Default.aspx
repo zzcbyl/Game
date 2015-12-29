@@ -106,14 +106,14 @@
             <a href="Awardlist.aspx?id=<%=id %>" style="display:inline-table; text-decoration:none; font-size:12pt; letter-spacing:1px; margin-left:10px; height:30px; line-height:30px; width:150px; text-align:center; background:#473D56; border-radius:3px; border:1px solid #000; color:#ccc;">查看奖品详情</a>
         </div>
         <div style="margin:30px 20px 20px;">
-            <div style="padding:10px 30px;">
+            <div style="padding:10px">
                 <div style="color:#473D56; ">
                     <img src="images/ny_text2.png" style="width:45%" />
                 </div>
                 <div id="giftedList" class="giftList">
                 </div>
             </div>
-            <div style="padding:10px 30px;">
+            <div style="padding:10px">
                 <div style="color:#473D56;">
                     <img src="images/ny_text3.png" style="width:58%" />
                 </div>
