@@ -22,15 +22,35 @@ public class NewYearBox
 
     public static int totalBoxNumber = 9;
 
+    /*
     public static string[][] awardArray = { new string[]{"10元卢勤书城抵用券"}, 
                                    new string[]{"卢勤著作：《和烦恼说再见》图书1本"},
                                    new string[]{"《知心姐姐杂志》2016年1月季度刊3本"},
-                                   new string[]{"“知心姐姐平安新春大礼包”1套"},
+                                   new string[]{"5元卢勤书城抵用券1张"},
                                    new string[]{"卢勤著作：《长大不容易》图书1本"},
                                    new string[]{"卢勤著作：《告诉孩子，你真棒》图书1本"},
                                    new string[]{"卢勤著作：《把孩子培养成财富》图书1本"},
                                    new string[]{"《家庭教育专题讲座》典藏光盘一套"},
                                    new string[]{"星空侠儿童安全电话智能手表"}};
+    */
+    public static KeyValuePair<int, KeyValuePair<string, int>[]>[] awardTotalList
+        = new KeyValuePair<int, KeyValuePair<string, int>[]>[] {
+            new KeyValuePair<int, KeyValuePair<string, int>[]>(5, new KeyValuePair<string,int>[1] { new KeyValuePair<string, int> ("10元卢勤书城抵用券1张", 20000) }),
+            new KeyValuePair<int, KeyValuePair<string, int>[]>(10, new KeyValuePair<string,int>[1] { new KeyValuePair<string, int> ("卢勤著作：《和烦恼说再见》图书1本", 20000) }),
+            new KeyValuePair<int, KeyValuePair<string, int>[]>(20, new KeyValuePair<string,int>[1] { new KeyValuePair<string, int> ("《知心姐姐杂志》2016年1月季度刊3本", 20000) }),
+            new KeyValuePair<int, KeyValuePair<string, int>[]>(20, new KeyValuePair<string,int>[1] { new KeyValuePair<string, int> ("5元卢勤书城抵用券1张", 20000) }),
+            new KeyValuePair<int, KeyValuePair<string, int>[]>(20, new KeyValuePair<string,int>[2] { new KeyValuePair<string, int> ("“知心姐姐平安新春大礼包”1套", 300), new KeyValuePair<string, int> ("2元卢勤书城抵用券1张", 20000) } ),
+            new KeyValuePair<int, KeyValuePair<string, int>[]>(30, new KeyValuePair<string,int>[2] { new KeyValuePair<string, int> ("卢勤著作：《长大不容易》图书1本", 300), new KeyValuePair<string, int>("2016夏令营100元抵用券",20000) }),
+            new KeyValuePair<int, KeyValuePair<string, int>[]>(40, new KeyValuePair<string,int>[2] { new KeyValuePair<string, int> ("《家庭教育专题讲座》典藏光盘一套", 300), new KeyValuePair<string, int>("2016夏令营200元抵用券",50) }),
+            new KeyValuePair<int, KeyValuePair<string, int>[]>(100, new KeyValuePair<string,int>[2] { new KeyValuePair<string, int> ("星空侠儿童安全电话智能手表（价值586元）", 100), new KeyValuePair<string, int>("2016夏令营1000元抵用券",30)}),
+            new KeyValuePair<int, KeyValuePair<string, int>[]>(200, new KeyValuePair<string,int>[2] { new KeyValuePair<string, int> ("微鲸43吋4K高清晰智能电视小钢炮", 10), new KeyValuePair<string, int>("2016夏令营3000元抵用券",10)})
+
+        };
+
+    public NewYearBox()
+    { 
+    
+    }
 
     public NewYearBox(int id)
     {
@@ -46,16 +66,25 @@ public class NewYearBox
         DataTable dt = DBHelper.GetDataTable(" select * from new_year_box_master where open_id = '" + openId.Trim() + "' and act_id = " + actId.ToString().Trim(), Util.ConnectionString);
         if (dt.Rows.Count == 0)
         {
-            string[] currentAwardList = GetRamdomAwardList();
-            string currentAwardListJsonStr = "";
-            foreach (string awardName in currentAwardList)
+            DataTable dtMax = DBHelper.GetDataTable(" select max([id]) from new_year_box_master ", Util.ConnectionString.Trim());
+            if (dtMax.Rows.Count > 0)
             {
-                currentAwardListJsonStr = currentAwardListJsonStr + ",{\"award_name\":\"" + awardName.Trim() + "\"}";
+                int maxId = 0;
+                try
+                {
+                    maxId = int.Parse(dtMax.Rows[0][0].ToString().Trim());
+                }
+                catch
+                { 
+                
+                }
+                dtMax.Dispose();
+                if (maxId > 9999)
+                {
+                    throw new Exception("Box id is overflow");
+                }
             }
-            if (currentAwardListJsonStr.StartsWith(","))
-                currentAwardListJsonStr = currentAwardListJsonStr.Remove(0, 1);
-
-            string[,] insertParameter = { { "open_id", "varchar", openId.Trim() }, { "act_id", "varchar", actId.ToString().Trim() }, { "award_list_json", "varchar", currentAwardListJsonStr } };
+            string[,] insertParameter = { { "open_id", "varchar", openId.Trim() }, { "act_id", "varchar", actId.ToString().Trim() }};
             int i = DBHelper.InsertData("new_year_box_master", insertParameter, Util.ConnectionString.Trim());
             if (i == 1)
             {
@@ -69,17 +98,33 @@ public class NewYearBox
         }
 	}
 
+
+    public int GetNeededSupportNum()
+    {
+        string[] aquiredAwardList = AquiredAwardList;
+        try
+        {
+            return awardTotalList[aquiredAwardList.Length].Key;
+        }
+        catch
+        {
+            return int.MaxValue;
+        }
+    }
+
     public bool OpenABox(int id)
     {
 
-        if (id >= totalBoxNumber)
+        if (id >= awardTotalList.Length)
             return false;
 
-        int neededSupportNumber = GetNeededSupportNum(id);
+        int neededSupportNumber = GetNeededSupportNum();
 
         if (CurrentSupportNumber >= neededSupportNumber)
         {
-            string[,] insertParameters = { { "master_id", "int", ID.ToString() }, { "box_id", "int", id.ToString().Trim() } };
+            string[,] insertParameters = { { "master_id", "int", ID.ToString() }, 
+                                         { "box_id", "int", id.ToString().Trim() },
+                                         { "award_name", "varchar", NextAwardName.Trim()}};
             int i = DBHelper.InsertData("new_year_box_detail", insertParameters, Util.ConnectionString);
             if (i == 1)
             {
@@ -109,6 +154,8 @@ public class NewYearBox
 
         return neededSupportNum;
     }
+
+    
 
 
 /*
@@ -173,6 +220,50 @@ public class NewYearBox
         return openedBoxList;
     }
 
+    public KeyValuePair<int, string>[] GetOpenedBoxWithGift()
+    {
+        DataTable dt = DBHelper.GetDataTable(" select * from new_year_box_detail where master_id = " 
+            + ID.ToString() + "  order by  box_id ", Util.ConnectionString);
+        KeyValuePair<int, string>[] openedBoxList = new KeyValuePair<int, string>[dt.Rows.Count];
+        for (int i = 0; i < dt.Rows.Count; i++)
+        {
+            openedBoxList[i] = new KeyValuePair<int, string>(int.Parse(dt.Rows[i]["box_id"].ToString().Trim()), dt.Rows[i]["award_name"].ToString().Trim());
+
+        }
+        return openedBoxList;
+    }
+
+
+
+    public bool Support(string openId, string source)
+    {
+        if (openId.Trim().Equals(_field["open_id"].ToString().Trim()))
+            return false;
+        DataTable dt = DBHelper.GetDataTable(" select * from new_year_box_support_list where master_id = " + ID.ToString()
+            + " and open_id = '" + openId.Trim() + "'  ", Util.ConnectionString);
+        if (dt.Rows.Count == 0)
+        {
+            string[,] insertParameters = { { "master_id", "int", ID.ToString() }, 
+                                         { "open_id", "varchar", openId.Trim() },
+                                         { "source", "varchar", source.Trim() }};
+
+            int i = DBHelper.InsertData("new_year_box_support_list", insertParameters, Util.ConnectionString);
+            if (i == 1)
+            {
+                CurrentSupportNumber++;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public bool Support(string openId)
     {
         if (openId.Trim().Equals(_field["open_id"].ToString().Trim()))
@@ -234,6 +325,54 @@ public class NewYearBox
         }
     }
 
+    public string[] AquiredAwardList
+    {
+        get
+        {
+            DataTable dt = DBHelper.GetDataTable(" select * from new_year_box_detail  where master_id = " + ID.ToString(), Util.ConnectionString);
+            string[] listArray = new string[dt.Rows.Count];
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                listArray[i] = dt.Rows[i]["award_name"].ToString().Trim();
+            }
+            dt.Dispose();
+            return listArray;
+        }
+    }
+
+    public string NextAwardName
+    {
+        get
+        {
+            string[] aquiredAwardArray = AquiredAwardList;
+            if (aquiredAwardArray.Length == awardTotalList.Length)
+            {
+                return "";
+            }
+            else
+            {
+                string name = awardTotalList[aquiredAwardArray.Length].Value[0].Key;
+                int totalNum = awardTotalList[aquiredAwardArray.Length].Value[0].Value;
+                int sendNum = GetAwardGivenTimes(name);
+                if (sendNum >= totalNum)
+                {
+                    if (awardTotalList[aquiredAwardArray.Length].Value.Length > 1)
+                    {
+                        return awardTotalList[aquiredAwardArray.Length].Value[1].Key;
+                    }
+                    else
+                    {
+                        return "";
+                    }
+                }
+                else
+                {
+                    return name;
+                }
+            }
+        }
+    }
+    /*
     public static string[] GetRamdomAwardList()
     {
         string[] awardListArray = new string[awardArray.Length];
@@ -243,5 +382,13 @@ public class NewYearBox
             awardListArray[i] = awardArray[i][seed];
         }
         return awardListArray;
+    }
+    */
+    public static int GetAwardGivenTimes(string awardName)
+    {
+        DataTable dt = DBHelper.GetDataTable(" select * from new_year_box_detail where award_name = '" + awardName.Replace("'", "").Trim() + "' ", Util.ConnectionString);
+        int num = dt.Rows.Count;
+        dt.Dispose();
+        return num;
     }
 }

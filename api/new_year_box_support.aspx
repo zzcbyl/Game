@@ -4,9 +4,10 @@
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        string token = Util.GetSafeRequestValue(Request, "token", "0786103e87f09a762b717137d2b463376fed314fea512fd920b333e2bf538f7ad8f0a514");
-        int id = int.Parse(Util.GetSafeRequestValue(Request, "id", "5"));
-
+        string token = Util.GetSafeRequestValue(Request, "token", "4a6358078da68fc855d2b6949b7e95edc26992a7cef87bf929df11afd99de82c4fc064f5");
+        int id = int.Parse(Util.GetSafeRequestValue(Request, "id", "1"));
+        
+        
         Users user = new Users(Users.CheckToken(token));
         NewYearBox newYearBox = new NewYearBox(id);
         bool ret = false;
@@ -16,7 +17,7 @@
         }
         else
         {
-            ret = newYearBox.Support(user.OpenId.Trim());
+            ret = newYearBox.Support(user.OpenId.Trim(),"hit");
         }
         if (ret)
         {

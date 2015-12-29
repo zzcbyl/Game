@@ -3,8 +3,8 @@
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        int boxId = int.Parse(Util.GetSafeRequestValue(Request, "boxid", "5"));
-        string token = Util.GetSafeRequestValue(Request, "token", "0aa811b8076b797c667d75afb31554a35572e925580ea9977dbcaa4a03712f9c0e1ddd99");
+        int boxId = int.Parse(Util.GetSafeRequestValue(Request, "boxid", "6"));
+        string token = Util.GetSafeRequestValue(Request, "token", "527a1ff733375f8074217c73129182ef4be8397b0c398e339c4b2b36bbcdec3fe5782569");
         int actId = int.Parse(Util.GetSafeRequestValue(Request, "actid", "1"));
 
         Users user = new Users(Users.CheckToken(token));
