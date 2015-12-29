@@ -51,7 +51,7 @@ function bindGiftList() {
         else
             giftedStr += "<div><img style='height:15px;' src='images/gift_yellow.png' /> ";
         giftedStr += alljson.opened_box[i].award_name;
-        giftnoStr += "</div>";
+        giftedStr += "</div>";
     }
     
 
