@@ -121,7 +121,7 @@
             </div>
         </div>
         <div style="margin-top:10px;  text-align:center;">
-            <a href="Awardlist.aspx?id=<%=id %>" style=" text-decoration:underline; font-size:12pt; letter-spacing:1px; margin-left:10px; height:30px; line-height:30px; width:150px; text-align:center; color:#ccc;">查看奖品详情</a>
+            <a href="Awardlist.aspx?id=<%=id %>" style=" text-decoration:underline; font-size:12pt; margin-left:10px; height:30px; line-height:30px; width:150px; text-align:center; color:#ccc;">查看奖品详情</a>
             <br />
             <br />
             <a href="ActRule.aspx?id=<%=id %>" style="display:inline-block; text-decoration:none; height:30px; line-height:30px; width:180px; text-align:center; background:#473D56; border-radius:3px; border:1px solid #000; color:#ccc;">
