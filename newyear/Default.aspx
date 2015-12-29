@@ -2,7 +2,7 @@
 <%@ Import Namespace="System.Web.Script.Serialization" %>
 
 <script runat="server">
-    public string token = "781fbb44ee129f33aa643a894d72888cc0c7244440b774f81d4ac1badab35a250ea0c232";
+    public string token = ""; //"781fbb44ee129f33aa643a894d72888cc0c7244440b774f81d4ac1badab35a250ea0c232";
     public string id = "";
     public string totalCount = "0";
     public string surplusCount = "0";
@@ -12,11 +12,11 @@
     public string allJson = "";
     protected void Page_Load(object sender, EventArgs e)
     {
-        //token = Util.GetSafeRequestValue(Request, "token", "");
-        //if (token == null || token == "")
-        //{
-        //    Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString());
-        //}
+        token = Util.GetSafeRequestValue(Request, "token", "");
+        if (token == null || token == "")
+        {
+            Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString());
+        }
 
         try
         {
