@@ -2,7 +2,7 @@
 <%@ Import Namespace="System.Web.Script.Serialization" %>
 
 <script runat="server">
-    public string token = ""; // "ad98e490bebe2518000a5164903af833a5319c9f99a07b4564dc4f8387199a7c6e5f2df1";
+    public string token = "781fbb44ee129f33aa643a894d72888cc0c7244440b774f81d4ac1badab35a250ea0c232";
     public string id = "";
     public string totalCount = "0";
     public string surplusCount = "0";
@@ -12,11 +12,11 @@
     public string allJson = "";
     protected void Page_Load(object sender, EventArgs e)
     {
-        token = Util.GetSafeRequestValue(Request, "token", "");
-        if (token == null || token == "")
-        {
-            Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString());
-        }
+        //token = Util.GetSafeRequestValue(Request, "token", "");
+        //if (token == null || token == "")
+        //{
+        //    Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString());
+        //}
 
         try
         {
@@ -67,13 +67,13 @@
             <div class="tab2"><img src="images/gift_yellow.png" hiddata="1" /></div>
             <div class="tab3"><img src="images/gift_yellow.png" hiddata="2" /></div>
             <div style="clear:both"></div>
-            <div class="tab1" style="margin-top:25px;"><img src="images/gift_yellow.png" hiddata="3" /></div>
-            <div class="tab2"><img src="images/gift_max.png" hiddata="4" style="width:70%;" /></div>
-            <div class="tab3" style="margin-top:25px;"><img src="images/gift_yellow.png" hiddata="5" /></div>
+            <div class="tab1" style="margin-top:25px;"></div>
+            <div class="tab2"><img src="images/gift_max.png" hiddata="3" style="width:70%;" /></div>
+            <div class="tab3" style="margin-top:25px;"></div>
             <div style="clear:both"></div>
-            <div class="tab1"><img src="images/gift_yellow.png" hiddata="6" /></div>
-            <div class="tab2"><img src="images/gift_yellow.png" hiddata="7" /></div>
-            <div class="tab3"><img src="images/gift_yellow.png" hiddata="8" /></div>
+            <div class="tab1"><img src="images/gift_yellow.png" hiddata="4" /></div>
+            <div class="tab2"><img src="images/gift_yellow.png" hiddata="5" /></div>
+            <div class="tab3"><img src="images/gift_yellow.png" hiddata="6" /></div>
             <div style="clear:both"></div>
         </div>
         <div style="padding:10px 20px; font-size:10pt; line-height:18px; color:#fff; text-align:left; font-weight:bold;">
@@ -102,13 +102,12 @@
         </div>
         <div style="padding:10px 20px; font-size:10pt; line-height:18px; color:#fff; text-align:center; font-weight:bold;">
             <div>（本活动将于2016年1月7日12点结束，1月8日后可领奖）</div>
-            <a onclick="alert('请在2016年1月8日来领奖！');" style="text-decoration:none; margin-top:12px; font-size:12pt; display:inline-table; height:30px; line-height:30px; width:70px; text-align:center; background:#473D56; border-radius:3px; border:1px solid #635F5D; color:#807b7b;">领 奖</a>
-            <a href="Awardlist.aspx?id=<%=id %>" style="display:inline-table; text-decoration:none; font-size:12pt; letter-spacing:1px; margin-left:10px; height:30px; line-height:30px; width:150px; text-align:center; background:#473D56; border-radius:3px; border:1px solid #000; color:#ccc;">查看奖品详情</a>
         </div>
         <div style="margin:30px 20px 20px;">
             <div style="padding:10px">
                 <div style="color:#473D56; ">
                     <img src="images/ny_text2.png" style="width:45%" />
+                    <a onclick="alert('请在2016年1月8日来领奖！');" style="text-decoration:none; float:right; margin-top:-5px; font-size:12pt; display:inline-table; height:30px; line-height:30px; width:70px; text-align:center; background:#473D56; border-radius:3px; border:1px solid #635F5D; color:#807b7b;">领 奖</a>
                 </div>
                 <div id="giftedList" class="giftList">
                 </div>
@@ -122,6 +121,9 @@
             </div>
         </div>
         <div style="margin-top:10px;  text-align:center;">
+            <a href="Awardlist.aspx?id=<%=id %>" style=" text-decoration:underline; font-size:12pt; letter-spacing:1px; margin-left:10px; height:30px; line-height:30px; width:150px; text-align:center; color:#ccc;">查看奖品详情</a>
+            <br />
+            <br />
             <a href="ActRule.aspx?id=<%=id %>" style="display:inline-block; text-decoration:none; height:30px; line-height:30px; width:180px; text-align:center; background:#473D56; border-radius:3px; border:1px solid #000; color:#ccc;">
                 活动规则和领奖办法</a>
         </div>
@@ -156,7 +158,7 @@
         var remainCount = parseInt('<%=surplusCount %>');
         var openedBox = '<%=openedBoxList %>';
         var percent = [8, 12, 18, 4, 9, 14, 5, 17, 7, 6];
-        var getCountArr = [5, 10, 20, 20, 20, 30, 40, 100, 200];
+        var getCountArr = [5, 15, 20, 25, 40, 100, 200];
         var alljson = <%=allJson %>;
 
         $(document).ready(function () {
@@ -189,7 +191,7 @@
                 var boxArr = openedBox.split(',');
                 openCount = boxArr.length;
                 for (var i = 0; i < boxArr.length; i++) {
-                    if (boxArr[i] == '4')
+                    if (boxArr[i] == '3')
                         $('.maincontent img').eq(boxArr[i]).attr("src", "images/gift_max_gray.png");
                     else
                         $('.maincontent img').eq(boxArr[i]).attr("src", "images/gift_gray.png");
@@ -201,8 +203,8 @@
 
             $('.maincontent img').click(function () {
                 if ($(this).attr("src") != "images/gift_gray.png" && $(this).attr("src") != "images/gift_max_gray.png") {
-                    if($(this).attr("hiddata") == "4" && openCount < 8) {
-                        $('#giftText').html("你需要把8个小盒子都打开才能开启这个终极大礼盒！");
+                    if($(this).attr("hiddata") == "3" && openCount < 6) {
+                        $('#giftText').html("你需要把6个小盒子都打开才能开启这个终极大礼盒！");
                         $('#giftCode').hide();
                         $('.modal-header').hide();
                         $('.modal-footer').show();
@@ -212,7 +214,7 @@
                     var cStr = $('#spCount').html();
                     if (cStr != "" && parseInt(cStr.substr(1, 1)) > 0) {
                         OpenBox($(this).attr("hiddata"));
-                        if ($(this).attr("hiddata") == "4")
+                        if ($(this).attr("hiddata") == "3")
                             $(this).attr("src", "images/gift_max_gray.png");
                         else
                             $(this).attr("src", "images/gift_gray.png");
