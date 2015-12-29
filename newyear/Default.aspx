@@ -9,6 +9,7 @@
     public string openedBoxList = "";
     public string isHelp = "1";
     public string code = "G0001";
+    public string allJson = "";
     protected void Page_Load(object sender, EventArgs e)
     {
         //token = Util.GetSafeRequestValue(Request, "token", "");
@@ -17,8 +18,7 @@
         //    Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString());
         //}
 
-        try
-        {
+
             JavaScriptSerializer json = new JavaScriptSerializer();
             string getUrl="";
             if (Request["id"] != null && Request["id"] != "")
@@ -31,10 +31,11 @@
             Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(result);
             if (dic["status"].Equals(0))
             {
+                allJson = result;
                 id = dic["id"].ToString();
                 surplusCount = dic["current_support_num"].ToString();
-                ArrayList supportList = (ArrayList)dic["support_list"];
-                totalCount = supportList.Count.ToString();
+                //ArrayList supportList = (ArrayList)dic["support_list"];
+                //totalCount = supportList.Count.ToString();
                 if (dic.ContainsKey("opened_box"))
                 {
                     ArrayList boxList = (ArrayList)dic["opened_box"];
@@ -46,27 +47,26 @@
                 }
                 openedBoxList = openedBoxList.Length > 0 ? openedBoxList.Substring(0, openedBoxList.Length - 1) : "";
 
-                if (Request["id"] != null && Request["id"] != "")
-                {
-                    string currentGetUrl = "http://game.luqinwenda.com/api/new_year_box_get_info.aspx?token=" + token;
-                    string currentResult = HTTPHelper.Get_Http(currentGetUrl);
-                    Dictionary<string, object> currentDic = json.Deserialize<Dictionary<string, object>>(currentResult);
-                    if (currentDic["status"].Equals(0))
-                    {
-                        foreach (var support in supportList)
-                        {
-                            Dictionary<string, object> sss = (Dictionary<string, object>)support;
-                            if (sss["open_id"].ToString() == currentDic["open_id"].ToString())
-                            {
-                                isHelp = "0";
-                                break;
-                            }
-                        }
-                    }
-                }
+                //if (Request["id"] != null && Request["id"] != "")
+                //{
+                //    string currentGetUrl = "http://game.luqinwenda.com/api/new_year_box_get_info.aspx?token=" + token;
+                //    string currentResult = HTTPHelper.Get_Http(currentGetUrl);
+                //    Dictionary<string, object> currentDic = json.Deserialize<Dictionary<string, object>>(currentResult);
+                //    if (currentDic["status"].Equals(0))
+                //    {
+                //        foreach (var support in supportList)
+                //        {
+                //            Dictionary<string, object> sss = (Dictionary<string, object>)support;
+                //            if (sss["open_id"].ToString() == currentDic["open_id"].ToString())
+                //            {
+                //                isHelp = "0";
+                //                break;
+                //            }
+                //        }
+                //    }
+                //}
             }
-        }
-        catch { }
+
     }
 </script>
 
@@ -91,7 +91,7 @@
         .giftprogress { width:40%; float:left; height:25px; margin-top:3px; border:2px solid #332942; border-radius:4px; }
         .giftList { margin-left:20px; margin-top:5px;}
         .giftList div { margin:0; font-size:16px; color:#392D4C; width:100%;  line-height:25px;}
-        .giftList div:first-child { color:#FF3C00; }
+        .giftList div img { margin-top:-5px;}
         .promptDiv { width:180px; height:200px;  color:#000; position:absolute; z-index:20; font-size:14pt; line-height:30pt; text-align:center;}
         .modal-title { height:8px; }
         .modal-dialog { margin-top:100px;}
@@ -145,8 +145,8 @@
         </div>
         <div style="padding:10px 20px; font-size:10pt; line-height:18px; color:#fff; text-align:center; font-weight:bold;">
             <div>（本活动将于2016年1月7日12点结束，1月8日后可领奖）</div>
-            <a onclick="alert('请在2016年1月8日来领奖！');" style=" margin-top:12px; font-size:12pt; display:inline-table; height:30px; line-height:30px; width:60px; text-align:center; background:#473D56; border-radius:3px; border:1px solid #635F5D; color:#807b7b;">领 奖</a>
-            <a href="" style="display:inline-table; text-decoration:none; font-size:12pt; letter-spacing:1px; margin-left:10px; height:30px; line-height:30px; width:90px; text-align:center; background:#473D56; border-radius:3px; border:1px solid #000; color:#ccc;">查看奖品</a>
+            <a onclick="alert('请在2016年1月8日来领奖！');" style="text-decoration:none; margin-top:12px; font-size:12pt; display:inline-table; height:30px; line-height:30px; width:70px; text-align:center; background:#473D56; border-radius:3px; border:1px solid #635F5D; color:#807b7b;">领 奖</a>
+            <a href="" style="display:inline-table; text-decoration:none; font-size:12pt; letter-spacing:1px; margin-left:10px; height:30px; line-height:30px; width:150px; text-align:center; background:#473D56; border-radius:3px; border:1px solid #000; color:#ccc;">查看奖品详情</a>
         </div>
         <div style="margin:30px 20px 20px;">
             <div style="padding:10px 30px;">
@@ -154,8 +154,6 @@
                     <img src="images/ny_text2.png" style="width:45%" />
                 </div>
                 <div id="giftedList" class="giftList">
-                    <div><img style="height:15px;" src="images/gift_max.png" /> 111111</div>
-                    <div><img style="height:15px;" src="images/gift_yellow.png" /> 22222222</div>
                 </div>
             </div>
             <div style="padding:10px 30px;">
@@ -163,8 +161,6 @@
                     <img src="images/ny_text3.png" style="width:58%" />
                 </div>
                 <div id="giftnoList" class="giftList">
-                    <div><img style="height:15px;" src="images/gift_max.png" /> 微鲸43吋4K高清晰智能电视小钢炮（10台）<br />　 2016夏令营3000元抵用券（10张）</div>
-                    <div><img style="height:15px;" src="images/gift_yellow.png" /> 22222222</div>
                 </div>
             </div>
         </div>
@@ -199,13 +195,12 @@
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
         var Token = '<%=token %>';
-        var percent = [8, 12, 18, 4, 9, 14, 5, 17, 7, 6];
         var openCount = 0;
         var remainCount = parseInt('<%=surplusCount %>');
         var openedBox = '<%=openedBoxList %>';
-        var isHelp = '<%=isHelp %>';
+        var percent = [8, 12, 18, 4, 9, 14, 5, 17, 7, 6];
         var getCountArr = [5, 10, 20, 20, 20, 30, 40, 100, 200];
-
+        var alljson = <%=allJson %>;
         var shareTitle = "我想要新年礼盒，请大家帮帮我"; //标题
         var shareImg = "http://game.luqinwenda.com/newyear/images/ny_share_icon.jpg"; //图片
         var shareContent = '卢勤问答平台新年大礼盒！'; //简介

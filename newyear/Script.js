@@ -45,25 +45,36 @@ function fillProgress() {
 function bindGiftList() {
     var giftedStr = "";
     var giftnoStr = "";
+    for (var i = 0; i < alljson.opened_box.length; i++) {
+        if (i == 0 && openCount == 9)
+            giftedStr += "<div style='color:#FF3C00'><img style='height:15px;' src='images/gift_max.png' /> ";
+        else
+            giftedStr += "<div><img style='height:15px;' src='images/gift_yellow.png' /> ";
+        giftedStr += alljson.opened_box[i].award_name;
+        giftnoStr += "</div>";
+    }
+    
 
-    //$('#giftedList').html(giftedStr);
-    //$('#giftnoList').html(giftnoStr);
+    for (var i = alljson.un_aquire_awards.length - 1; i >= 0 ; i--) {
+        if (i == alljson.un_aquire_awards.length - 1 && openCount != 9)
+            giftnoStr += "<div style='color:#FF3C00'><img style='height:15px;' src='images/gift_max.png' /> ";
+        else
+            giftnoStr += "<div><img style='height:15px;' src='images/gift_yellow.png' /> ";
+        var awardlist = alljson.un_aquire_awards[i].award_list;
+        for (var j = 0; j < awardlist.length; j++) {
+            giftnoStr += awardlist[j].award_name;
+            if (j == 0 && awardlist.length > 1)
+                giftnoStr += "<br />　 ";
+        }
+        giftnoStr += "</div>";
+    }
+
+    $('#giftedList').html(giftedStr);
+    $('#giftnoList').html(giftnoStr);
 }
 
 var clickcount = 0;
 function helpYou() {
-    $('#giftCode').show();
-    $('.modal-header').show();
-    $('.modal-footer').show();
-
-    if (isHelp == "0") {
-        $('#giftText').html("您已帮助过TA拆礼盒，每人只能帮助一次");
-        $('#giftCode').hide();
-        $('.modal-header').hide();
-        $('#myModal').modal('show');
-        return;
-    }
-
     var codeArr = ['http://game.luqinwenda.com/images/dyh_code_min.jpg', 'http://game.luqinwenda.com/newyear/images/zxjj_code.jpg'];
     $('#giftText').html('长按二维码，关注“卢勤问答平台”，回复礼盒号码，帮TA拆礼盒');
     $('#giftCode').attr('src', codeArr[0]);
@@ -85,6 +96,7 @@ function helpYou() {
                             $('#giftText').html("您已帮助过TA拆礼盒，每人只能帮助一次");
                             $('#giftCode').hide();
                             $('.modal-header').hide();
+                            $('.modal-footer').show();
                             $('#myModal').modal('show');
                             return;
                         }
@@ -92,12 +104,14 @@ function helpYou() {
                 });
             }
         }
+        $('.modal-header').show();
         $('.modal-footer').hide();
     }
     else {
-        $('#giftText').html('请将当前页面发送给朋友或者发送到朋友圈，让你的朋友关注下方二维码，10-30个关注即可开启一个礼盒');
-        $('#giftCode').hide();
-        $('.modal-header').hide();
+        $('#giftText').html('请将当前页面发送给朋友或者发送到朋友圈，让你的朋友关注下方二维码，回复你的礼盒号码');
+        $('#giftCode').show();
+        $('.modal-header').show();
+        $('.modal-footer').hide();
     }
     
     $('#myModal').modal('show');
@@ -116,10 +130,11 @@ function OpenBox(boxid) {
     $.ajax({
         type: "GET",
         async: false,
-        url: "http://game.luqinwenda.com/api/new_year_box_open_box.aspx",
+        url: "http://192.168.1.38:8002/api/new_year_box_open_box.aspx",
         data: { token: Token, boxId: boxid },
+        dataType: "json",
         success: function (data) {
-            var obj = eval('(' + data + ')');
+            var obj = data;
             if (obj.status == 1) {
                 $('#giftText').html("这是您朋友的礼盒您不能开启，请点击“领取我的礼盒”按钮");
                 $('#giftCode').hide();
@@ -128,13 +143,17 @@ function OpenBox(boxid) {
                 $('#myModal').modal('show');
             }
             else {
-                //$('#giftText').html("恭喜您，获得" + giftArr[openCount]);
+                alljson = obj;
+                if (openCount == 8)
+                    $('#giftText').html("恭喜您，获得 <span style='color:#FF3C00; font-weight:bold; font-size: 20pt;'>" + obj.opened_box[0].award_name + "</span>");
+                else
+                    $('#giftText').html("恭喜您，获得 <span style='color:#FF3C00; font-weight:bold; font-size: 12pt;'>" + obj.opened_box[0].award_name + "</span>");
                 $('#giftCode').hide();
                 $('.modal-header').hide();
                 $('.modal-footer').show();
                 $('#myModal').modal('show');
-                openCount++;
                 remainCount -= getCountArr[openCount];
+                openCount++;
                 fillProgress();
                 bindGiftList();
             }
