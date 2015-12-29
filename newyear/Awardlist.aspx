@@ -27,8 +27,8 @@
             <div class="mg15"><img src="images/award1.jpg" /></div>
             <div><h4 style="font-weight:bold;">2016夏令营3000元抵用券（共10张）</h4></div>
             <div><h4 style="font-weight:bold;">2016夏令营1000元抵用券（共30张）</h4></div>
-            <div><h4 style="font-weight:bold;">2016夏令营200元抵用券（共50张）</h4></div>
-            <div><h4 style="font-weight:bold;">2016夏令营100元抵用券</h4></div>
+            <div><h4 style="font-weight:bold;">2016夏令营500元抵用券（不限）</h4></div>
+            <div><h4 style="font-weight:bold;">2016夏令营100元抵用券（不限）</h4></div>
             <div style="margin-left:20px; text-indent:28px;">
                 <div>1、本优惠券仅限2016年卢勤问答平台组织的夏令营使用。</div>
                 <div>2、在支付夏令营费用时，出示代金劵号码，即可使用。</div>
@@ -38,7 +38,7 @@
                 <div>6、卢勤问答平台保留对此优惠券的解释权。</div>
             </div>
             <div class="mg15"><img src="images/award3.jpg" /></div>
-            <div><h4 style="font-weight:bold;">星空侠儿童安全电话智能手表（价值586元）（共100块）</h4></div>
+            <div><h4 style="font-weight:bold;">星空侠儿童安全电话智能手表（价值586元）（共70块）</h4></div>
             <div style="margin-left:20px; text-indent:28px;">
                 <div>新东方旗下星空侠儿童安全手表，不只是能打电话的手表，除了亲情电话、精准定位、一键求救、运动轨迹等硬件功能外，星空侠创新性的在父母的手机APP端搭建了以安全为核心的一系列云服务，从气候、出行、饮食、社交、性格、求医、活动等多方位协助家长提升孩子的安全系数。手表内置中国移动SIM卡，家长收到后开机即可使用，缔造了中国儿童安全智能守护的新标准！</div>
             </div>
@@ -48,28 +48,19 @@
                 <div>该套光盘由全国家庭教育巡讲团专家们倾力打造的家庭教育经典课程，节目以“专注中国家庭教育事业，传播先进家庭教育理念”为宗旨，内容涉及多方面家长在家庭教育中关注的实际问题。</div>
             </div>
             <div class="mg15"><img src="images/award7.jpg" /></div>
-            <div><h4 style="font-weight:bold;">卢勤著作：《长大不容易》图书1本（共300本）</h4></div>
+            <div><h4 style="font-weight:bold;">卢勤著作：《长大不容易》图书1本（共500本）</h4></div>
             <div style="margin-left:20px; text-indent:28px;">
                 <div>本书是国内首席教育专家、“知心姐姐”卢勤30年来两代人的家庭教育思想精髓，书中以数百个生动、鲜活的家教实例，让人深刻体味到“成长有规律，长大不容易”，是家长与孩子可以共同阅读一生的教育书、亲情书。</div>
             </div>
             <div class="mg15"><img src="images/award4.jpg" /></div>
-            <div><h4 style="font-weight:bold;">卢勤著作：《和烦恼说再见》图书1本</h4></div>
+            <div><h4 style="font-weight:bold;">卢勤著作：《和烦恼说再见》图书1本（不限）</h4></div>
             <div style="margin-left:20px; text-indent:28px;">
                 <div>《和烦恼说再见》浓缩了卢勤30多年教育思想和方法的精华。全书29个单元，每个单元围绕孩子成长过程中不可回避的一类烦恼，比如歧视、误解、嫉妒、自卑等等，设置4个知心板块：知心语录、知心故事、知心朋友、知心笔记。</div>
             </div>
-            <div class="mg15"><img src="images/award6.jpg" /></div>
-            <div><h4 style="font-weight:bold;">“知心姐姐平安新春大礼包”1套（共300套）</h4></div>
-            <div class="mg15"><img src="images/award8.jpg" /></div>
-            <div><h4 style="font-weight:bold;">《知心姐姐杂志》2016年1月季度刊</h4></div>
-            <div style="margin-left:20px; text-indent:28px;">
-                <div>《知心姐姐》杂志由中国少年儿童新闻出版总社主办，全国发行。2002年2月，《知心姐姐》杂志创刊，由《中国少年报》“知心姐姐信箱”扩展为两本期刊，标志着“知心姐姐”品牌发展进入一个重要时期。《知心姐姐》（亲子共读），读者对象为小学生及这个年龄段的学生家长。</div>
-                <div></div>
-                <div></div>
-            </div>
             <div class="mg15"><img src="images/award9.jpg" /></div>
-            <div><h4 style="font-weight:bold;">10元卢勤书城抵用券</h4></div>
-            <div><h4 style="font-weight:bold;">5元卢勤书城抵用券</h4></div>
-            <div><h4 style="font-weight:bold;">2元卢勤书城抵用券</h4></div>
+            <div><h4 style="font-weight:bold;">10元卢勤书城抵用券（不限）</h4></div>
+            <div><h4 style="font-weight:bold;">5元卢勤书城抵用券（不限）</h4></div>
+            <div><h4 style="font-weight:bold;">2元卢勤书城抵用券（不限）</h4></div>
             <div style="margin-left:20px; text-indent:28px;">
                 <div></div>
                 <div>1、本代金券用于在卢勤问答平台商城购物(点击卢勤问答订阅号菜单栏商城)。</div>
