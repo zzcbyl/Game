@@ -1,0 +1,52 @@
+﻿<%@ Master Language="C#" %>
+
+<!DOCTYPE html>
+
+<script runat="server">
+    public string timeStamp = "";
+    public string nonceStr = "3y2wsqsa121fq2ad0sbfsw0sf90fq6cw7fb";
+    public string ticket = "";
+    public string shaParam = "";
+    public string appId = System.Configuration.ConfigurationManager.AppSettings["wxappid_dingyue"];
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        try
+        {
+            timeStamp = Util.GetTimeStamp();
+            string jsonStrForTicket = Util.GetWebContent("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token="
+                + Util.GetToken() + "&type=jsapi", "get", "", "form-data");
+            ticket = Util.GetSimpleJsonValueByKey(jsonStrForTicket, "ticket");
+            string shaString = "jsapi_ticket=" + ticket.Trim() + "&noncestr=" + nonceStr.Trim()
+                + "&timestamp=" + timeStamp.Trim() + "&url=" + Request.Url.ToString().Trim();
+            shaParam = Util.GetSHA1(shaString);
+        }
+        catch { }
+    }
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>卢勤问答平台新年大礼盒</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+    </asp:ContentPlaceHolder>
+    <script type="text/javascript">
+        wx.config({
+            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: '<%=appId%>', // 必填，公众号的唯一标识
+            timestamp: '<%=timeStamp%>', // 必填，生成签名的时间戳
+            nonceStr: '<%=nonceStr%>', // 必填，生成签名的随机串
+            signature: '<%=shaParam %>', // 必填，签名，见附录1
+            jsApiList: [
+                    'onMenuShareTimeline',
+                    'onMenuShareAppMessage']
+        });
+    </script>
+</body>
+</html>

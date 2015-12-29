@@ -1,18 +1,12 @@
-﻿<%@ Page Language="C#" %>
-
-<!DOCTYPE html>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/dingyue/Master.master" %>
 
 <script runat="server">
 
 </script>
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>卢勤问答平台新年大礼盒</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
-    <script src="../script/jquery-1.3.2.min.js"></script>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <script src="../script/jquery-2.1.1.min.js"></script>
     <script src="../script/common.js"></script>
     <style type="text/css">
         body, div { font-family:SimSun;}
@@ -32,9 +26,8 @@
         .giftList div { margin:0; font-size:16px; color:#392D4C; width:100%;  line-height:25px;}
         .promptDiv { width:180px; height:200px;  color:#000; position:absolute; z-index:20; font-size:14pt; line-height:30pt; text-align:center;}
     </style>
-</head>
-<body>
-    <form runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="bgContent">
         <div class="header">
             <div id="leftlogo"><img src="images/ny_logo1.png" /></div>
@@ -61,7 +54,39 @@
             </div>
         </div>
     </div>
-    </form>
-</body>
-</html>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript">
+        var shareTitle = "我想要新年礼盒，请大家帮帮我"; //标题
+        var shareImg = "http://game.luqinwenda.com/newyear/images/ny_share_icon.jpg"; //图片
+        var shareContent = '卢勤问答平台新年大礼盒！'; //简介
+        var shareLink = 'http://game.luqinwenda.com/newyear/default.aspx'; //链接
+
+        $(document).ready(function () {
+            shareLink = 'http://game.luqinwenda.com/newyear/default.aspx?id=' + QueryString("id");
+            wx.ready(function () {
+                //分享到朋友圈
+                wx.onMenuShareTimeline({
+                    title: shareTitle, // 分享标题
+                    link: shareLink, // 分享链接
+                    imgUrl: shareImg, // 分享图标
+                    success: function () {
+                        // 用户确认分享后执行的回调函数
+
+                    }
+                });
+                //分享给朋友
+                wx.onMenuShareAppMessage({
+                    title: shareTitle, // 分享标题
+                    desc: shareContent, // 分享描述
+                    link: shareLink, // 分享链接
+                    imgUrl: shareImg, // 分享图标
+                    success: function () {
+                        // 用户确认分享后执行的回调函数
+
+                    }
+                });
+            });
+        });
+    </script>
+</asp:Content>
 

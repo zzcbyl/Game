@@ -1,41 +1,21 @@
-﻿<%@ Page Language="C#" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/dingyue/Master.master" %>
 <%@ Import Namespace="System.Web.Script.Serialization" %>
 
-<!DOCTYPE html>
-
 <script runat="server">
-    public string token = "";// "866653799b1665f9a0ab48b5a1909aba65036485f889373d73475f05ed81f84beb5d08cd";
+    public string token = "ad98e490bebe2518000a5164903af833a5319c9f99a07b4564dc4f8387199a7c6e5f2df1";
     public string id = "";
     public string totalCount = "0";
     public string surplusCount = "0";
     public string openedBoxList = "";
-    
-    public string timeStamp = "";
-    public string nonceStr = "3y2wsqsa121fq2ad0bfsw0sf90fq6cw7fb";
-    public string ticket = "";
-    public string shaParam = "";
-    public string appId = System.Configuration.ConfigurationManager.AppSettings["wxappid_dingyue"];
-    public string awardJson = "";
     public string isHelp = "1";
+    public string code = "G0001";
     protected void Page_Load(object sender, EventArgs e)
     {
-        token = Util.GetSafeRequestValue(Request, "token", "");
-        if (token == null || token == "")
-        {
-            Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString());
-        }
-        
-        try
-        {
-            timeStamp = Util.GetTimeStamp();
-            string jsonStrForTicket = Util.GetWebContent("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token="
-                + Util.GetToken() + "&type=jsapi", "get", "", "form-data");
-            ticket = Util.GetSimpleJsonValueByKey(jsonStrForTicket, "ticket");
-            string shaString = "jsapi_ticket=" + ticket.Trim() + "&noncestr=" + nonceStr.Trim()
-                + "&timestamp=" + timeStamp.Trim() + "&url=" + Request.Url.ToString().Trim();
-            shaParam = Util.GetSHA1(shaString);
-        }
-        catch { }
+        //token = Util.GetSafeRequestValue(Request, "token", "");
+        //if (token == null || token == "")
+        //{
+        //    Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString());
+        //}
 
         try
         {
@@ -55,23 +35,15 @@
                 surplusCount = dic["current_support_num"].ToString();
                 ArrayList supportList = (ArrayList)dic["support_list"];
                 totalCount = supportList.Count.ToString();
-                ArrayList boxList = (ArrayList)dic["opened_box"];
-                foreach (var box in boxList)
+                if (dic.ContainsKey("opened_box"))
                 {
-                    Dictionary<string, object> ddd = (Dictionary<string, object>)box;
-                    openedBoxList += ddd["box_id"].ToString() + ",";
+                    ArrayList boxList = (ArrayList)dic["opened_box"];
+                    foreach (var box in boxList)
+                    {
+                        Dictionary<string, object> ddd = (Dictionary<string, object>)box;
+                        openedBoxList += ddd["box_id"].ToString() + ",";
+                    }
                 }
-
-                awardJson = "[";
-                ArrayList awardList = (ArrayList)dic["award_list"];
-                foreach (var award in awardList)
-                {
-                    Dictionary<string, object> awarddic = (Dictionary<string, object>)award;
-                    awardJson += "'" + awarddic["award_name"].ToString() + "',";
-                }
-                awardJson = awardJson.Length > 2 ? awardJson.Substring(0, awardJson.Length - 1) : awardJson;
-                awardJson += "]";
-                
                 openedBoxList = openedBoxList.Length > 0 ? openedBoxList.Substring(0, openedBoxList.Length - 1) : "";
 
                 if (Request["id"] != null && Request["id"] != "")
@@ -90,7 +62,6 @@
                                 break;
                             }
                         }
-                        
                     }
                 }
             }
@@ -99,13 +70,11 @@
     }
 </script>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>卢勤问答平台新年大礼盒</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
-    <script src="../script/jquery-1.3.2.min.js"></script>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <script src="../script/jquery-2.1.1.min.js"></script>
     <script src="../script/common.js"></script>
+    <script src="../script/bootstrap.min.js"></script>
+    <link href="../style/bootstrap.min.css" rel="stylesheet" />
     <style type="text/css">
         body, div { font-family:SimSun;}
         .bgContent { background:#595167; max-width: 640px; margin: 0 auto; min-height:600px; padding-bottom:10px; }
@@ -119,18 +88,22 @@
         .maincontent .tab2 { width:33%; float:left; text-align:center; }
         .maincontent .tab3 { width:33%; float:left; text-align:center; }
         .maincontent .tab1 img, .maincontent .tab2 img, .maincontent .tab3 img { width:60%; margin:5px auto; }
-        .progress { width:40%; float:left; height:20px; border:2px solid #332942; }
+        .giftprogress { width:40%; float:left; height:25px; margin-top:3px; border:2px solid #332942; border-radius:4px; }
         .giftList { margin-left:20px; margin-top:5px;}
         .giftList div { margin:0; font-size:16px; color:#392D4C; width:100%;  line-height:25px;}
+        .giftList div:first-child { color:#FF3C00; }
         .promptDiv { width:180px; height:200px;  color:#000; position:absolute; z-index:20; font-size:14pt; line-height:30pt; text-align:center;}
+        .modal-title { height:8px; }
+        .modal-dialog { margin-top:100px;}
     </style>
-</head>
-<body>
-    <form runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="bgContent">
         <div class="header">
             <div id="leftlogo"><img src="images/ny_logo1.png" /></div>
             <div id="rightlogo"><img src="images/ny_logo2.png" /></div>
+        </div>
+        <div style="margin-top:20px; font-size:20pt; height:50px; line-height:50px; font-family:SimHei; color:#fff; text-align:center; ">您的礼盒号码是：<span><%=code %></span>
         </div>
         <div class="maincontent">
             <div class="tab1"><img src="images/gift_yellow.png" hiddata="0" /></div>
@@ -146,15 +119,23 @@
             <div class="tab3"><img src="images/gift_yellow.png" hiddata="8" /></div>
             <div style="clear:both"></div>
         </div>
+        <div style="padding:10px 20px; font-size:10pt; line-height:18px; color:#fff; text-align:left; font-weight:bold;">
+            <div>说明：</div>
+            <div>1. 每个礼盒中都有奖品，中奖率100%，且奖品不会重复出现。</div>
+            <div>2. 如最大的礼盒中的奖品发完，将提示不再中奖。</div>
+        </div>
         <div style="padding:20px 20px; margin-top:10px;">
             <div style="color:#fff; float:left; width:30%; margin-left:8%; margin-right:1%; margin-top:3px; text-align:right;">
                 <img src="images/ny_text4.png" style="width:90%;" />
             </div>
-            <div class="progress">
+            <div class="giftprogress">
                 <div id="progressFill" style="height:100%; background:#84B822;"></div>
             </div>
             <div style="width:10%; margin-left:10px; float:left; font-weight:bold; font-size:22px; color:#332942;"><span id="spCount"></span></div>
             <div style="clear:both"></div>
+        </div>
+        <div style="padding:0px 20px; font-size:10pt; line-height:18px; color:#fff; text-align:center; font-weight:bold;">
+            还需要<span id="needCount" style="padding:0 2px;"></span>个朋友帮忙，才能打开下一个礼盒
         </div>
         <div style="margin-top:30px; text-align:center;">
             <img src="images/btn_help.png" style="width:60%; border:0;" onclick="helpYou();" />
@@ -162,18 +143,28 @@
         <div style="margin-top:10px;  text-align:center;">
             <img src="images/btn_mygift.png" style="width:60%; border:0;" onclick="getMyGift();" />
         </div>
+        <div style="padding:10px 20px; font-size:10pt; line-height:18px; color:#fff; text-align:center; font-weight:bold;">
+            <div>（本活动将于2016年1月7日12点结束，1月8日后可领奖）</div>
+            <a onclick="alert('请在2016年1月8日来领奖！');" style=" margin-top:12px; font-size:12pt; display:inline-table; height:30px; line-height:30px; width:60px; text-align:center; background:#473D56; border-radius:3px; border:1px solid #635F5D; color:#807b7b;">领 奖</a>
+            <a href="" style="display:inline-table; text-decoration:none; font-size:12pt; letter-spacing:1px; margin-left:10px; height:30px; line-height:30px; width:90px; text-align:center; background:#473D56; border-radius:3px; border:1px solid #000; color:#ccc;">查看奖品</a>
+        </div>
         <div style="margin:30px 20px 20px;">
             <div style="padding:10px 30px;">
-                <div style="color:#473D56;"><img src="images/ny_text2.png" style="width:45%" />
-                    <a onclick="alert('请在2016年1月5日活动结束之后再来领奖！');" style="display:inline-block; float:right; height:30px; line-height:30px; width:60px; text-align:center; background:#473D56; border-radius:3px; border:1px solid #585555; color:#807b7b;">
-                        领 奖</a>
+                <div style="color:#473D56; ">
+                    <img src="images/ny_text2.png" style="width:45%" />
                 </div>
                 <div id="giftedList" class="giftList">
+                    <div><img style="height:15px;" src="images/gift_max.png" /> 111111</div>
+                    <div><img style="height:15px;" src="images/gift_yellow.png" /> 22222222</div>
                 </div>
             </div>
             <div style="padding:10px 30px;">
-                <div style="color:#473D56;"><img src="images/ny_text3.png" style="width:58%" /></div>
+                <div style="color:#473D56;">
+                    <img src="images/ny_text3.png" style="width:58%" />
+                </div>
                 <div id="giftnoList" class="giftList">
+                    <div><img style="height:15px;" src="images/gift_max.png" /> 微鲸43吋4K高清晰智能电视小钢炮（10台）<br />　 2016夏令营3000元抵用券（10张）</div>
+                    <div><img style="height:15px;" src="images/gift_yellow.png" /> 22222222</div>
                 </div>
             </div>
         </div>
@@ -185,44 +176,43 @@
         <br />
         <div style="clear:both"></div>
     </div>
-    <div id="showShare" style="display:none;" onclick="javascript:document.getElementById('showShare').style.display='none';">
-        <div class="bgDiv" style="width:100%; height:100%; background:#ccc; color:#000; position:absolute; top:-10px; left:0px; text-align:center; filter:alpha(opacity=90); -moz-opacity:0.9;-khtml-opacity: 0.9; opacity: 0.9;  z-index:9;"></div>
-        <div class="promptDiv" style="font-size:12pt; width:80%; top:20pt; left:10%; background:#fff;">
-            <div id="shareText" style="line-height:20px; text-align:left; padding:10px;">长按指纹识别二维码，关注“卢勤问答平台”，帮TA拆礼盒</div>
-            <img id="erweima" src="../images/dyh_code1.jpg" style="width:100%; " />
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">　</h4>
+          </div>
+          <div class="modal-body">
+            <div id="giftText" style="line-height:20px; text-align:left; padding:10px;">长按指纹识别二维码，关注“卢勤问答平台”，帮TA拆礼盒</div>
+            <img id="giftCode" src="../images/dyh_code1.jpg" style="width:100%; " />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+          </div>
         </div>
+      </div>
     </div>
-    </form>
+
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
         var Token = '<%=token %>';
-        var giftArr = <%=awardJson %>;
-        var giftImgArr = ['000', '111', '222', '333', '444', '555', '666', '777', '888', '999'];
         var percent = [8, 12, 18, 4, 9, 14, 5, 17, 7, 6];
         var openCount = 0;
         var remainCount = parseInt('<%=surplusCount %>');
         var openedBox = '<%=openedBoxList %>';
-        var isHelp='<%=isHelp %>';
+        var isHelp = '<%=isHelp %>';
+        var getCountArr = [5, 10, 20, 20, 20, 30, 40, 100, 200];
 
         var shareTitle = "我想要新年礼盒，请大家帮帮我"; //标题
         var shareImg = "http://game.luqinwenda.com/newyear/images/ny_share_icon.jpg"; //图片
         var shareContent = '卢勤问答平台新年大礼盒！'; //简介
         var shareLink = 'http://game.luqinwenda.com/newyear/default.aspx'; //链接
 
-        wx.config({
-            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-            appId: '<%=appId%>', // 必填，公众号的唯一标识
-            timestamp: '<%=timeStamp%>', // 必填，生成签名的时间戳
-            nonceStr: '<%=nonceStr%>', // 必填，生成签名的随机串
-            signature: '<%=shaParam %>', // 必填，签名，见附录1
-            jsApiList: [
-                    'onMenuShareTimeline',
-                    'onMenuShareAppMessage']
-        });
-
         $(document).ready(function () {
             shareLink = 'http://game.luqinwenda.com/newyear/default.aspx?id=<%=id %>';
-
             wx.ready(function () {
                 //分享到朋友圈
                 wx.onMenuShareTimeline({
@@ -234,7 +224,6 @@
 
                     }
                 });
-
                 //分享给朋友
                 wx.onMenuShareAppMessage({
                     title: shareTitle, // 分享标题
@@ -247,8 +236,6 @@
                     }
                 });
             });
-
-            //alert(giftArr.toString());
 
             if (openedBox != "") {
                 var boxArr = openedBox.split(',');
@@ -267,7 +254,11 @@
             $('.maincontent img').click(function () {
                 if ($(this).attr("src") != "images/gift_gray.png" && $(this).attr("src") != "images/gift_max_gray.png") {
                     if($(this).attr("hiddata") == "4" && openCount < 8) {
-                        alert("你需要把8个小盒子都打开才能开启这个终极大礼盒！");
+                        $('#giftText').html("你需要把8个小盒子都打开才能开启这个终极大礼盒！");
+                        $('#giftCode').hide();
+                        $('.modal-header').hide();
+                        $('.modal-footer').show();
+                        $('#myModal').modal('show');
                         return;
                     }
                     var cStr = $('#spCount').html();
@@ -279,155 +270,17 @@
                             $(this).attr("src", "images/gift_gray.png");
                     }
                     else {
-                        alert("请将当前页面发送给朋友或者发送到朋友圈，请你的朋友帮你开启礼盒！");
+                        $('#giftText').html("请将当前页面发送给朋友或者发送到朋友圈，请你的朋友帮你开启礼盒！");
+                        $('#giftCode').hide();
+                        $('.modal-header').hide();
+                        $('.modal-footer').show();
+                        $('#myModal').modal('show');
                     }
                 }
             });
         });
 
-        var getCountArr = [10, 20, 20, 30, 30, 30, 30, 30, 300];
-        function fillProgress() {
-            var proCount = 0;
-            var tolCount = 0;
-            var rC = 0;
-            var lsCount = remainCount;
-            for (var i = openCount; i < getCountArr.length; i++) {
-                var SubCount = parseInt(lsCount) - getCountArr[i];
-                if (SubCount > 0) {
-                    lsCount = parseInt(lsCount) - getCountArr[i];
-                    rC++;
-                }
-                else {
-                    tolCount = getCountArr[i];
-                    proCount = getCountArr[i] + SubCount;
-                    break;
-                }
-            }
-
-            if (parseInt(rC) != 0)
-                $('#spCount').html("X" + parseInt(rC));
-            else
-                $('#spCount').html('X0');
-
-            var proTotal = 0;
-            for (var i = 0; i < parseInt(proCount / (tolCount / 10)) ; i++) {
-                proTotal += percent[i];
-            }
-            
-            if((openCount + parseInt(rC)) == 9)
-                $('#progressFill').css({ width: "100%" });
-            else
-                $('#progressFill').css({ width: proTotal + "%" });
-
-        }
-
-        function bindGiftList() {
-            var giftedStr = "";
-            var giftnoStr = "";
-            //alert(giftArr.length);
-            if(openCount < 9)
-                giftnoStr += "<div><img height=\"15px\" src=\"images/gift_max.png\" /> " + giftArr[8] + "</div>";
-            else
-                giftedStr += "<div><img height=\"15px\" src=\"images/gift_max.png\" /> " + giftArr[8] + "</div>";
-            var m = 0;
-            var giftArr1 = new Array();
-            for (var i = 0 ; i < giftArr.length - 1; i++) {
-                if (i < openCount) {
-                    giftedStr += "<div><img height=\"15px\" src=\"images/gift_yellow.png\" /> " + giftArr[i] + "</div>";
-                }
-                else {
-                    giftArr1[m] = giftArr[i];
-                    m++;
-                }
-            }
-            
-            giftArr1.sort(function () { return 0.5 - Math.random() });
-            //alert(giftArr1.toString());
-            for (var i = 0; i < giftArr1.length; i++) {
-                giftnoStr += "<div><img height=\"15px\" src=\"images/gift_yellow.png\" /> " + giftArr1[i] + "</div>";
-            }
-
-            $('#giftedList').html(giftedStr);
-            $('#giftnoList').html(giftnoStr);
-        }
         
-        var clickcount = 0;
-        function helpYou() {
-            if(isHelp == "0") {
-                alert("您已帮助过TA拆礼盒，每人只能帮助一次");
-                return;
-            }
-
-            var codeArr = ['http://game.luqinwenda.com/images/dyh_code_min.jpg', 'http://game.luqinwenda.com/newyear/images/zxjj_code.jpg'];
-            var n = Math.floor(Math.random() * 10);
-            //alert(n);
-            if (n < 5){
-                $('#shareText').html('长按二维码，关注“知心姐姐团队”，帮TA拆礼盒');
-                $('#erweima').attr('src', codeArr[1]);
-            }
-            else{
-                $('#shareText').html('长按二维码，关注“卢勤问答平台”，帮TA拆礼盒');
-                $('#erweima').attr('src', codeArr[0]);
-            }
-
-            if (QueryString("id") != null) {
-                if (clickcount == 0) {
-                    clickcount = 1;
-                    $.ajax({
-                        type: "GET",
-                        async: false,
-                        url: "http://game.luqinwenda.com/api/new_year_box_support.aspx",
-                        data: { token: Token, id: QueryString("id") },
-                        success: function (data) {
-                        }
-                    });
-                }
-            }
-            else {
-                $('#shareText').html('请将当前页面发送给朋友或者发送到朋友圈，让你的朋友关注下方二维码，10-30个关注即可开启一个礼盒');
-            }
-            showShare();
-        }
-
-        function getMyGift() {
-            $('#shareText').html('长按指纹识别二维码，关注“卢勤问答平台”，点击下方菜单“商城”-“礼盒”领取属于你的新年礼盒');
-            $('#erweima').attr('src', "http://game.luqinwenda.com/images/dyh_code1.jpg");
-            showShare();
-        }
-
-        function showShare() {
-            if (document.documentElement.scrollTop == 0) {
-                $(".bgDiv").css({ height: document.body.scrollHeight + 30 + "px" });
-                $(".promptDiv").css({ top: document.body.scrollTop + 80 + "px" });
-            }
-            else {
-                $(".bgDiv").css({ height: document.body.scrollHeight + 30 + "px" });
-                $(".promptDiv").css({ top: document.documentElement.scrollTop + 80 + "px" });
-            }
-            $("#showShare").show();
-        }
-
-        function OpenBox(boxid) {
-            $.ajax({
-                type: "GET",
-                async: false,
-                url: "http://game.luqinwenda.com/api/new_year_box_open_box.aspx",
-                data: { token: Token, boxId: boxid },
-                success: function (data) {
-                    var obj = eval('(' + data + ')');
-                    if (obj.status == 1) {
-                        alert("这是您朋友的礼盒您不能开启，请点击“领取我的礼盒”按钮");
-                    }
-                    else {
-                        alert("恭喜您，获得 " + giftArr[openCount]);
-                        openCount++;
-                        remainCount -= getCountArr[openCount];
-                        fillProgress();
-                        bindGiftList();
-                    }
-                }
-            });
-        }
     </script>
-</body>
-</html>
+    <script src="Script.js"></script>
+</asp:Content>
