@@ -60,7 +60,7 @@
                         if (dic["name"].ToString().Trim().Equals(""))
                             this.Response.Redirect("SubmitAddr.aspx?id=" + id + "&openid=" + openid + "&name=" + AwardName);
                         else
-                            this.Response.Redirect("SubmitSuccess.aspx");
+                            this.Response.Redirect("SubmitSuccess.aspx?name=" + AwardName);
                     }
                 }
         }
