@@ -180,7 +180,7 @@
     <div style="max-width: 640px; margin: 0 auto; font-size:11pt; line-height: 22px;">
         <img src="../images/draw_banner.jpg" width="100%" />
         <div style="margin-top: 5px; background: #fff; padding: 10px;">
-            　“卢勤和她的朋友们公益系列微课堂”在父母们的关注和热情支持下已经开讲四期，创造了500群，20万人次的直播。感谢大家对“卢勤和她的朋友们公益系列微课堂”支持以及热爱，我们将继续为大家贡献更加优质的内容。
+            　卢勤老师来送新年礼物啦！2016年新年之际，为答谢大家对“卢勤问答平台”热爱和大力支持，我们将送您新年大礼，全部白拿！还等什么？赶紧来领礼物吧！
         </div>
         <div style="text-indent: 20px; line-height: 28px; background: #fff; padding: 10px; text-align:center;">
             <a id="ASupported"></a>
@@ -189,15 +189,6 @@
                     <img src="../images/btn_draw.jpg" /></a>
                 <div style="clear:both;"></div>
             </div>
-        </div>
-        <div style="background: #fff; padding: 10px;">
-            　<b>活动奖励：</b><br />
-            　1. 卢勤老师所著新书《和烦恼说再见》50本；<br />
-            　浓缩了卢勤30多年教育思想和方法的精华，全书29个单元，每个单元围绕孩子成长过程中不可回避的一类烦恼，比如歧视、误解、嫉妒、自卑等等；<br />
-            　2. 10元书城代金券；<br />
-            　3. 5元书城代金券；<br />
-            　4. 2元书城代金券；<br />
-            　<div style="font-size:10pt">　此次活动最终解释权归卢勤问答平台所有。</div>
         </div>
         <div class="comment_people">
             <h4>中奖用户</h4>
