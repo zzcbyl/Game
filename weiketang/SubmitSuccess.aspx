@@ -18,7 +18,7 @@
     <div style="max-width: 640px; margin: 0 auto;">
         <img src="../images/draw_banner1.jpg" width="100%" />
         <div style="margin-top: 5px; text-indent: 20px; line-height: 28px; background: #fff; padding: 10px;">
-            <div>恭喜您，获得卢勤老师的《<span id="bookName"></span>》一本，邮寄地址我们已经收到，活动结束后由卢勤问答平台统一发出。</div>
+            <div>恭喜您，获得<span id="bookName"></span>，邮寄地址我们已经收到，活动结束后由卢勤问答平台统一发出。</div>
             <div>了解更多活动信息请关注“卢勤问答平台”。</div>
             <div style="margin-top:10px; padding:0;">
                 <img src="../images/dyh_code.jpg" style="width:90%; padding:0;" />
@@ -27,7 +27,7 @@
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#bookName').html(QueryString("name"));
+            $('#bookName').html(decodeURI(QueryString("name")));
         });
     </script>
 </body>

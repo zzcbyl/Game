@@ -80,7 +80,7 @@
         <div style="max-width: 640px; margin: 0 auto;">    
             <img src="../images/draw_banner1.jpg" width="100%" />
             <div style="margin-top: 5px; text-indent: 20px; line-height: 28px; background: #fff; padding: 10px;">
-                恭喜您，获得卢勤老师的《<span id="bookName"></span>》，请您仔细填写邮寄地址，活动结束后由卢勤问答平台统一发出。
+                恭喜您，获得<span id="bookName"></span>，请您仔细填写邮寄地址，活动结束后由卢勤问答平台统一发出。
             </div>
             <div style="margin-top: 5px; text-indent: 20px; line-height: 28px; background: #fff; padding: 10px 0 30px;">
                 <p class="add_list_p rel">
@@ -115,7 +115,7 @@
                 so_fillCity($(this).val());
             });
 
-            $('#bookName').html(QueryString("name"));
+            $('#bookName').html(decodeURI(QueryString("name")));
         });
 
         function SubOrder() {
