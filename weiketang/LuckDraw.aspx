@@ -54,7 +54,10 @@
                 else
                 {
                     AwardType = 2;
-                    AwardName = "卢勤老师所著新书《" + AwardName + "》一本";
+                    if (AwardName == "家庭教育光盘")
+                        AwardName = "《家庭教育专题讲座》一套";
+                    else
+                        AwardName = "卢勤老师所著新书《" + AwardName + "》一本";
                     if (cookie != null && cookie.Value == "1")
                     {
                         if (dic["name"].ToString().Trim().Equals(""))
