@@ -180,7 +180,7 @@
     <div style="max-width: 640px; margin: 0 auto; font-size:11pt; line-height: 22px;">
         <img src="../images/draw_banner.jpg" width="100%" />
         <div style="margin-top: 5px; background: #fff; padding: 10px;">
-            　卢勤老师来送新年礼物啦！2016年新年之际，为答谢大家对“卢勤问答平台”热爱和大力支持，我们将送您新年大礼，全部白拿！还等什么？赶紧来领礼物吧！
+            　2016年的新年礼物，您拿到了吗？如果还没拿到，没有关系！卢勤老师送给您！为答谢广大家长对“卢勤问答平台”热爱和大力支持，卢勤老师邀您开启新年大礼！全部白拿！动动手指，礼品就能领到手。还等什么？赶紧来领礼物吧！
         </div>
         <div style="text-indent: 20px; line-height: 28px; background: #fff; padding: 10px; text-align:center;">
             <a id="ASupported"></a>
