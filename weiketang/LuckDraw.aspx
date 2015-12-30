@@ -178,7 +178,7 @@
 </head>
 <body style="background: #C81623;">
     <div style="max-width: 640px; margin: 0 auto; font-size:11pt; line-height: 22px;">
-        <img src="../images/draw_banner1.jpg" width="100%" />
+        <img src="../images/draw_banner.jpg" width="100%" />
         <div style="margin-top: 5px; background: #fff; padding: 10px;">
             　“卢勤和她的朋友们公益系列微课堂”在父母们的关注和热情支持下已经开讲四期，创造了500群，20万人次的直播。感谢大家对“卢勤和她的朋友们公益系列微课堂”支持以及热爱，我们将继续为大家贡献更加优质的内容。
         </div>
