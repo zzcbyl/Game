@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 
 <script runat="server">
-    public string cName = "ActivityDraw2";
+    public string cName = "ActivityDraw3";
     public string ListStr = "";
     public string ListStr1 = "";
     public string ListStr2 = "";
@@ -13,6 +13,7 @@
     public int AwardType = 1;
     public string CouponCode = "";
     public int CouponAmount = 0;
+    public string actid = "3";
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Request["openid"] == null || Request["id"] == null)
@@ -26,7 +27,7 @@
         HttpCookie cookie = Request.Cookies[cName];
             
         JavaScriptSerializer json = new JavaScriptSerializer();
-        string getUrl = "http://game.luqinwenda.com/api/awards_get_info.aspx?actid=2&id=" + id + "&openid=" + openid;
+        string getUrl = "http://game.luqinwenda.com/api/awards_get_info.aspx?actid=" + actid + "&id=" + id + "&openid=" + openid;
         string result = HTTPHelper.Get_Http(getUrl);
         Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(result);
         if (dic["status"].Equals(0))
@@ -53,11 +54,11 @@
                 else
                 {
                     AwardType = 2;
-                    AwardName = "卢勤老师亲笔签名《" + AwardName + "》一本";
+                    AwardName = "卢勤老师所著新书《" + AwardName + "》一本";
                     if (cookie != null && cookie.Value == "1")
                     {
                         if (dic["name"].ToString().Trim().Equals(""))
-                            this.Response.Redirect("SubmitAddr.aspx?id=" + id + "&openid=" + openid);
+                            this.Response.Redirect("SubmitAddr.aspx?id=" + id + "&openid=" + openid + "&name=" + AwardName);
                         else
                             this.Response.Redirect("SubmitSuccess.aspx");
                     }
@@ -65,9 +66,9 @@
         }
         else
             isAward = 0;
-        
-        
-        getUrl = "http://game.luqinwenda.com/api/awards_get_list.aspx?actid=2";
+
+
+        getUrl = "http://game.luqinwenda.com/api/awards_get_list.aspx?actid=" + actid;
         result = HTTPHelper.Get_Http(getUrl);
         dic = json.Deserialize<Dictionary<string, object>>(result);
         if (dic["status"].Equals(0))
