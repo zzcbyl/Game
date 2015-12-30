@@ -232,7 +232,7 @@
                     location.href = 'Coupon_draw.aspx?amount=<%=CouponAmount %>&code=<%=CouponCode %>';
                 }
                 else {
-                    location.href = 'SubmitAddr.aspx?id=' + id + '&openid=' + openid;
+                    location.href = 'SubmitAddr.aspx?id=' + id + '&openid=' + openid + '&name=' + AwardName;
                 }
             }
         }
