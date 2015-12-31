@@ -57,7 +57,7 @@
                 {
                     AwardType = 2;
                     if (AwardName == "家庭教育光盘")
-                        AwardName = "《家庭教育专题讲座》一套";
+                        AwardName = "《家庭教育专题讲座光盘》一套";
                     else
                         AwardName = "卢勤老师所著新书《" + AwardName + "》一本";
                     if (cookie != null && cookie.Value == "1")
