@@ -43,9 +43,11 @@
                 {
                     AwardType = 1;
                     string[] AwardArr = AwardName.Split(':');
-                    CouponAmount = Convert.ToInt32(AwardArr[0].Substring(0, 1)) * 100;
+                    int cAmount = Convert.ToInt32(AwardArr[0].Substring(0, AwardArr[0].IndexOf("元")));
+                    CouponAmount = cAmount * 100;
                     CouponCode = AwardArr[1];
-                    AwardName = AwardArr[0].Substring(0, 1) + "元卢勤问答平台书城代金券";
+                    AwardName = cAmount + "元卢勤问答平台书城代金券";
+                    //AwardName = AwardArr[0].Substring(0, 1) + "元卢勤问答平台书城代金券";
                     if (cookie != null && cookie.Value == "1")
                     {
                         this.Response.Redirect("Coupon_draw.aspx?amount=" + CouponAmount + "&code=" + CouponCode);
