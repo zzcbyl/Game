@@ -143,7 +143,8 @@
         if (ListStr1.Equals("") && ListStr2.Equals(""))
             ListStr2 = ListStr;
 
-        ListStr = "<li><div class=\"comment_name\">阿柯** 获得 <span style=\"color:red;\">iphone 6s plus</span></div><div class=\"comment_time\">2015/12/31 11:21:37</div></li>"
+        ListStr = "<li><div class=\"comment_name\">春暖** 获得 <span style=\"color:red;\">微鲸55吋4K高清晰智能电视</span></div><div class=\"comment_time\">2015/12/31 15:59:51</div></li>"
+            + "<li><div class=\"comment_name\">阿柯** 获得 <span style=\"color:red;\">iphone 6s plus</span></div><div class=\"comment_time\">2015/12/31 11:21:37</div></li>"
             + "<li><div class=\"comment_name\">欣妈** 获得 <span style=\"color:red;\">微鲸55吋4K高清晰智能电视</span></div><div class=\"comment_time\">2015/12/31 10:59:16</div></li>"
             + ListStr;
     }
