@@ -199,7 +199,7 @@
         <div class="comment_people">
             <h4>中奖用户</h4>
             <ul id="commentlist">
-                <li><div class="comment_name">果妈** 获得 <span style="color:red;">微鲸55吋4K高清晰智能电视</span></div><div class="comment_time">2015/12/31 10:59:16</div></li>
+                <li><div class="comment_name">欣妈** 获得 <span style="color:red;">微鲸55吋4K高清晰智能电视</span></div><div class="comment_time">2015/12/31 10:59:16</div></li>
                 <%=ListStr %>
             </ul>
             <div id="pageDiv" style="text-align:center; margin-top:10px;">
