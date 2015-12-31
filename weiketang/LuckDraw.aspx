@@ -25,7 +25,7 @@
         string id = Request["id"].ToString();
 
         HttpCookie cookie = Request.Cookies[cName];
-            
+
         JavaScriptSerializer json = new JavaScriptSerializer();
         string getUrl = "http://game.luqinwenda.com/api/awards_get_info.aspx?actid=" + actid + "&id=" + id + "&openid=" + openid;
         string result = HTTPHelper.Get_Http(getUrl);
@@ -142,6 +142,10 @@
             ListStr2 = ListStr1;
         if (ListStr1.Equals("") && ListStr2.Equals(""))
             ListStr2 = ListStr;
+
+        ListStr = "<li><div class=\"comment_name\">阿柯** 获得 <span style=\"color:red;\">iphone 6s plus</span></div><div class=\"comment_time\">2015/12/31 11:21:37</div></li>"
+            + "<li><div class=\"comment_name\">欣妈** 获得 <span style=\"color:red;\">微鲸55吋4K高清晰智能电视</span></div><div class=\"comment_time\">2015/12/31 10:59:16</div></li>"
+            + ListStr;
     }
 
     private string getUserName(string openid)
@@ -199,7 +203,6 @@
         <div class="comment_people">
             <h4>中奖用户</h4>
             <ul id="commentlist">
-                <li><div class="comment_name">欣妈** 获得 <span style="color:red;">微鲸55吋4K高清晰智能电视</span></div><div class="comment_time">2015/12/31 10:59:16</div></li>
                 <%=ListStr %>
             </ul>
             <div id="pageDiv" style="text-align:center; margin-top:10px;">
