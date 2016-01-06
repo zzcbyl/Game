@@ -26,26 +26,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <title>微信音频接口</title>
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
-    <h3 id="menu-voice">音频接口</h3>
-      <span class="desc">开始录音接口</span>
-      <button class="btn btn_primary" id="startRecord">startRecord</button>
-      <span class="desc">停止录音接口</span>
-      <button class="btn btn_primary" id="stopRecord">stopRecord</button>
-      <span class="desc">播放语音接口</span>
-      <button class="btn btn_primary" id="playVoice">playVoice</button>
-      <span class="desc">暂停播放接口</span>
-      <button class="btn btn_primary" id="pauseVoice">pauseVoice</button>
-      <span class="desc">停止播放接口</span>
-      <button class="btn btn_primary" id="stopVoice">stopVoice</button>
-      <span class="desc">上传语音接口</span>
-      <button class="btn btn_primary" id="uploadVoice">uploadVoice</button>
-      <span class="desc">下载语音接口</span>
-      <button class="btn btn_primary" id="downloadVoice">downloadVoice</button>
+    <h3 id="menu-voice">音频接口</h3><br />
+      <span class="desc">开始录音接口</span><br />
+      <button class="btn btn_primary" id="startRecord">startRecord</button><br />
+      <span class="desc">停止录音接口</span><br />
+      <button class="btn btn_primary" id="stopRecord">stopRecord</button><br />
+      <span class="desc">播放语音接口</span><br />
+      <button class="btn btn_primary" id="playVoice">playVoice</button><br />
+      <span class="desc">暂停播放接口</span><br />
+      <button class="btn btn_primary" id="pauseVoice">pauseVoice</button><br />
+      <span class="desc">停止播放接口</span><br />
+      <button class="btn btn_primary" id="stopVoice">stopVoice</button><br />
+      <span class="desc">上传语音接口</span><br />
+      <button class="btn btn_primary" id="uploadVoice">uploadVoice</button><br />
+      <span class="desc">下载语音接口</span><br />
+      <button class="btn btn_primary" id="downloadVoice">downloadVoice</button><br />
     </div>
     </form>
 </body>
