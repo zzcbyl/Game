@@ -28,27 +28,34 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
     <title>微信音频接口</title>
+    <link href="style.css" rel="stylesheet" />
 </head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    <h3 id="menu-voice">音频接口</h3><br />
-      <span class="desc">开始录音接口</span><br />
-      <button class="btn btn_primary" id="startRecord">startRecord</button><br />
-      <span class="desc">停止录音接口</span><br />
-      <button class="btn btn_primary" id="stopRecord">stopRecord</button><br />
-      <span class="desc">播放语音接口</span><br />
-      <button class="btn btn_primary" id="playVoice">playVoice</button><br />
-      <span class="desc">暂停播放接口</span><br />
-      <button class="btn btn_primary" id="pauseVoice">pauseVoice</button><br />
-      <span class="desc">停止播放接口</span><br />
-      <button class="btn btn_primary" id="stopVoice">stopVoice</button><br />
-      <span class="desc">上传语音接口</span><br />
-      <button class="btn btn_primary" id="uploadVoice">uploadVoice</button><br />
-      <span class="desc">下载语音接口</span><br />
-      <button class="btn btn_primary" id="downloadVoice">downloadVoice</button><br />
+<body ontouchstart="">
+<div class="wxapi_container">
+    <div class="lbox_close wxapi_form">
+      <h3 id="menu-basic">基础接口</h3>
+      <span class="desc">判断当前客户端是否支持指定JS接口</span>
+      <button class="btn btn_primary" id="checkJsApi">checkJsApi</button>
+
+
+      <h3 id="menu-voice">音频接口</h3>
+      <span class="desc">开始录音接口</span>
+      <button class="btn btn_primary" id="startRecord">startRecord</button>
+      <span class="desc">停止录音接口</span>
+      <button class="btn btn_primary" id="stopRecord">stopRecord</button>
+      <span class="desc">播放语音接口</span>
+      <button class="btn btn_primary" id="playVoice">playVoice</button>
+      <span class="desc">暂停播放接口</span>
+      <button class="btn btn_primary" id="pauseVoice">pauseVoice</button>
+      <span class="desc">停止播放接口</span>
+      <button class="btn btn_primary" id="stopVoice">stopVoice</button>
+      <span class="desc">上传语音接口</span>
+      <button class="btn btn_primary" id="uploadVoice">uploadVoice</button>
+      <span class="desc">下载语音接口</span>
+      <button class="btn btn_primary" id="downloadVoice">downloadVoice</button>
+     
     </div>
-    </form>
+  </div>
 </body>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
@@ -109,5 +116,6 @@
       ]
   });
 </script>
+<script src="zepto.min.js"></script>
 <script src="demo.js"></script>
 </html>
