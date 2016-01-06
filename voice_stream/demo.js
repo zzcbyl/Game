@@ -10,19 +10,6 @@
  * 邮件内容说明：用简明的语言描述问题所在，并交代清楚遇到该问题的场景，可附上截屏图片，微信团队会尽快处理你的反馈。
  */
 wx.ready(function () {
-  // 1 判断当前版本是否支持指定 JS 接口，支持批量判断
-  document.querySelector('#checkJsApi').onclick = function () {
-    wx.checkJsApi({
-      jsApiList: [
-        'getNetworkType',
-        'previewImage'
-      ],
-      success: function (res) {
-        alert(JSON.stringify(res));
-      }
-    });
-  };
-
 
   // 3 智能接口
   var voice = {
@@ -122,23 +109,6 @@ wx.ready(function () {
     });
   };
 
-
-  var shareData = {
-    title: '微信JS-SDK Demo',
-    desc: '微信JS-SDK,帮助第三方为用户提供更优质的移动web服务',
-    link: 'http://demo.open.weixin.qq.com/jssdk/',
-    imgUrl: 'http://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRt8Qia4lv7k3M9J1SKqKCImxJCt7j9rHYicKDI45jRPBxdzdyREWnk0ia0N5TMnMfth7SdxtzMvVgXg/0'
-  };
-  wx.onMenuShareAppMessage(shareData);
-  wx.onMenuShareTimeline(shareData);
-
-  function decryptCode(code, callback) {
-    $.getJSON('/jssdk/decrypt_code.php?code=' + encodeURI(code), function (res) {
-      if (res.errcode == 0) {
-        codes.push(res.code);
-      }
-    });
-  }
 });
 
 wx.error(function (res) {
