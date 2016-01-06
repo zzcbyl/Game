@@ -33,10 +33,6 @@
 <body ontouchstart="">
 <div class="wxapi_container">
     <div class="lbox_close wxapi_form">
-      <h3 id="menu-basic">基础接口</h3>
-      <span class="desc">判断当前客户端是否支持指定JS接口</span>
-      <button class="btn btn_primary" id="checkJsApi">checkJsApi</button>
-
 
       <h3 id="menu-voice">音频接口</h3>
       <span class="desc">开始录音接口</span>
@@ -118,19 +114,6 @@
 
 
     wx.ready(function () {
-        // 1 判断当前版本是否支持指定 JS 接口，支持批量判断
-        document.querySelector('#checkJsApi').onclick = function () {
-            wx.checkJsApi({
-                jsApiList: [
-                  'getNetworkType',
-                  'previewImage'
-                ],
-                success: function (res) {
-                    alert(JSON.stringify(res));
-                }
-            });
-        };
-
 
         // 3 智能接口
         var voice = {
