@@ -5,7 +5,7 @@
 <script runat="server">
 
     public string timeStamp = "";
-    public string nonceStr = "3y2wsa11fq2ad0bfsw90fqs6cw7fb";
+    public string nonceStr = "3y2wsafsda11fqf2ad0bfswf90fqs6cw7fb";
     public string ticket = "";
     public string shaParam = "";
     public string appId = System.Configuration.ConfigurationManager.AppSettings["wxappid_dingyue"];
@@ -46,6 +46,7 @@
                     'uploadVoice',
                     'downloadVoice']
         });
+
         wx.onVoiceRecordEnd({
             // 录音时间超过一分钟没有停止的时候会执行 complete 回调
             complete: function (res) {
@@ -53,10 +54,18 @@
                 alert(localId);
             }
         });
-        function startRecord() {
-            alert("start record");
-            wx.startRecord();
-        }
+
+        wx.ready(function () {
+            function startRecord() {
+                alert("start record");
+                wx.startRecord({
+                    cancel: function () {
+                        alert('用户拒绝授权录音');
+                    }
+                });
+            }
+        });
+
         function stopRecord() {
             alert("try to end record");
             wx.stopRecord({
