@@ -13,10 +13,7 @@
     protected void Page_Load(object sender, EventArgs e)
     {
         timeStamp = Util.GetTimeStamp();
-        string jsonStrForTicket = Util.GetWebContent("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token="
-            + Util.GetToken() + "&type=jsapi", "get", "", "form-data");
-        ticket = Util.GetSimpleJsonValueByKey(jsonStrForTicket, "ticket");
-        //ticket = Util.GetTicket();
+        ticket = Util.GetTicket();
         string shaString = "jsapi_ticket=" + ticket.Trim() + "&noncestr=" + nonceStr.Trim()
             + "&timestamp=" + timeStamp.Trim() + "&url=" + Request.Url.ToString().Trim();
         shaParam = Util.GetSHA1(shaString);
