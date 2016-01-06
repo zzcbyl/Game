@@ -13,8 +13,10 @@
     protected void Page_Load(object sender, EventArgs e)
     {
         timeStamp = Util.GetTimeStamp();
-        
-        ticket = Util.GetTicket();
+        string jsonStrForTicket = Util.GetWebContent("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token="
+            + Util.GetToken() + "&type=jsapi", "get", "", "form-data");
+        ticket = Util.GetSimpleJsonValueByKey(jsonStrForTicket, "ticket");
+        //ticket = Util.GetTicket();
         string shaString = "jsapi_ticket=" + ticket.Trim() + "&noncestr=" + nonceStr.Trim()
             + "&timestamp=" + timeStamp.Trim() + "&url=" + Request.Url.ToString().Trim();
         shaParam = Util.GetSHA1(shaString);
@@ -48,13 +50,7 @@
                     'downloadVoice']
         });
 
-        wx.onVoiceRecordEnd({
-            // 录音时间超过一分钟没有停止的时候会执行 complete 回调
-            complete: function (res) {
-                var localId = res.localId;
-                alert(localId);
-            }
-        });
+        
 
         wx.ready(function () {
             function startRecord() {
@@ -65,21 +61,31 @@
                     }
                 });
             }
-        });
 
-        function stopRecord() {
-            alert("try to end record");
-            wx.stopRecord({
-                success: function (res) {
+
+            function stopRecord() {
+                alert("try to end record");
+                wx.stopRecord({
+                    success: function (res) {
+                        var localId = res.localId;
+                        alert(localId);
+
+                    },
+                    error: function (res) {
+                        alert(res);
+                    }
+                });
+            }
+
+            wx.onVoiceRecordEnd({
+                // 录音时间超过一分钟没有停止的时候会执行 complete 回调
+                complete: function (res) {
                     var localId = res.localId;
                     alert(localId);
-
-                },
-                error: function (res) {
-                    alert(res);
                 }
             });
-        }
+
+        });
     </script>
 </head>
 <body>
