@@ -208,7 +208,7 @@ public class Util
     public static DateTime ticketTime = DateTime.MinValue;
     public static string GetTicket()
     {
-        if (ticketTime < DateTime.Now)
+        if (ticketTime == DateTime.MinValue || ticketTime < DateTime.Now)
         {
             try
             {
