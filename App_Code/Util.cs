@@ -214,10 +214,7 @@ public class Util
             {
                 string jsonStrForTicket = Util.GetWebContent("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token="
                         + Util.GetToken() + "&type=jsapi", "get", "", "form-data");
-                JavaScriptSerializer serializer = new JavaScriptSerializer();
-                Dictionary<string, object> json = (Dictionary<string, object>)serializer.DeserializeObject(jsonStrForTicket);
-                object v;
-                ticket = json.TryGetValue("ticket", out v).ToString();
+                ticket = Util.GetSimpleJsonValueByKey(jsonStrForTicket, "ticket");
                 ticketTime = DateTime.Now.AddMinutes(10);
             }
             catch { }
