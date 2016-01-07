@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="author" content="Sajith Amma" />
+    <title></title>
+    <script src="jquery.min.js"> </script>
+    <script src="jRecorder.js"> </script>
+    <style>
+        li {
+            display: inline;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+    $.jRecorder(
+      {
+          host: 'http://192.168.1.38:8002/test/uploadFile.aspx?filename=hello',  //replace with your server path please
+          swf_path: 'jRecorder.swf',
+          callback_started_recording: function () { callback_started(); },
+          callback_stopped_recording: function () { callback_stopped(); },
+          callback_activityLevel: function (level) { callback_activityLevel(level); },
+          callback_activityTime: function (time) { callback_activityTime(time); },
+          callback_finished_sending: function (time) { callback_finished_sending(); }
+      }
+    );
+    </script>
+    <div style="background-color: #eeeeee;border:1px solid #cccccc">
+        Time: <span id="time">00:00</span>
+    </div>
+    <div>
+        Level: <span id="level"></span>
+    </div>
+    <div id="levelbase" style="width:200px;height:20px;background-color:#ffff00">
+        <div id="levelbar" style="height:19px; width:2px;background-color:red"></div>
+    </div>
+    <div>
+        Status: <span id="status"></span>
+    </div>
+    <input type="button" id="record" value="Record" style="color:red">
+    <br />
+    <br />
+    <input type="button" id="stop" value="Stop" />
+    <br />
+    <br />
+    <input type="button" id="send" value="Send Data" />
+    <br />
+    <br />
+    <input type="button" id="broadcast" value="Broadcast" />
+</body>
+
+<script type="text/javascript">
+    $('#record').click(function () {
+        $.jRecorder.record(500);
+    });
+    $('#stop').click(function () {
+        $.jRecorder.stop();
+    });
+
+    $('#send').click(function () {
+        $.jRecorder.sendData();
+    });
+
+    $("#broadcast").click(function () {
+        window.location.href = "http://192.168.1.38:8002/test/hello.wav";
+    });
+
+    function callback_finished() {
+        $('#status').html('Recording is finished');
+    }
+
+    function callback_started() {
+        $('#status').html('Recording is started');
+    }
+    function callback_error(code) {
+        $('#status').html('Error, code:' + code);
+    }
+
+    function callback_stopped() {
+        $('#status').html('Stop request is accepted');
+    }
+
+    function callback_finished_recording() {
+        $('#status').html('Recording event is finished');
+    }
+
+    function callback_finished_sending() {
+        $('#status').html('File has been sent to server mentioned as host parameter');
+    }
+
+    function callback_activityLevel(level) {
+        $('#level').html(level);
+        if (level == -1) {
+            $('#levelbar').css("width", "2px");
+        }
+        else {
+            $('#levelbar').css("width", (level * 2) + "px");
+        }
+    }
+    function callback_activityTime(time) {
+        //$('.flrecorder').css("width", "1px");
+        //$('.flrecorder').css("height", "1px");
+        $('#time').html(time);
+    }
+</script>
+</html>

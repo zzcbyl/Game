@@ -65,7 +65,7 @@ public class wktHandler : IHttpHandler {
                 new KeyValuePair<string, KeyValuePair<SqlDbType, object>>("chat_voice", new KeyValuePair<SqlDbType, object>(SqlDbType.VarChar,(object)voiceid))
             };
 
-            int result = DBHelper.InsertData("", parameters, Util.ConnectionString);
+            int result = DBHelper.InsertData("ChatList", parameters, Util.ConnectionString);
             Response.Write("{\"status\":0 , \"result\":\"" + result + "\"}");
         }
     }

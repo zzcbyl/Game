@@ -26,10 +26,13 @@
     <title></title>
     <script src="../script/jquery-2.1.1.min.js"></script>
 </head>
-<body>
+<body style="width:640px; margin:0 auto; background:#efadad;">
     <div>
-        <input type="button" value="开始录音" id="startRecord" />　
-        <input type="button" value="发送" id="stopRecord" />
+        <div></div>
+        <div style="position:fixed; bottom:0; left:0; width:100%;">
+            <input type="button" value="开始录音" id="startRecord" />　
+            <input type="button" value="发送" id="stopRecord" />
+        </div>
     </div>
 </body>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>

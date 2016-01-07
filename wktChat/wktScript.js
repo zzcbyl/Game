@@ -22,7 +22,6 @@ wx.ready(function () {
         complete: function (res) {
             voice.localId = res.localId;
             //alert('录音时间已超过一分钟');
-
             uploadVoice();
         }
     });
@@ -40,7 +39,7 @@ wx.ready(function () {
         wx.stopRecord({
             success: function (res) {
                 voice.localId = res.localId;
-                alert(res.localId);
+                //alert(res.localId);
                 uploadVoice();
             },
             fail: function (res) {
@@ -53,7 +52,7 @@ wx.ready(function () {
         wx.uploadVoice({
             localId: voice.localId,
             success: function (res) {
-                alert('上传语音成功，serverId 为' + res.serverId);
+                //alert('上传语音成功，serverId 为' + res.serverId);
                 voice.serverId = res.serverId;
 
                 $.ajax({
@@ -63,7 +62,7 @@ wx.ready(function () {
                     data: { type: "insert", voiceid: voice.serverId },
                     dataType: "json",
                     success: function (data) {
-                        alert(data);
+                        
                     }
                 });
             }
