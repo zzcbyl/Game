@@ -19,7 +19,6 @@ wx.ready(function () {
   // 4 音频接口
   // 4.2 开始录音
   document.querySelector('#startRecord').onclick = function () {
-      alert('asdf');
     wx.startRecord({
       cancel: function () {
         alert('用户拒绝授权录音');
