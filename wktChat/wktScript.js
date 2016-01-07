@@ -9,13 +9,12 @@ wx.ready(function () {
     // 4 音频接口
     // 4.2 开始录音
     document.querySelector('#startRecord').onclick = function () {
-        startVoice();
+        startRecord();
     };
 
     // 4.3 停止录音
     document.querySelector('#stopRecord').onclick = function () {
-        stopVoice();
-        uploadVoice();
+        stopRecord();
     };
 
     // 4.4 监听录音自动停止
@@ -28,7 +27,7 @@ wx.ready(function () {
         }
     });
 
-    function startVoice()
+    function startRecord()
     {
         wx.startRecord({
             cancel: function () {
@@ -37,11 +36,12 @@ wx.ready(function () {
         });
     }
 
-    function stopVoice() {
+    function stopRecord() {
         wx.stopRecord({
             success: function (res) {
                 voice.localId = res.localId;
                 alert(res.localId);
+                uploadVoice();
             },
             fail: function (res) {
                 alert(JSON.stringify(res));
@@ -63,7 +63,7 @@ wx.ready(function () {
                     data: { type: "insert", voiceid: voice.serverId },
                     dataType: "json",
                     success: function (data) {
-
+                        alert(data);
                     }
                 });
             }
