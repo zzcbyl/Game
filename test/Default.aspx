@@ -31,24 +31,20 @@
         </div>
         
         <script type="text/javascript">
-
             $("#jquery_jplayer_1").jPlayer({
                 ready: function () {
                     $(this).jPlayer("setMedia", {
-                        mp3: "http://192.168.1.38:8002/test/hYGE3rnG0yIo1o0anVd16sQR94suRldUILlgdFNM3gjHRs-pIZPBQoBSmYIO5p9l.amr"
+                        wav: "http://192.168.1.38:8002/test/hello.wav"
                     });
                 },
                 play: function () {
                     $(this).jPlayer("stopOthers");
                 },
                 ended: function () {
-                    //alert('end');
-                    changePlay("1");
-                    changePlay("2");
-                    $("#jquery_jplayer_2").jPlayer("play");
+                    alert('end');
                 },
                 swfPath: "__THEME__/js",
-                supplied: "mp3",
+                supplied: "wav",
                 cssSelectorAncestor: "#jp_container_1",
                 wmode: "window",
                 globalVolume: true,
@@ -60,53 +56,11 @@
 
         </script>
     </li>
-    
-
-
     </ul>
-
-    <div>
-        <input type="button" value="下一条" onclick="nextAudio();" />
-        
-    </div>
     <script type="text/javascript">
-
-        function nextAudio() {
-            var newjplay = '<li><div id="jquery_jplayer_2" class="jp-jplayer"></div><div style="background:url(images/jplayerleft.png); width: 6px; height: 36px; float: left; position: absolute;"></div><div id="jp_container_2" class="jp-audio" role="application" aria-label="media player" onclick=\'changePlay("2");\'><a id="a_jp_play_2" class="jp-play" role="button" tabindex="0"><span class="jplay_play"></span></a><a id="a_jp_stop_2" class="jp-stop" style="display: none;" role="button" tabindex="0"><span class="jplay_stop"></span></a><div class="jp-duration" role="timer" aria-label="duration" style="display: none;"></div></div></li>';
-            $('.feed_file_list li:last').after(newjplay);
-
-            $("#jquery_jplayer_2").jPlayer({
-                ready: function () {
-                    $(this).jPlayer("setMedia", {
-                        mp3: "http://192.168.1.38:8002/test/2222.mp3"
-                    });
-                },
-                play: function () {
-                    $(this).jPlayer("stopOthers");
-                },
-                ended: function () {
-                    alert('end');
-                },
-                swfPath: "__THEME__/js",
-                supplied: "mp3",
-                cssSelectorAncestor: "#jp_container_2",
-                wmode: "window",
-                globalVolume: true,
-                useStateClassSkin: true,
-                autoBlur: false,
-                smoothPlayBar: true,
-                keyEnabled: true
-            });
-
-        }
-
-
-
-
         var ssset = 0;
         var stopindex = 1;
         function changePlay(id) {
-            
             if ($('#a_jp_stop_' + id).css('display') == 'none') {
                 stopindex = 1;
                 playA();

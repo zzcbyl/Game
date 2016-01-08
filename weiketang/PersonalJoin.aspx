@@ -61,17 +61,17 @@
             <div style="text-align:center; font-size:11pt; color:#808080; font-family:微软雅黑;">已有<span id="spCount"><%=forward_count %></span>票支持</div>
             <div style="text-align:left; margin-top:10px;">
                 　　卢勤和她的朋友们微课堂<br />
-                　　2016年1月12日<br />
-                　　给孩子一个真爱的世界！<br />
+                　　2015年12月30日<br />
+                　　给孩子一个自信的世界！<br />
                 <span style="font-weight:bold; background:#ccc; display:inline-block; padding:5px; margin:3px 0;">个人申请进入听课群资格：</span><br />
-                　　● 申请活动截止时间：2016年1月12日12:00，之后将不再接受申请；<br />
+                　　● 申请活动截止时间：2015年12月30日12:00，之后将不再接受申请；<br />
                 　　● 仅限500个席位，满额之后将不再接受申请。<br />
                 <span style="font-weight:bold; background:#ccc; display:inline-block; padding:5px; margin:3px 0;">个人申请进入听课群细则：</span><br />
-                　　1. 报名在线讲座，请先关注卢勤问答平台微信公众号（ID：luqinwendapingtai）；<br />
+                　　1. 首次报名在线讲座，请先关注卢勤问答平台微信公众号（ID：luqinwendapingtai）；<br />
                     <div style="text-align:center;"><img src="../images/dyh_code_min.jpg" width="40%" /></div>
                 　　2. 在卢勤问答平台微信公众号中回复关键词：微课，领取属于自己的邀请码；<br />
-                　　3.  将含有邀请码的支持页面转发到100人以上的微信群或者您的朋友圈，邀请朋友，在公众号中回复您的邀请码（<b><%=code %></b>），为您投上一票支持；<br />
-                　　4.当您的支持票数超过10票后，请在1月12日12:00前将支持票数截图给卢勤问答平台小助手，然后由小助手安排您入群，额满后将不再拉人入群。<br />
+                　　3. 邀请朋友，在公众号中输入您的邀请码（<b><%=code %></b>），为您投上一票支持；<br />
+                　　4.当您的支持票数超过10票后，请在12月30日12:00前将支持票数截图给卢勤问答平台小助手，然后由小助手安排您入群，额满后将不再拉人入群。<br />
                 　　卢勤问答平台小助手微信（luqinwenda001）。<br />
                     <div style="text-align:center;"><img src="../images/xiaozhushou.jpg" width="40%" /></div>
             </div>
@@ -83,7 +83,8 @@
             </div>
             <div style="margin-top:20px; text-align:left;">
                 <div><b style="color:red;">加群必知：</b></div>
-                <div>　　已加入12月22日微课直播群（卢勤和她的朋友们微课堂群）的朋友不用再重复申请入群，可以继续收听。</div>
+                <div>　　1. 上次微课报名中已集够10个支持，但未进群的朋友，请将截图直接发送给卢勤问答平台小助手，小助手将安排您入群。</div>
+                <div>　　2. 已加入12月22日微课直播群（卢勤和她的朋友们微课堂001、卢勤和她的朋友们微课堂002）的朋友不用再重复申请入群，可以继续收听。</div>
             </div>
         </div>
         <div style="text-align:left; line-height:30px; background:#fff; padding:10px; margin-top:10px;">
@@ -94,11 +95,12 @@
             <p>　　三十多年来,卢勤老师致力于对少年儿童及家长心理健康的研究。在长期主持《中国少年报》“知心姐姐”栏目过程中，积累了大量的一线家庭教育实践经验，是中国上亿家长及儿童最喜爱、最信任的权威教育专家，深受亿万家长和孩子的爱戴。</p>
         </div>
         <div style="text-align:left; line-height:30px; background:#fff; padding:10px; margin-top:10px;">
-            <p>　　有爱心的孩子勇于承担，有爱心的孩子善良而友好，有爱心的孩子心胸更加宽广。孩子的心灵世界本来就是一个真爱的世界，想要这个世界不被污染，做父母的就要尽力去维护它。父母该如何呵护孩子的内心世界呢？本期课程，卢勤老师将告诉您如何给孩子一个真爱的世界。</p>
-            <p><b>课程名称：</b>给孩子一个真爱的世界！</p>
-            <p><b>开课时间：</b>1月12日（周二）20:00-21:00</p>
-            <p><b>课程形式：</b>卢勤和她的朋友们微课堂群<br />　　　　　合作转播群</p>
-            <p><b>适合人群：</b>7岁以上孩子和愿意为孩子创造良好家庭教育环境的家长、准家长。建议家长和孩子一起收听。</p>
+            <p><h3 style="text-align:center;">本年度最精彩的一课即将开讲！</h3></p>
+            <p>　　每个孩子都像一个未被开发的宝藏，而如何挖掘，让他们发挥出应有的价值，需要我们每一个人用心去探索。而自信，是开启宝藏最重要的钥匙。一个人真正内在的自信，是从小培养出来的。那么，家长们如何培养孩子树立自信呢？本次课程，卢勤老师将带来本年度最精彩的一课，告诉您如何给孩子一个自信的世界！</p>
+            <p><b>课程名称：</b>自信，让孩子喊出“我能行”！</p>
+            <p><b>开课时间：</b>12月30日（周三）20:00-21:00</p>
+            <p><b>课程形式：</b>卢勤和她的朋友们微课堂群</p>
+            <p><b>适合人群：</b>愿意为孩子创造良好家庭教育环境的家长、准家长、教育工作者等。</p>
         </div>
     </div>
     <div id="showShare" style="display:none;" onclick="javascript:document.getElementById('showShare').style.display='none';">
