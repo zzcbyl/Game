@@ -49,4 +49,5 @@ upload
 upload/*
 config*
 
-
+test/*
+test
