@@ -38,7 +38,7 @@
 
         reader.Close();
 
-        Response.Write(str);
+        //Response.Write(str);
 
         process.WaitForExit();
     }
