@@ -68,7 +68,6 @@
                 <span style="font-weight:bold; background:#ccc; display:inline-block; padding:5px; margin:3px 0;">申请合作转播群资格成功：</span><br />
                 　　● 申请活动截止时间：2016年1月12日12:00，之后将不再接受申请；<br />
                 　　● 仅限50个席位，满额之后将不再接受申请<br />
-                　　● <span style="color:red;">此次活动中，积累支持票数最多的群，将获得主播群资格。</span><br />
                 <span style="font-weight:bold; background:#ccc; display:inline-block; padding:5px; margin:3px 0;">申请合作转播群细则：</span><br />
                 　　1. 申请合作转播的微信群需300人以上；<br />
                 　　2. 只有群主可以领取申请邀请码；<br />
