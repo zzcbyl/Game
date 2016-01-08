@@ -48,5 +48,9 @@ web.config
 upload
 upload/*
 config*
+
 amr/sounds/
 
+
+test/*
+test
