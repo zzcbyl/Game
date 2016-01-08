@@ -25,7 +25,12 @@
         string str = reader.ReadToEnd();
 
         reader.Close();
+
+        Response.Write(str);
         
         process.WaitForExit();
     }
+    
+    
+    
 </script>
