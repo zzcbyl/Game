@@ -1,14 +1,26 @@
 ﻿<%@ Page Language="C#" %>
-
+<%@ Import Namespace="System.Threading" %>
 <!DOCTYPE html>
 
 <script runat="server">
 
+    public static string path = "";
+
+
     protected void Page_Load(object sender, EventArgs e)
     {
-        string command = Server.MapPath(@"amr\ffmpeg") +" -i "
-            + Server.MapPath(@"amr\sounds\ring.amr") +"  " + Server.MapPath(@"amr\sounds\ring.mp3");
-   
+        path = Server.MapPath("amr");
+        
+        ThreadStart threadStart = new ThreadStart(ConverAmrToMp3);
+        Thread thread = new Thread(threadStart);
+        thread.Start();
+    }
+
+    public static void ConverAmrToMp3()
+    {
+        string command = path + @"\ffmpeg" + " -i "
+                + path + @"\sounds\ring.amr" + "  " + path + @"\sounds\ring.mp3";
+
         System.Diagnostics.Process process = new System.Diagnostics.Process();
         process.StartInfo.FileName = "cmd.exe";
         process.StartInfo.UseShellExecute = false;
@@ -27,7 +39,7 @@
         reader.Close();
 
         Response.Write(str);
-        
+
         process.WaitForExit();
     }
     
