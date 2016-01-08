@@ -34,14 +34,15 @@
             $("#jquery_jplayer_1").jPlayer({
                 ready: function () {
                     $(this).jPlayer("setMedia", {
-                        wav: "http://192.168.1.38:8002/test/hello.wav"
+                        wav: "hello.wav"
                     });
                 },
                 play: function () {
                     $(this).jPlayer("stopOthers");
                 },
                 ended: function () {
-                    alert('end');
+                    //alert('end');
+
                 },
                 swfPath: "__THEME__/js",
                 supplied: "wav",
