@@ -49,5 +49,8 @@ upload
 upload/*
 config*
 
+amr/sounds/
+
+
 test/*
 test

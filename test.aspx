@@ -1,0 +1,48 @@
+﻿<%@ Page Language="C#" %>
+<%@ Import Namespace="System.Threading" %>
+<!DOCTYPE html>
+
+<script runat="server">
+
+    public static string path = "";
+
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        path = Server.MapPath("amr");
+        
+        ThreadStart threadStart = new ThreadStart(ConverAmrToMp3);
+        Thread thread = new Thread(threadStart);
+        thread.Start();
+    }
+
+    public static void ConverAmrToMp3()
+    {
+        string command = path + @"\ffmpeg" + " -i "
+                + path + @"\sounds\ring.amr" + "  " + path + @"\sounds\ring.mp3";
+
+        System.Diagnostics.Process process = new System.Diagnostics.Process();
+        process.StartInfo.FileName = "cmd.exe";
+        process.StartInfo.UseShellExecute = false;
+        process.StartInfo.CreateNoWindow = true;
+        process.StartInfo.RedirectStandardOutput = true;
+        process.StartInfo.RedirectStandardInput = true;
+        process.Start();
+        process.StandardInput.WriteLine(command);
+        process.StandardInput.AutoFlush = true;
+        process.StandardInput.WriteLine("exit");
+
+        System.IO.StreamReader reader = process.StandardOutput;//截取输出流           
+
+        string str = reader.ReadToEnd();
+
+        reader.Close();
+
+        //Response.Write(str);
+
+        process.WaitForExit();
+    }
+    
+    
+    
+</script>
