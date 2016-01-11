@@ -13,7 +13,7 @@
         currentLocalPath = Server.MapPath("../amr/");
         DownloadMedia();
         ConverAmrToMp3();
-        Response.Write("{\"status\": 0 , \"mp3_url\" : \"" + Request.UserHostName.Trim() + "/amr/sounds/" + currentConvertMediaId + ".mp3\" }");
+        Response.Write("{\"status\": 0 , \"mp3_url\" : \"http://" + Request.UserHostAddress + "/amr/sounds/" + currentConvertMediaId + ".mp3\" }");
     }
 
     public static void DownloadMedia()
