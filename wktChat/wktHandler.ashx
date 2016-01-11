@@ -56,12 +56,11 @@ public class wktHandler : IHttpHandler {
     {
         if (Request["voiceid"] != null)
         {
-
-            string mp3Json = Util.GetWebContent("http://game.luqinwenda.com/api/down_load_sound.aspx", "get", "", "text/html");
+            string voiceid = Request["voiceid"].ToString();
+            string mp3Json = Util.GetWebContent("http://game.luqinwenda.com/api/down_load_sound.aspx?mediaid=" + voiceid, "get", "", "text/html");
             string mp3Url = Util.GetSimpleJsonValueByKey(mp3Json, "mp3_url");
             int roomid = 1;
             int userid = 1;
-            string voiceid = Request["voiceid"].ToString();
             KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] parameters = new KeyValuePair<string, KeyValuePair<SqlDbType, object>>[]{ 
                 new KeyValuePair<string, KeyValuePair<SqlDbType, object>>("room_id", new KeyValuePair<SqlDbType, object>(SqlDbType.Int,(object)roomid)),
                 new KeyValuePair<string, KeyValuePair<SqlDbType, object>>("from_userid", new KeyValuePair<SqlDbType, object>(SqlDbType.Int,(object)userid)),
