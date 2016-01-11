@@ -7,6 +7,8 @@
     public static string path = "";
 
 
+    
+
     protected void Page_Load(object sender, EventArgs e)
     {
         path = Server.MapPath("amr");
@@ -14,6 +16,12 @@
         ThreadStart threadStart = new ThreadStart(ConverAmrToMp3);
         Thread thread = new Thread(threadStart);
         thread.Start();
+
+        for (; thread.ThreadState == ThreadState.Running; )
+        {
+            Thread.Sleep(100);
+        }
+        
     }
 
     public static void ConverAmrToMp3()
@@ -32,11 +40,11 @@
         process.StandardInput.AutoFlush = true;
         process.StandardInput.WriteLine("exit");
 
-        System.IO.StreamReader reader = process.StandardOutput;//截取输出流           
+       // System.IO.StreamReader reader = process.StandardOutput;//截取输出流           
 
-        string str = reader.ReadToEnd();
+        //string str = reader.ReadToEnd();
 
-        reader.Close();
+        //reader.Close();
 
         //Response.Write(str);
 
