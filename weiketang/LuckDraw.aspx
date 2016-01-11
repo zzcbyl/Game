@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 
 <script runat="server">
-    public string cName = "ActivityDraw3";
+    public string cName = "ActivityDraw4";
     public string ListStr = "";
     public string ListStr1 = "";
     public string ListStr2 = "";
@@ -13,7 +13,7 @@
     public int AwardType = 1;
     public string CouponCode = "";
     public int CouponAmount = 0;
-    public string actid = "3";
+    public string actid = "4";
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Request["openid"] == null || Request["id"] == null)
@@ -143,10 +143,10 @@
         if (ListStr1.Equals("") && ListStr2.Equals(""))
             ListStr2 = ListStr;
 
-        ListStr = "<li><div class=\"comment_name\">春暖** 获得 <span style=\"color:red;\">微鲸55吋4K高清晰智能电视</span></div><div class=\"comment_time\">2015/12/31 15:59:51</div></li>"
-            + "<li><div class=\"comment_name\">阿柯** 获得 <span style=\"color:red;\">iphone 6s plus</span></div><div class=\"comment_time\">2015/12/31 11:21:37</div></li>"
-            + "<li><div class=\"comment_name\">欣妈** 获得 <span style=\"color:red;\">微鲸55吋4K高清晰智能电视</span></div><div class=\"comment_time\">2015/12/31 10:59:16</div></li>"
-            + ListStr;
+        //ListStr = "<li><div class=\"comment_name\">春暖** 获得 <span style=\"color:red;\">微鲸55吋4K高清晰智能电视</span></div><div class=\"comment_time\">2015/12/31 15:59:51</div></li>"
+        //    + "<li><div class=\"comment_name\">阿柯** 获得 <span style=\"color:red;\">iphone 6s plus</span></div><div class=\"comment_time\">2015/12/31 11:21:37</div></li>"
+        //    + "<li><div class=\"comment_name\">欣妈** 获得 <span style=\"color:red;\">微鲸55吋4K高清晰智能电视</span></div><div class=\"comment_time\">2015/12/31 10:59:16</div></li>"
+        //    + ListStr;
     }
 
     private string getUserName(string openid)
