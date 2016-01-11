@@ -11,9 +11,12 @@
         
         currentConvertMediaId = Util.GetSafeRequestValue(Request, "mediaid", "gVenWQ5NeWkRmDholkYpiZ-RpRmdKAtBNVu99qkjON0N96Mx22G-vliRLk1jhuxR");
         currentLocalPath = Server.MapPath("../amr/");
-        DownloadMedia();
-        ConverAmrToMp3();
-        Response.Write("{\"status\": 0 , \"mp3_url\" : \"http://" + Request.UserHostAddress + "/amr/sounds/" + currentConvertMediaId + ".mp3\" }");
+        if (!File.Exists(currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3"))
+        {
+            DownloadMedia();
+            ConverAmrToMp3();
+        }
+        Response.Write("{\"status\": 0 , \"mp3_url\" : \"http://game.luqinwenda.com/amr/sounds/" + currentConvertMediaId + ".mp3\" }");
     }
 
     public static void DownloadMedia()
