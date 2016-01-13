@@ -64,14 +64,14 @@
                 　　2016年1月19日<br />
                 　　点燃孩子的创造力！<br />
                 <span style="font-weight:bold; background:#ccc; display:inline-block; padding:5px; margin:3px 0;">个人申请进入听课群资格：</span><br />
-                　　● 申请活动截止时间：2016年1月19日12:00，之后将不再接受申请；<br />
+                　　<%--● 申请活动截止时间：2016年1月19日12:00，之后将不再接受申请；<br />--%>
                 　　● 仅限500个席位，满额之后将不再接受申请。<br />
                 <span style="font-weight:bold; background:#ccc; display:inline-block; padding:5px; margin:3px 0;">个人申请进入听课群细则：</span><br />
                 　　1. 报名在线讲座，请先关注卢勤问答平台微信公众号（ID：luqinwendapingtai）；<br />
                     <div style="text-align:center;"><img src="../images/dyh_code_min.jpg" width="40%" /></div>
                 　　2. 在卢勤问答平台微信公众号中回复关键词：微课，领取属于自己的邀请码；<br />
-                　　3.  将含有邀请码的支持页面转发到100人以上的微信群或者您的朋友圈，邀请朋友，在公众号中回复您的邀请码（<b><%=code %></b>），为您投上一票支持；<br />
-                　　4.当您的支持票数超过10票后，请在1月19日12:00前将支持票数截图给卢勤问答平台小助手，然后由小助手安排您入群，额满后将不再拉人入群。<br />
+                　　3. 将含有邀请码的支持页面转发到100人以上的微信群或者您的朋友圈，邀请朋友，在公众号中回复您的邀请码（<b><%=code %></b>），为您投上一票支持；<br />
+                　　4. 当您的支持票数超过10票后，将支持票数截图给卢勤问答平台小助手，然后由小助手安排您入群，额满后将不再拉人入群。<br />
                 　　卢勤问答平台小助手微信（luqinwenda001）。<br />
                     <div style="text-align:center;"><img src="../images/xiaozhushou.jpg" width="40%" /></div>
             </div>
