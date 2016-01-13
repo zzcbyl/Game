@@ -61,17 +61,17 @@
             <div style="text-align:center; font-size:11pt; color:#808080; font-family:微软雅黑;">已有<span id="spCount"><%=forward_count %></span>票支持</div>
             <div style="text-align:left; margin-top:10px;">
                 　　卢勤和她的朋友们微课堂<br />
-                　　2016年1月12日<br />
-                　　给孩子一个真爱的世界！<br />
+                　　2016年1月19日<br />
+                　　点燃孩子的创造力！<br />
                 <span style="font-weight:bold; background:#ccc; display:inline-block; padding:5px; margin:3px 0;">个人申请进入听课群资格：</span><br />
-                　　● 申请活动截止时间：2016年1月12日12:00，之后将不再接受申请；<br />
+                　　● 申请活动截止时间：2016年1月19日12:00，之后将不再接受申请；<br />
                 　　● 仅限500个席位，满额之后将不再接受申请。<br />
                 <span style="font-weight:bold; background:#ccc; display:inline-block; padding:5px; margin:3px 0;">个人申请进入听课群细则：</span><br />
                 　　1. 报名在线讲座，请先关注卢勤问答平台微信公众号（ID：luqinwendapingtai）；<br />
                     <div style="text-align:center;"><img src="../images/dyh_code_min.jpg" width="40%" /></div>
                 　　2. 在卢勤问答平台微信公众号中回复关键词：微课，领取属于自己的邀请码；<br />
                 　　3.  将含有邀请码的支持页面转发到100人以上的微信群或者您的朋友圈，邀请朋友，在公众号中回复您的邀请码（<b><%=code %></b>），为您投上一票支持；<br />
-                　　4.当您的支持票数超过10票后，请在1月12日12:00前将支持票数截图给卢勤问答平台小助手，然后由小助手安排您入群，额满后将不再拉人入群。<br />
+                　　4.当您的支持票数超过10票后，请在1月19日12:00前将支持票数截图给卢勤问答平台小助手，然后由小助手安排您入群，额满后将不再拉人入群。<br />
                 　　卢勤问答平台小助手微信（luqinwenda001）。<br />
                     <div style="text-align:center;"><img src="../images/xiaozhushou.jpg" width="40%" /></div>
             </div>
@@ -81,10 +81,10 @@
                 <a id="ASupported" style="display:none;">您已支持，谢谢！</a>
                 <button id="btnSupport" style="width:90px; height:40px; background:#E51925; color:#fff; display:block; line-height:40px; margin:0px auto; font-size:14pt; border-radius:5px; border:0;" onclick="SupportVote(this);">支 持</button>
             </div>
-            <div style="margin-top:20px; text-align:left;">
+            <%--<div style="margin-top:20px; text-align:left;">
                 <div><b style="color:red;">加群必知：</b></div>
                 <div>　　已加入12月22日微课直播群（卢勤和她的朋友们微课堂群）的朋友不用再重复申请入群，可以继续收听。</div>
-            </div>
+            </div>--%>
         </div>
         <div style="text-align:left; line-height:30px; background:#fff; padding:10px; margin-top:10px;">
             <p style="text-align:center;">
@@ -94,11 +94,19 @@
             <p>　　三十多年来,卢勤老师致力于对少年儿童及家长心理健康的研究。在长期主持《中国少年报》“知心姐姐”栏目过程中，积累了大量的一线家庭教育实践经验，是中国上亿家长及儿童最喜爱、最信任的权威教育专家，深受亿万家长和孩子的爱戴。</p>
         </div>
         <div style="text-align:left; line-height:30px; background:#fff; padding:10px; margin-top:10px;">
-            <p>　　有爱心的孩子勇于承担，有爱心的孩子善良而友好，有爱心的孩子心胸更加宽广。孩子的心灵世界本来就是一个真爱的世界，想要这个世界不被污染，做父母的就要尽力去维护它。父母该如何呵护孩子的内心世界呢？本期课程，卢勤老师将告诉您如何给孩子一个真爱的世界。</p>
-            <p><b>课程名称：</b>给孩子一个真爱的世界！</p>
-            <p><b>开课时间：</b>1月12日（周二）20:00-21:00</p>
+            <p style="text-align:center;">
+                <img src="../images/chenghuai.jpg" width="90%" /></p>
+            <p><h3>程淮教授</h3></p>
+            <p>　　国际知名育儿专家、幸福泉创始人、首席专家程淮教授，是我国从事婴幼儿成长跟踪指导，拥有医学、脑科学、心理学、教育学等多学科专业知识与能力的教育家。</p>
+            <p>　　程淮教授是美国《新闻周刊》上唯一报道过的中国育儿专家，第一位使我国幼教理论踏上联合国大会儿童特别会议NGO论坛的中国学者；开创了婴幼儿潜能开发事业，发起了中国百万婴幼儿潜能开发“2049计划”，是中国婴幼儿潜能开发教育的先行者。</p>
+        </div>
+        <div style="text-align:left; line-height:30px; background:#fff; padding:10px; margin-top:10px;">
+            <p>　　儿童拥有异想天开的天性，尊重、保护和发展幼儿的创造力，是儿童发展的最重要的任务之一，而幼儿期是培养想象力和创造力的关键期。“创造力是人类最宝贵的财富。人类的进步和发展都源于创造力。儿童的想象力和创造力，远远超出成人的想象！这里既有天马行空的奇思妙想，也有似乎荒诞不经的创意，还有实用新型的专利作品。”</p>
+            <p>　　其实，创造并不神秘，就像陶行知先生说的那样：“处处可创造，时时有创造，人人能创造”！家长该如何保护、启迪和培养孩子的创造力呢？1月19日，国际知名育儿专家程淮教授、著名家庭教育专家卢勤老师将告诉您，如何点燃孩子的创造力！</p>
+            <p><b>课程名称：</b>点燃孩子的创造力！</p>
+            <p><b>开课时间：</b>1月19日（周二）20:00-21:00</p>
             <p><b>课程形式：</b>卢勤和她的朋友们微课堂群<br />　　　　　合作转播群</p>
-            <p><b>适合人群：</b>7岁以上孩子和愿意为孩子创造良好家庭教育环境的家长、准家长。建议家长和孩子一起收听。</p>
+            <p><b>适合人群：</b>愿意为孩子创造良好家庭教育环境的家长、准家长。</p>
         </div>
     </div>
     <div id="showShare" style="display:none;" onclick="javascript:document.getElementById('showShare').style.display='none';">
