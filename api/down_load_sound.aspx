@@ -63,7 +63,7 @@
         
         string command = currentLocalPath  + @"\ffmpeg" + " -i "
                 + currentLocalPath + @"\sounds\" + currentConvertMediaId + ".amr   " 
-                + " -qscale 0.01 -vol " +  vol.ToString() + " -f wav  -nr " + nr.ToString() +  "   "  +  currentLocalPath + @"\sounds\" + currentConvertMediaId + ".wav";
+                + " -qscale 0.01 -vol " +  vol.ToString() + " -f wav  -nr " + nr.ToString() +  "   -ar 88200  "  +  currentLocalPath + @"\sounds\" + currentConvertMediaId + ".wav";
         System.Diagnostics.Process process = new System.Diagnostics.Process();
         process.StartInfo.FileName = "cmd.exe";
         process.StartInfo.UseShellExecute = false;
