@@ -9,14 +9,14 @@
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        currentConvertMediaId = Util.GetSafeRequestValue(Request, "mediaid", "6I08Qxq9I2FTO2Xiu8OkrVLmNfQUu3zJzVJdXL5fZYP9UoI9QHFZXr7_CCUNibF2");
+        currentConvertMediaId = Util.GetSafeRequestValue(Request, "mediaid", "6KTQhUZzUI0w377sNaIcDKzIdw0UIiNRtnG92RDRIU64i6_m88eNBbp-z67zodU6");
         currentLocalPath = Server.MapPath("../amr/");
-        if (!File.Exists(currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3"))
-        {
+        //if (!File.Exists(currentLocalPath + @"\sounds\" + currentConvertMediaId + ".wav"))
+        //{
             DownloadMedia();
-            ConverAmrToMp3();
-        }
-        Response.Write("{\"status\": 0 , \"mp3_url\" : \"http://game.luqinwenda.com/amr/sounds/" + currentConvertMediaId + ".mp3\" }");
+            ConverAmrToMp3(int.Parse(Util.GetSafeRequestValue(Request,"vol","50")), int.Parse(Util.GetSafeRequestValue(Request,"nr","500")));
+        //}
+        Response.Write("{\"status\": 0 , \"mp3_url\" : \"http://game.luqinwenda.com/amr/sounds/" + currentConvertMediaId + ".wav\" }");
     }
 
     public static void DownloadMedia()
@@ -55,12 +55,15 @@
 
 
 
-    public static void ConverAmrToMp3()
+    public static void ConverAmrToMp3(int vol, int nr)
     {
+        if (File.Exists(currentLocalPath + @"\sounds\" + currentConvertMediaId + ".wav"))
+            File.Delete(currentLocalPath + @"\sounds\" + currentConvertMediaId + ".wav");
+        
+        
         string command = currentLocalPath  + @"\ffmpeg" + " -i "
-                + currentLocalPath + @"\sounds\" + currentConvertMediaId + ".amr" 
-                + " -qscale 0.01 -vol 1000  " + currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3";
-
+                + currentLocalPath + @"\sounds\" + currentConvertMediaId + ".amr   " 
+                + " -qscale 0.01 -vol " +  vol.ToString() + " -f wav  -nr " + nr.ToString() +  "   -ar 88200  "  +  currentLocalPath + @"\sounds\" + currentConvertMediaId + ".wav";
         System.Diagnostics.Process process = new System.Diagnostics.Process();
         process.StartInfo.FileName = "cmd.exe";
         process.StartInfo.UseShellExecute = false;
