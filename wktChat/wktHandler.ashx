@@ -30,11 +30,15 @@ public class wktHandler : IHttpHandler {
         }
     }
 
-    
     private void getList(HttpContext context)
     {
         string roomid = Request["roomid"].ToString();
-        DataTable dt = DBHelper.GetDataTable("select * from ChatList where room_id=" + roomid, Util.ConnectionString);
+        string maxtime = Request["maxtime"];
+        string sql = "select * from ChatList where room_id=" + roomid;
+        if (maxtime != null && !maxtime.Equals(""))
+            sql += " and chat_createtime>'" + maxtime + "'";
+        sql += " order by chat_createtime";
+        DataTable dt = DBHelper.GetDataTable(sql, Util.ConnectionString);
         string jsonStr = "";
         foreach (DataRow row in dt.Rows)
         {
@@ -65,7 +69,8 @@ public class wktHandler : IHttpHandler {
                 new KeyValuePair<string, KeyValuePair<SqlDbType, object>>("room_id", new KeyValuePair<SqlDbType, object>(SqlDbType.Int,(object)roomid)),
                 new KeyValuePair<string, KeyValuePair<SqlDbType, object>>("from_userid", new KeyValuePair<SqlDbType, object>(SqlDbType.Int,(object)userid)),
                 new KeyValuePair<string, KeyValuePair<SqlDbType, object>>("chat_voice", new KeyValuePair<SqlDbType, object>(SqlDbType.VarChar,(object)voiceid)),
-                new KeyValuePair<string, KeyValuePair<SqlDbType, object>>("chat_voice_mp3", new KeyValuePair<SqlDbType, object>(SqlDbType.VarChar,(object)mp3Url))
+                new KeyValuePair<string, KeyValuePair<SqlDbType, object>>("chat_voice_mp3", new KeyValuePair<SqlDbType, object>(SqlDbType.VarChar,(object)mp3Url)),
+                new KeyValuePair<string, KeyValuePair<SqlDbType, object>>("chat_createtime", new KeyValuePair<SqlDbType, object>(SqlDbType.DateTime,(object)DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss")))
             };
 
             int result = DBHelper.InsertData("ChatList", parameters, Util.ConnectionString);

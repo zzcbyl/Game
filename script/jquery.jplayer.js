@@ -1881,9 +1881,9 @@
 						remaining = duration - this.status.currentTime;
 					}
 					if(this.options.remainingDuration) {
-						durationText = (remaining > 0 ? '-' : '') + this._convertTime(remaining);
+					    durationText = (remaining > 0 ? '-' : '') + this._convertTime(remaining);
 					} else {
-						durationText = this._convertTime(duration);
+					    durationText = this._convertTime(duration);
 					}
 				}
 				if(durationText !== this.css.jq.duration.text()) {
