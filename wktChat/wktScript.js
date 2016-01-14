@@ -1,6 +1,6 @@
 ﻿
 var lasttime = '';
-
+var index = 1;
 function fillList() {
     $.ajax({
         type: "GET",
@@ -17,10 +17,10 @@ function fillList() {
                         + '" class="jp-stop" style="display: none;" role="button" tabindex="0"><span class="jplay_stop"></span></a><div class="jp-duration" dataid="' + index + '" role="timer" aria-label="duration" style="display: none;"></div></div><div id="time_' + index + '" style="float:left; line-height:36px; margin-left:8px;">5”</div><div style="clear:both;"></div><script type="text/javascript">$("#jquery_jplayer_' + index
                         + '").jPlayer({ready: function () {$(this).jPlayer("setMedia", {mp3: "' + data.chat_data[i].chat_voice_mp3 + '"});},play: function () {$(this).jPlayer("stopOthers");},ended: function () { changePlay("' + index + '"); $("#jquery_jplayer_' + (index + 1) + '").jPlayer("play"); changePlay("' + (index + 1)
                         + '"); },swfPath: "__THEME__/js",supplied: "mp3",cssSelectorAncestor: "#jp_container_' + index + '",wmode: "window",globalVolume: true,useStateClassSkin: true,autoBlur: false,smoothPlayBar: true,keyEnabled: true});</script></li>';
+                    index++;
                 }
             }
             lasttime = data.chat_data[data.chat_data.length - 1].chat_createtime;
-            
             $('.feed_file_list li:last').after(inHtml);
 
         }

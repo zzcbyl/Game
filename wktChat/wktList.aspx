@@ -167,8 +167,7 @@
         ]
     });
 
-    //var voiceArr = [];
-    var index = 1;
+    
     $(document).ready(function () {
         setInterval("fillList()", 2000);
     });
