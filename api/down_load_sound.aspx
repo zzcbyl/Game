@@ -16,7 +16,7 @@
             DownloadMedia();
             ConverAmrToMp3(int.Parse(Util.GetSafeRequestValue(Request,"vol","50")), int.Parse(Util.GetSafeRequestValue(Request,"nr","500")));
         //}
-        Response.Write("{\"status\": 0 , \"mp3_url\" : \"http://game.luqinwenda.com/amr/sounds/" + currentConvertMediaId + ".wav\" }");
+        Response.Write("{\"status\": 0 , \"mp3_url\" : \"http://game.luqinwenda.com/amr/sounds/" + currentConvertMediaId + ".mp3\" }");
     }
 
     public static void DownloadMedia()
@@ -57,8 +57,8 @@
 
     public static void ConverAmrToMp3(int vol, int nr)
     {
-        if (File.Exists(currentLocalPath + @"\sounds\" + currentConvertMediaId + ".wav"))
-            File.Delete(currentLocalPath + @"\sounds\" + currentConvertMediaId + ".wav");
+        if (File.Exists(currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3"))
+            File.Delete(currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3");
         
         
         string command = currentLocalPath  + @"\ffmpeg" + " -i "
