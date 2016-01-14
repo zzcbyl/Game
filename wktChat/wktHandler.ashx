@@ -61,7 +61,7 @@ public class wktHandler : IHttpHandler {
         if (Request["voiceid"] != null)
         {
             string voiceid = Request["voiceid"].ToString();
-            string mp3Json = Util.GetWebContent("http://game.luqinwenda.com/api/down_load_sound.aspx?mediaid=" + voiceid + "&vol=100", "get", "", "text/html");
+            string mp3Json = Util.GetWebContent("http://game.luqinwenda.com/api/down_load_sound.aspx?mediaid=" + voiceid + "&vol=100&nr=10000", "get", "", "text/html");
             string mp3Url = Util.GetSimpleJsonValueByKey(mp3Json, "mp3_url");
             int roomid = 1;
             int userid = 1;
