@@ -8,8 +8,8 @@
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        
-        currentConvertMediaId = Util.GetSafeRequestValue(Request, "mediaid", "gVenWQ5NeWkRmDholkYpiZ-RpRmdKAtBNVu99qkjON0N96Mx22G-vliRLk1jhuxR");
+
+        currentConvertMediaId = Util.GetSafeRequestValue(Request, "mediaid", "6I08Qxq9I2FTO2Xiu8OkrVLmNfQUu3zJzVJdXL5fZYP9UoI9QHFZXr7_CCUNibF2");
         currentLocalPath = Server.MapPath("../amr/");
         if (!File.Exists(currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3"))
         {
@@ -59,7 +59,7 @@
     {
         string command = currentLocalPath  + @"\ffmpeg" + " -i "
                 + currentLocalPath + @"\sounds\" + currentConvertMediaId + ".amr" 
-                + "  " + currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3";
+                + " -qscale 0.01 -vol 1000  " + currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3";
 
         System.Diagnostics.Process process = new System.Diagnostics.Process();
         process.StartInfo.FileName = "cmd.exe";
