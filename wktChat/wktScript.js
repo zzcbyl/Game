@@ -1,10 +1,12 @@
 ﻿
+var lasttime = '';
+var index = 1;
 function fillList() {
     $.ajax({
         type: "GET",
         async: false,
-        url: "http://192.168.1.38:8002/wktChat/wktHandler.ashx",
-        data: { type: "getlist", roomid: 1 },
+        url: "http://game.luqinwenda.com/wktChat/wktHandler.ashx",
+        data: { type: "getlist", roomid: 1, maxtime: lasttime },
         dataType: "json",
         success: function (data) {
             var inHtml = '';
@@ -12,16 +14,25 @@ function fillList() {
                 if (data.chat_data[i].chat_voice_mp3 != '') {
                     inHtml += '<li><div id="jquery_jplayer_' + index + '" class="jp-jplayer"></div><div style="background:url(images/jplayerleft.png); width: 6px; height: 36px; float: left; position: absolute;"></div><div id="jp_container_' + index
                         + '" class="jp-audio" role="application" aria-label="media player" onclick=\'changePlay("' + index + '");\' style="float:left;"><a id="a_jp_play_' + index + '" class="jp-play" role="button" tabindex="0"><span class="jplay_play"></span></a><a id="a_jp_stop_' + index
-                        + '" class="jp-stop" style="display: none;" role="button" tabindex="0"><span class="jplay_stop"></span></a><div class="jp-duration" role="timer" aria-label="duration" style="display: none;"></div></div><div style="float:left; line-height:36px; margin-left:8px;">5”</div><div style="clear:both;"></div><script type="text/javascript">$("#jquery_jplayer_' + index
+                        + '" class="jp-stop" style="display: none;" role="button" tabindex="0"><span class="jplay_stop"></span></a><div class="jp-duration" dataid="' + index + '" role="timer" aria-label="duration" style="display: none;"></div></div><div id="time_' + index + '" style="float:left; line-height:36px; margin-left:8px;"></div><div style="clear:both;"></div><script type="text/javascript">$("#jquery_jplayer_' + index
                         + '").jPlayer({ready: function () {$(this).jPlayer("setMedia", {mp3: "' + data.chat_data[i].chat_voice_mp3 + '"});},play: function () {$(this).jPlayer("stopOthers");},ended: function () { changePlay("' + index + '"); $("#jquery_jplayer_' + (index + 1) + '").jPlayer("play"); changePlay("' + (index + 1)
                         + '"); },swfPath: "__THEME__/js",supplied: "mp3",cssSelectorAncestor: "#jp_container_' + index + '",wmode: "window",globalVolume: true,useStateClassSkin: true,autoBlur: false,smoothPlayBar: true,keyEnabled: true});</script></li>';
+                    index++;
                 }
             }
+            lasttime = data.chat_data[data.chat_data.length - 1].chat_createtime;
             $('.feed_file_list li:last').after(inHtml);
+
         }
     });
 }
 
+function showTime() {
+    $('.jp-duration').each(function () {
+        alert($(this).html());
+        //alert($(this).attr('dataid'));
+    });
+}
 
 
 var voice = {
@@ -83,11 +94,11 @@ wx.ready(function () {
                 $.ajax({
                     type: "GET",
                     async: false,
-                    url: "http://192.168.1.38:8002/wktChat/wktHandler.ashx",
+                    url: "http://game.luqinwenda.com/wktChat/wktHandler.ashx",
                     data: { type: "insert", voiceid: voice.serverId },
                     dataType: "json",
                     success: function (data) {
-                        
+                        fillList();
                     }
                 });
             }

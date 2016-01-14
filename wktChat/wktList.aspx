@@ -45,18 +45,18 @@
         .feed_file_list li { padding-left: 0px;}
     </style>
 </head>
-<body style="width:640px; margin:0 auto; background:#efadad;">
+<body style="max-width:640px; margin:0 auto; background:#efadad;">
     <div>
         <div>
             <ul class="feed_file_list">
                 <li></li>
-            <%--<asp:Repeater ID="Repeater1" runat="server">
-                <ItemTemplate>
-                    <div></div>
-                </ItemTemplate>
-            </asp:Repeater>--%>
+                <%--<asp:Repeater ID="Repeater1" runat="server">
+                    <ItemTemplate>
+                        <div></div>
+                    </ItemTemplate>
+                </asp:Repeater>--%>
             
-                <li>
+                <%--<li>
                     <div id="jquery_jplayer_1" class="jp-jplayer"></div>
                     <div style="background:url(images/jplayerleft.png); width: 6px; height: 36px; float: left; position: absolute;"></div>
                     <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player" onclick='changePlay("1");' style="float:left;">
@@ -136,7 +136,7 @@
                         });
 
                     </script>
-                </li>
+                </li>--%>
             </ul>
         </div>
         <div style="position:fixed; bottom:0; left:0; width:100%; text-align:center; line-break:50px; line-height:50px;">
@@ -167,10 +167,9 @@
         ]
     });
 
-    //var voiceArr = [];
-    var index = 1;
+    
     $(document).ready(function () {
-        fillList();
+        setInterval("fillList()", 2000);
     });
 
 
