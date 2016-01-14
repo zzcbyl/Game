@@ -9,12 +9,12 @@
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        currentConvertMediaId = Util.GetSafeRequestValue(Request, "mediaid", "6KTQhUZzUI0w377sNaIcDKzIdw0UIiNRtnG92RDRIU64i6_m88eNBbp-z67zodU6");
+        currentConvertMediaId = Util.GetSafeRequestValue(Request, "mediaid", "FJezE4AD_o_6yY2hY7o3TUMAZnv3_CM3rKRfQmcaubcx3qusSueMPUtH4QiifoS2");
         currentLocalPath = Server.MapPath("../amr/");
         //if (!File.Exists(currentLocalPath + @"\sounds\" + currentConvertMediaId + ".wav"))
         //{
             DownloadMedia();
-            ConverAmrToMp3(int.Parse(Util.GetSafeRequestValue(Request,"vol","50")), int.Parse(Util.GetSafeRequestValue(Request,"nr","500")));
+            ConverAmrToMp3(int.Parse(Util.GetSafeRequestValue(Request,"vol","1")), int.Parse(Util.GetSafeRequestValue(Request,"nr","500")));
         //}
         Response.Write("{\"status\": 0 , \"mp3_url\" : \"http://game.luqinwenda.com/amr/sounds/" + currentConvertMediaId + ".mp3\" }");
     }
@@ -62,8 +62,8 @@
         
         
         string command = currentLocalPath  + @"\ffmpeg" + " -i "
-                + currentLocalPath + @"\sounds\" + currentConvertMediaId + ".amr   " 
-                + " -qscale 0.01 -vol " +  vol.ToString() + " -f mp3  -nr " + nr.ToString() +  "   -ar 88200  "  +  currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3";
+                + currentLocalPath + @"\sounds\" + currentConvertMediaId + ".amr   "
+                + " -q:a 0.01 -af volume=" + vol.ToString() + " -f mp3     -ar 44100  " + currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3";
         System.Diagnostics.Process process = new System.Diagnostics.Process();
         process.StartInfo.FileName = "cmd.exe";
         process.StartInfo.UseShellExecute = false;
