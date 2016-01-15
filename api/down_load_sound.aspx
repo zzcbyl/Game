@@ -63,7 +63,7 @@
         
         string command = currentLocalPath  + @"\ffmpeg" + " -i "
                 + currentLocalPath + @"\sounds\" + currentConvertMediaId + ".amr   "
-                + " -q:a 0.01 -af volume=" + vol.ToString() + "   -ar 44100 -b:a 128k  -id3v2_version 3       " + currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3";
+                + "  -af volume=" + vol.ToString() + "   -ar 44100 -b:a 128k       " + currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3";
         System.Diagnostics.Process process = new System.Diagnostics.Process();
         process.StartInfo.FileName = "cmd.exe";
         process.StartInfo.UseShellExecute = false;
