@@ -14,7 +14,7 @@
         //if (!File.Exists(currentLocalPath + @"\sounds\" + currentConvertMediaId + ".wav"))
         //{
             DownloadMedia();
-            ConverAmrToMp3(int.Parse(Util.GetSafeRequestValue(Request,"vol","1")), int.Parse(Util.GetSafeRequestValue(Request,"nr","500")));
+            ConverAmrToMp3(int.Parse(Util.GetSafeRequestValue(Request,"vol","0.1")), int.Parse(Util.GetSafeRequestValue(Request,"nr","500")));
         //}
         Response.Write("{\"status\": 0 , \"mp3_url\" : \"http://game.luqinwenda.com/amr/sounds/" + currentConvertMediaId + ".mp3\" }");
     }
@@ -63,7 +63,7 @@
         
         string command = currentLocalPath  + @"\ffmpeg" + " -i "
                 + currentLocalPath + @"\sounds\" + currentConvertMediaId + ".amr   "
-                + " -q:a 0.01 -af volume=" + vol.ToString() + " -f mp3     -ar 44100  " + currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3";
+                + " -q:a 1000 -af volume=" + vol.ToString() + "   -ar 44100 -b:a 128k  -id3v2_version 3       " + currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3";
         System.Diagnostics.Process process = new System.Diagnostics.Process();
         process.StartInfo.FileName = "cmd.exe";
         process.StartInfo.UseShellExecute = false;
