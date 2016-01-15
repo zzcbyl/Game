@@ -57,13 +57,14 @@
 
     public static void ConverAmrToMp3(int vol)
     {
+	
         if (File.Exists(currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3"))
             File.Delete(currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3");
         
         
         string command = currentLocalPath  + @"\ffmpeg" + " -i "
                 + currentLocalPath + @"\sounds\" + currentConvertMediaId + ".amr   "
-                + " -q:a 0.01 -af volume=" + vol.ToString() + " -f mp3     -ar 44100  " + currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3";
+                + "  -af volume=" + vol.ToString() + "        " + currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3";
         System.Diagnostics.Process process = new System.Diagnostics.Process();
         process.StartInfo.FileName = "cmd.exe";
         process.StartInfo.UseShellExecute = false;
