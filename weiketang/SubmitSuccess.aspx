@@ -1,9 +1,37 @@
 ﻿<%@ Page Language="C#" %>
+<%@ Import Namespace="System.Web.Script.Serialization" %>
 
 <!DOCTYPE html>
 
 <script runat="server">
-
+    public string actid = "3";
+    public string bookName = "";
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (actid != "3")
+        {
+            if (Request["openid"] == null || Request["id"] == null)
+            {
+                Response.Write("参数错误");
+                Response.End();
+            }
+            string openid = Request["openid"].ToString();
+            string id = Request["id"].ToString();
+            JavaScriptSerializer json = new JavaScriptSerializer();
+            string getUrl = "http://game.luqinwenda.com/api/awards_get_info.aspx?actid=" + actid + "&id=" + id + "&openid=" + openid;
+            string result = HTTPHelper.Get_Http(getUrl);
+            Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(result);
+            if (dic["status"].Equals(0))
+            {
+                bookName = "卢勤老师所著新书《" + dic["award"].ToString() + "》一本";
+            }
+            else
+            {
+                Response.Write("您没有中奖");
+                Response.End();
+            }
+        }
+    }
 </script>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -27,7 +55,12 @@
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#bookName').html(decodeURI(QueryString("name")));
+            if ('<%=actid %>' != '3') {
+                $('#bookName').html('<%=bookName %>');
+            }
+            else {
+                $('#bookName').html(decodeURI(QueryString("name")));
+            }
         });
     </script>
 </body>
