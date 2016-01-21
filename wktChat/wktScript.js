@@ -5,7 +5,7 @@ function fillList() {
     $.ajax({
         type: "GET",
         async: false,
-        url: "http://game.luqinwenda.com/wktChat/wktHandler.ashx",
+        url: "http://192.168.1.38:8002/wktChat/wktHandler.ashx",
         data: { type: "getlist", roomid: 1, maxtime: lasttime },
         dataType: "json",
         success: function (data) {
@@ -94,7 +94,7 @@ wx.ready(function () {
                 $.ajax({
                     type: "GET",
                     async: false,
-                    url: "http://game.luqinwenda.com/wktChat/wktHandler.ashx",
+                    url: "http://192.168.1.38:8002/wktChat/wktHandler.ashx",
                     data: { type: "insert", voiceid: voice.serverId },
                     dataType: "json",
                     success: function (data) {
