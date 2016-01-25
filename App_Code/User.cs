@@ -74,7 +74,44 @@ public class Users
         return token;
     }
 
+    public string GetUserAvatarJson()
+    {
+        string jsonStr = "";
+        string jsonFuwu = Util.GetWebContent("http://weixin.luqinwenda.com/get_user_info.aspx?openid=" + _fields["openid"].ToString(),
+            "get", "", "html/text");
+        string nickStr = "";
+        try
+        {
+            nickStr = Util.GetSimpleJsonValueByKey(jsonFuwu, "nickname");
+        }
+        catch
+        { 
+        
+        }
 
+        if (!nickStr.Trim().Equals(""))
+        {
+            jsonStr = jsonFuwu;
+        }
+        else
+        {
+            string jsonDingyue = Util.GetWebContent("http://weixin.luqinwenda.com/dingyue/get_user_info.aspx?openid=" + _fields["openid"].ToString(),
+                "get", "", "html/text");
+            try
+            {
+                nickStr = Util.GetSimpleJsonValueByKey(jsonFuwu, "nickname");
+            }
+            catch
+            {
+
+            }
+            if (!nickStr.Trim().Equals(""))
+            {
+                jsonStr = jsonDingyue;
+            }
+        }
+        return jsonStr.Trim();
+    }
 
 
 
@@ -209,5 +246,7 @@ public class Users
         da.Dispose();
         return user;
     }
+
+
 
 }
