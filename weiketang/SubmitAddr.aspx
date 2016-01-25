@@ -29,7 +29,7 @@
         }
         else
             isAward = 0;
-        
+
 
         if (isAward == 1)
         {
@@ -42,7 +42,7 @@
             dic = json.Deserialize<Dictionary<string, object>>(result);
             if (dic.Keys.Contains("status") && dic["status"].ToString() == "0")
             {
-                Response.Redirect("SubmitSuccess.aspx?name=" + Request["name"].ToString());
+                Response.Redirect("SubmitSuccess.aspx?name=" + Request["name"].ToString() + "&id=" + id + "&openid=" + openid);
             }
             else
             {
