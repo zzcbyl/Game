@@ -30,7 +30,7 @@ public class UserChatRoomRights
 
     public UserChatRoomRights(int UserId)
     {
-        DataTable dt = DBHelper.GetDataTable(" select * from user_right_templage where user_id = " + UserId.ToString(), Util.ConnectionString);
+        DataTable dt = DBHelper.GetDataTable(" select * from user_rights_template where user_id = " + UserId.ToString(), Util.ConnectionString);
         if (dt.Rows.Count > 0)
         {
             _fieldsTemplate = dt.Rows[0];

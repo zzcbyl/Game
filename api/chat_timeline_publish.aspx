@@ -3,9 +3,9 @@
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        string token = Util.GetSafeRequestValue(Request, "token", "f7064120f4348e89aac363ea0111208d8016c0ba89e7e775364fcdf1ff419b4fc0b2d5d1");
+        string token = Util.GetSafeRequestValue(Request, "token", "f334c058df5b85510d4ce22789d0c44ee53e59c658d1b35ccb0130abb92079a1f5c3e280");
         int roomId = int.Parse(Util.GetSafeRequestValue(Request, "roomid", "1"));
-        string content = Util.GetSafeRequestValue(Request, "content", "rdfsadfsdf");
+        string content = Util.GetSafeRequestValue(Request, "content", "rdfsseefsadfsdf");
         string type = Util.GetSafeRequestValue(Request, "type", "text");
         string errorMessage = "";
         int newMessageId = 0;
