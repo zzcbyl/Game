@@ -66,6 +66,8 @@
         </script>
     </head>
     <body>
-        <audio id="media" controls="controls" src="http://game.luqinwenda.com/amr/sounds/ci-bzqVL7zdNMd_CL0KOyb9kY6kaHrBuTuAOzNRsTUURzuVJfeCJoQCbq_uSdFW4.mp3" loop="true" ></audio>
+        <audio id="media" controls="controls"  loop="true" >
+            <source src="http://game.luqinwenda.com/amr/sounds/ci-bzqVL7zdNMd_CL0KOyb9kY6kaHrBuTuAOzNRsTUURzuVJfeCJoQCbq_uSdFW4.mp3" type="audio/mp3" />
+        </audio>
     </body>
 </html>
