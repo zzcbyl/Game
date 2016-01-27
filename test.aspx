@@ -61,13 +61,19 @@
 <html>
     <head>
         <script type="text/javascript" >
-
+            var m = document.getElementById("media");
+            alert(m.duration);
+            function show_duration() {
+                
+                alert(m.duration);
+            }
            
         </script>
     </head>
     <body>
-        <audio id="media" controls="controls"  loop="true" >
+        <audio id="media" controls="controls"  loop="true" oncanplay="show_duration()" >
             <source src="http://game.luqinwenda.com/amr/sounds/ci-bzqVL7zdNMd_CL0KOyb9kY6kaHrBuTuAOzNRsTUURzuVJfeCJoQCbq_uSdFW4.mp3" type="audio/mp3" />
-        </audio>
+        </audio><br />
+        <input type="button" onclick="show_duration()" value="show duration" />
     </body>
 </html>
