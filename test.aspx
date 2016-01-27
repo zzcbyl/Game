@@ -11,6 +11,8 @@
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        
+        /*
         path = Server.MapPath("amr");
         
         ThreadStart threadStart = new ThreadStart(ConverAmrToMp3);
@@ -21,6 +23,8 @@
         {
             Thread.Sleep(100);
         }
+         * 
+         */ 
         
     }
 
@@ -54,3 +58,18 @@
     
     
 </script>
+<html>
+    <head>
+        <script type="text/javascript" >
+
+            var audio = new Audio("http://game.luqinwenda.com/amr/sounds/ci-bzqVL7zdNMd_CL0KOyb9kY6kaHrBuTuAOzNRsTUURzuVJfeCJoQCbq_uSdFW4.mp3");
+
+        </script>
+    </head>
+    <body>
+        <script type="text/javascript" >
+            document.write(audio.duration);
+            audio.play();
+        </script>
+    </body>
+</html>
