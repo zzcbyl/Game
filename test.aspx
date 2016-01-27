@@ -63,7 +63,7 @@
         <script type="text/javascript" >
 
             var audio = new Audio("http://game.luqinwenda.com/amr/sounds/ci-bzqVL7zdNMd_CL0KOyb9kY6kaHrBuTuAOzNRsTUURzuVJfeCJoQCbq_uSdFW4.mp3");
-
+            audio.loop = true;
         </script>
     </head>
     <body>
