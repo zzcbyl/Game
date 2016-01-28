@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" %>
 <%@ Import Namespace="System.Threading" %>
+<%@ Import Namespace="System.IO" %>
 <!DOCTYPE html>
 
 <script runat="server">
@@ -11,6 +12,30 @@
 
     protected void Page_Load(object sender, EventArgs e)
     {
+
+        string path = Server.MapPath("amr/sounds/FJezE4AD_o_6yY2hY7o3TUMAZnv3_CM3rKRfQmcaubcx3qusSueMPUtH4QiifoS2.mp3");
+        NAudio.Wave.Mp3FileReader reader = new NAudio.Wave.Mp3FileReader(path);
+
+        Response.Write(reader.TotalTime.ToString());
+        
+        /*
+        using (FileStream fs = File.OpenRead(path))
+        {
+            NAudio.Wave.Mp3Frame frame = NAudio.Wave.Mp3Frame.LoadFromStream(fs);
+            while (frame != null)
+            {
+                if (frame.ChannelMode == NAudio.Wave.ChannelMode.Mono)
+                {
+                    duration += frame.SampleCount / frame.SampleRate;
+                }
+                else
+                {
+                    duration += frame.SampleCount * 2 / frame.SampleRate;
+                } 
+            }
+        }*/
+
+        //Response.Write(duration.ToString());
         
         /*
         path = Server.MapPath("amr");
