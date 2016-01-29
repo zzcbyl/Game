@@ -5,8 +5,8 @@ function fillList() {
     $.ajax({
         type: "GET",
         async: false,
-        url: "http://192.168.1.38:8002/wktChat/wktHandler.ashx",
-        data: { type: "getlist", roomid: 1, maxtime: lasttime },
+        url: "http://192.168.1.38:8002/api/chat_timeline_list.aspx",
+        data: { roomid: 1, token: token },
         dataType: "json",
         success: function (data) {
             var inHtml = '';
@@ -21,7 +21,7 @@ function fillList() {
                 }
             }
             lasttime = data.chat_data[data.chat_data.length - 1].chat_createtime;
-            $('.feed_file_list li:last').after(inHtml);
+            //$('.feed_file_list li:last').after(inHtml);
 
         }
     });
@@ -40,16 +40,18 @@ var voice = {
     serverId: ''
 };
 wx.ready(function () {
-
-    
     // 4 音频接口
     // 4.2 开始录音
     document.querySelector('#startRecord').onclick = function () {
+        $("#stopRecord").show();
+        $("#startRecord").hide();
         startRecord();
     };
 
     // 4.3 停止录音
     document.querySelector('#stopRecord').onclick = function () {
+        $("#stopRecord").hide();
+        $("#startRecord").show();
         stopRecord();
     };
 
@@ -91,16 +93,7 @@ wx.ready(function () {
                 //alert('上传语音成功，serverId 为' + res.serverId);
                 voice.serverId = res.serverId;
 
-                $.ajax({
-                    type: "GET",
-                    async: false,
-                    url: "http://192.168.1.38:8002/wktChat/wktHandler.ashx",
-                    data: { type: "insert", voiceid: voice.serverId },
-                    dataType: "json",
-                    success: function (data) {
-                        fillList();
-                    }
-                });
+                submitInput('voice', voice.serverId);
             }
         });
     }
@@ -198,3 +191,25 @@ wx.error(function (res) {
     alert(res.errMsg);
 });
 
+
+
+function inputText()
+{
+    if ($('#textContent').val().Trim() != "") {
+        alert("123");
+        submitInput('text', $('#textContent').val());
+    }
+}
+
+function submitInput(type,content) {
+    $.ajax({
+        type: "GET",
+        async: false,
+        url: "http://192.168.1.38:8002/api/chat_timeline_publish.aspx",
+        data: { type: type, token: token, roomid: roomid, content: content },
+        dataType: "json",
+        success: function (data) {
+
+        }
+    });
+}

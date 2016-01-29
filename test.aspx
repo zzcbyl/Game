@@ -62,10 +62,10 @@
     <head>
         <script type="text/javascript" >
            
-            function show_duration() {
+            //function show_duration() {
                 
-                alert(m.duration);
-            }
+            //    alert(m.duration);
+            //}
            
         </script>
     </head>
@@ -75,8 +75,10 @@
         </audio><br />
         <input type="button" onclick="show_duration()" value="show duration" />
         <script type="text/javascript" >
-            var m = document.getElementById("media");
+            //var m = document.getElementById("media");
             //alert(m.duration);
+            var m = new Audio("http://game.luqinwenda.com/amr/sounds/ci-bzqVL7zdNMd_CL0KOyb9kY6kaHrBuTuAOzNRsTUURzuVJfeCJoQCbq_uSdFW4.mp3");
+            
         </script>
     </body>
 </html>
