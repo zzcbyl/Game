@@ -18,6 +18,19 @@ public class ChatTimeLine
 		//
 	}
 
+    public ChatTimeLine(int messageId)
+    {
+        DataTable dt = DBHelper.GetDataTable(" select * from chat_list [id] = " + messageId.ToString(), Util.ConnectionString.Trim());
+        _fields = dt.Rows[0];
+    }
+
+    public void SetVoiceSecond(int second)
+    {
+        string[,] updateParameters = { { "voice_length", "int", second.ToString() } };
+        string[,] keyParameters = { { "id", "int", _fields["id"].ToString().Trim() } };
+        DBHelper.UpdateData("chat_list", updateParameters, keyParameters, Util.ConnectionString);
+    }
+
     public string Json
     {
         get
