@@ -5,22 +5,12 @@ function fillList() {
     $.ajax({
         type: "GET",
         async: false,
-        url: "http://192.168.1.38:8002/api/chat_timeline_list.aspx",
-        data: { roomid: 1, token: token },
+        url: "http://game.luqinwenda.com/api/chat_timeline_list.aspx",
+        data: { roomid: 1, token: token, maxid: maxid },
         dataType: "json",
         success: function (data) {
             var inHtml = '';
-            for (var i = 0; i < data.chat_data.length; i++) {
-                if (data.chat_data[i].chat_voice_mp3 != '') {
-                    inHtml += '<li><div id="jquery_jplayer_' + index + '" class="jp-jplayer"></div><div style="background:url(images/jplayerleft.png); width: 6px; height: 36px; float: left; position: absolute;"></div><div id="jp_container_' + index
-                        + '" class="jp-audio" role="application" aria-label="media player" onclick=\'changePlay("' + index + '");\' style="float:left;"><a id="a_jp_play_' + index + '" class="jp-play" role="button" tabindex="0"><span class="jplay_play"></span></a><a id="a_jp_stop_' + index
-                        + '" class="jp-stop" style="display: none;" role="button" tabindex="0"><span class="jplay_stop"></span></a><div class="jp-duration" dataid="' + index + '" role="timer" aria-label="duration" style="display: none;"></div></div><div id="time_' + index + '" style="float:left; line-height:36px; margin-left:8px;"></div><div style="clear:both;"></div><script type="text/javascript">$("#jquery_jplayer_' + index
-                        + '").jPlayer({ready: function () {$(this).jPlayer("setMedia", {mp3: "' + data.chat_data[i].chat_voice_mp3 + '"});},play: function () {$(this).jPlayer("stopOthers");},ended: function () { changePlay("' + index + '"); $("#jquery_jplayer_' + (index + 1) + '").jPlayer("play"); changePlay("' + (index + 1)
-                        + '"); },swfPath: "__THEME__/js",supplied: "mp3",cssSelectorAncestor: "#jp_container_' + index + '",wmode: "window",globalVolume: true,useStateClassSkin: true,autoBlur: false,smoothPlayBar: true,keyEnabled: true});</script></li>';
-                    index++;
-                }
-            }
-            lasttime = data.chat_data[data.chat_data.length - 1].chat_createtime;
+            
             //$('.feed_file_list li:last').after(inHtml);
 
         }
@@ -205,7 +195,7 @@ function submitInput(type,content) {
     $.ajax({
         type: "GET",
         async: false,
-        url: "http://192.168.1.38:8002/api/chat_timeline_publish.aspx",
+        url: "http://game.luqinwenda.com/api/chat_timeline_publish.aspx",
         data: { type: type, token: token, roomid: roomid, content: content },
         dataType: "json",
         success: function (data) {
