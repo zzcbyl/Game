@@ -77,7 +77,7 @@
         process.Start();
         process.StandardInput.WriteLine(command);
         process.StandardInput.AutoFlush = true;
-        //string returnStr = process.StandardOutput.ReadToEnd();
+        string returnStr = process.StandardOutput.ReadToEnd();
         process.StandardInput.WriteLine("exit");
         //string returnStr = process.StandardOutput.ReadToEnd();
         process.WaitForExit();
