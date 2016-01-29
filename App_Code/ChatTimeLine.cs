@@ -20,7 +20,7 @@ public class ChatTimeLine
 
     public ChatTimeLine(int messageId)
     {
-        DataTable dt = DBHelper.GetDataTable(" select * from chat_list [id] = " + messageId.ToString(), Util.ConnectionString.Trim());
+        DataTable dt = DBHelper.GetDataTable(" select * from chat_list where [id] = " + messageId.ToString(), Util.ConnectionString.Trim());
         _fields = dt.Rows[0];
     }
 
