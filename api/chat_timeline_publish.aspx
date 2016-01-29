@@ -62,8 +62,8 @@
                         {
                             Util.GetWebContent("http://game.luqinwenda.com/api/down_load_sound.aspx?mediaid=" + content.Trim(),
                                 "get", "", "html/text");
-
-                            Mp3FileReader reader = new Mp3FileReader(Server.MapPath("../amr/sounds/" + content.Trim() + ".mp3"));
+                            string mp3Path = Server.MapPath("../amr/sounds/" + content.Trim() + ".mp3");
+                            Mp3FileReader reader = new Mp3FileReader(mp3Path);
                             //double totalSeconds = reader.TotalTime.TotalSeconds;
 
                             double seconds = reader.TotalTime.TotalSeconds;
