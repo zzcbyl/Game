@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" %>
 <%@ Import Namespace="System.Net" %>
 <%@ Import Namespace="System.IO" %>
+<%@ Import Namespace="NAudio.Wave" %>
 <script runat="server">
     public static string currentConvertMediaId = "";
 
@@ -11,12 +12,14 @@
 
         currentConvertMediaId = Util.GetSafeRequestValue(Request, "mediaid", "c2NVdH-gBqa0KKrnhFpPoR_ZfbQMCjLqLGaJvYUXr2b1v58kbGHIkwkyxbCqlZZx");
         currentLocalPath = Server.MapPath("../amr/");
-        //if (!File.Exists(currentLocalPath + @"\sounds\" + currentConvertMediaId + ".wav"))
-        //{
+        if (!File.Exists(currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3"))
+        {
             DownloadMedia();
             ConverAmrToMp3(int.Parse(Util.GetSafeRequestValue(Request,"vol","1")));
-        //}
-        Response.Write("{\"status\": 0 , \"mp3_url\" : \"http://game.luqinwenda.com/amr/sounds/" + currentConvertMediaId + ".mp3\" }");
+        }
+        Mp3FileReader reader = new Mp3FileReader(currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3");
+        double totalSeconds = reader.TotalTime.TotalSeconds;
+        Response.Write("{\"status\": 0 ,  \"total_seconds\": " + totalSeconds.ToString()  +   "  , \"mp3_url\" : \"http://game.luqinwenda.com/amr/sounds/" + currentConvertMediaId + ".mp3\" }");
     }
 
     public static void DownloadMedia()

@@ -40,9 +40,9 @@ public class ChatTimeLine
         }
     }
 
-    public static ChatTimeLine[] GetRoomChatList(int roomId)
+    public static ChatTimeLine[] GetRoomChatList(int roomId, int maxId)
     { 
-        DataTable dt = DBHelper.GetDataTable(" select * from chat_list order by [id] ", Util.ConnectionString.Trim());
+        DataTable dt = DBHelper.GetDataTable(" select * from chat_list where [id] > " + maxId.ToString() + "   order by [id] ", Util.ConnectionString.Trim());
         ChatTimeLine[] chatTimeLineArr = new ChatTimeLine[dt.Rows.Count];
         for(int i = 0 ; i < dt.Rows.Count ; i++)
         {
