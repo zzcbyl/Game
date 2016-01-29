@@ -57,7 +57,7 @@
                     if (errorMessage.Trim().Equals(""))
                     {
                         newMessageId = ChatTimeLine.PublishMessage(roomId, userId, type, content);
-
+                        /*
                         if (type.Equals("voice"))
                         {
                             Util.GetWebContent("http://game.luqinwenda.com/api/down_load_sound.aspx?mediaid=" + content.Trim(),
@@ -73,7 +73,7 @@
                             
                         }
                          
-                        
+                        */
                         
                     }
                     
