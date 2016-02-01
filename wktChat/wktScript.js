@@ -6,7 +6,7 @@ $(document).ready(function () {
     $wd.scrollTop($wd.scrollTop() + parseInt(movepx));
     
     var wh = document.body.clientWidth;
-    $("#textContent").css("width", (wh - 100).toString() + "px");
+    $("#textContent").css("width", (wh - 130).toString() + "px");
 
     setInterval("fillList()", 5000);
 });
@@ -84,9 +84,9 @@ function fillList() {
                         case "voice":
                             {
                                 if (chatline.user_id == userid) {
-                                    liItem = String.format(voiceRight, chatline.avatar, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString());
+                                    liItem = String.format(voiceRight, chatline.avatar, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString(), chatline.voice_length);
                                 } else {
-                                    liItem = String.format(voiceLeft, chatline.avatar, chatline.nick, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString());
+                                    liItem = String.format(voiceLeft, chatline.avatar, chatline.nick, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString(), chatline.voice_length);
                                 }
                             }
                             break;
