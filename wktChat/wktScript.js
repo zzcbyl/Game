@@ -5,6 +5,9 @@ $(document).ready(function () {
     $wd = $(window);
     $wd.scrollTop($wd.scrollTop() + parseInt(movepx));
     
+    var wh = document.body.clientWidth;
+    $("#textContent").css("width", (wh - 100).toString() + "px");
+
     setInterval("fillList()", 5000);
 });
 

@@ -169,7 +169,7 @@
                 <input type="button" value="停止录音" id="stopRecord" style="width:100px; height:40px; display:none;" />
             </div>
             <div style="display:flex; text-align:center; margin-left:40px; height:55px;" id="input_text">
-                <textarea id="textContent" placeholder="请输入内容..." style=" display:inline-block; padding:0px 5px; margin-top:5px; width:100%; height:44px; line-height:22px; font-size:14px;"></textarea>　
+                <textarea id="textContent" placeholder="请输入内容..." style=" display:inline-block; padding:0px 5px; margin-top:5px; width:auto; height:44px; line-height:22px; font-size:14px;"></textarea>　
                 <input type="button" value="发送" style="width:50px; height:25px; margin-top:25px;" onclick="inputText();" />
             </div>
         </div>
