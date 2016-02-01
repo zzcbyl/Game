@@ -13,11 +13,22 @@
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        string path = Server.MapPath("amr/sounds/aU5LcIhVfCt7RQZh-2Ye_v5WU97lzxSa8AcJyTFtBSOd0tIIcCsyZNnkT7oPrtSZ.mp3");
-        NAudio.Wave.Mp3FileReader reader = new NAudio.Wave.Mp3FileReader(path);
+        System.Diagnostics.Process process = new System.Diagnostics.Process();
+        process.StartInfo.FileName = "ipconfig.exe";
+        process.StartInfo.Arguments = "-all";
+        process.StartInfo.UseShellExecute = false;
+        process.StartInfo.RedirectStandardOutput = true;
+        process.Start();
 
-        Response.Write(reader.TotalTime.TotalSeconds.ToString());
-        Response.End();
+        // Synchronously read the standard output of the spawned process. 
+        StreamReader reader = process.StandardOutput;
+        string output = reader.ReadToEnd();
+
+        // Write the redirected output to this application's window.
+        Console.WriteLine(output);
+
+        process.WaitForExit();
+        process.Close();
         
         /*
         using (FileStream fs = File.OpenRead(path))
