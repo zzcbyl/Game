@@ -126,7 +126,7 @@
         .jplay_stop { display: block; margin-left: 0px;}
         .jplay_stop_right { display: block; margin-left: 0px; float:right;}
         .jp-stop:focus { background: none; margin-left: 0; }
-        .feed_file_list { border: none; margin:10px;}
+        .feed_file_list { border: none; margin:0 10px;}
         .jp-stop_1 { background: url(images/jplayerplay.png) no-repeat 0 0; width: 16px; height: 19px;  }
         .jp-stop_2 { background: url(images/jplayerplay.png) no-repeat -18px 0; width: 16px; height: 19px;  }
         .jp-stop_3 { background: url(images/jplayerplay.png) no-repeat -39px 0; width: 18px; height: 19px;  }
@@ -162,16 +162,15 @@
         </div>
         <div style="height:60px; clear:both;"></div>
         <div id="msg_end" style="height:0px; overflow:hidden"></div>
-        <div style="position:fixed; bottom:0; left:0; width:100%; text-align:center; line-break:50px; line-height:50px; background:#B4EB7C; z-index:100;">
-            <a id="switchInput" onclick="changeInput();" style="display:block; border:1px solid #7AA23F; float:left;">切换</a>
+        <div style="position:fixed; bottom:0; left:0; width:100%; text-align:center; line-break:50px; line-height:50px; background:#fff; z-index:100;">
+            <a id="switchInput" onclick="changeInput();" style=" border:1px solid #7AA23F; position:absolute; top:5px; left:5px; line-height:25px; ">切换</a>
             <div style=" display:none;" id="input_voice">
                 <input type="button" value="开始录音" id="startRecord" style="width:100px; height:40px;" />　
                 <input type="button" value="停止录音" id="stopRecord" style="width:100px; height:40px; display:none;" />
             </div>
-            <div style="display:flex; text-align:center;" id="input_text">
-                <textarea id="textContent" placeholder="请输入内容..." style="display:inline-block; padding:0px 5px; margin-left:10px; width:70%; height:28px; line-height:28px;"></textarea>　
-                <input type="button" value="发送" style="width:60px; height:30px;" onclick="inputText();" />
-                <input type="button" value="最后" onclick="scrollPage();" />
+            <div style="display:flex; text-align:center; margin-left:40px; height:55px;" id="input_text">
+                <textarea id="textContent" placeholder="请输入内容..." style=" display:inline-block; padding:0px 5px; margin-top:5px; width:100%; height:44px; line-height:22px; font-size:14px;"></textarea>　
+                <input type="button" value="发送" style="width:50px; height:25px; margin-top:25px;" onclick="inputText();" />
             </div>
         </div>
     </div>
