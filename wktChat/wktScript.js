@@ -1,26 +1,125 @@
 ﻿
+
+$(document).ready(function () {
+    var movepx = $('#mydiv').css('height').replace("px", "");
+    $wd = $(window);
+    $wd.scrollTop($wd.scrollTop() + parseInt(movepx));
+    
+    setInterval("fillList()", 5000);
+});
+
+var ssset = 0;
+var stopindex = 1;
+var direction = "";
+function changePlay(id, fx) {
+    if ($('#a_jp_stop_' + id).css('display') == 'none') {
+        stopindex = 1;
+        direction = fx;
+        playA();
+        clearInterval(ssset)
+        ssset = setInterval("playA()", 500);
+        $('.jp-stop').hide();
+        $('.jp-play').show();
+        $('#a_jp_stop_' + id).show();
+        $('#a_jp_play_' + id).hide();
+
+    }
+    else {
+        $('#a_jp_play_' + id).show();
+        $('#a_jp_stop_' + id).hide();
+        clearInterval(ssset)
+    }
+}
+
+function playA() {
+    if (stopindex == 4) stopindex = 1;
+    if (direction == "R")
+        $(".jplay_stop_right").attr("class", "jplay_stop_right jp-stop_right_" + stopindex);
+    else
+        $(".jplay_stop").attr("class", "jplay_stop jp-stop_" + stopindex);
+    stopindex++;
+}
+
+
+function changeInput() {
+    if ($('#input_voice').css("display") == "none") {
+        $('#input_voice').show();
+        $('#input_text').hide();
+    }
+    else {
+        $('#input_voice').hide();
+        $('#input_text').show();
+    }
+}
+
 var lasttime = '';
 var index = 1;
 function fillList() {
     $.ajax({
         type: "GET",
         async: false,
-        url: "http://game.luqinwenda.com/api/chat_timeline_list.aspx",
+        url: "http://192.168.1.38:8002/api/chat_timeline_list.aspx",
         data: { roomid: 1, token: token, maxid: maxid },
         dataType: "json",
         success: function (data) {
             var inHtml = '';
-            
-            //$('.feed_file_list li:last').after(inHtml);
-
+            if (data.status == 0 && data.count > 0) {
+                maxid = data.max_id;
+                for (var i = 0; i < data.chat_time_line.length; i++) {
+                    var liItem = '';
+                    var chatline = data.chat_time_line[i];
+                    switch (chatline.message_type) {
+                        case "text":
+                            {
+                                if (chatline.user_id == userid) {
+                                    liItem = String.format(textRight, chatline.avatar, chatline.message_content);
+                                } else {
+                                    liItem = String.format(textLeft, chatline.avatar, chatline.nick, chatline.message_content);
+                                }
+                            }
+                            break;
+                        case "voice":
+                            {
+                                if (chatline.user_id == userid) {
+                                    liItem = String.format(voiceRight, chatline.avatar, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString());
+                                } else {
+                                    liItem = String.format(voiceLeft, chatline.avatar, chatline.nick, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString());
+                                }
+                            }
+                            break;
+                        default:
+                    }
+                    inHtml += "<li>" + liItem.replace("&lt;", "<").replace("&gt;", ">") + "</li>";
+                    $('.feed_file_list li:last').after(inHtml);
+                    scrollPage();
+                }
+            }
         }
     });
 }
 
-function showTime() {
-    $('.jp-duration').each(function () {
-        alert($(this).html());
-        //alert($(this).attr('dataid'));
+function scrollPage() {
+    var movepx = $('.feed_file_list li:last div').css('height').replace("px", "");
+    $wd = $(window);
+    $wd.scrollTop($wd.scrollTop() + parseInt(movepx) + 10);
+}
+
+function inputText() {
+    if ($('#textContent').val().Trim() != "") {
+        submitInput('text', $('#textContent').val());
+    }
+}
+
+function submitInput(type, content) {
+    $.ajax({
+        type: "GET",
+        async: false,
+        url: "http://192.168.1.38:8002/api/chat_timeline_publish.aspx",
+        data: { type: type, token: token, roomid: roomid, content: content },
+        dataType: "json",
+        success: function (data) {
+            fillList();
+        }
     });
 }
 
@@ -181,25 +280,3 @@ wx.error(function (res) {
     alert(res.errMsg);
 });
 
-
-
-function inputText()
-{
-    if ($('#textContent').val().Trim() != "") {
-        alert("123");
-        submitInput('text', $('#textContent').val());
-    }
-}
-
-function submitInput(type,content) {
-    $.ajax({
-        type: "GET",
-        async: false,
-        url: "http://game.luqinwenda.com/api/chat_timeline_publish.aspx",
-        data: { type: type, token: token, roomid: roomid, content: content },
-        dataType: "json",
-        success: function (data) {
-
-        }
-    });
-}
