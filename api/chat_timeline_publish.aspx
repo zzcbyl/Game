@@ -1,12 +1,13 @@
 ﻿<%@ Page Language="C#" %>
+<%@ Import Namespace="NAudio.Wave" %>
 <script runat="server">
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        string token = Util.GetSafeRequestValue(Request, "token", "f334c058df5b85510d4ce22789d0c44ee53e59c658d1b35ccb0130abb92079a1f5c3e280");
+        string token = Util.GetSafeRequestValue(Request, "token", "06517cbfb31f5fe5645c4d3138f2f9e9473c932a16727cfacec5416e5947362b44193b0d");
         int roomId = int.Parse(Util.GetSafeRequestValue(Request, "roomid", "1"));
-        string content = Util.GetSafeRequestValue(Request, "content", "rdfsseefsadfsdf");
-        string type = Util.GetSafeRequestValue(Request, "type", "text");
+        string content = Util.GetSafeRequestValue(Request, "content", "aU5LcIhVfCt7RQZh-2Ye_v5WU97lzxSa8AcJyTFtBSOd0tIIcCsyZNnkT7oPrtSZ");
+        string type = Util.GetSafeRequestValue(Request, "type", "voice");
         string errorMessage = "";
         int newMessageId = 0;
         if (content.Trim().Equals(""))
@@ -56,6 +57,24 @@
                     if (errorMessage.Trim().Equals(""))
                     {
                         newMessageId = ChatTimeLine.PublishMessage(roomId, userId, type, content);
+                        /*
+                        if (type.Equals("voice"))
+                        {
+                            Util.GetWebContent("http://game.luqinwenda.com/api/down_load_sound.aspx?mediaid=" + content.Trim(),
+                                "get", "", "html/text");
+                            string mp3Path = Server.MapPath("../amr/sounds/" + content.Trim() + ".mp3");
+                            Mp3FileReader reader = new Mp3FileReader(mp3Path);
+                            //double totalSeconds = reader.TotalTime.TotalSeconds;
+
+                            double seconds = reader.TotalTime.TotalSeconds;
+
+                            ChatTimeLine chatTimeLine = new ChatTimeLine(newMessageId);
+                            chatTimeLine.SetVoiceSecond((int)seconds);
+                            
+                        }
+                         
+                        */
+                        
                     }
                     
                 }

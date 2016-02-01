@@ -13,10 +13,11 @@
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        string path = Server.MapPath("amr/sounds/FJezE4AD_o_6yY2hY7o3TUMAZnv3_CM3rKRfQmcaubcx3qusSueMPUtH4QiifoS2.mp3");
+        string path = Server.MapPath("amr/sounds/aU5LcIhVfCt7RQZh-2Ye_v5WU97lzxSa8AcJyTFtBSOd0tIIcCsyZNnkT7oPrtSZ.mp3");
         NAudio.Wave.Mp3FileReader reader = new NAudio.Wave.Mp3FileReader(path);
 
-        Response.Write(reader.TotalTime.ToString());
+        Response.Write(reader.TotalTime.TotalSeconds.ToString());
+        Response.End();
         
         /*
         using (FileStream fs = File.OpenRead(path))
