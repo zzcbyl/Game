@@ -61,7 +61,7 @@ function fillList() {
     $.ajax({
         type: "GET",
         async: false,
-        url: "http://game.luqinwenda.com/api/chat_timeline_list.aspx",
+        url: "http://192.168.1.38:8002/api/chat_timeline_list.aspx",
         data: { roomid: 1, token: token, maxid: maxid },
         dataType: "json",
         success: function (data) {
@@ -83,10 +83,13 @@ function fillList() {
                             break;
                         case "voice":
                             {
+                                var vlen = parseInt(chatline.voice_length) * 3;
+                                if (vlen < 80)
+                                    vlen = 80;
                                 if (chatline.user_id == userid) {
-                                    liItem = String.format(voiceRight, chatline.avatar, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString(), chatline.voice_length);
+                                    liItem = String.format(voiceRight, chatline.avatar, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString(), chatline.voice_length, "width:" + vlen + "px");
                                 } else {
-                                    liItem = String.format(voiceLeft, chatline.avatar, chatline.nick, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString(), chatline.voice_length);
+                                    liItem = String.format(voiceLeft, chatline.avatar, chatline.nick, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString(), chatline.voice_length, "width:" + vlen + "px");
                                 }
                             }
                             break;
@@ -118,7 +121,7 @@ function submitInput(type, content) {
     $.ajax({
         type: "GET",
         async: false,
-        url: "http://game.luqinwenda.com/api/chat_timeline_publish.aspx",
+        url: "http://192.168.1.38:8002/api/chat_timeline_publish.aspx",
         data: { type: type, token: token, roomid: roomid, content: content },
         dataType: "json",
         success: function (data) {
