@@ -178,7 +178,7 @@
     </div>
     </form>
 </body>
-<%--<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>--%>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
     var userid = '<%=userid %>';
     var token = '<%=token %>';

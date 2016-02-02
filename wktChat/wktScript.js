@@ -135,15 +135,11 @@ wx.ready(function () {
     // 4 音频接口
     // 4.2 开始录音
     document.querySelector('#startRecord').onclick = function () {
-        $("#stopRecord").show();
-        $("#startRecord").hide();
         startRecord();
     };
 
     // 4.3 停止录音
     document.querySelector('#stopRecord').onclick = function () {
-        $("#stopRecord").hide();
-        $("#startRecord").show();
         stopRecord();
     };
 
