@@ -156,6 +156,8 @@ wx.ready(function () {
         complete: function (res) {
             voice.localId = res.localId;
             //alert('录音时间已超过一分钟');
+            $("#stopRecord").hide();
+            $("#startRecord").show();
             uploadVoice();
         }
     });
