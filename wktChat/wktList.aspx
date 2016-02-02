@@ -10,7 +10,7 @@
     public string ticket = "";
     public string shaParam = "";
     public string appId = System.Configuration.ConfigurationManager.AppSettings["wxappid_dingyue"];
-    public string token = "090f1bc52a6f9a20ddb4a7f4b83a6163a756d7e3c4f21f9ef05e032507b54a1c1330ea02";
+    public string token = "1d6a586fac3dfbb9cb22bc29c70fba7a41fed654207860645fc06349fe7748a5bdd8ce78";
     public string roomid = "1";
     public ArrayList chatList = new ArrayList();
     public int userid = 0;
@@ -26,8 +26,8 @@
     public string canVoice = "0";
     protected void Page_Load(object sender, EventArgs e)
     {
-        //roomid = Request["roomid"];
-        //token = Request["token"];
+        roomid = Request["roomid"];
+        token = Request["token"];
         
         timeStamp = Util.GetTimeStamp();
         ticket = Util.GetTicket();
@@ -211,8 +211,6 @@
     var roomid = '<%=roomid %>';
     var voiceIndex = '<%=voiceIndex %>';
     var maxid = '<%=maxid %>';
-    var textLeft = '<%=textLeft %>';
-    var textRight = '<%=textRight %>';
     var domainName = '<%=domainName %>';
     var textLeft = "<div class=\"text-li\"><div class=\"left-head\"><img src=\"{0}\" /></div><div class=\"right-content\"><div class=\"text-nick\">{1}</div><div class=\"text-content\">{2}</div><div style=\"position:absolute; left:65px; top:28px;\"><img src=\"images/jt_icon_left.png\" /></div></div><div class=\"clear\"></div></div>";
     var textRight = "<div class=\"text-li-right\"><div class=\"left-head\"><img src=\"{0}\" /></div><div class=\"right-content\"><div class=\"text-content\">{1}</div><div style=\"position:absolute; right:65px; top:0px;\"><img src=\"images/jt_icon_right.png\" /></div></div><div class=\"clear\"></div></div>";
