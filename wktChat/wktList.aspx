@@ -10,7 +10,7 @@
     public string ticket = "";
     public string shaParam = "";
     public string appId = System.Configuration.ConfigurationManager.AppSettings["wxappid_dingyue"];
-    public string token = "fa6a99b315b07af03f2edec1da9ed8202121a3e7854efb9b30a56489a78a8716abc1e4a5";
+    public string token = "090f1bc52a6f9a20ddb4a7f4b83a6163a756d7e3c4f21f9ef05e032507b54a1c1330ea02";
     public string roomid = "1";
     public ArrayList chatList = new ArrayList();
     public int userid = 0;
@@ -22,10 +22,12 @@
     public int voiceIndex = 1;
     public string maxid = "0";
     public string domainName = System.Configuration.ConfigurationManager.AppSettings["domain_name"].ToString();
+    public string canText = "0";
+    public string canVoice = "0";
     protected void Page_Load(object sender, EventArgs e)
     {
-        roomid = Request["roomid"];
-        token = Request["token"];
+        //roomid = Request["roomid"];
+        //token = Request["token"];
         
         timeStamp = Util.GetTimeStamp();
         ticket = Util.GetTicket();
@@ -33,8 +35,20 @@
             + "&timestamp=" + timeStamp.Trim() + "&url=" + Request.Url.ToString().Trim();
         shaParam = Util.GetSHA1(shaString);
 
-        string listStr = Util.GetWebContent("http://" + domainName + "/api/chat_timeline_list.aspx", "get", "", "text/html");
+        //判断权限
         System.Web.Script.Serialization.JavaScriptSerializer json = new System.Web.Script.Serialization.JavaScriptSerializer();
+        string roomRightStr = Util.GetWebContent("http://" + domainName + "/api/chat_room_rights.aspx?token=" + token + "&roomid=" + roomid, "get", "", "text/html");
+        Dictionary<string, object> rightdic = json.Deserialize<Dictionary<string, object>>(roomRightStr);
+        if (rightdic["status"].ToString() == "0")
+        {
+            if (rightdic["can_enter"].ToString().Equals("1") && rightdic["can_publish_text"].ToString().Equals("1"))
+                canText = "1";
+            if (rightdic["can_enter"].ToString().Equals("1") && rightdic["can_publish_voice"].ToString().Equals("1"))
+                canVoice = "1";
+        }
+        
+        //获取数据列表
+        string listStr = Util.GetWebContent("http://" + domainName + "/api/chat_timeline_list.aspx", "get", "", "text/html");
         Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(listStr);
         if (dic["status"].ToString() == "0")
         {
@@ -169,10 +183,12 @@
                 <div style="clear:both;"></div>
             </ul>
         </div>
+        <% if(canText.Equals("1")) { %>
         <div style="height:60px; clear:both;"></div>
-        <div id="msg_end" style="height:0px; overflow:hidden"></div>
         <div style="position:fixed; bottom:0; left:0; width:100%; text-align:center; line-height:55px; background:#fff; z-index:100;">
+            <% if(canVoice.Equals("1")){ %>
             <a id="switchInput" onclick="changeInput();" style="position:absolute; top:5px; left:5px; line-height:45px; ">切换</a>
+            <%} %>
             <div style=" display:none;" id="input_voice">
                 <input type="button" value="开始录音" id="startRecord" style="width:100px; height:40px;" />
                 <input type="button" value="停止录音" id="stopRecord" style="width:100px; height:40px; display:none;" />
@@ -182,6 +198,9 @@
                 <input type="button" value="发送" style="width:50px; height:25px; margin-top:17px;" onclick="inputText();" />
             </div>
         </div>
+        <%} else { %>
+        <div style="height:20px; clear:both;"></div>
+        <%} %>
     </div>
     </form>
 </body>
