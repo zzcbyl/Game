@@ -8,12 +8,15 @@ $(document).ready(function () {
     var wh = document.body.clientWidth;
     $("#textContent").css("width", (wh - 130).toString() + "px");
 
+    setDots();
+
     setInterval("fillList()", 5000);
 });
 
 var ssset = 0;
 var stopindex = 1;
 var direction = "";
+var cookieName = "voiceReaded" + roomid;
 function changePlay(id, fx) {
     if ($('#a_jp_stop_' + id).css('display') == 'none') {
         stopindex = 1;
@@ -25,7 +28,7 @@ function changePlay(id, fx) {
         $('.jp-play').show();
         $('#a_jp_stop_' + id).show();
         $('#a_jp_play_' + id).hide();
-
+        setVoiceCookie(id);
     }
     else {
         $('#a_jp_play_' + id).show();
@@ -43,7 +46,6 @@ function playA() {
     stopindex++;
 }
 
-
 function changeInput() {
     if ($('#input_voice').css("display") == "none") {
         $('#input_voice').show();
@@ -55,6 +57,34 @@ function changeInput() {
     }
 }
 
+function setVoiceCookie(id) {
+    $("#dot_" + id).hide();
+    var cookieVal = getCookie(cookieName);
+    if (cookieVal == null) {
+        cookieVal = id + ",";
+    }
+    else {
+        cookieVal += id + ",";
+    }
+    setCookieT(cookieName, cookieVal, 10000000000);
+}
+
+function setDots() {
+    var cookieVal = getCookie(cookieName);
+    //alert(cookieVal);
+    if (cookieVal != null) {
+        var dataID = cookieVal.split(',');
+        $(".dots").each(function () {
+            for (var i = 0; i < dataID.length; i++) {
+                //alert($(this).attr("id"));
+                if ($(this).attr("id") == "dot_" + dataID[i]) {
+                    $(this).hide();
+                }
+            }
+        });
+    }
+}
+
 var lasttime = '';
 var index = 1;
 function fillList() {
@@ -62,7 +92,7 @@ function fillList() {
         type: "GET",
         async: false,
         url: "http://" + domainName + "/api/chat_timeline_list.aspx",
-        data: { roomid: 1, token: token, maxid: maxid },
+        data: { roomid: roomid, token: token, maxid: maxid },
         dataType: "json",
         success: function (data) {
             var inHtml = '';
