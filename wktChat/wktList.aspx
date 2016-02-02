@@ -23,8 +23,8 @@
     public string maxid = "0";
     protected void Page_Load(object sender, EventArgs e)
     {
-        //roomid = Request["roomid"];
-        //token = Request["token"];
+        roomid = Request["roomid"];
+        token = Request["token"];
         
         timeStamp = Util.GetTimeStamp();
         ticket = Util.GetTicket();
