@@ -31,7 +31,7 @@
             + "&timestamp=" + timeStamp.Trim() + "&url=" + Request.Url.ToString().Trim();
         shaParam = Util.GetSHA1(shaString);
 
-        string listStr = Util.GetWebContent("http://game.luqinwenda.com/api/chat_timeline_list.aspx", "get", "", "text/html");
+        string listStr = Util.GetWebContent("http://192.168.1.38:8002/api/chat_timeline_list.aspx", "get", "", "text/html");
         System.Web.Script.Serialization.JavaScriptSerializer json = new System.Web.Script.Serialization.JavaScriptSerializer();
         Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(listStr);
         if (dic["status"].ToString() == "0")
@@ -40,7 +40,7 @@
             maxid = dic["max_id"].ToString();
         }
 
-        string userinfoStr = Util.GetWebContent("http://game.luqinwenda.com/api/user_info_get.aspx?token=" + token, "get", "", "text/html");
+        string userinfoStr = Util.GetWebContent("http://192.168.1.38:8002/api/user_info_get.aspx?token=" + token, "get", "", "text/html");
         Dictionary<string, object> userdic = json.Deserialize<Dictionary<string, object>>(userinfoStr);
         if (userdic["status"].ToString() == "0")
         {
@@ -167,7 +167,7 @@
         <div style="position:fixed; bottom:0; left:0; width:100%; text-align:center; line-height:55px; background:#fff; z-index:100;">
             <a id="switchInput" onclick="changeInput();" style="position:absolute; top:5px; left:5px; line-height:45px; ">切换</a>
             <div style=" display:none;" id="input_voice">
-                <input type="button" value="开始录音" id="startRecord" style="width:100px; height:40px;" />　
+                <input type="button" value="开始录音" id="startRecord" style="width:100px; height:40px;" />
                 <input type="button" value="停止录音" id="stopRecord" style="width:100px; height:40px; display:none;" />
             </div>
             <div style="display:flex; text-align:center; margin-left:40px; height:55px;" id="input_text">
