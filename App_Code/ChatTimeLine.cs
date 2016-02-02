@@ -27,7 +27,7 @@ public class ChatTimeLine
     public void SetVoiceSecond(int second)
     {
         string[,] updateParameters = { { "voice_length", "int", second.ToString() },
-                                     {"content", "varchar", "http://game.luqinwenda.com/amr/sounds/" + _fields["content"].ToString().Trim() + ".mp3"}};
+                                     {"message_content", "varchar", "http://game.luqinwenda.com/amr/sounds/" + _fields["content"].ToString().Trim() + ".mp3"}};
         string[,] keyParameters = { { "id", "int", _fields["id"].ToString().Trim() } };
         DBHelper.UpdateData("chat_list", updateParameters, keyParameters, Util.ConnectionString);
     }
