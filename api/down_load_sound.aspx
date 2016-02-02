@@ -58,7 +58,7 @@
         
     }
 
-
+/*
     public  void UpdateMp3Size(string mp3Path)
     {
         if (File.Exists(mp3Path))
@@ -71,7 +71,7 @@
             DBHelper.UpdateData("chat_list", updateParameter, keyParameter, Util.ConnectionString.Trim());
         }
     }
-
+*/
 
     public  void ConverAmrToMp3(int vol)
     {
@@ -100,7 +100,7 @@
        
         process.WaitForExit();
         process.Close();
-        UpdateMp3Size(currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3");
+        //UpdateMp3Size(currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3");
     }
     
 </script>

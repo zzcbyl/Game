@@ -57,23 +57,20 @@
                     if (errorMessage.Trim().Equals(""))
                     {
                         newMessageId = ChatTimeLine.PublishMessage(roomId, userId, type, content);
-                        /*
+                        
                         if (type.Equals("voice"))
                         {
-                            Util.GetWebContent("http://game.luqinwenda.com/api/down_load_sound.aspx?mediaid=" + content.Trim(),
+                            string downloadJson = Util.GetWebContent("http://game.luqinwenda.com/api/down_load_sound.aspx?mediaid=" + content.Trim(),
                                 "get", "", "html/text");
-                            string mp3Path = Server.MapPath("../amr/sounds/" + content.Trim() + ".mp3");
-                            Mp3FileReader reader = new Mp3FileReader(mp3Path);
-                            //double totalSeconds = reader.TotalTime.TotalSeconds;
 
-                            double seconds = reader.TotalTime.TotalSeconds;
+                            int duration = int.Parse(Util.GetSimpleJsonValueByKey(downloadJson, "duration"));
 
                             ChatTimeLine chatTimeLine = new ChatTimeLine(newMessageId);
-                            chatTimeLine.SetVoiceSecond((int)seconds);
+                            chatTimeLine.SetVoiceSecond((int)duration);
                             
                         }
                          
-                        */
+                        
                         
                     }
                     
