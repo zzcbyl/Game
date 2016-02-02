@@ -61,7 +61,7 @@ function fillList() {
     $.ajax({
         type: "GET",
         async: false,
-        url: "http://192.168.1.38:8002/api/chat_timeline_list.aspx",
+        url: "http://game.luqinwenda.com/api/chat_timeline_list.aspx",
         data: { roomid: 1, token: token, maxid: maxid },
         dataType: "json",
         success: function (data) {
@@ -121,7 +121,7 @@ function submitInput(type, content) {
     $.ajax({
         type: "GET",
         async: false,
-        url: "http://192.168.1.38:8002/api/chat_timeline_publish.aspx",
+        url: "http://game.luqinwenda.com/api/chat_timeline_publish.aspx",
         data: { type: type, token: token, roomid: roomid, content: content },
         dataType: "json",
         success: function (data) {
