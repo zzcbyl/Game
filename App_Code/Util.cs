@@ -91,7 +91,15 @@ public class Util
 
     public static string GetToken()
     {
-        return GetWebContent("http://weixin.luqinwenda.com/dingyue/get_token.aspx", "get", "", "html/xml");
+        try
+        {
+            return GetWebContent("http://weixin.luqinwenda.com/dingyue/get_token.aspx", "get", "", "html/xml");
+        }
+        catch
+        {
+            System.Threading.Thread.Sleep(500);
+            return GetWebContent("http://weixin.luqinwenda.com/dingyue/get_token.aspx", "get", "", "html/xml");
+        }
     }
     /*
     public static string ForceGetToken()
