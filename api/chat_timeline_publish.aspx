@@ -6,7 +6,7 @@
     {
         string token = Util.GetSafeRequestValue(Request, "token", "06517cbfb31f5fe5645c4d3138f2f9e9473c932a16727cfacec5416e5947362b44193b0d");
         int roomId = int.Parse(Util.GetSafeRequestValue(Request, "roomid", "1"));
-        string content = Util.GetSafeRequestValue(Request, "content", "aU5LcIhVfCt7RQZh-2Ye_v5WU97lzxSa8AcJyTFtBSOd0tIIcCsyZNnkT7oPrtSZ");
+        string content = Util.GetSafeRequestValue(Request, "content", "gsaPXrg1KRRO8dpTmjDeYg3eIgup1Tqm-YEAELtZy0oIp1_4f-pctI6s9-3szzUs");
         string type = Util.GetSafeRequestValue(Request, "type", "voice");
         string errorMessage = "";
         int newMessageId = 0;
