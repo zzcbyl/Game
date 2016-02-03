@@ -10,7 +10,7 @@
     public string ticket = "";
     public string shaParam = "";
     public string appId = System.Configuration.ConfigurationManager.AppSettings["wxappid_dingyue"];
-    public string token = "883517ad69e9fdb77d6121563b9e21fc4d0a0cfae57110b9bded693651c0a2c3c8d15702";
+    public string token = "b3b3cf8e7c0327d72b97dd45740acc8f0107ffeb1f65a8390711ae27a0fcd65d1d91cdef";
     public string roomid = "1";
     public ArrayList chatList = new ArrayList();
     public int userid = 0;
@@ -26,8 +26,8 @@
     public string canVoice = "0";
     protected void Page_Load(object sender, EventArgs e)
     {
-        roomid = Request["roomid"];
-        token = Request["token"];
+        //roomid = Request["roomid"];
+        //token = Request["token"];
         
         timeStamp = Util.GetTimeStamp();
         ticket = Util.GetTicket();
@@ -135,46 +135,7 @@
     <script src="../script/common.js"></script>
     <script src="../script/jquery.jplayer.js"></script>
     <link href="../style/jplayer.blue.monday.min.css" rel="stylesheet" />
-
-    <style type="text/css">
-        body { font-size:14px; }
-        ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { list-style-type:none; padding:0;}
-        .clear { clear:both;}
-        .jp-audio, .jp-audio-stream, .jp-video { margin-left: 5px; border: 1px solid #7AA23F; background: url(images/jplayerbg.png);  border-radius:4px;  width: 90px; height: 36px; line-height: 36px; padding:0 5px;}
-        .jp-play { width: 100%; height: 36px; display: block; padding-top: 9px;}
-        .jplay_play { background: url(images/jplayerstop.png) no-repeat; width: 16px; height: 19px; display: block; }
-        .jp-play:focus { background: none;}
-        .jplay_play_right { background: url(images/jplayerstop_right.png) no-repeat; width: 16px; height: 19px; display: block; float:right; }
-        .jp-stop {  width: 100%; height: 36px; display: block; margin-left: 0; padding-top: 9px; margin-top: 0; }
-        .jplay_stop { display: block; margin-left: 0px;}
-        .jplay_stop_right { display: block; margin-left: 0px; float:right;}
-        .jp-stop:focus { background: none; margin-left: 0; }
-        .feed_file_list { border: none; margin:0 10px;}
-        .jp-stop_1 { background: url(images/jplayerplay.png) no-repeat 0 0; width: 16px; height: 19px;  }
-        .jp-stop_2 { background: url(images/jplayerplay.png) no-repeat -18px 0; width: 16px; height: 19px;  }
-        .jp-stop_3 { background: url(images/jplayerplay.png) no-repeat -39px 0; width: 18px; height: 19px;  }
-        .jp-stop_right_1 { background: url(images/jplayerplay_right.png) no-repeat -41px 0; width: 16px; height: 19px;  }
-        .jp-stop_right_2 { background: url(images/jplayerplay_right.png) no-repeat -23px 0; width: 16px; height: 19px;  }
-        .jp-stop_right_3 { background: url(images/jplayerplay_right.png) no-repeat -0px 0; width: 18px; height: 19px;  }
-        .feed_file_list li { padding-left: 0px; margin-top:20px;}
-        .text-li { position:relative; min-height:50px; width:90%;}
-        .text-li .left-head { position:absolute; top:10px; left:10px; }
-        .text-li .left-head img { width:50px; border-radius:4px; }
-        .text-li .right-content { float:left; margin-left:70px; }
-        .text-li .right-content .text-nick { line-height:22px; height:22px; }
-        .text-li .right-content .text-content { background:#fff; border-radius:5px; padding:10px; line-height:22px; margin-top:5px; }
-        .text-li .right-content .text-content_radio { line-height:22px; margin-top:5px;}
-
-        .text-li-right { position:relative; min-height:50px; width:90%; float:right; margin:5px 0;}
-        .text-li-right .left-head { position:absolute; top:0px; right:10px; }
-        .text-li-right .left-head img { width:50px; border-radius:4px; }
-        .text-li-right .right-content { float:right; margin-right:70px; }
-        .text-li-right .right-content .text-content {  background:#B4EB7C; border-radius:5px; padding:10px; line-height:22px; float:right;}
-
-        .jt_right { background:url(images/jplayerright.png); width: 6px; height: 30px; right:65px; top:7px; position: absolute; z-index:99 }
-        .text-li-right .right-content .dots { float:left; line-height:40px; margin-top: 3px; margin-right:8px;}
-        .text-li .right-content .dots { float:left; line-height:35px; margin-right:8px;}
-    </style>
+    <link href="../style/wktStyle.css" rel="stylesheet" />
 </head>
 <body style="max-width:640px; margin:0 auto; background:#F2F2F2; border:1px solid #ccc;">
     <form id="form1" runat="server">
