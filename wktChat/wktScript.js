@@ -114,8 +114,8 @@ function fillList() {
                         case "voice":
                             {
                                 var vlen = parseInt(chatline.voice_length) * 3;
-                                if (vlen < 80)
-                                    vlen = 80;
+                                if (vlen < 60)
+                                    vlen = 60;
                                 if (chatline.user_id == userid) {
                                     liItem = String.format(voiceRight, chatline.avatar, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString(), chatline.voice_length, "width:" + vlen + "px");
                                 } else {

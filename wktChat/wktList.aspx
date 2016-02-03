@@ -89,8 +89,8 @@
                 case "voice":
                     {
                         int vlen = Convert.ToInt32(chatDic["voice_length"].ToString()) * 3;
-                        if (vlen < 80)
-                            vlen = 80;
+                        if (vlen < 60)
+                            vlen = 60;
                         if (userid == Convert.ToInt32(chatDic["user_id"].ToString()))
                         {
                             //liItem = string.Format(voiceRight, chatDic["avatar"].ToString(), chatDic["message_content"].ToString(), voiceIndex, voiceIndex + 1);
