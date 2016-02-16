@@ -19,7 +19,7 @@
         }
        
         FileStream mp3Stream = File.OpenRead(currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3");
-        long length = mp3Stream.Length / 1000;
+        long length = mp3Stream.Length / 9000;
         mp3Stream.Close();
         Response.Write("{\"status\": 0   ,  \"duration\" : " + length.ToString() + " , \"mp3_url\" : \"http://game.luqinwenda.com/amr/sounds/" + currentConvertMediaId + ".mp3\"  }");
     }
