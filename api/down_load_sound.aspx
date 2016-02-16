@@ -19,7 +19,7 @@
         }
        
         FileStream mp3Stream = File.OpenRead(currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3");
-        long length = mp3Stream.Length / 1000;
+        long length = mp3Stream.Length / 2000;
         mp3Stream.Close();
         Response.Write("{\"status\": 0   ,  \"duration\" : " + length.ToString() + " , \"mp3_url\" : \"http://game.luqinwenda.com/amr/sounds/" + currentConvertMediaId + ".mp3\"  }");
     }
@@ -89,7 +89,7 @@
         process.StartInfo.FileName = currentLocalPath + @"\ffmpeg.exe";
         process.StartInfo.Arguments = " -i "
                 + currentLocalPath + @"\sounds\" + currentConvertMediaId + ".amr   "
-                + "  -af volume=" + vol.ToString() + "        " + currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3";
+                + "  -af volume=" + vol.ToString() + "    -ac 1  -ar 12000 -ab 128    " + currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3";
          
        
         process.StartInfo.UseShellExecute = false;
