@@ -89,7 +89,7 @@
         process.StartInfo.FileName = currentLocalPath + @"\ffmpeg.exe";
         process.StartInfo.Arguments = " -i "
                 + currentLocalPath + @"\sounds\" + currentConvertMediaId + ".amr   "
-                + "  -af volume=" + vol.ToString() + "        " + currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3";
+                + "  -af volume=" + vol.ToString() + "    -ac 1  -ar 48000 -ab 128    " + currentLocalPath + @"\sounds\" + currentConvertMediaId + ".mp3";
          
        
         process.StartInfo.UseShellExecute = false;
