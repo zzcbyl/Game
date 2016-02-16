@@ -125,6 +125,7 @@ function fillList() {
                             break;
                         default:
                     }
+                    voiceIndex = (parseInt(voiceIndex) + 1).toString();
                     inHtml += "<li>" + liItem.replace("&lt;", "<").replace("&gt;", ">") + "</li>";
                     $('.feed_file_list li:last').after(inHtml);
                     scrollPage();
