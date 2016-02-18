@@ -6,7 +6,7 @@ $(document).ready(function () {
     $wd.scrollTop($wd.scrollTop() + parseInt(movepx));
     
     var wh = document.body.clientWidth;
-    $("#textContent").css("width", (wh - 130).toString() + "px");
+    $("#textContent").css("width", (wh - 180).toString() + "px");
 
     setDots();
 

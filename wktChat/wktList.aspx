@@ -150,7 +150,7 @@
         <div id="bottomDiv" style="height:60px; clear:both;"></div>
         <div style="position:fixed; bottom:0; left:0; width:100%; text-align:center; line-height:55px; background:#fff; z-index:100;">
             <% if(canVoice.Equals("1")){ %>
-            <a id="switchInput" onclick="changeInput();" style="position:absolute; top:8px; left:5px; line-height:45px; "><img src="images/af9.png" width="22px" /></a>
+            <a id="switchInput" onclick="changeInput();" style="position:absolute; top:12px; left:5px; line-height:45px; "><img src="images/af9.png" width="30px" /></a>
             <%} %>
             <div style=" display:none;" id="input_voice">
                 <input type="button" value="开始录音" id="startRecord" style="width:100px; height:40px;" />
@@ -160,8 +160,8 @@
                 <textarea id="textContent" placeholder="请输入内容..." style=" display:inline-block; padding:0px 5px; margin-top:5px; width:auto; height:44px; line-height:22px; font-size:14px;"></textarea>　
                 <input type="button" value="发送" style="width:50px; height:25px; margin-top:17px;" onclick="inputText();" />
             </div>
-            <div style="position:absolute; top:7px; right:5px; line-height:50px;">
-                <a onclick="changeBlock();"><img src="images/a6b.png" width="22px" /></a>
+            <div style="position:absolute; top:8px; right:5px; line-height:50px;">
+                <a onclick="changeBlock();"><img src="images/a6b.png" width="30px" /></a>
             </div>
             <div id="openblock" style="margin-top:5px; display:none; text-align:center; padding-bottom:10px;">
                 <a id="uploadImg" style="display:block; width:55px; height:55px; border:1px solid #ccc; margin:0 auto; border-radius:3px;">
