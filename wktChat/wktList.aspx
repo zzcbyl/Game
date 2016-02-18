@@ -10,7 +10,7 @@
     public string ticket = "";
     public string shaParam = "";
     public string appId = System.Configuration.ConfigurationManager.AppSettings["wxappid_dingyue"];
-    public string token = "44a817f6160e594f21de0484c295d16ba947e8465d0e1a5be2dfa2d7f45521bd3ddce0b1";
+    public string token = "89970452e9cf12c3dfe576e0eef8c47a10fc94a4a36a8ac60a51e9a4488bb3027e9d1499";
     public string roomid = "1";
     public ArrayList chatList = new ArrayList();
     public int userid = 0;
@@ -26,8 +26,8 @@
     public string canVoice = "0";
     protected void Page_Load(object sender, EventArgs e)
     {
-        roomid = Request["roomid"];
-        token = Request["token"];
+        //roomid = Request["roomid"];
+        //token = Request["token"];
         
         timeStamp = Util.GetTimeStamp();
         ticket = Util.GetTicket();
