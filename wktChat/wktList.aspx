@@ -196,7 +196,11 @@
           'pauseVoice',
           'stopVoice',
           'uploadVoice',
-          'downloadVoice'
+          'downloadVoice',
+          'chooseImage',
+          'previewImage',
+          'uploadImage',
+          'downloadImage'
         ]
     });
 </script>

@@ -166,6 +166,10 @@ var voice = {
     localId: '',
     serverId: ''
 };
+var image = {
+    localId: '',
+    serverId: ''
+};
 wx.ready(function () {
     // 4 音频接口
     // 4.2 开始录音
@@ -257,62 +261,30 @@ wx.ready(function () {
         }
     });
 
-    //// 4.5 播放音频
-    //document.querySelector('#playVoice').onclick = function () {
-    //    if (voice.localId == '') {
-    //        alert('请先使用 startRecord 接口录制一段声音');
-    //        return;
-    //    }
-    //    wx.playVoice({
-    //        localId: voice.localId
-    //    });
-    //};
+    document.querySelector('#uploadImg').onclick = function () {
 
-    //// 4.6 暂停播放音频
-    //document.querySelector('#pauseVoice').onclick = function () {
-    //    wx.pauseVoice({
-    //        localId: voice.localId
-    //    });
-    //};
+        wx.chooseImage({
+            count: 1, // 默认9
+            sizeType: ['original'], // 可以指定是原图还是压缩图，默认二者都有
+            sourceType: ['album'], // 可以指定来源是相册还是相机，默认二者都有
+            success: function (res) {
+                image.localId = res.localIds[0]; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+                upImage();
+            }
+        });
+    };
 
-    //// 4.7 停止播放音频
-    //document.querySelector('#stopVoice').onclick = function () {
-    //    wx.stopVoice({
-    //        localId: voice.localId
-    //    });
-    //};
-
-    
-
-    //// 4.8 上传语音
-    //document.querySelector('#uploadVoice').onclick = function () {
-    //    if (voice.localId == '') {
-    //        alert('请先使用 startRecord 接口录制一段声音');
-    //        return;
-    //    }
-    //    wx.uploadVoice({
-    //        localId: voice.localId,
-    //        success: function (res) {
-    //            alert('上传语音成功，serverId 为' + res.serverId);
-    //            voice.serverId = res.serverId;
-    //        }
-    //    });
-    //};
-
-    //// 4.9 下载语音
-    //document.querySelector('#downloadVoice').onclick = function () {
-    //    if (voice.serverId == '') {
-    //        alert('请先使用 uploadVoice 上传声音');
-    //        return;
-    //    }
-    //    wx.downloadVoice({
-    //        serverId: voice.serverId,
-    //        success: function (res) {
-    //            alert('下载语音成功，localId 为' + res.localId);
-    //            voice.localId = res.localId;
-    //        }
-    //    });
-    //};
+    function upImage() {
+        wx.uploadImage({
+            localId: image.localId, // 需要上传的图片的本地ID，由chooseImage接口获得
+            isShowProgressTips: 1, // 默认为1，显示进度提示
+            success: function (res) {
+                image.serverId = res.serverId; // 返回图片的服务器端ID
+                
+                submitInput('image', image.serverId);
+            }
+        });
+    }
 
 });
 
