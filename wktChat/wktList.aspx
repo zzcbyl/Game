@@ -147,7 +147,7 @@
             </ul>
         </div>
         <% if(canText.Equals("1")) { %>
-        <div style="height:60px; clear:both;"></div>
+        <div id="bottomDiv" style="height:60px; clear:both;"></div>
         <div style="position:fixed; bottom:0; left:0; width:100%; text-align:center; line-height:55px; background:#fff; z-index:100;">
             <% if(canVoice.Equals("1")){ %>
             <a id="switchInput" onclick="changeInput();" style="position:absolute; top:8px; left:5px; line-height:45px; "><img src="images/af9.png" width="22px" /></a>
@@ -156,7 +156,7 @@
                 <input type="button" value="开始录音" id="startRecord" style="width:100px; height:40px;" />
                 <input type="button" value="停止录音" id="stopRecord" style="width:100px; height:40px; display:none;" />
             </div>
-            <div style="display:flex; text-align:center; margin-left:40px; height:55px;" id="input_text">
+            <div style="display:flex; text-align:center; margin:0 40px; height:55px;" id="input_text">
                 <textarea id="textContent" placeholder="请输入内容..." style=" display:inline-block; padding:0px 5px; margin-top:5px; width:auto; height:44px; line-height:22px; font-size:14px;"></textarea>　
                 <input type="button" value="发送" style="width:50px; height:25px; margin-top:17px;" onclick="inputText();" />
             </div>
@@ -213,10 +213,14 @@
     });
 
     function changeBlock() {
-        if ($('#openblock').css("display") == "none")
+        if ($('#openblock').css("display") == "none") {
             $('#openblock').show();
-        else
+            $('#bottomDiv').css('height', '130px');
+        }
+        else {
             $('#openblock').hide();
+            $('#bottomDiv').css('height', '60px');
+        }
     }
 </script>
 <script src="wktScript.js"></script>
