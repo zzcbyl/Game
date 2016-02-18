@@ -74,14 +74,13 @@
                     sizeType: ['original'], // 可以指定是原图还是压缩图，默认二者都有
                     sourceType: ['album'], // 可以指定来源是相册还是相机，默认二者都有
                     success: function (res) {
-                        image.localId = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
-
-                        uploadImage();
+                        image.localId = res.localIds[0]; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+                        upImage();
                     }
                 });
             };
 
-            function uploadImage()
+            function upImage()
             {
                 wx.uploadImage({
                     localId: image.localId, // 需要上传的图片的本地ID，由chooseImage接口获得
