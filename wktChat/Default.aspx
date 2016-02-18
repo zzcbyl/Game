@@ -76,6 +76,11 @@
                     success: function (res) {
                         image.localId = res.localIds[0]; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
                         upImage();
+
+                        wx.previewImage({
+                            current: image.localId, // 当前显示图片的http链接
+                            urls: [image.localId] // 需要预览的图片http链接列表
+                        });
                     }
                 });
             };
