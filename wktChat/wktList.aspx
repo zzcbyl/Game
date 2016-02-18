@@ -160,7 +160,7 @@
                 <textarea id="textContent" placeholder="请输入内容..." style=" display:inline-block; padding:0px 5px; margin-top:5px; width:auto; height:44px; line-height:22px; font-size:14px;"></textarea>　
                 <input type="button" value="发送" style="width:50px; height:25px; margin-top:17px;" onclick="inputText();" />
             </div>
-            <div style="position:absolute; top:8px; right:5px; line-height:50px;">
+            <div style="position:absolute; top:10px; right:5px; line-height:50px;">
                 <a onclick="changeBlock();"><img src="images/a6b.png" width="30px" /></a>
             </div>
             <div id="openblock" style="margin-top:5px; display:none; text-align:center; padding-bottom:10px;">
