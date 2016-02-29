@@ -25,16 +25,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <script src="../script/jquery-2.1.1.min.js"></script>
+    <script src="../script/common.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
         <input id="uploadImg" type="button" value="上传图片" />
+
+        <input type="button" value="翻转" onclick="changeReverse();" />
     </div>
     </form>
 </body>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
+
+        function changeReverse() {
+            var str = "abcdef";
+            alert(str.reverse());
+        }
+
+
         wx.config({
             debug: false,
             appId: '<%=appId%>', // 必填，公众号的唯一标识

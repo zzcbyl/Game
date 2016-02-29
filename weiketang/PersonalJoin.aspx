@@ -61,10 +61,9 @@
             <div style="text-align:center; font-size:11pt; color:#808080; font-family:微软雅黑;">已有<span id="spCount"><%=forward_count %></span>票支持</div>
             <div style="text-align:left; margin-top:10px;">
                 <div style="text-align:center; ">
-                    <h2 style="color:#CC3333;">卢勤和她的朋友们微课堂</h2>
-                    春节后第一课，即将震撼开讲！<br />    
-                    2016年3月4日<br />
-                    《幸福力教育系列讲座---站在人才的高度务教育》<br />
+                    <h2 style="color:#CC3333;">【卢勤和她的朋友们微课堂】</h2>
+                    阳春三月幸福开讲！<br />    
+                    《贺淑曼---站在人才的高度务教育》<br />
                 </div>
                 <span style="font-weight:bold; background:#ccc; display:inline-block; padding:5px; margin:3px 0;">个人申请进入听课群资格：</span><br />
                 <%--● 申请活动截止时间：2016年1月21日12:00，之后将不再接受申请；<br />--%>
