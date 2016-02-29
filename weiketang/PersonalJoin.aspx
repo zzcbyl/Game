@@ -60,11 +60,14 @@
             <div style="margin-top:10px;">邀请码：<span style="font-family:微软雅黑; font-size:14pt; font-weight:bold;"><%=code %></span></div>
             <div style="text-align:center; font-size:11pt; color:#808080; font-family:微软雅黑;">已有<span id="spCount"><%=forward_count %></span>票支持</div>
             <div style="text-align:left; margin-top:10px;">
-                　　卢勤和她的朋友们微课堂<br />
-                　　2016年1月21日<br />
-                　　点燃孩子的创造力！<br />
+                <div style="text-align:center; ">
+                    <h2 style="color:#CC3333;">卢勤和她的朋友们微课堂</h2>
+                    春节后第一课，即将震撼开讲！<br />    
+                    2016年3月4日<br />
+                    《幸福力教育系列讲座---站在人才的高度务教育》<br />
+                </div>
                 <span style="font-weight:bold; background:#ccc; display:inline-block; padding:5px; margin:3px 0;">个人申请进入听课群资格：</span><br />
-                　　<%--● 申请活动截止时间：2016年1月21日12:00，之后将不再接受申请；<br />--%>
+                <%--● 申请活动截止时间：2016年1月21日12:00，之后将不再接受申请；<br />--%>
                 　　● 仅限500个席位，满额之后将不再接受申请。<br />
                 <span style="font-weight:bold; background:#ccc; display:inline-block; padding:5px; margin:3px 0;">个人申请进入听课群细则：</span><br />
                 　　1. 报名在线讲座，请先关注卢勤问答平台微信公众号（ID：luqinwendapingtai）；<br />
@@ -81,32 +84,27 @@
                 <a id="ASupported" style="display:none;">您已支持，谢谢！</a>
                 <button id="btnSupport" style="width:90px; height:40px; background:#E51925; color:#fff; display:block; line-height:40px; margin:0px auto; font-size:14pt; border-radius:5px; border:0;" onclick="SupportVote(this);">支 持</button>
             </div>
-            <%--<div style="margin-top:20px; text-align:left;">
+            <div style="margin-top:20px; text-align:left;">
                 <div><b style="color:red;">加群必知：</b></div>
-                <div>　　已加入12月22日微课直播群（卢勤和她的朋友们微课堂群）的朋友不用再重复申请入群，可以继续收听。</div>
-            </div>--%>
+                <div>　　卢勤问答平台微课直播群（卢勤和她的朋友们微课堂群）的朋友不用再重复申请入群，可以继续收听。</div>
+            </div>
         </div>
         <div style="text-align:left; line-height:30px; background:#fff; padding:10px; margin-top:10px;">
             <p style="text-align:center;">
-                <img src="../images/luqin.jpg" width="90%" /></p>
-            <p><h3>卢勤老师</h3></p>
-            <p>　　卢勤老师是中国少年儿童新闻出版总社首席教育专家,深受广大家长和小朋友喜爱的“知心姐姐”，中国家庭教育学会常务理事，中国关心下一代工作委员会专家委员会委员，全国“更新家庭教育观念报告团”成员，曾担任中国少年儿童新闻出版总社总编辑。中央电视台、中国教育电视台、北京电视台、腾讯、搜狐等多家传媒名牌栏目的常邀嘉宾。</p>
-            <p>　　三十多年来,卢勤老师致力于对少年儿童及家长心理健康的研究。在长期主持《中国少年报》“知心姐姐”栏目过程中，积累了大量的一线家庭教育实践经验，是中国上亿家长及儿童最喜爱、最信任的权威教育专家，深受亿万家长和孩子的爱戴。</p>
+                <img src="../images/heshuman.jpg" width="90%" /></p>
+            <h3>卢勤老师的朋友——著名学者贺淑曼教授</h3>
+            <p>　　<b>贺淑曼</b>，教授 ，出身于教育世家，从教近50年，教过数以万计的学生，已遍及海内外。1993年由中国科技大学（少年班）调北京工业大学。先后开创了北工大心理咨询中心及青少年发展心理教研室的工作，均历任主任。1995年牵头创建了中国人才研究会超常人才专业委员会，现任名誉会长。2000年前后曾在全国心理教育界兼职20余项。先后八次担任英才（超常）教育国际论坛会、国际天才儿童教育研讨会及海峡两岸超常人才教育研讨会的大会主席及副主席，多次率团赴台湾学术交流。</p>
+            <p>　　<b>荣誉：</b>约10余种，如 ：“五个一工程奖”（国家文化最高奖）、人事部“人才科研优秀奖”，北京市教委“心理素质教育突出贡献奖”、中国科大少年班“优秀班主任奖”等。</p>
+            <p>　　<b>著作：</b>20余部，如：《创新素养与人才发展》、《创新与超常发展---像天才一样思维》，《让孩子赢在网络时代》《天生我材必有用  英才教育学》等。</p>
+            <p>　　<b>原创理念：</b>她是国内笫一位倡导：英才教育两条腿走路（针对英才儿童的狭义英才教育和普及性的英才全人教育）。及囯内第一位倡导：幸福力教育，站在人才的高度务教育的著名学者。</p>
         </div>
         <div style="text-align:left; line-height:30px; background:#fff; padding:10px; margin-top:10px;">
-            <p style="text-align:center;">
-                <img src="../images/chenghuai.jpg" width="90%" /></p>
-            <p><h3>程淮教授</h3></p>
-            <p>　　幸福泉儿童发展集团创始人、研究院院长、首席专家、教授；中国关心下一代工作委员会专家委员会委员；中国家庭教育学会儿童早期家庭教育专业委员会副理事长；中国人才研究会超常人才专业委员会学术委员、常务理事；宋庆龄儿童创意发明奖专家评审委员会主任；北京家庭教育三十年突出贡献人物。</p>
-            <p>　　程淮教授是美国《新闻周刊》上唯一报道过的中国育儿专家，第一位使我国幼教理论踏上联合国大会儿童特别会议NGO论坛的中国学者；开创了婴幼儿潜能开发事业，发起了中国百万婴幼儿潜能开发“2049计划”，是中国婴幼儿潜能开发教育的先行者。</p>
-        </div>
-        <div style="text-align:left; line-height:30px; background:#fff; padding:10px; margin-top:10px;">
-            <p>　　儿童拥有异想天开的天性，尊重、保护和发展幼儿的创造力，是儿童发展的最重要的任务之一，而幼儿期是培养想象力和创造力的关键期。“创造力是人类最宝贵的财富。人类的进步和发展都源于创造力。儿童的想象力和创造力，远远超出成人的想象！这里既有天马行空的奇思妙想，也有似乎荒诞不经的创意，还有实用新型的专利作品。”</p>
-            <p>　　其实，创造并不神秘，就像陶行知先生说的那样：“处处可创造，时时有创造，人人能创造”！家长该如何保护、启迪和培养孩子的创造力呢？1月21日，国际知名育儿专家程淮教授、著名家庭教育专家卢勤老师将告诉您，如何点燃孩子的创造力！</p>
-            <p><b>课程名称：</b>点燃孩子的创造力！</p>
-            <p><b>开课时间：</b>1月21日（周四）20:00-21:00</p>
+            <p>　　所谓成“人”，就是要知道社会人的行为规范和道德底线，成“人”的过程就是社会化的过程。这是一个不被教育重视的教育。</p>
+            <p>　　教育把我们引进了，为升学、为职称、为财富等的成功上了。其实更重要的是幸福。因为幸福对每个人来说，都是必须品，而不是什么奢侈品。人必须有知不足而常乐的意识，才能学会创造幸福的能力！3月4日，贺淑曼教授将带来幸福第一讲《基本幸福力教育--成“人”教育必修课  》，生动讲述学习的“四大支柱”。</p>
+            <p><b>课程名称：</b>基本幸福力教育--成“人”教育必修课</p>
+            <p><b>开课时间：</b>3月4日（周五）20:00-21:00</p>
             <p><b>课程形式：</b>卢勤和她的朋友们微课堂群<br />　　　　　合作转播群</p>
-            <p><b>适合人群：</b>愿意为孩子创造良好家庭教育环境的家长、准家长。</p>
+            <p><b>适合人群：</b>愿意为孩子创造良好家庭教育环境的家长、准家长、教育工作者等。</p>
         </div>
     </div>
     <div id="showShare" style="display:none;" onclick="javascript:document.getElementById('showShare').style.display='none';">
