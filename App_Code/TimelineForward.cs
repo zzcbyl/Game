@@ -26,10 +26,10 @@ public class TimelineForward
         }
 	}
 
-    public TimelineForward(int userId, int actId)
+    public TimelineForward(int userId, int actId, int fatherid)
     {
         DataTable dt = DBHelper.GetDataTable(" select * from timeline_forward where uid = " + userId.ToString()
-            + " and act_id = " + actId.ToString() , Util.ConnectionStringMall);
+            + " and act_id = " + actId.ToString() + " and from_uid = " + fatherid, Util.ConnectionStringMall);
         if (dt.Rows.Count == 1)
         {
             _fields = dt.Rows[0];
@@ -40,9 +40,9 @@ public class TimelineForward
         }
     }
 
-    public TimelineForward[] GetSubForward()
+    public TimelineForward[] GetSubForward(int userid, int actid)
     {
-        DataTable dt = DBHelper.GetDataTable(" select * from timeline_forward where from_id = " + ID.ToString(),
+        DataTable dt = DBHelper.GetDataTable(" select * from timeline_forward where from_uid = " + userid.ToString() + " and act_id =" + actid,
             Util.ConnectionStringMall.Trim());
         TimelineForward[] timelineForwardArr = new TimelineForward[dt.Rows.Count];
         for (int i = 0; i < dt.Rows.Count; i++)
@@ -54,17 +54,17 @@ public class TimelineForward
     }
 
 
-    public int GetSubForwardNum()
+    public int GetSubForwardNum(int userid, int actid)
     {
-        TimelineForward[] timelineForwardArr = GetSubForward();
+        TimelineForward[] timelineForwardArr = GetSubForward(userid, actid);
         int num = timelineForwardArr.Length;
-        foreach (TimelineForward timelineForward in timelineForwardArr)
-        {
-            num = num + timelineForward.GetSubForwardNum();
-        }
-        string[,] updateParameters = { { "forward_times", "int", num.ToString() } };
-        string[,] keyParameters = { { "id", "int", ID.ToString() } };
-        DBHelper.UpdateData("timeline_forward", updateParameters, keyParameters, Util.ConnectionStringMall);
+        //foreach (TimelineForward timelineForward in timelineForwardArr)
+        //{
+        //    num = num + timelineForward.GetSubForwardNum();
+        //}
+        //string[,] updateParameters = { { "forward_times", "int", num.ToString() } };
+        //string[,] keyParameters = { { "id", "int", ID.ToString() } };
+        //DBHelper.UpdateData("timeline_forward", updateParameters, keyParameters, Util.ConnectionStringMall);
         return num;
     }
 
@@ -76,16 +76,16 @@ public class TimelineForward
         }
     }
 
-    public static TimelineForward CreateForward(int userId, int actId, int fatherId)
+    public static TimelineForward CreateForward(int userId, int actId, int fatherUId)
     {
-        string[,] insertParameters =  { {"uid", "int", userId.ToString()}, {"act_id", "int", actId.ToString()}, {"from_id", "int", fatherId.ToString()}};
+        string[,] insertParameters = { { "uid", "int", userId.ToString() }, { "act_id", "int", actId.ToString() }, { "from_uid", "int", fatherUId.ToString() } };
 
-        TimelineForward timeLineForward; 
+        TimelineForward timeLineForward;
 
         int i = DBHelper.InsertData("timeline_forward", insertParameters, Util.ConnectionStringMall);
         if (i == 1)
         {
-            timeLineForward = new TimelineForward(userId, actId);
+            timeLineForward = new TimelineForward(userId, actId, fatherUId);
         }
         else
         {
@@ -94,19 +94,26 @@ public class TimelineForward
         return timeLineForward;
     }
 
-    public static void ComputeForwardTimesForOriginUsers(int actId)
+    public static void UpdateForwardCount(int userId, int actId, int fatherUId)
     {
-        DataTable dt = DBHelper.GetDataTable(" select * from timeline_forward where from_id = 0 and act_id = " + actId.ToString(), Util.ConnectionStringMall);
-        foreach (DataRow dr in dt.Rows)
-        {
-            if (int.Parse(dr["from_id"].ToString().Trim()) == 0)
-            {
-                TimelineForward timelineForward = new TimelineForward();
-                timelineForward._fields = dr;
-                timelineForward.GetSubForwardNum();
-            }
-        }
+        string sql = "update timeline_forward set forward_times = forward_times + 1 where uid = " + userId.ToString()
+            + " and act_id = " + actId.ToString() + " and from_uid = " + fatherUId;
+        int result = DBHelper.ExecteNonQuery(Util.ConnectionStringMall, CommandType.Text, sql, null);
     }
+
+    //public static void ComputeForwardTimesForOriginUsers(int actId)
+    //{
+    //    DataTable dt = DBHelper.GetDataTable(" select * from timeline_forward where from_uid = 0 and act_id = " + actId.ToString(), Util.ConnectionStringMall);
+    //    foreach (DataRow dr in dt.Rows)
+    //    {
+    //        if (int.Parse(dr["from_uid"].ToString().Trim()) == 0)
+    //        {
+    //            TimelineForward timelineForward = new TimelineForward();
+    //            timelineForward._fields = dr;
+    //            timelineForward.GetSubForwardNum();
+    //        }
+    //    }
+    //}
 
     
 }

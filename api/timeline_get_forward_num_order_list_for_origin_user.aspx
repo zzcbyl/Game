@@ -5,11 +5,11 @@
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        ThreadStart threadStart = new ThreadStart(ComputeForwardTimesForOriginUsers);
-        Thread thread = new Thread(threadStart);
-        thread.Start();
+        //ThreadStart threadStart = new ThreadStart(ComputeForwardTimesForOriginUsers);
+        //Thread thread = new Thread(threadStart);
+        //thread.Start();
 
-        DataTable dt = DBHelper.GetDataTable(" select * from timeline_forward where from_id = 0 order by forward_times desc ", Util.ConnectionStringMall);
+        DataTable dt = DBHelper.GetDataTable(" select * from timeline_forward where from_uid = 0 order by forward_times desc ", Util.ConnectionStringMall);
 
         string retSubJson = "";
 
@@ -25,9 +25,9 @@
         
     }
 
-    private void ComputeForwardTimesForOriginUsers()
-    {
-        TimelineForward.ComputeForwardTimesForOriginUsers(1);
-    }
+    //private void ComputeForwardTimesForOriginUsers()
+    //{
+    //    TimelineForward.ComputeForwardTimesForOriginUsers(1);
+    //}
     
 </script>

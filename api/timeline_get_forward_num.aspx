@@ -9,10 +9,10 @@
         int userId = int.Parse(Util.GetSafeRequestValue(Request, "userid", "16"));
         if (userId > 0)
         {
-            TimelineForward timelineForward = new TimelineForward(userId, actid);
+            TimelineForward timelineForward = new TimelineForward();
             if (timelineForward._fields != null)
             {
-                Response.Write("{\"status\":0, \"forward_count\": " + timelineForward.GetSubForwardNum().ToString() + " }");
+                Response.Write("{\"status\":0, \"forward_count\": " + timelineForward.GetSubForwardNum(userId, actid).ToString() + " }");
             }
             else
             {

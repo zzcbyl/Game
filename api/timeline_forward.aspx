@@ -11,21 +11,25 @@
 
         int actId = int.Parse(Util.GetSafeRequestValue(Request, "actid", "1"));
         
-        TimelineForward timelineForward = new TimelineForward(fatherUserId, actId);
+        //TimelineForward timelineForward = new TimelineForward(fatherUserId, actId);
 
-        int fatherId = 0;
+        //int fatherId = 0;
 
-        if (timelineForward._fields != null)
-        {
-            fatherId = timelineForward.ID;
-        }
+        //if (timelineForward._fields != null)
+        //{
+        //    fatherId = timelineForward.ID;
+        //}
         
         if (userId > 0)
         {
-            timelineForward = new TimelineForward(userId, actId);
+            TimelineForward timelineForward = new TimelineForward(userId, actId, fatherUserId);
             if (timelineForward._fields == null)
             {
-                timelineForward = TimelineForward.CreateForward(userId, actId, fatherId);
+                timelineForward = TimelineForward.CreateForward(userId, actId, fatherUserId);
+            }
+            else
+            {
+                TimelineForward.UpdateForwardCount(userId, actId, fatherUserId);
             }
             
             Response.Write("{\"status\" : 0 , \"timeline_forward_id\" : " + timelineForward.ID.ToString()+"}");
