@@ -104,15 +104,16 @@
                         </p>
                     </div>
                     <div class="rich_media_tool" id="js_toobar3">
-                        <div style="text-align:center; font-size:16pt;"><img src="images/zan_icon_0.png" style="width:57px; height:57px;" onclick="showShare();" onmouseover="zanUp(this);" onmouseout ="zanDown(this);" /></div>
-                        <div style="text-align:center; font-size:10pt; color:#808080; font-family:微软雅黑;">已有<%=forward_count %>人赞过</div>
+                        <%--<div style="text-align:center; font-size:16pt;"><img src="images/zan_icon_0.png" style="width:57px; height:57px;" onclick="showShare();" onmouseover="zanUp(this);" onmouseout ="zanDown(this);" /></div>
+                        <div style="text-align:center; font-size:10pt; color:#808080; font-family:微软雅黑;">已有<%=forward_count %>人赞过</div>--%>
 
-                        <%--<a class="media_tool_meta meta_primary" id="js_view_source" href="javascript:void(0);">阅读原文</a>
+                        <a class="media_tool_meta meta_primary" id="js_view_source" href="javascript:void(0);">阅读原文</a>
+                        <a class="media_tool_meta meta_primary" id="js_view_number" href="javascript:void(0);">阅读 11357</a>
                         <a id="js_report_article3" class="media_tool_meta tips_global meta_extra" href="javascript:void(0);" onclick="showShare();">
                             <span style="margin-right:10px;" class="media_tool_meta meta_primary tips_global meta_praise" id="like3">
                                 <i class="icon_praise_gray"></i><span class="praise_num" id="likeNum3">5</span>
                             </span>
-                        </a>--%>
+                        </a>
                     </div>
                 </div>
             </div>

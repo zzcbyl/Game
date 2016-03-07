@@ -4,10 +4,10 @@
 
 <script runat="server">
     public string timeStamp = "";
-    public string nonceStr = "s4ef6e21d1f0br0fcwb93ba9fd";
+    public string nonceStr = "s4ef6e21d1f0br01sadfasdf23fcw55b93ba9fd";
     public string ticket = "";
     public string shaParam = "";
-    public string appId = System.Configuration.ConfigurationManager.AppSettings["wxappid"];
+    public string appId = System.Configuration.ConfigurationManager.AppSettings["wxappid_dingyue"];
 
     protected void Page_Load(object sender, EventArgs e)
     {

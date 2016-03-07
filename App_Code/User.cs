@@ -138,7 +138,22 @@ public class Users
             DBHelper.UpdateData("m_user", updateParameters, keyParameters, Util.ConnectionStringMall);
         }
     }
-   
+
+
+    public int Integral
+    {
+        get
+        {
+            return int.Parse(_fields["integral"].ToString().Trim());
+        }
+        set
+        {
+            int integral = value;
+            string[,] updateParameters = { { "integral", "int", integral.ToString() } };
+            string[,] keyParameters = { { "uid", "int", ID.ToString() } };
+            DBHelper.UpdateData("m_user", updateParameters, keyParameters, Util.ConnectionStringMall);
+        }
+    }
 
     public static int CheckToken(string token)
     {

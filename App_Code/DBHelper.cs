@@ -189,4 +189,56 @@ public class DBHelper
     }
 
 
+    /// <summary>
+    ///执行一个不需要返回值的SqlCommand命令，通过指定专用的连接字符串。
+    /// 使用参数数组形式提供参数列表 
+    /// </summary>
+    /// <param name="connectionString">一个有效的数据库连接字符串</param>
+    /// <param name="cmdType">SqlCommand命令类型 (存储过程， T-SQL语句， 等等。)</param>
+    /// <param name="cmdText">存储过程的名字或者 T-SQL 语句</param>
+    /// <param name="commandParameters">以数组形式提供SqlCommand命令中用到的参数列表</param>
+    /// <returns>返回一个数值表示此SqlCommand命令执行后影响的行数</returns>
+    public static int ExecteNonQuery(string connectionString, CommandType cmdType, string cmdText, params SqlParameter[] commandParameters)
+    {
+        SqlCommand cmd = new SqlCommand();
+        using (SqlConnection conn = new SqlConnection(connectionString))
+        {
+            //通过PrePareCommand方法将参数逐个加入到SqlCommand的参数集合中
+            PrepareCommand(cmd, conn, null, cmdType, cmdText, commandParameters);
+            int val = cmd.ExecuteNonQuery();
+            //清空SqlCommand中的参数列表
+            cmd.Parameters.Clear();
+            return val;
+        }
+    }
+
+
+    /// <summary>
+    /// 为执行命令准备参数
+    /// </summary>
+    /// <param name="cmd">SqlCommand 命令</param>
+    /// <param name="conn">已经存在的数据库连接</param>
+    /// <param name="trans">数据库事物处理</param>
+    /// <param name="cmdType">SqlCommand命令类型 (存储过程， T-SQL语句， 等等。)</param>
+    /// <param name="cmdText">Command text，T-SQL语句 例如 Select * from Products</param>
+    /// <param name="cmdParms">返回带参数的命令</param>
+    private static void PrepareCommand(SqlCommand cmd, SqlConnection conn, SqlTransaction trans, CommandType cmdType, string cmdText, SqlParameter[] cmdParms)
+    {
+        //判断数据库连接状态
+        if (conn.State != ConnectionState.Open)
+            conn.Open();
+        cmd.Connection = conn;
+        cmd.CommandText = cmdText;
+        //判断是否需要事物处理
+        if (trans != null)
+            cmd.Transaction = trans;
+        cmd.CommandType = cmdType;
+        if (cmdParms != null)
+        {
+            foreach (SqlParameter parm in cmdParms)
+                cmd.Parameters.Add(parm);
+        }
+    }
+
+
 }
