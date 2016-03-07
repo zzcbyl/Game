@@ -97,7 +97,7 @@
 
                         <a class="media_tool_meta meta_primary" id="js_view_source" href="<%=originalurl %>">阅读原文</a>
                         <a class="media_tool_meta meta_primary" id="js_view_number" style="color:#ababab;" href="javascript:void(0);">阅读 <%=pv %></a>
-                        <a id="js_report_article3" class="media_tool_meta meta_primary" href="javascript:void(0);" onclick="shareSuccess();">
+                        <a id="js_report_article3" class="media_tool_meta meta_primary" href="javascript:void(0);" onclick="showShare();">
                             <span style="margin-right:10px;" class="media_tool_meta meta_primary tips_global meta_praise" id="like3">
                                 <i class="icon_praise_gray"></i><span class="praise_num" id="likeNum3"></span>
                             </span>
