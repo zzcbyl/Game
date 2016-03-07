@@ -150,7 +150,7 @@
                 wx.onMenuShareAppMessage({
                     title: shareTitle, // 分享标题
                     desc: shareContent, // 分享描述
-                    link: 'http://game.luqinwenda.com/dingyue/activity01.aspx', // 分享链接
+                    link: shareLink, // 分享链接
                     imgUrl: shareImg, // 分享图标
                     success: function () {
                         // 用户确认分享后执行的回调函数
