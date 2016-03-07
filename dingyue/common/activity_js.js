@@ -23,8 +23,8 @@ function shareSuccess() {
     $.ajax({
         type: "GET",
         async: false,
-        url: "Handler",
-        data: { token: Token, fatheruserid: Fatheruid, actid: articleid },
+        url: "Handler.ashx",
+        data: { token: Token, fatheruserid: Fatheruid, articleid: articleid },
         success: function (data) {
             
         }

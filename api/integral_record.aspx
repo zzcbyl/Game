@@ -5,10 +5,11 @@
     protected void Page_Load(object sender, EventArgs e)
     {
         string token = ((Request["token"] == null) ? "a51ec2c5dc89b56b79efb0ec882d2776a901e901806e59ab2d9f31ac3df19ca20be1fda8" : Request["token"].Trim());
+        string type = ((Request["type"] == null) ? "article" : Request["type"].Trim());
         int userId = Users.CheckToken(token);
         if (userId > 0)
         {
-            DataTable dt = Integral.GetList(userId);
+            DataTable dt = Integral.GetList(userId, type);
             string jsonRecord = "";
             foreach (DataRow dr in dt.Rows)
             {
