@@ -18,7 +18,7 @@
     protected void Page_Load(object sender, EventArgs e)
     {
         token = Util.GetSafeRequestValue(Request, "token", "");
-        //articleid = int.Parse(Util.GetSafeRequestValue(Request, "articleid", ""));
+        articleid = int.Parse(Util.GetSafeRequestValue(Request, "articleid", ""));
 
         if (token.Trim().Equals(""))
         {
