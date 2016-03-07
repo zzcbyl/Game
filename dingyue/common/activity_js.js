@@ -23,8 +23,8 @@ function shareSuccess() {
     $.ajax({
         type: "GET",
         async: false,
-        url: "http://game.luqinwenda.com/api/timeline_forward.aspx",
-        data: { token: Token, fatheruserid: Fatheruid, actid: 1 },
+        url: "Handler",
+        data: { token: Token, fatheruserid: Fatheruid, actid: articleid },
         success: function (data) {
             
         }

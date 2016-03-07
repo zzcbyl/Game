@@ -25,7 +25,7 @@ public class Integral
         if (integralv >= 0)
         {
             string sql = "insert int m_integral (integral_userid, integral_cost, integral_remark) VALUES (" + userid + "," + integralVal + ",'" + remark + "')";
-            result = DBHelper.ExecteNonQuery(Util.ConnectionString, CommandType.Text, sql, null);
+            result = DBHelper.ExecteNonQuery(Util.ConnectionStringMall, CommandType.Text, sql, null);
 
             user.Integral = integralv;
         }
@@ -43,13 +43,15 @@ public class Integral
     //    return balance;
     //}
 
-    public static DataTable GetList(int userid)
+    public static DataTable GetList(int userid, string date = null)
     {
-        DataTable dt = null;
-        string sql = "select * from m_integral where integral_userid=" + userid + " order by integral_id desc";
-        dt = DBHelper.GetDataTable(sql, Util.ConnectionString);
+        DataTable dt = new DataTable();
+        string sql = "select * from m_integral where integral_userid=" + userid;
+        if (date != null)
+            sql += " and integral_time>=" + Convert.ToDateTime(date).ToString("yyyy-MM-dd") + " and integral_time<" + Convert.ToDateTime(date).AddDays(1).ToString("yyyy-MM-dd");
+        sql += " order by integral_id desc";
+        dt = DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
         return dt;
     }
     
-
 }
