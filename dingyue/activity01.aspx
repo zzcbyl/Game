@@ -121,7 +121,7 @@
         var shareTitle = "<%=title %>"; //标题
         var shareImg = "<%=headimg %>"; //图片
         var shareContent = '<%=summary %>'; //简介
-        var shareLink = 'http://game.luqinwenda.com/dingyue/activity01.aspx?fuid=<%=userId %>&articleid=<%=articleid %>'; //链接
+        var shareLink = 'http://game.luqinwenda.com/dingyue/activity01.aspx?articleid=<%=articleid %>&fuid=<%=userId %>'; //链接
         var ExitName = '<%=IsUName %>';
         var Token = '<%=token %>';
         var Fatheruid = 0;
