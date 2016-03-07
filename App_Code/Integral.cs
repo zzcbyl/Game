@@ -17,14 +17,14 @@ public class Integral
 		//
 	}
 
-    public static int AddIntegral(int userid, int integralVal, string remark)
+    public static int AddIntegral(int userid, int integralVal, string remark, string type, int type_id)
     {
         int result = 0;
         Users user = new Users(userid);
         int integralv = user.Integral + integralVal;
         if (integralv >= 0)
         {
-            string sql = "insert int m_integral (integral_userid, integral_cost, integral_remark) VALUES (" + userid + "," + integralVal + ",'" + remark + "')";
+            string sql = "insert into m_integral (integral_userid, integral_cost, integral_remark, integral_type, integral_type_id) VALUES (" + userid + "," + integralVal + ",'" + remark + "','" + type + "'," + type_id + ")";
             result = DBHelper.ExecteNonQuery(Util.ConnectionStringMall, CommandType.Text, sql, null);
 
             user.Integral = integralv;
@@ -43,10 +43,12 @@ public class Integral
     //    return balance;
     //}
 
-    public static DataTable GetList(int userid, string date = null)
+    public static DataTable GetList(int userid, string type, int type_id = 0, string date = null)
     {
         DataTable dt = new DataTable();
-        string sql = "select * from m_integral where integral_userid=" + userid;
+        string sql = "select * from m_integral where integral_userid=" + userid + " and integral_type='" + type + "'";
+        if (type_id > 0)
+            sql += " and integral_type_id=" + type_id;
         if (date != null)
             sql += " and integral_time>=" + Convert.ToDateTime(date).ToString("yyyy-MM-dd") + " and integral_time<" + Convert.ToDateTime(date).AddDays(1).ToString("yyyy-MM-dd");
         sql += " order by integral_id desc";

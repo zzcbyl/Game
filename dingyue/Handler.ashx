@@ -27,7 +27,7 @@ public class Handler : IHttpHandler {
                         int.TryParse(context.Request["fatheruserid"].ToString(), out fatherid);
 
                         Util.GetWebContent("http://" + Util.DomainName + "/api/timeline_forward.aspx?token=" + token + "&fatheruserid=" + fatherid + "&actid=" + articleid + "", "get", "", "text/html");
-                        Util.GetWebContent("http://" + Util.DomainName + "/api/integral_modify.aspx?token=" + token + "&fatheruserid=" + fatherid + "&actid=" + articleid, "get", "", "text/html");
+                        Util.GetWebContent("http://" + Util.DomainName + "/api/integral_modify.aspx?token=" + token + "&fatheruserid=" + fatherid + "&articleid=" + articleid, "get", "", "text/html");
                     }
                 }
             }
