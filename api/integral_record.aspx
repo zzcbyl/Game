@@ -9,7 +9,7 @@
         int userId = Users.CheckToken(token);
         if (userId > 0)
         {
-            DataTable dt = Integral.GetList(userId, 0);
+            DataTable dt = Integral.GetList(userId, 0, type);
             string jsonRecord = "";
             foreach (DataRow dr in dt.Rows)
             {

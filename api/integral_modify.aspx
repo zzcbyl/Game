@@ -15,12 +15,12 @@
             if (dt != null && dt.Rows.Count > 0)
             {
                 int integralVal = int.Parse(dt.Rows[0]["article_integral"].ToString());
-                ModifyIntegral(userId, integralVal, "分享文章 " + articleid, articleid, 0);
-
+                ModifyIntegral(userId, integralVal, "分享文章 " + articleid, type, articleid, 0);
+                
                 Users user = new Users(fatherid);
                 if (user._fields != null)
                 {
-                    ModifyIntegral(fatherid, integralVal, "分享用户 " + userId + " 的文章 " + articleid, articleid, userId);
+                    ModifyIntegral(fatherid, integralVal, "分享用户 " + userId + " 的文章 " + articleid, type, articleid, userId);
                 }
 
                 Response.Write("{\"status\":0}");
@@ -30,14 +30,14 @@
         Response.Write("{\"status\":1, \"message\":\"Invalid token!\"}");
     }
 
-    protected void ModifyIntegral(int uid, int integral, string remark, int articleid, int fromuserid)
+    protected void ModifyIntegral(int uid, int integral, string remark, string type, int type_id, int fromuserid)
     {
-        DataTable dt_integral = Integral.GetList(uid, 0, 0, DateTime.Now.ToString("yyyy-MM-dd"));
+        DataTable dt_integral = Integral.GetList(uid, 0, type, 0, DateTime.Now.ToString("yyyy-MM-dd"));
         if (dt_integral.Rows.Count <= 10)
         {
-            DataTable dt_integral1 = Integral.GetList(uid, fromuserid, articleid);
+            DataTable dt_integral1 = Integral.GetList(uid, fromuserid, type, type_id);
             if (dt_integral1.Rows.Count <= 0)
-                Integral.AddIntegral(uid, integral, remark, articleid, fromuserid);
+                Integral.AddIntegral(uid, integral, remark, type, type_id, fromuserid);
         }
     }
 </script>
