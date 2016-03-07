@@ -14,7 +14,7 @@
     public string content = "";
     public string headimg = "";
     public string dt = "";
-    public string originalurl = "";
+    public string originalurl = "http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=405120644&idx=1&sn=e4f50b0afcf95720357bfc60fe3638d9#rd";
     protected void Page_Load(object sender, EventArgs e)
     {
         token = Util.GetSafeRequestValue(Request, "token", "");
@@ -31,7 +31,7 @@
         userId = Users.CheckToken(token);
         if (userId <= 0)
         {
-            Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Request.Url.ToString(), true);
+            Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Server.UrlEncode(Request.Url.ToString()), true);
         }
         Session["user_token"] = token;
         JavaScriptSerializer json = new JavaScriptSerializer();
