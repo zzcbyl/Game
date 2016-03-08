@@ -94,7 +94,7 @@
                                {
                                    RedPoint = "<i class=\"i_icon\" style=\"position:absolute; left:55px; top:2px;\"></i>";
                                }
-                               yizhuan = "未转";
+                               
                            }
                            
                       %>
@@ -103,8 +103,8 @@
                                 <img src="<%=headImgSrc %>" width="50px" />
                                 <%=RedPoint %>
                             </div>
-                            <div style="position:absolute; left:70px; top:5px; right:50px;"><%=drow["article_title"].ToString() %></div>
-                            <div style="position:absolute; top:18px; right:15px; color:#D69100;"><%=yizhuan %></div>
+                            <div style="position:absolute; left:70px; top:5px; height:44px; line-height:22px; overflow:hidden;"><%=drow["article_title"].ToString() %></div>
+                            <div style="position:absolute; top:30px; right:15px; background:#fff; color:#b7b7b7; padding-left:10px;"><%=yizhuan %></div>
                             <div style="clear:both;"></div>
                         </div>
                    <%} %>
