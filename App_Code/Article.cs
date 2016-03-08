@@ -41,4 +41,20 @@ public class Article
         return dt;
     }
 
+    public static DataTable GetDate()
+    {
+        DataTable dt = null;
+        string sql = "select article_date from dbo.m_article group by article_date order by article_date desc";
+        dt = DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
+        return dt;
+    }
+
+    public static DataTable GetAll()
+    {
+        DataTable dt = null;
+        string sql = "select * from m_article order by article_date desc, article_id ";
+        dt = DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
+        return dt;
+    }
+
 }

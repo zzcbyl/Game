@@ -345,3 +345,15 @@ img {
     height:57px;
     display:block;
 }
+
+
+.i_icon {
+  display:block;
+  background:#f00;
+  border-radius:50%;
+  width:10px;
+  height:10px;
+  top:0px;
+  right:0px;
+  position:absolute;
+}

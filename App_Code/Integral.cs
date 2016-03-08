@@ -47,7 +47,7 @@ public class Integral
     {
         DataTable dt = new DataTable();
         string sql = "select * from m_integral where integral_userid=" + userid + " and integral_type='" + type + "'";
-        if (fatheruserid > 0)
+        if (fatheruserid >= 0)
             sql += " and from_userid = " + fatheruserid;
         if (type_id > 0)
             sql += " and integral_type_id=" + type_id;

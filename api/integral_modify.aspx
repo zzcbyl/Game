@@ -32,7 +32,7 @@
 
     protected void ModifyIntegral(int uid, int integral, string remark, string type, int type_id, int fromuserid)
     {
-        DataTable dt_integral = Integral.GetList(uid, 0, type, 0, DateTime.Now.ToString("yyyy-MM-dd"));
+        DataTable dt_integral = Integral.GetList(uid, -1, type, 0, DateTime.Now.ToString("yyyy-MM-dd"));
         if (dt_integral.Rows.Count <= 10)
         {
             DataTable dt_integral1 = Integral.GetList(uid, fromuserid, type, type_id);
