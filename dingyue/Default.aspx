@@ -67,7 +67,7 @@
            {
                %>
             <div style="margin:5px; border:1px solid #DBDBDB;">
-                <div style="height:35px; line-height:35px; font-family:黑体; font-size:18px; font-weight:bold; border:1px solid #fff; padding:0 10px; background:#D9D9D9;">
+                <div style="height:35px; line-height:35px; font-family:黑体; font-size:16px; font-weight:bold; border:1px solid #fff; padding:0 10px; background:#D9D9D9;">
                     <%=Convert.ToDateTime(dtDate.Rows[i][0].ToString()).ToString("MM月dd日") %>
                 </div>
                 <div style="background:#fff; font-size:14px; line-height:22px;">
