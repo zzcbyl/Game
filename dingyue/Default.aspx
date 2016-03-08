@@ -77,16 +77,19 @@
                        string headImgSrc = "";
                        string RedPoint = "";
                        string yizhuan = "";
+                       string titleColor = "";
                        foreach (var drow in drowArr)
                        {
                            yizhuan = "";
                            RedPoint = "";
+                           titleColor = "";
                            headImgSrc = drow["article_headimg"].ToString();
                            if (IDList.Contains(drow["article_id"].ToString()))
                            {
                                //headImgSrc = drow["article_headimg"].ToString().Split('.')[0] + "_gray." + drow["article_headimg"].ToString().Split('.')[1];
                                headImgSrc = drow["article_headimg"].ToString().Substring(0, drow["article_headimg"].ToString().LastIndexOf('.')) + "_gray" + drow["article_headimg"].ToString().Substring(drow["article_headimg"].ToString().LastIndexOf('.'));
                                yizhuan = "已转";
+                               titleColor = "color:#999;";
                            }
                            else
                            {
@@ -103,7 +106,7 @@
                                 <img src="<%=headImgSrc %>" width="50px" />
                                 <%=RedPoint %>
                             </div>
-                            <div style="position:absolute; left:70px; top:5px; height:44px; line-height:22px; overflow:hidden;"><%=drow["article_title"].ToString() %></div>
+                            <div style="position:absolute; left:70px; top:5px; height:44px; line-height:22px; overflow:hidden; <%=titleColor %> "><%=drow["article_title"].ToString() %></div>
                             <div style="position:absolute; top:30px; right:15px; background:#fff; color:#b7b7b7; padding-left:10px;"><%=yizhuan %></div>
                             <div style="clear:both;"></div>
                         </div>
