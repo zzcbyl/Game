@@ -60,8 +60,8 @@
             <div style="float:right; margin-right:20px; font-size:16px;">积分：<span style="color:#D69100"><%=user.Integral %></span></div>
         </div>
         <div style="background:#fff; line-height:25px; padding:8px 10px; font-size:14px; color:#808080;">
-            ● 转发签到文章到朋友圈可得1分，朋友转发您的签到文章您可以再得到1分，每天每人最多可积10分。<br />
-            ● 集满30分即可获得收听卢勤微课堂视频直播资格。
+            ● 转发签到文章到朋友圈可得1积分；邀请朋友转发您的签到文章到朋友圈您可以再得到1积分。每位用户每天最多可以获得10积分。显示“已转”的签到文章再次分享到朋友圈将不会再增加积分。<br />
+            ● 30积分可以兑换【卢勤微课堂】视频微课门票
         </div>
         <% for (int i = 0; i < dtDate.Rows.Count; i++)
            {
