@@ -67,7 +67,7 @@
            {
                %>
             <div style="margin:5px; border:1px solid #DBDBDB;">
-                <div style="height:35px; line-height:35px; font-family:黑体; font-size:16px; font-weight:bold; border:1px solid #fff; padding:0 10px; background:#D9D9D9;">
+                <div style="height:35px; line-height:35px; font-family:黑体; font-size:14px; color:#666; font-weight:bold; border:1px solid #fff; padding:0 10px; background:#D9D9D9;">
                     <%=Convert.ToDateTime(dtDate.Rows[i][0].ToString()).ToString("MM月dd日") %>
                 </div>
                 <div style="background:#fff; font-size:14px; line-height:22px;">
@@ -76,14 +76,17 @@
                        DataRow[] drowArr = dtAll.Select("article_date='" + dtDate.Rows[i][0].ToString() + "'");
                        string headImgSrc = "";
                        string RedPoint = "";
+                       string yizhuan = "";
                        foreach (var drow in drowArr)
                        {
+                           yizhuan = "";
                            RedPoint = "";
                            headImgSrc = drow["article_headimg"].ToString();
                            if (IDList.Contains(drow["article_id"].ToString()))
                            {
                                //headImgSrc = drow["article_headimg"].ToString().Split('.')[0] + "_gray." + drow["article_headimg"].ToString().Split('.')[1];
                                headImgSrc = drow["article_headimg"].ToString().Substring(0, drow["article_headimg"].ToString().LastIndexOf('.')) + "_gray" + drow["article_headimg"].ToString().Substring(drow["article_headimg"].ToString().LastIndexOf('.'));
+                               yizhuan = "已转";
                            }
                            else
                            {
@@ -91,6 +94,7 @@
                                {
                                    RedPoint = "<i class=\"i_icon\" style=\"position:absolute; left:55px; top:2px;\"></i>";
                                }
+                               yizhuan = "未转";
                            }
                            
                       %>
@@ -99,7 +103,8 @@
                                 <img src="<%=headImgSrc %>" width="50px" />
                                 <%=RedPoint %>
                             </div>
-                            <div style="position:absolute; left:70px; top:5px; "><%=drow["article_title"].ToString() %></div>
+                            <div style="position:absolute; left:70px; top:5px; right:50px;"><%=drow["article_title"].ToString() %></div>
+                            <div style="position:absolute; top:18px; right:15px; color:#D69100;"><%=yizhuan %></div>
                             <div style="clear:both;"></div>
                         </div>
                    <%} %>

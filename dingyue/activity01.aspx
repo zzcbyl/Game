@@ -54,6 +54,9 @@
         
         //更新阅读量
         Article.AddPv(articleid);
+        Random ran = new Random();
+        int RandCount = ran.Next(1, 10);
+        Article.AddPv_manual(articleid, RandCount);
         
         DataTable dtable = Article.Get(articleid);
         if (dtable != null && dtable.Rows.Count > 0)

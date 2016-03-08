@@ -32,6 +32,13 @@ public class Article
         result = DBHelper.ExecteNonQuery(Util.ConnectionStringMall, CommandType.Text, sql, null);
         return result;
     }
+    public static int AddPv_manual(int articleid, int count)
+    {
+        int result = 0;
+        string sql = "update m_article set article_pv_manual = article_pv_manual + " + count + " where article_id = " + articleid;
+        result = DBHelper.ExecteNonQuery(Util.ConnectionStringMall, CommandType.Text, sql, null);
+        return result;
+    }
 
     public static DataTable Get(int articleid)
     {
