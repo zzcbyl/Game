@@ -54,7 +54,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div style="max-width:740px; margin:0 auto; background:#efefef; min-height:500px;">
-        <div style="height:50px; width:100%; background:#C22B2B; font-family:宋体; color:#fff; font-size:14px; line-height:50px; font-weight:bold; border-bottom:2px solid #73556F; letter-spacing:0.1em">
+        <div style="height:50px; width:100%; background:#C22B2B; font-family:宋体; color:#fff; font-size:14px; line-height:50px; font-weight:bold; letter-spacing:0.1em">
             <div style="float:left; width:40px; height:40px; margin:6px 0 0 10px; background:url(<%=UserHeadImg %>) no-repeat; background-size:40px 40px;"><img src="images/headbg.png" width="40px" /></div>
             <div style="float:left; margin-left:10px; margin-top:2px;"><%=(NickName.Length > 5 ? NickName.Substring(0, 5) + "..." : NickName) %></div>
             <div style="float:right; margin-right:20px; font-size:16px;">积分：<span style="color:#D69100"><%=user.Integral %></span></div>
@@ -106,7 +106,7 @@
                                 <img src="<%=headImgSrc %>" width="50px" />
                                 <%=RedPoint %>
                             </div>
-                            <div style="position:absolute; left:70px; top:5px; height:44px; line-height:22px; overflow:hidden; <%=titleColor %> "><%=drow["article_title"].ToString() %></div>
+                            <div style="position:absolute; left:70px; top:5px; height:44px; line-height:22px; overflow:hidden; <%=titleColor %> "><%=(drow["article_title"].ToString().Length > 25 ? drow["article_title"].ToString().Substring(0, 25) + "..."  : drow["article_title"].ToString()) %></div>
                             <div style="position:absolute; top:30px; right:15px; background:#fff; color:#b7b7b7; padding-left:10px;"><%=yizhuan %></div>
                             <div style="clear:both;"></div>
                         </div>
