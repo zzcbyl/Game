@@ -56,7 +56,7 @@
     <div style="max-width:740px; margin:0 auto; background:#efefef; min-height:500px;">
         <div style="height:50px; width:100%; background:#C22B2B; font-family:宋体; color:#fff; font-size:14px; line-height:50px; font-weight:bold; border-bottom:2px solid #73556F; letter-spacing:0.1em">
             <div style="float:left; width:40px; height:40px; margin:6px 0 0 10px; background:url(<%=UserHeadImg %>) no-repeat; background-size:40px 40px;"><img src="images/headbg.png" width="40px" /></div>
-            <div style="float:left; margin-left:10px;"><%=(NickName.Length > 5 ? NickName.Substring(0, 5) + "..." : NickName) %></div>
+            <div style="float:left; margin-left:10px; margin-top:2px;"><%=(NickName.Length > 5 ? NickName.Substring(0, 5) + "..." : NickName) %></div>
             <div style="float:right; margin-right:20px; font-size:16px;">积分：<span style="color:#D69100"><%=user.Integral %></span></div>
         </div>
         <div style="background:#fff; line-height:25px; padding:8px 10px; font-size:14px; color:#808080;">
