@@ -31,12 +31,18 @@
         JavaScriptSerializer json = new JavaScriptSerializer();
 
         user = new Users(userId);
-        Dictionary<string, object> dicUser = json.Deserialize<Dictionary<string, object>>(user.GetUserAvatarJson());
-        if (dicUser.Keys.Contains("nickname"))
-            NickName = dicUser["nickname"].ToString();
-        if (dicUser.Keys.Contains("headimgurl"))
-            UserHeadImg = dicUser["headimgurl"].ToString();
+        try
+        {
+            Dictionary<string, object> dicUser = json.Deserialize<Dictionary<string, object>>(user.GetUserAvatarJson());
+            if (dicUser.Keys.Contains("nickname"))
+                NickName = dicUser["nickname"].ToString();
+            if (dicUser.Keys.Contains("headimgurl"))
+                UserHeadImg = dicUser["headimgurl"].ToString();
+        }
+        catch
+        {
 
+        }
         
         dtDate = Article.GetDate();
         dtAll = Article.GetAll();
