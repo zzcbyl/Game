@@ -1,4 +1,4 @@
-﻿<%@ Page Title="卢勤支招：如何让孩子告别磨蹭、拖拉的坏习惯" Language="C#" MasterPageFile="~/dingyue/Master.master" %>
+﻿<%@ Page Title="签到" Language="C#" MasterPageFile="~/dingyue/Master.master" %>
 <%@ Import Namespace="System.Data" %>
 <%@ Import Namespace="System.Web.Script.Serialization" %>
 <script runat="server">
@@ -59,6 +59,7 @@
         if (dtable != null && dtable.Rows.Count > 0)
         {
             title = dtable.Rows[0]["article_title"].ToString();
+            this.Title = dtable.Rows[0]["article_title"].ToString();
             summary = dtable.Rows[0]["article_summary"].ToString();
             content = dtable.Rows[0]["article_content"].ToString();
             dt = dtable.Rows[0]["article_date"].ToString();

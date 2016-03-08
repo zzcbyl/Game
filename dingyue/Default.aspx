@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/dingyue/Master.master" %>
+﻿<%@ Page Title="签到" Language="C#" MasterPageFile="~/dingyue/Master.master" %>
 <%@ Import Namespace="System.Data" %>
 <%@ Import Namespace="System.Web.Script.Serialization" %>
 
