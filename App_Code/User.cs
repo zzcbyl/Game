@@ -128,7 +128,10 @@ public class Users
     {
         get
         {
-            return _fields["nick"].ToString().Trim();
+            if (_fields != null)
+                return _fields["nick"].ToString().Trim();
+            else
+                return "";
         }
         set
         {
@@ -144,7 +147,10 @@ public class Users
     {
         get
         {
-            return int.Parse(_fields["integral"].ToString().Trim());
+            if (_fields != null)
+                return int.Parse(_fields["integral"].ToString().Trim());
+            else
+                return 0;
         }
         set
         {
