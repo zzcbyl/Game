@@ -54,9 +54,9 @@
         
         //更新阅读量
         Article.AddPv(articleid);
-        Random ran = new Random();
-        int RandCount = ran.Next(1, 10);
-        Article.AddPv_manual(articleid, RandCount);
+        //Random ran = new Random();
+        //int RandCount = ran.Next(1, 10);
+        //Article.AddPv_manual(articleid, RandCount);
         
         DataTable dtable = Article.Get(articleid);
         if (dtable != null && dtable.Rows.Count > 0)
@@ -70,11 +70,13 @@
             integral = int.Parse(dtable.Rows[0]["article_integral"].ToString());
             if (dtable.Rows[0]["article_url"].ToString().Trim() != "")
                 originalurl = dtable.Rows[0]["article_url"].ToString();
-            
-            pv = (int.Parse(dtable.Rows[0]["article_pv"].ToString()) + int.Parse(dtable.Rows[0]["article_pv_manual"].ToString())).ToString();
 
-            if (int.Parse(pv) > 100000)
-                pv = "100000+";
+            pv = (int.Parse(dtable.Rows[0]["article_pv"].ToString())).ToString();
+            
+            //pv = (int.Parse(dtable.Rows[0]["article_pv"].ToString()) + int.Parse(dtable.Rows[0]["article_pv_manual"].ToString())).ToString();
+
+            //if (int.Parse(pv) > 100000)
+            //    pv = "100000+";
         }
             
     }
@@ -103,7 +105,7 @@
                         <div style="text-align:center; font-size:10pt; color:#808080; font-family:微软雅黑;">已有<%=forward_count %>人赞过</div>--%>
 
                         <a class="media_tool_meta meta_primary" id="js_view_source" href="<%=originalurl %>">阅读原文</a>
-                        <a class="media_tool_meta meta_primary" id="js_view_number" style="color:#ababab;" href="javascript:void(0);">阅读 <%=pv %></a>
+                        <a class="media_tool_meta meta_primary" id="js_view_number" style="color:#ababab;" href="javascript:void(0);">阅读 <span id="sp_count"><%=pv %></span></a>
                         <a id="js_report_article3" class="media_tool_meta meta_primary" href="javascript:void(0);" onclick="showShare();">
                             <span style="margin-right:10px;" class="media_tool_meta meta_primary tips_global meta_praise" id="like3">
                                 <i class="icon_praise_gray"></i><span class="praise_num" id="likeNum3"></span>
@@ -136,7 +138,7 @@
         $(document).ready(function () {
             //if(ExitName == 0)
             //    inputName();
-
+            increase();
             if (QueryString("fuid") != null) {
                 Fatheruid = QueryString("fuid");
             }
@@ -209,6 +211,31 @@
 
         
 
+        function increase() {
+
+            var hit_num = parseInt(document.getElementById("sp_count").innerText);
+            var result_num = 100000;
+            if (hit_num < 20) {
+                result_num = Math.round(-2.777777777777782 * hit_num * hit_num + 283.3333333333333 * hit_num + 444.44444444444446 + Math.random() * 100);
+            }
+            else {
+                if (hit_num < 200) {
+                    result_num = Math.round(-0.09722222222222232 * hit_num * hit_num + 49.16666666666666 * hit_num + 4055.5555555555557 + Math.random() * 10);
+                }
+                else {
+                    if (hit_num < 2000) {
+                        result_num = Math.round(-0.0027777777777778026 * hit_num * hit_num + 28.333333333333332 * hit_num + 4444.444444444444 + Math.random() * 5);
+                    }
+                    else {
+                        if (hit_num < 20000) {
+                            result_num = Math.round(-0.00009722222222221903 * hit_num * hit_num + 4.916666666666629 * hit_num + 40555.55555555562);
+                        }
+                    }
+                }
+
+            }
+            document.getElementById("sp_count").innerText = result_num.toString();
+        }
         
     </script>
     <script src="common/activity_js.js"></script>
