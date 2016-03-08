@@ -54,10 +54,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div style="max-width:740px; margin:0 auto; background:#efefef; min-height:500px;">
-        <div style="height:80px; width:100%; background:#C22B2B; font-family:黑体; font-size:28px; line-height:80px; font-weight:bold; border-bottom:2px solid #73556F;">
-            <div style="float:left; width:70px; height:70px; margin:6px 0 0 10px; background:url(<%=UserHeadImg %>) no-repeat; background-size:70px 70px;"><img src="images/headbg.png" width="70px" /></div>
-            <div style="float:left; margin-left:10px;"><%=(NickName.Length > 3 ? NickName.Substring(0, 3) + "..." : NickName) %></div>
-            <div style="float:right; margin-right:10px;">积分：<span style="color:#D69100"><%=user.Integral %></span></div>
+        <div style="height:50px; width:100%; background:#C22B2B; font-family:黑体; color:#333; font-size:20px; line-height:50px; font-weight:bold; border-bottom:2px solid #73556F;">
+            <div style="float:left; width:40px; height:40px; margin:6px 0 0 10px; background:url(<%=UserHeadImg %>) no-repeat; background-size:40px 40px;"><img src="images/headbg.png" width="40px" /></div>
+            <div style="float:left; margin-left:10px;"><%=(NickName.Length > 5 ? NickName.Substring(0, 5) + "..." : NickName) %></div>
+            <div style="float:right; margin-right:20px;">积分：<span style="color:#D69100"><%=user.Integral %></span></div>
         </div>
         <div style="background:#fff; line-height:25px; padding:8px 10px; font-size:14px; color:#808080;">
             ● 转发签到文章到朋友圈可得1分，朋友转发您的签到文章您可以再得到1分，每天每人最多可积10分。<br />
