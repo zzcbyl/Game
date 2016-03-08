@@ -8,7 +8,7 @@
     public string forward_count = "0";
     public int articleid = 1;
     public int integral = 1;
-    public int pv = 0;
+    public string pv = 0;
     public string title = "";
     public string summary = "";
     public string content = "";
@@ -71,7 +71,10 @@
             if (dtable.Rows[0]["article_url"].ToString().Trim() != "")
                 originalurl = dtable.Rows[0]["article_url"].ToString();
             
-            pv = int.Parse(dtable.Rows[0]["article_pv"].ToString()) + int.Parse(dtable.Rows[0]["article_pv_manual"].ToString());
+            pv = (int.Parse(dtable.Rows[0]["article_pv"].ToString()) + int.Parse(dtable.Rows[0]["article_pv_manual"].ToString())).ToString();
+
+            if (int.Parse(pv) > 100000)
+                pv = "100000+";
         }
             
     }
