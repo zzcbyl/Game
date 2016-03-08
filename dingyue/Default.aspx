@@ -5,7 +5,7 @@
 <script runat="server">
     public string token = "";
     public Users user = new Users();
-    public string UserHeadImg = "";
+    public string UserHeadImg = "http://game.luqinwenda.com/images/noAvatar.jpg";
     public string NickName = "匿名";
     public DataTable dtAll = new DataTable();
     public DataTable dtDate = new DataTable();
