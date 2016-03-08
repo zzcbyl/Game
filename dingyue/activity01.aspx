@@ -8,7 +8,7 @@
     public string forward_count = "0";
     public int articleid = 1;
     public int integral = 1;
-    public string pv = 0;
+    public string pv = "0";
     public string title = "";
     public string summary = "";
     public string content = "";
