@@ -252,7 +252,10 @@
                 }
 
             }
-            document.getElementById("sp_count").innerText = result_num.toString();
+            if (result_num >= 100000)
+                document.getElementById("sp_count").innerText = result_num.toString() + "+";
+            else
+                document.getElementById("sp_count").innerText = result_num.toString();
         }
         var index = 0;
         var oldNum = 0;
