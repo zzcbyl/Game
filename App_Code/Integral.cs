@@ -52,7 +52,7 @@ public class Integral
         if (type_id > 0)
             sql += " and integral_type_id=" + type_id;
         if (date != null)
-            sql += " and integral_time>=" + Convert.ToDateTime(date).ToString("yyyy-MM-dd") + " and integral_time<" + Convert.ToDateTime(date).AddDays(1).ToString("yyyy-MM-dd");
+            sql += " and integral_time>='" + Convert.ToDateTime(date).ToString("yyyy-MM-dd") + "' and integral_time<'" + Convert.ToDateTime(date).AddDays(1).ToString("yyyy-MM-dd")+"'";
         sql += " order by integral_id desc";
         dt = DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
         return dt;
