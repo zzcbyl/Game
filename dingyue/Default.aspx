@@ -104,7 +104,7 @@
                       %>
                         <div style="border-top:1px solid #f3f3f3; height:50px; padding:5px 10px;  position:relative;" onclick="jumpUrl(<%=drow["article_id"].ToString() %>);">
                             <div style="width:50px; height:50px;">
-                                <img src="<%=headImgSrc %>" width="50px" />
+                                <img src="<%=headImgSrc %>" width="50px" height="50px" />
                                 <%=RedPoint %>
                             </div>
                             <div style="position:absolute; left:70px; top:5px; right:5px; height:44px; line-height:22px; overflow:hidden; <%=titleColor %> "><%=(drow["article_title"].ToString().Length > 25 ? drow["article_title"].ToString().Substring(0, 25) + "..."  : drow["article_title"].ToString()) %></div>
