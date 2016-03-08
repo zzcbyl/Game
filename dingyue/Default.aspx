@@ -119,6 +119,40 @@
         
     </div>
     <script type="text/javascript">
+        var shareTitle = "卢勤问答平台签到"; //标题
+        var shareImg = "http://game.luqinwenda.com/dingyue/images/qiandao.jpg"; //图片
+        var shareContent = '转发签到文章到朋友圈可获得积分'; //简介
+        var shareLink = 'http://game.luqinwenda.com/dingyue/default.aspx'; //链接
+        $(document).ready(function () {
+            
+            wx.ready(function () {
+                //分享到朋友圈
+                wx.onMenuShareTimeline({
+                    title: shareTitle, // 分享标题
+                    link: shareLink, // 分享链接
+                    imgUrl: shareImg, // 分享图标
+                    success: function () {
+                        // 用户确认分享后执行的回调函数
+                        
+                    }
+                });
+
+                //分享给朋友
+                wx.onMenuShareAppMessage({
+                    title: shareTitle, // 分享标题
+                    desc: shareContent, // 分享描述
+                    link: shareLink, // 分享链接
+                    imgUrl: shareImg, // 分享图标
+                    success: function () {
+                        // 用户确认分享后执行的回调函数
+
+                    }
+                });
+            });
+        });
+
+
+
         function jumpUrl(id) {
             location.href = "activity01.aspx?articleid=" + id;
         }
