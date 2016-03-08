@@ -116,13 +116,13 @@
 
                         <%=content %>
                     </div>
-                    <div class="rich_media_tool" id="js_toobar3" style="font-size:14px;">
+                    <div class="rich_media_tool" id="js_toobar3" style="font-size:16px;">
                         <%--<div style="text-align:center; font-size:16pt;"><img src="images/zan_icon_0.png" style="width:57px; height:57px;" onclick="showShare();" onmouseover="zanUp(this);" onmouseout ="zanDown(this);" /></div>
                         <div style="text-align:center; font-size:10pt; color:#808080; font-family:微软雅黑;">已有<%=forward_count %>人赞过</div>--%>
 
                         <a class="media_tool_meta meta_primary" id="js_view_source" href="<%=originalurl %>">阅读原文</a>
                         <a class="media_tool_meta meta_primary" id="js_view_number" style="color:#ababab;" href="javascript:void(0);">阅读 <span id="sp_count"><%=pv %></span></a>
-                        <a id="js_report_article3" class="media_tool_meta meta_primary" href="javascript:void(0);">
+                        <a id="js_report_article3" class="media_tool_meta meta_primary" href="javascript:void(0);" onclick="zanClick();">
                             <span style="margin-right:10px;" class="media_tool_meta meta_primary tips_global meta_praise" id="like3">
                                 <i class="icon_praise_gray"></i><span class="praise_num" id="likeNum3"></span>
                             </span>
@@ -158,6 +158,8 @@
             if (QueryString("fuid") != null) {
                 Fatheruid = QueryString("fuid");
             }
+
+            showZan();
 
             wx.ready(function () {
                 //分享到朋友圈
@@ -252,7 +254,60 @@
             }
             document.getElementById("sp_count").innerText = result_num.toString();
         }
-        
+        var index = 0;
+        var oldNum = 0;
+        var zanlist = "";
+        function zanClick() {
+            var num = 0;
+            if ($('#likeNum3').html().Trim() != "")
+                num = parseInt($('#likeNum3').html());
+            
+            if (index == 0) {
+                num += 1;
+                $('#likeNum3').html(num);
+                index = 1;
+                $("#like3 i").eq(0).addClass("praised");
+            }
+            else {
+                num -= 1;
+                if (num <= 0)
+                    $('#likeNum3').html('');
+                else
+                    $('#likeNum3').html(num);
+                index = 0;
+                $("#like3 i").eq(0).removeClass("praised");
+            }
+            UpdZan(num);
+        }
+
+        function UpdZan(num) {
+            var idval = articleid + ":" + num;
+            var oldidval = articleid + ":" + oldNum;
+            if (zanlist != null) {
+                zanlist = zanlist.replace(oldidval, '');
+                zanlist += ';' + idval;
+                SetCookie("zan_list", zanlist);
+            }
+            else {
+                SetCookie("zan_list", idval);
+            }
+            showZan();
+        }
+
+        function showZan() {
+            zanlist = GetCookie("zan_list");
+            if (zanlist != null) {
+                var zanarr = zanlist.split(';');
+                for (var i = 0; i < zanarr.length; i++) {
+                    var idval = zanarr[i].split(':');
+                    if (idval[0] == articleid) {
+                        $('#likeNum3').html(idval[1]);
+                        oldNum = idval[1];
+                        break;
+                    }
+                }
+            }
+        }
     </script>
     <script src="common/activity_js.js"></script>
 </asp:Content>
