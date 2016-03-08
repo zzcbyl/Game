@@ -93,7 +93,7 @@
                            }
                            else
                            {
-                               if (DateTime.Now.ToString("yyyy-MM-dd") == dtDate.Rows[i][0].ToString())
+                               if (Request.Cookies["articleid_opened"].Value.IndexOf(drow["article_id"].ToString() + ",") > -1)
                                {
                                    RedPoint = "<i class=\"i_icon\" style=\"position:absolute; left:55px; top:2px;\"></i>";
                                }
