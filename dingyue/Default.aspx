@@ -106,7 +106,7 @@
                                 <img src="<%=headImgSrc %>" width="50px" />
                                 <%=RedPoint %>
                             </div>
-                            <div style="position:absolute; left:70px; top:5px; height:44px; line-height:22px; overflow:hidden; <%=titleColor %> "><%=(drow["article_title"].ToString().Length > 25 ? drow["article_title"].ToString().Substring(0, 25) + "..."  : drow["article_title"].ToString()) %></div>
+                            <div style="position:absolute; left:70px; top:5px; right:5px; height:44px; line-height:22px; overflow:hidden; <%=titleColor %> "><%=(drow["article_title"].ToString().Length > 25 ? drow["article_title"].ToString().Substring(0, 25) + "..."  : drow["article_title"].ToString()) %></div>
                             <div style="position:absolute; top:30px; right:15px; background:#fff; color:#b7b7b7; padding-left:10px;"><%=yizhuan %></div>
                             <div style="clear:both;"></div>
                         </div>
