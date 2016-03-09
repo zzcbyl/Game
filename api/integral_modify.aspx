@@ -20,7 +20,7 @@
                 Users user = new Users(fatherid);
                 if (user._fields != null)
                 {
-                    ModifyIntegral(fatherid, integralVal, "分享用户 " + userId + " 的文章 " + articleid, type, articleid, userId);
+                    ModifyIntegral(fatherid, integralVal, "用户 " + userId + " 转发文章 " + articleid, type, articleid, userId);
                 }
 
                 Response.Write("{\"status\":0}");

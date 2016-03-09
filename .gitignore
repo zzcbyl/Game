@@ -54,3 +54,7 @@ amr/sounds/
 
 test/*
 test
+ckeditor
+ckeditor/*
+ckfinder
+ckfinder/*
