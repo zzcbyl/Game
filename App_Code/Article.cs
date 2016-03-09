@@ -51,7 +51,7 @@ public class Article
     public static DataTable GetDate()
     {
         DataTable dt = null;
-        string sql = "select article_date from dbo.m_article group by article_date order by article_date desc";
+        string sql = "select article_date from dbo.m_article where article_date<>'' group by article_date order by article_date desc";
         dt = DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
         return dt;
     }
@@ -59,7 +59,7 @@ public class Article
     public static DataTable GetAll()
     {
         DataTable dt = null;
-        string sql = "select * from m_article order by article_date desc, article_id ";
+        string sql = "select * from m_article where article_date<>'' order by article_date desc, article_id ";
         dt = DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
         return dt;
     }
