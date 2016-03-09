@@ -161,6 +161,16 @@
 
             showZan();
 
+            //红点
+            var pointstr = getCookie("redPointList");
+            if (pointstr == null) {
+                pointstr = articleid;
+            }
+            else {
+                pointstr += (';' + articleid);
+            }
+            setCookie("redPointList", pointstr);
+
             wx.ready(function () {
                 //分享到朋友圈
                 wx.onMenuShareTimeline({
