@@ -82,13 +82,13 @@
                     <% 
                        DataRow[] drowArr = dtAll.Select("article_date='" + dtDate.Rows[i][0].ToString() + "'");
                        string headImgSrc = "";
-                       //string RedPoint = "";
+                       string RedPoint = "";
                        string yizhuan = "";
                        string titleColor = "";
                        foreach (var drow in drowArr)
                        {
                            yizhuan = "";
-                           //RedPoint = "";
+                           RedPoint = "";
                            titleColor = "";
                            headImgSrc = drow["article_headimg"].ToString();
                            if (IDList.Contains(drow["article_id"].ToString()))
@@ -98,13 +98,19 @@
                                yizhuan = "已转";
                                titleColor = "color:#999;";
                            }
-                          
+                           else
+                           {
+                               if (Request.Cookies["articleid_opened"] == null || Request.Cookies["articleid_opened"].Value.IndexOf(drow["article_id"].ToString() + ",") < 0)
+                               {
+                                   RedPoint = "<i id=\"point_" + drow["article_id"].ToString() + "\" class=\"i_icon\" style=\"position:absolute; left:55px; top:2px;\"></i>";
+                               }
+                           }
                            
                       %>
                         <div style="border-top:1px solid #f3f3f3; height:50px; padding:5px 10px;  position:relative;" onclick="jumpUrl(<%=drow["article_id"].ToString() %>);">
                             <div style="width:50px; height:50px;">
                                 <img src="<%=headImgSrc %>" width="50px" height="50px" />
-                                <i id="point_<%=drow["article_id"].ToString() %>" class="i_icon" style="position:absolute; left:55px; top:2px;"></i>
+                                <%=RedPoint %>
                             </div>
                             <div style="position:absolute; left:70px; top:5px; right:5px; height:44px; line-height:22px; overflow:hidden; <%=titleColor %> "><%=(drow["article_title"].ToString().Length > 25 ? drow["article_title"].ToString().Substring(0, 25) + "..."  : drow["article_title"].ToString()) %></div>
                             <div style="position:absolute; top:30px; right:15px; background:#fff; color:#b7b7b7; padding-left:10px;"><%=yizhuan %></div>
@@ -158,7 +164,8 @@
             if (pointstr != null) {
                 var pointarr = pointstr.split(';');
                 for (var i = 0; i < pointarr.length; i++) {
-                    $("#point_" + pointarr[i]).hide();
+                    if ($("#point_" + pointarr[i]))
+                        $("#point_" + pointarr[i]).hide();
                 }
             }
         }
