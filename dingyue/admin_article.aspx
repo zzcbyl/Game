@@ -97,7 +97,7 @@
             <div class="form-group">
                 <label for="inputDate" class="col-sm-2 control-label">日期</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputDate" name="inputDate" placeholder="2016-03-06">
+                    <input type="text" class="form-control" id="inputDate" name="inputDate">
                 </div>
             </div>
             <div class="form-group">
@@ -117,22 +117,20 @@
             <div class="form-group">
                 <label for="uploadFile1" class="col-sm-2 control-label">头图</label>
                 <div class="col-sm-10">
-                    <%--<input type="file" id="uploadFile1" name="uploadFile1" />
-                    <input type="file" id="uploadFile2" name="uploadFile2" />--%>
-                    <asp:FileUpload ID="FileUpload1" runat="server" />
+                    <asp:FileUpload ID="FileUpload1" runat="server" /><br />
                     <asp:FileUpload ID="FileUpload2" runat="server" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputUrl" class="col-sm-2 control-label">原文链接</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputUrl" name="inputUrl" placeholder="">
+                    <input type="text" class="form-control" id="inputUrl" name="inputUrl">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputUrl" class="col-sm-2 control-label">密码</label>
                 <div class="col-sm-10">
-                    <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="">
+                    <input type="password" class="form-control" id="inputPassword" name="inputPassword">
                 </div>
             </div>
 

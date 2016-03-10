@@ -100,10 +100,7 @@
                            }
                            else
                            {
-                               if (Request.Cookies["articleid_opened"] == null || Request.Cookies["articleid_opened"].Value.IndexOf(drow["article_id"].ToString() + ",") < 0)
-                               {
-                                   RedPoint = "<i id=\"point_" + drow["article_id"].ToString() + "\" class=\"i_icon\" style=\"position:absolute; left:55px; top:2px;\"></i>";
-                               }
+                               RedPoint = "<i id=\"point_" + drow["article_id"].ToString() + "\" class=\"i_icon\" style=\"position:absolute; left:55px; top:2px;\"></i>";
                            }
                            
                       %>

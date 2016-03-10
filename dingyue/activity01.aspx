@@ -36,21 +36,21 @@
         Session["user_token"] = token;
 
 
-        if (Request.Cookies["articleid_opened"] != null)
-        {
-            string articleid_opened = Request.Cookies["articleid_opened"].Value;
-            articleid_opened += articleid + ",";
-            Response.Cookies["articleid_opened"].Value = articleid_opened;
-        }
-        else
-        {
-            HttpCookie cookie = new HttpCookie("articleid_opened");
-            cookie.Value = articleid + ",";
-            cookie.Expires = DateTime.Now.AddYears(100);
-            Response.Cookies.Add(cookie);
-        }
+        //if (Request.Cookies["articleid_opened"] != null)
+        //{
+        //    string articleid_opened = Request.Cookies["articleid_opened"].Value;
+        //    articleid_opened += articleid + ",";
+        //    Response.Cookies["articleid_opened"].Value = articleid_opened;
+        //}
+        //else
+        //{
+        //    HttpCookie cookie = new HttpCookie("articleid_opened");
+        //    cookie.Value = articleid + ",";
+        //    cookie.Expires = DateTime.Now.AddYears(100);
+        //    Response.Cookies.Add(cookie);
+        //}
         
-        JavaScriptSerializer json = new JavaScriptSerializer();
+        //JavaScriptSerializer json = new JavaScriptSerializer();
         //string getUrl = "http://game.luqinwenda.com/api/user_info_get.aspx?token=" + token;
         //string result = HTTPHelper.Get_Http(getUrl);
         //Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(result);
