@@ -16,7 +16,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div style="max-width:640px; background:#FFFDEA; margin:0 auto;">
+    <div style="max-width:640px; background:#FFFDEA; margin:0 auto; font-size:12px;">
         <div style="height:300px; width:auto; background:#D04131; text-align:center;">
             <a href="wktConfirm.aspx"><img src="../images/wkt_head.jpg" style="height:70%; margin-top:10%;"/></a>
         </div>
