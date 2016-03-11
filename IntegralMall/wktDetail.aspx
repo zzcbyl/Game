@@ -38,7 +38,7 @@
             </div>
             <div class="line_middle">
                 <div>主讲老师：卢勤老师</div>
-                <div>主讲老师简介：中国少年儿童新闻出版总社首席教育专家</div>
+                <div>中国少年儿童新闻出版总社首席教育专家</div>
             </div>
             <div class="line_right">
                 <img src="../images/wkt_icon6.jpg" />
