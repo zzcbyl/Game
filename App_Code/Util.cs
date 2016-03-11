@@ -19,6 +19,7 @@ public class Util
 
     public static string ConnectionString = System.Configuration.ConfigurationSettings.AppSettings["constr"].Trim();
     public static string ConnectionStringMall = System.Configuration.ConfigurationSettings.AppSettings["constrMall"].Trim();
+    public static string ConnectionStringWX = System.Configuration.ConfigurationSettings.AppSettings["constrWX"].Trim();
     protected static string token = "";
     protected static DateTime tokenTime = DateTime.MinValue;
     public static string DomainName = System.Configuration.ConfigurationSettings.AppSettings["domain_name"].Trim();
