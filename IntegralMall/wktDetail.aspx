@@ -9,9 +9,9 @@
         .line_main { height:80px; width:auto; border-bottom:1px solid #A89390; }
         .line_left { float:left; background:#6ED4D6; width:80px; height:80px; text-align:center; }
         .line_left img { height:30px; margin-top:25px; }
-        .line_middle { float:left; width:auto; height:50px; margin-left:15px; line-height:25px; margin-top:15px; font-weight:bold; margin-right:20px; }
+        .line_middle { float:left; width:auto; height:50px; margin-left:10px; line-height:25px; margin-top:15px; font-weight:bold; margin-right:10px; }
         .line_middle div { width:auto; height:25px; overflow:hidden; }
-        .line_right { float:right; width:50px;}
+        .line_right { float:right; width:30px;}
         .line_right img { height:30px; margin-top:25px; }
     </style>
 </asp:Content>
@@ -75,7 +75,7 @@
             var bw = document.body.clientWidth;
             if (bw > 640)
                 bw = 640;
-            $('.line_middle').css('width', (bw - 180).toString() + "px");
+            $('.line_middle').css('width', (bw - 130).toString() + "px");
         });
     </script>
 </asp:Content>
