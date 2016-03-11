@@ -73,6 +73,8 @@
     <script type="text/javascript">
         $(document).ready(function () {
             var bw = document.body.clientWidth;
+            if (bw > 640)
+                bw = 640;
             $('.line_middle').css('width', (bw - 180).toString() + "px");
         });
     </script>
