@@ -25,7 +25,7 @@
                 <img src="../images/wkt_icon1.jpg" />
             </div>
             <div class="line_middle">
-                <div>讲课主题：心灵的成长需要肯定</div>
+                <div>主题：心灵的成长需要肯定</div>
                 <div>3月14日（周一）15:00-14:00</div>
             </div>
             <div class="line_right">
