@@ -3,9 +3,10 @@
 <%@ Import Namespace="System.Web.Script.Serialization" %>
 
 <script runat="server">
-    public string token = "e805614e8d905ea908ad4e604f5b6d779850a719a30150b5e5e91b93e1e4605df86f460f";
+    public string token = "ca013d0c12977bcafc530fd58f82782901bdb19d2fcb8f85769be0f1c6b57e5445f47401";
     private int article_video_id = 20;
-    public string video_title="";
+    public string video_title = "";
+    public string video_url = "";
     public DataTable dt_userinfo = new DataTable();
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -46,6 +47,7 @@
                 DataTable dt = Article.Get(article_video_id);
                 if (dt != null && dt.Rows.Count > 0)
                 {
+                    video_url = dt.Rows[0]["article_url"].ToString();
                     video_title = dt.Rows[0]["article_title"].ToString();
                     this.Title = video_title;
                     int video_integral = int.Parse(dt.Rows[0]["article_integral"].ToString());
@@ -88,8 +90,10 @@
         <div style="text-align:center; height:50px; width:100%; background:#C22B2B; font-family:宋体; color:#fff; font-size:14px; line-height:50px; font-weight:bold; letter-spacing:0.1em">
             <%=video_title %>
         </div>
-        <div style="margin:0; text-align:center; height:200px;">
-            
+        <div style="margin:0; text-align:center; height:400px;">
+            <video preload="meta" src="<%=video_url %>" controls="" 
+                style="margin: 0px; padding: 0px; width: 100%; height: 400px; z-index: 1; background-color: black;">
+                not support<br>you browser DO NOT support HTML5 video<br></video>
         </div>
         <div style="height:22px; line-height:23px; font-size:12px; color:#fff; background:#8BC7E3; text-align:center;">
             当前在线

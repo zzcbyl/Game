@@ -3,7 +3,7 @@
 <%@ Import Namespace="System.Web.Script.Serialization" %>
 
 <script runat="server">
-    public string token = "e805614e8d905ea908ad4e604f5b6d779850a719a30150b5e5e91b93e1e4605df86f460f";
+    public string token = "ca013d0c12977bcafc530fd58f82782901bdb19d2fcb8f85769be0f1c6b57e5445f47401";
     public Users user = new Users();
     public string UserHeadImg = "http://game.luqinwenda.com/images/noAvatar.jpg";
     public string NickName = "匿名";
