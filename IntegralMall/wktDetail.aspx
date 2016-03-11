@@ -6,13 +6,13 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
-        .line_main { height:80px; width:auto; border-bottom:1px solid #A89390; }
-        .line_left { float:left; background:#6ED4D6; width:80px; height:80px; text-align:center; }
-        .line_left img { height:30px; margin-top:25px; }
-        .line_middle { float:left; width:auto; height:50px; margin-left:10px; line-height:25px; margin-top:15px; font-weight:bold; margin-right:10px; }
+        .line_main { height:70px; width:auto; border-bottom:1px solid #A89390; }
+        .line_left { float:left; background:#6ED4D6; width:70px; height:70px; text-align:center; }
+        .line_left img { height:30px; margin-top:20px; }
+        .line_middle { float:left; width:auto; height:50px; margin-left:10px; line-height:25px; margin-top:10px; font-weight:bold; margin-right:10px; }
         .line_middle div { width:auto; height:25px; overflow:hidden; }
-        .line_right { float:right; width:30px;}
-        .line_right img { height:30px; margin-top:25px; }
+        .line_right { float:right; width:40px;}
+        .line_right img { height:30px; margin-top:20px; }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -26,7 +26,7 @@
             </div>
             <div class="line_middle">
                 <div>讲课主题：心灵的成长需要肯定</div>
-                <div>讲课时间：3月14日（周一）15:00-14:00</div>
+                <div>3月14日（周一）15:00-14:00</div>
             </div>
             <div class="line_right">
                 <img src="../images/wkt_icon6.jpg" />
@@ -37,8 +37,8 @@
                 <img src="../images/wkt_icon2.jpg" />
             </div>
             <div class="line_middle">
-                <div>主讲老师：卢勤老师</div>
-                <div>中国少年儿童新闻出版总社首席教育专家</div>
+                <div>主讲老师：卢勤</div>
+                <div>中国少年儿童出版总社首席教育专家</div>
             </div>
             <div class="line_right">
                 <img src="../images/wkt_icon6.jpg" />
@@ -50,7 +50,7 @@
             </div>
             <div class="line_middle">
                 <div>听课资格</div>
-                <div>30积分可以兑换【卢勤微课堂】视频微课门票</div>
+                <div>30积分可以兑换【卢勤视频微课堂】门票</div>
             </div>
             <div class="line_right">
                 <img src="../images/wkt_icon6.jpg" />
