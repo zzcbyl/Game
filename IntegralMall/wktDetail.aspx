@@ -9,7 +9,7 @@
         .line_main { height:80px; width:auto; border-bottom:1px solid #A89390; }
         .line_left { float:left; background:#6ED4D6; width:80px; height:80px; text-align:center; }
         .line_left img { height:30px; margin-top:25px; }
-        .line_middle { float:left; width:auto; height:50px; margin-left:30px; line-height:25px; margin-top:15px; font-weight:bold; margin-right:20px; }
+        .line_middle { float:left; width:auto; height:50px; margin-left:15px; line-height:25px; margin-top:15px; font-weight:bold; margin-right:20px; }
         .line_middle div { width:auto; height:25px; overflow:hidden; }
         .line_right { float:right; width:50px;}
         .line_right img { height:30px; margin-top:25px; }
