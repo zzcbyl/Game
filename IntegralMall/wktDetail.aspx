@@ -18,15 +18,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div style="max-width:640px; background:#FFFDEA; margin:0 auto;">
         <div style="height:300px; width:auto; background:#D04131; text-align:center;">
-            <img src="../images/wkt_head.jpg" style="height:70%; margin-top:10%;"/>
+            <a href="wktConfirm.aspx"><img src="../images/wkt_head.jpg" style="height:70%; margin-top:10%;"/></a>
         </div>
-        <div class="line_main" onclick="location.href='wktConfirm.aspx';">
+        <div class="line_main" onclick="location.href='http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=405301163&idx=2&sn=ed872e7bb159b354769e1f33422483cc#rd';">
             <div class="line_left">
                 <img src="../images/wkt_icon1.jpg" />
             </div>
             <div class="line_middle">
-                <div>讲课主题</div>
-                <div>讲课时间</div>
+                <div>讲课主题：心灵的成长需要肯定</div>
+                <div>讲课时间：3月14日（周一）15:00-14:00</div>
             </div>
             <div class="line_right">
                 <img src="../images/wkt_icon6.jpg" />
@@ -37,8 +37,8 @@
                 <img src="../images/wkt_icon2.jpg" />
             </div>
             <div class="line_middle">
-                <div>主讲老师</div>
-                <div>主讲老师简介</div>
+                <div>主讲老师：卢勤老师</div>
+                <div>主讲老师简介：中国少年儿童新闻出版总社首席教育专家</div>
             </div>
             <div class="line_right">
                 <img src="../images/wkt_icon6.jpg" />
@@ -50,7 +50,7 @@
             </div>
             <div class="line_middle">
                 <div>听课资格</div>
-                <div>积分：30</div>
+                <div>30积分可以兑换【卢勤微课堂】视频微课门票</div>
             </div>
             <div class="line_right">
                 <img src="../images/wkt_icon6.jpg" />
@@ -62,7 +62,7 @@
             </div>
             <div class="line_middle">
                 <div>历史回顾</div>
-                <div>微课名简介...</div>
+                <div>【卢勤和她的朋友们微课堂】精彩微课回顾</div>
             </div>
             <div class="line_right">
                 <img src="../images/wkt_icon6.jpg" />
