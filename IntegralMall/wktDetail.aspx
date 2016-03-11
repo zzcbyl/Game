@@ -16,7 +16,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div style="max-width:640px; background:#FFFDEA; margin:0 auto; font-size:12px;">
+    <div style="max-width:640px; background:#FFFDEA; margin:0 auto;">
         <div style="height:300px; width:auto; background:#D04131; text-align:center;">
             <a href="wktConfirm.aspx"><img src="../images/wkt_head.jpg" style="height:70%; margin-top:10%;"/></a>
         </div>
@@ -26,7 +26,7 @@
             </div>
             <div class="line_middle">
                 <div>主题：心灵的成长需要肯定</div>
-                <div>3月14日（周一）15:00-14:00</div>
+                <div style="font-size:12px;">3月14日（周一）15:00-14:00</div>
             </div>
             <div class="line_right">
                 <img src="../images/wkt_icon6.jpg" />
@@ -38,7 +38,7 @@
             </div>
             <div class="line_middle">
                 <div>主讲老师：卢勤</div>
-                <div>中国少年儿童出版总社首席教育专家</div>
+                <div style="font-size:12px;">中国少年儿童出版总社首席教育专家</div>
             </div>
             <div class="line_right">
                 <img src="../images/wkt_icon6.jpg" />
@@ -50,7 +50,7 @@
             </div>
             <div class="line_middle">
                 <div>听课资格</div>
-                <div>30积分可以兑换【卢勤视频微课堂】门票</div>
+                <div style="font-size:12px;">30积分可以兑换【卢勤视频微课堂】门票</div>
             </div>
             <div class="line_right">
                 <img src="../images/wkt_icon6.jpg" />
@@ -62,7 +62,7 @@
             </div>
             <div class="line_middle">
                 <div>历史回顾</div>
-                <div>【卢勤和她的朋友们微课堂】精彩微课回顾</div>
+                <div style="font-size:12px;">【卢勤和她的朋友们微课堂】精彩微课回顾</div>
             </div>
             <div class="line_right">
                 <img src="../images/wkt_icon6.jpg" />
