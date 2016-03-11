@@ -1,4 +1,4 @@
-﻿<%@ Page Title="卢勤视频微课堂" Language="C#" MasterPageFile="~/IntegralMall/Master.master" %>
+﻿<%@ Page Title="卢勤和她的朋友们视频微课堂" Language="C#" MasterPageFile="~/IntegralMall/Master.master" %>
 
 <script runat="server">
 

@@ -49,7 +49,7 @@
                 {
                     video_url = dt.Rows[0]["article_url"].ToString();
                     video_title = dt.Rows[0]["article_title"].ToString();
-                    this.Title = video_title;
+                    this.Title = "微课堂：" + video_title;
                     int video_integral = int.Parse(dt.Rows[0]["article_integral"].ToString());
                     if (user_integral >= video_integral)
                     {
