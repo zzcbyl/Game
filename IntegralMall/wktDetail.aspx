@@ -18,7 +18,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div style="max-width:640px; background:#FFFDEA; margin:0 auto;">
         <div style="height:300px; width:auto; background:#D04131; text-align:center;">
-            <img src="../images/wkt_head.jpg" style="height:60%; margin-top:20%;"/>
+            <img src="../images/wkt_head.jpg" style="height:70%; margin-top:10%;"/>
         </div>
         <div class="line_main" onclick="location.href='wktConfirm.aspx';">
             <div class="line_left">
