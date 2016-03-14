@@ -99,7 +99,7 @@
         <div style="text-align:center; height:50px; width:100%; background:#C22B2B; font-family:宋体; color:#fff; font-size:14px; line-height:50px; font-weight:bold; letter-spacing:0.1em">
             <%=video_title %>
         </div>
-        <div style="margin:0; text-align:center; height:400px;">
+        <div style="margin:0; text-align:center; height:auto;">
             
              <script type="text/javascript" src="http://js.ku6cdn.com//2015/1030/swfobject.js"></script>
             <div id="player" class="ku-video">
