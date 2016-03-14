@@ -51,16 +51,22 @@
                     video_title = dt.Rows[0]["article_title"].ToString();
                     this.Title = "微课堂：" + video_title;
                     int video_integral = int.Parse(dt.Rows[0]["article_integral"].ToString());
-                    if (user_integral >= video_integral)
+                    string type = "video";
+                    DataTable dt_integral = Integral.GetList(userId, 0, type, article_video_id);
+                    if (dt_integral.Rows.Count <= 0)
                     {
-                        string type = "video";
-                        DataTable dt_integral = Integral.GetList(userId, 0, type, article_video_id);
-                        if (dt_integral.Rows.Count <= 0)
+                        if (user_integral >= video_integral)
+                        {
                             Integral.AddIntegral(userId, (0 - video_integral), "卢勤视频微课堂 " + article_video_id, type, article_video_id, 0);
+                        }
+                        else
+                        {
+                            Response.Redirect("wktConfirm.aspx");
+                        }
                     }
                     else
                     {
-                        Response.Redirect("wktConfirm.aspx");
+                        
                     }
                 }
                 else

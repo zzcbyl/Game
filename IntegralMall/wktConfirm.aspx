@@ -46,14 +46,13 @@
             DataTable dt_integral = Integral.GetList(userId, 0, type, article_video_id);
             if (dt_integral.Rows.Count > 0)
                 is_repeat = 1;
-            else
+
+            DataTable dt = Article.Get(article_video_id);
+            if (dt != null && dt.Rows.Count > 0)
             {
-                DataTable dt = Article.Get(article_video_id);
-                if (dt != null && dt.Rows.Count > 0)
-                {
-                    article_integral = int.Parse(dt.Rows[0]["article_integral"].ToString());
-                }
+                article_integral = int.Parse(dt.Rows[0]["article_integral"].ToString());
             }
+
         }
         catch
         {
@@ -92,9 +91,13 @@
         var video_aid = '<%=article_video_id %>';
         var isrepeat = '<%=is_repeat %>';
         function submitVideo() {
+            if (isrepeat == '1') {
+                location.href = 'wktVideo.aspx?article_video_id=' + video_aid;
+                return;
+            }
 
             if (uintegral > 0) {
-                if (isrepeat == 1 || uintegral >= integral) {
+                if (uintegral >= integral) {
                     location.href = 'wktVideo.aspx?article_video_id=' + video_aid;
                     return;
                 }
