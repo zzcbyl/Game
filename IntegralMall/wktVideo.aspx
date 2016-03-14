@@ -100,9 +100,50 @@
             <%=video_title %>
         </div>
         <div style="margin:0; text-align:center; height:400px;">
-            <video preload="meta" src="<%=video_url %>" controls="" 
-                style="margin: 0px; padding: 0px; width: 100%; height: 400px; z-index: 1; background-color: black;">
-                not support<br>you browser DO NOT support HTML5 video<br></video>
+            
+             <script type="text/javascript" src="http://js.ku6cdn.com//2015/1030/swfobject.js"></script>
+            <div id="player" class="ku-video">
+                <p>Flash not installed</p >
+            </div>
+            <script type="text/javascript">
+                var browser = {
+                    versions: function () {
+                        var u = navigator.userAgent, app = navigator.appVersion;
+                        return {//移动终端浏览器版本信息 
+                            trident: u.indexOf('Trident') > -1, //IE内核
+                            presto: u.indexOf('Presto') > -1, //opera内核
+                            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                            mobile: !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/AppleWebKit/), //是否为移动终端
+                            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+                            iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者QQHD浏览器
+                            iPad: u.indexOf('iPad') > -1, //是否iPad
+                            webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+                        };
+                    }(),
+                    language: (navigator.browserLanguage || navigator.language).toLowerCase()
+                }
+                if (browser.versions.ios || browser.versions.iPhone || browser.versions.iPad || browser.versions.android) {
+                    document.getElementById("player").innerHTML = '<video preload="meta" src="http://live.show.ku6.com/liveapp/beijing/playlist.m3u8" controls=""  style="margin: 0px; padding: 0px; width: 100%; height: 100%; z-index: 1; background-color: black;">浏览器不支持HTML5视频<br>you browser DO NOT support HTML5 video<br></video>';
+                } else {
+                    var flashVars = {
+                        flvURL: 'http://live.show.ku6.com/liveapp/beijing.flv ',
+                        videoW: '680',
+                        videoH: '390'
+                    };
+                    var params = {};
+                    params.allowfullscreen = "true";
+                    params.allowScriptAccess = "always";
+                    params.wmode = "transparent";
+                    var attributes = {};
+                    swfobject.embedSWF("<%=video_url %>", "player", "680", "390", "9.0.0", null, flashVars, params, attributes);
+                }
+
+            </script>
+            
+            
+           
         </div>
         <div style="height:22px; line-height:23px; font-size:12px; color:#fff; background:#8BC7E3; text-align:center;">
             当前在线
@@ -681,6 +722,8 @@
 
         </div>
     </div>
+
+   
     
 </asp:Content>
 
