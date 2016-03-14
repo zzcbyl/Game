@@ -52,7 +52,10 @@
         string type = "video";
         DataTable dt_integral = Integral.GetList(userId, 0, type, article_video_id);
         if (dt_integral.Rows.Count > 0)
+        {
             is_repeat = 1;
+            Response.Redirect("wktVideo.aspx");
+        }
 
         DataTable dt = Article.Get(article_video_id);
         if (dt != null && dt.Rows.Count > 0)
