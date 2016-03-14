@@ -54,7 +54,7 @@
         if (dt_integral.Rows.Count > 0)
         {
             is_repeat = 1;
-            Response.Redirect("wktVideo.aspx");
+            Response.Redirect("wktVideo.aspx?article_video_id=" + article_video_id);
         }
 
         DataTable dt = Article.Get(article_video_id);
