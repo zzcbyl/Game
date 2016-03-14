@@ -15,13 +15,13 @@
     {
         token = Util.GetSafeRequestValue(Request, "token", "");
 
-        if (token.Trim().Equals(""))
-        {
-            if (Session["user_token"] != null)
-            {
-                token = Session["user_token"].ToString().Trim();
-            }
-        }
+        //if (token.Trim().Equals(""))
+        //{
+        //    if (Session["user_token"] != null)
+        //    {
+        //        token = Session["user_token"].ToString().Trim();
+        //    }
+        //}
 
         int userId = Users.CheckToken(token);
         if (userId <= 0)

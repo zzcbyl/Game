@@ -20,13 +20,13 @@
         token = Util.GetSafeRequestValue(Request, "token", "");
         articleid = int.Parse(Util.GetSafeRequestValue(Request, "articleid", ""));
 
-        if (token.Trim().Equals(""))
-        {
-            if (Session["user_token"] != null)
-            {
-                token = Session["user_token"].ToString().Trim();
-            }
-        }
+        //if (token.Trim().Equals(""))
+        //{
+        //    if (Session["user_token"] != null)
+        //    {
+        //        token = Session["user_token"].ToString().Trim();
+        //    }
+        //}
         
         userId = Users.CheckToken(token);
         if (userId <= 0)

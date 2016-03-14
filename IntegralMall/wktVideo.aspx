@@ -12,13 +12,13 @@
     {
         token = Util.GetSafeRequestValue(Request, "token", "");
 
-        if (token.Trim().Equals(""))
-        {
-            if (Session["user_token"] != null)
-            {
-                token = Session["user_token"].ToString().Trim();
-            }
-        }
+        //if (token.Trim().Equals(""))
+        //{
+        //    if (Session["user_token"] != null)
+        //    {
+        //        token = Session["user_token"].ToString().Trim();
+        //    }
+        //}
         
         if (Request["article_video_id"] == null || Request["article_video_id"].ToString().Equals(""))
         {
