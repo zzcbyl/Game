@@ -50,7 +50,7 @@
             </div>
             <div class="line_middle">
                 <div>听课资格</div>
-                <div style="font-size:12px;">30积分可以兑换【卢勤视频微课堂】门票</div>
+                <div style="font-size:12px;">10积分可以兑换【卢勤视频微课堂】门票</div>
             </div>
             <div class="line_right">
                 <img src="../images/wkt_icon6.jpg" />
