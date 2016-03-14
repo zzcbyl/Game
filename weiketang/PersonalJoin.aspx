@@ -97,7 +97,7 @@
         </div>
         <div style="text-align:left; line-height:30px; background:#fff; padding:10px; margin-top:10px;">
             <p style="text-align:center;">
-               <img src="../images/luqin.jpg" width="90%" /></p>
+               <img src="../images/zhangyuchong.jpg" width="90%" /></p>
             <p><h3>张羽冲老师</h3></p>
             <p>　　张羽冲，毕业于中央音乐学院，原为北京交响乐团首席圆号手，曾先后做电器生意，投资佐丹奴专卖店、韩国料理，赚得人生第一桶金。后离开乐团，开设了专门的机构从事钢琴教学，培养出大批在国际上获奖的学生，部分学生甚至进入了维也纳音乐学院、柏林音乐学院进修。90年代末期，他变身成为中国房产投资的传奇人物，红遍业内。</p>
             <p>　　当前，他又有一个神圣的身份：父亲，随着两个可爱女儿的出生，他将音乐上的修养和多年投资上的感悟，转化为对女儿的教育上，形成了一套自己独特的对女儿“投资”的方法。</p>
