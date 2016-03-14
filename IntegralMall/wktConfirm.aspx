@@ -68,7 +68,7 @@
         </div>
         <div style="text-align:left; width:70%; margin-left:15%; line-height:25px;">
             <div>欢迎您进入【卢勤视频微课堂】</div>
-            <div>观看直播视频微课将扣除 10 积分</div>
+            <div>观看直播视频微课将扣除 <%=article_integral %> 积分</div>
             <div>您目前的积分余额是：<%=user.Integral %></div>
         </div>
         <div style="text-align:center; margin:35px 0 80px;">
