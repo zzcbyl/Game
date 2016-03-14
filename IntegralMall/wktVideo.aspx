@@ -172,7 +172,7 @@
         <div style="padding:10px; margin-top:10px; background:#fff; ">
             <%--<iframe id="iframepage" height="500px;" width="100%" frameborder="0" marginheight="0" marginwidth="0" src="http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=405301163&idx=2&sn=ed872e7bb159b354769e1f33422483cc#wechat_redirect"></iframe>--%>
 
-            <h2>【3月14日课程预告】主讲专家：卢勤</h2>
+            <h3>【3月14日课程预告】主讲专家：卢勤</h3>
             <p></p>
             <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; font-family: &#39;Helvetica Neue&#39;, Helvetica, &#39;Hiragino Sans GB&#39;, &#39;Microsoft YaHei&#39;, Arial, sans-serif; line-height: 25.6px; max-width: 100%; min-height: 1em; white-space: pre-wrap; color: rgb(62, 62, 62); box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
     <img data-id="74" data-ratio="0.12410071942446044" data-w="" width="auto" src="https://mmbiz.qlogo.cn/mmbiz/cZV2hRpuAPjOjIEA1OjSicXHcia9Mj9RQjbhIdPqSm4xrYpL2X7TMSLTZ0KLC4IshAiazU2eZpicjkIPzrSLLblVfg/0?" style="margin: 0px; padding: 0px; max-width: 100%; height: auto !important; text-align: center; font-family: 微软雅黑; line-height: 1.6; box-sizing: border-box !important; word-wrap: break-word !important; width: auto !important; visibility: visible !important;"/><span style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"></span>
