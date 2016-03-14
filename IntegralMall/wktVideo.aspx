@@ -174,11 +174,11 @@
 
             <h3>【3月14日课程预告】主讲专家：卢勤</h3>
             <p></p>
-            <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; font-family: &#39;Helvetica Neue&#39;, Helvetica, &#39;Hiragino Sans GB&#39;, &#39;Microsoft YaHei&#39;, Arial, sans-serif; line-height: 25.6px; max-width: 100%; min-height: 1em; white-space: pre-wrap; color: rgb(62, 62, 62); box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
+            <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; font-family: &#39;Helvetica Neue&#39;, Helvetica, &#39;Hiragino Sans GB&#39;, &#39;Microsoft YaHei&#39;, Arial, sans-serif; line-height: 25.6px; max-width: 100%; min-height: 1em;  color: rgb(62, 62, 62); box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
     <img data-id="74" data-ratio="0.12410071942446044" data-w="" width="auto" src="https://mmbiz.qlogo.cn/mmbiz/cZV2hRpuAPjOjIEA1OjSicXHcia9Mj9RQjbhIdPqSm4xrYpL2X7TMSLTZ0KLC4IshAiazU2eZpicjkIPzrSLLblVfg/0?" style="margin: 0px; padding: 0px; max-width: 100%; height: auto !important; text-align: center; font-family: 微软雅黑; line-height: 1.6; box-sizing: border-box !important; word-wrap: break-word !important; width: auto !important; visibility: visible !important;"/><span style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"></span>
 </p>
 <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; font-family: &#39;Helvetica Neue&#39;, Helvetica, &#39;Hiragino Sans GB&#39;, &#39;Microsoft YaHei&#39;, Arial, sans-serif; line-height: 25.6px; white-space: normal; max-width: 100%; min-height: 1em; color: rgb(62, 62, 62); text-align: center; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
-    <span style="margin: 0px; padding: 0px; max-width: 100%; white-space: pre-wrap; line-height: 36px; color: rgb(0, 122, 170); font-family: SimHei; font-size: 12px; font-weight: bold; box-sizing: border-box !important; word-wrap: break-word !important;">每天精选家庭教育资讯和文章，供您浏览。</span>
+    <span style="margin: 0px; padding: 0px; max-width: 100%;  line-height: 36px; color: rgb(0, 122, 170); font-family: SimHei; font-size: 12px; font-weight: bold; box-sizing: border-box !important; word-wrap: break-word !important;">每天精选家庭教育资讯和文章，供您浏览。</span>
 </p>
 <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; font-family: &#39;Helvetica Neue&#39;, Helvetica, &#39;Hiragino Sans GB&#39;, &#39;Microsoft YaHei&#39;, Arial, sans-serif; line-height: 25.6px; white-space: normal; text-align: center;">
     <img data-s="300,640" data-type="jpeg" src="https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbXCTlJ500lEvbjbkWibyzWWpkCcFrwURaAgqicibBbwHOtqRoiaQytiatx58utwGVDLfr6rh1mHA5MTovg/0?wx_fmt=jpeg" data-ratio="0.6241007194244604" data-w="" style="margin: 0px; padding: 0px; max-width: 100%; height: auto !important;"/><br style="margin: 0px; padding: 0px;"/>
@@ -199,10 +199,10 @@
     <br style="margin: 0px; padding: 0px;"/>
 </p>
 <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; line-height: 25.6px; white-space: normal; max-width: 100%; min-height: 1em; font-family: 微软雅黑; text-align: center; box-sizing: border-box !important; word-wrap: break-word !important;">
-    <span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 20px; color: rgb(0, 176, 240); box-sizing: border-box !important; word-wrap: break-word !important;"><strong style="margin: 0px; padding: 0px; max-width: 100%; color: rgb(234, 96, 124); white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;">主讲专家</strong></span>
+    <span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 20px; color: rgb(0, 176, 240); box-sizing: border-box !important; word-wrap: break-word !important;"><strong style="margin: 0px; padding: 0px; max-width: 100%; color: rgb(234, 96, 124);  box-sizing: border-box !important; word-wrap: break-word !important;">主讲专家</strong></span>
 </p>
 <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; line-height: 25.6px; white-space: normal; max-width: 100%; min-height: 1em; font-family: 微软雅黑; text-align: center; box-sizing: border-box !important; word-wrap: break-word !important;">
-    <span style="margin: 0px; padding: 0px; max-width: 100%; color: rgb(0, 176, 240); font-size: 18px; box-sizing: border-box !important; word-wrap: break-word !important;"><strong style="margin: 0px; padding: 0px; max-width: 100%; color: rgb(234, 96, 124); white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; max-width: 100%; color: rgb(0, 176, 240); font-family: sans-serif; line-height: normal; box-sizing: border-box !important; word-wrap: break-word !important;">▼</span></strong></span>
+    <span style="margin: 0px; padding: 0px; max-width: 100%; color: rgb(0, 176, 240); font-size: 18px; box-sizing: border-box !important; word-wrap: break-word !important;"><strong style="margin: 0px; padding: 0px; max-width: 100%; color: rgb(234, 96, 124);  box-sizing: border-box !important; word-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; max-width: 100%; color: rgb(0, 176, 240); font-family: sans-serif; line-height: normal; box-sizing: border-box !important; word-wrap: break-word !important;">▼</span></strong></span>
 </p>
 <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; font-family: &#39;Helvetica Neue&#39;, Helvetica, &#39;Hiragino Sans GB&#39;, &#39;Microsoft YaHei&#39;, Arial, sans-serif; line-height: 25.6px; white-space: normal;">
     <br style="margin: 0px; padding: 0px;"/>
@@ -213,17 +213,17 @@
             <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; text-align: center;">
                 <img data-s="300,640" data-type="jpeg" src="https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbVRywyXJQgJ96pdzb6GictlkSx1KNe8I2Urdak0YZT1T7KagmMYBe7VML0EEpnNa8H76FlurWZJBMQ/0?wx_fmt=jpeg" data-ratio="0.6236363636363637" data-w="550" style="margin: 0px; padding: 0px; max-width: 100%; height: auto !important;"/>
             </p>
-            <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;">
+            <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  box-sizing: border-box !important; word-wrap: break-word !important;">
                 <strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; max-width: 100%; line-height: 29px; box-sizing: border-box !important; word-wrap: break-word !important;">卢勤老师</span></strong><br style="margin: 0px; padding: 0px;"/>
             </p>
             <section class="135brush" style="margin: 0px; padding: 3px 10px 15px; max-width: 100%; box-sizing: border-box; word-wrap: break-word !important;">
-                <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; text-indent: 32px; line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">
+                <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  text-indent: 32px; line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">
                     <span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; max-width: 100%; line-height: 30px; box-sizing: border-box !important; word-wrap: break-word !important;">卢勤老师是中国少年儿童新闻出版总社首席教育专家,深受广大家长和小朋友喜爱的“知心姐姐”，中国家庭教育学会常务理事，中国关心下一代工作委员会专家委员会委员，</span><span style="margin: 0px; padding: 0px; max-width: 100%; line-height: 30px; color: rgb(51, 51, 51); box-sizing: border-box !important; word-wrap: break-word !important;">全国“更新家庭教育观念报告团”成员</span><span style="margin: 0px; padding: 0px; max-width: 100%; line-height: 30px; box-sizing: border-box !important; word-wrap: break-word !important;">，曾担任</span><span style="margin: 0px; padding: 0px; max-width: 100%; line-height: 30px; color: rgb(51, 51, 51); box-sizing: border-box !important; word-wrap: break-word !important;">中国少年儿童新闻出版总社总编辑。</span><span style="margin: 0px; padding: 0px; max-width: 100%; line-height: 30px; box-sizing: border-box !important; word-wrap: break-word !important;">中央电视台、中国教育电视台、北京电视台、腾讯、搜狐等多家传媒名牌栏目的常邀嘉宾。</span></span>
                 </p>
-                <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; text-indent: 32px; line-height: 32px; box-sizing: border-box !important; word-wrap: break-word !important;">
+                <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  text-indent: 32px; line-height: 32px; box-sizing: border-box !important; word-wrap: break-word !important;">
                     <br style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"/>
                 </p>
-                <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; text-indent: 32px; line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">
+                <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  text-indent: 32px; line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">
                     <span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; line-height: 30px; box-sizing: border-box !important; word-wrap: break-word !important;">三十多年来,卢勤老师致力于对少年儿童及家长心理健康的研究。在长期主持《中国少年报》“知心姐姐”栏目过程中，积累了大量的一线家庭教育实践经验，是中国上亿家长及儿童最喜爱、最信任的权威教育专家，深受亿万家长和孩子的爱戴。</span>
                 </p>
             </section>
@@ -238,42 +238,42 @@
         <section style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box; word-wrap: break-word !important;">
             <section style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box; border-width: 0px; border-style: none; border-top-color: rgb(234, 96, 124); word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
                 <section style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box; word-wrap: break-word !important;">
-                    <p class="wxqq-color wxqq-borderLeftColor" style="margin-bottom: 13px; padding: 0px 10px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 25px; border-width: 0px 0px 0px 5px; color: rgb(234, 96, 124); border-left-color: rgb(234, 96, 124); border-left-style: solid; -webkit-font-smoothing: antialiased; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p class="wxqq-color wxqq-borderLeftColor" style="margin-bottom: 13px; padding: 0px 10px; clear: both; max-width: 100%; min-height: 1em;  line-height: 25px; border-width: 0px 0px 0px 5px; color: rgb(234, 96, 124); border-left-color: rgb(234, 96, 124); border-left-style: solid; -webkit-font-smoothing: antialiased; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">课程名称：</strong>
                     </p>
-                    <p style="padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 1.6em; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="padding: 0px; clear: both; max-width: 100%; min-height: 1em;  line-height: 1.6em; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <span style="margin: 0px; padding: 0px; max-width: 100%; color: rgb(61, 170, 214); box-sizing: border-box !important; word-wrap: break-word !important;"><strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">心灵的成长需要肯定</strong></span>
                     </p>
-                    <p style="padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 1.6em; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="padding: 0px; clear: both; max-width: 100%; min-height: 1em;  line-height: 1.6em; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <br style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"/>
                     </p>
-                    <p class="wxqq-color wxqq-borderLeftColor" style="margin-bottom: 13px; padding: 0px 10px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 25px; border-width: 0px 0px 0px 5px; color: rgb(234, 96, 124); border-left-color: rgb(234, 96, 124); border-left-style: solid; -webkit-font-smoothing: antialiased; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p class="wxqq-color wxqq-borderLeftColor" style="margin-bottom: 13px; padding: 0px 10px; clear: both; max-width: 100%; min-height: 1em;  line-height: 25px; border-width: 0px 0px 0px 5px; color: rgb(234, 96, 124); border-left-color: rgb(234, 96, 124); border-left-style: solid; -webkit-font-smoothing: antialiased; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">开课时间：</strong>
                     </p>
-                    <p style="padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 1.6em; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="padding: 0px; clear: both; max-width: 100%; min-height: 1em;  line-height: 1.6em; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <span style="margin: 0px; padding: 0px; max-width: 100%; color: rgb(61, 170, 214); box-sizing: border-box !important; word-wrap: break-word !important;"><strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">3月14日（周一）15:00-16:00</strong></span>
                     </p>
-                    <p style="padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 1.6em; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="padding: 0px; clear: both; max-width: 100%; min-height: 1em;  line-height: 1.6em; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <br style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"/>
                     </p>
-                    <p class="wxqq-color wxqq-borderLeftColor" style="margin-bottom: 13px; padding: 0px 10px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 25px; border-width: 0px 0px 0px 5px; color: rgb(234, 96, 124); border-left-color: rgb(234, 96, 124); border-left-style: solid; -webkit-font-smoothing: antialiased; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p class="wxqq-color wxqq-borderLeftColor" style="margin-bottom: 13px; padding: 0px 10px; clear: both; max-width: 100%; min-height: 1em;  line-height: 25px; border-width: 0px 0px 0px 5px; color: rgb(234, 96, 124); border-left-color: rgb(234, 96, 124); border-left-style: solid; -webkit-font-smoothing: antialiased; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">课程形式：</strong>
                     </p>
-                    <p style="padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 1.6em; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="padding: 0px; clear: both; max-width: 100%; min-height: 1em;  line-height: 1.6em; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; max-width: 100%; color: rgb(61, 170, 214); box-sizing: border-box !important; word-wrap: break-word !important;">卢勤和她的朋友们微课堂群</span></strong>
                     </p>
-                    <p style="padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 1.6em; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="padding: 0px; clear: both; max-width: 100%; min-height: 1em;  line-height: 1.6em; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; max-width: 100%; color: rgb(61, 170, 214); box-sizing: border-box !important; word-wrap: break-word !important;">合作转播群</span></strong>
                     </p>
-                    <p style="padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 1.6em; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="padding: 0px; clear: both; max-width: 100%; min-height: 1em;  line-height: 1.6em; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <br style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"/>
                     </p>
                 </section>
             </section>
-            <p class="wxqq-color wxqq-borderLeftColor" style="margin-bottom: 13px; padding: 0px 10px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 25px; border-width: 0px 0px 0px 5px; color: rgb(234, 96, 124); border-left-color: rgb(234, 96, 124); border-left-style: solid; -webkit-font-smoothing: antialiased; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
+            <p class="wxqq-color wxqq-borderLeftColor" style="margin-bottom: 13px; padding: 0px 10px; clear: both; max-width: 100%; min-height: 1em;  line-height: 25px; border-width: 0px 0px 0px 5px; color: rgb(234, 96, 124); border-left-color: rgb(234, 96, 124); border-left-style: solid; -webkit-font-smoothing: antialiased; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
                 <strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">适合人群：</strong>
             </p>
-            <p style="padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 1.6em; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
+            <p style="padding: 0px; clear: both; max-width: 100%; min-height: 1em;  line-height: 1.6em; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
                 7岁以上孩子和<span style="margin: 0px; padding: 0px; max-width: 100%; line-height: 1.6em; box-sizing: border-box !important; word-wrap: break-word !important;">愿意为孩子创造良好家庭教育环境的家长、准家长、教育工作者。建议家长和孩子一起收听。</span>
             </p>
         </section>
@@ -359,23 +359,23 @@
             <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both;">
                 <br style="margin: 0px; padding: 0px;"/>
             </p>
-            <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
+            <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
                 <br style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"/>
             </p>
-            <p style="margin-top: 0px; margin-bottom: 15px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; font-family: 微软雅黑; line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
+            <p style="margin-top: 0px; margin-bottom: 15px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  font-family: 微软雅黑; line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
                 <span style="margin: 0px; padding: 0px; max-width: 100%; line-height: 1.75em; font-size: 18px; box-sizing: border-box !important; word-wrap: break-word !important;"><strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">1.&nbsp;</strong></span><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">请先关注</span><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; line-height: 1.75em; color: rgb(255, 76, 65); box-sizing: border-box !important; word-wrap: break-word !important;"><strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">卢勤问答平台微信公众号</strong></span><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">（ID：luqinwendapingtai）；</span>
             </p>
-            <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; font-family: 微软雅黑; text-align: center; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
+            <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  font-family: 微软雅黑; text-align: center; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
                 <span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; box-sizing: border-box !important; word-wrap: break-word !important;"><img data-s="300,640" data-type="jpeg" data-ratio="1" data-w="200" width="auto" src="https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbXbmYqaSzFZem1doyiapP7FPYUia2yLyU0dplPVErGiccHvVrIe6k5yN4dd6TuPicp8Iriao8icbdGtJqcg/640?wx_fmt=jpeg" style="margin: 0px; padding: 0px; max-width: 100%; height: auto !important; box-sizing: border-box !important; word-wrap: break-word !important; width: auto !important; visibility: visible !important;"/><br style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"/></span>
             </p>
-            <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; font-family: 微软雅黑; text-align: center; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
+            <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  font-family: 微软雅黑; text-align: center; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
                 <span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 14px; color: rgb(127, 127, 127); line-height: 28.4375px; box-sizing: border-box !important; word-wrap: break-word !important;">长按识别即可关注</span>
             </p>
             <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
                 <span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 14px; color: rgb(127, 127, 127); line-height: 28.4375px; box-sizing: border-box !important; word-wrap: break-word !important;"><br style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"/></span>
             </p>
             <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
-                <strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 18px; box-sizing: border-box !important; word-wrap: break-word !important;">2.&nbsp;</span><span style="margin: 0px; padding: 0px; max-width: 100%; font-family: 微软雅黑; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; line-height: 26.25px; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;"></span></span></strong><span style="margin: 0px; padding: 0px; max-width: 100%; font-family: 微软雅黑; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; line-height: 26.25px; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;">在公众号菜单</span></span><span style="margin: 0px; padding: 0px; max-width: 100%; font-family: 微软雅黑; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; line-height: 26.25px; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;">点击“签到”，进入签到页面。</span></span>
+                <strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 18px; box-sizing: border-box !important; word-wrap: break-word !important;">2.&nbsp;</span><span style="margin: 0px; padding: 0px; max-width: 100%; font-family: 微软雅黑; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; line-height: 26.25px;  box-sizing: border-box !important; word-wrap: break-word !important;"></span></span></strong><span style="margin: 0px; padding: 0px; max-width: 100%; font-family: 微软雅黑; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; line-height: 26.25px;  box-sizing: border-box !important; word-wrap: break-word !important;">在公众号菜单</span></span><span style="margin: 0px; padding: 0px; max-width: 100%; font-family: 微软雅黑; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; line-height: 26.25px;  box-sizing: border-box !important; word-wrap: break-word !important;">点击“签到”，进入签到页面。</span></span>
             </p>
             <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
                 <br style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"/>
@@ -387,13 +387,13 @@
                 <br style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"/>
             </p>
             <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
-                <strong style="margin: 0px; padding: 0px; max-width: 100%; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 18px; box-sizing: border-box !important; word-wrap: break-word !important;">3.&nbsp;</span></strong><span style="margin: 0px; padding: 0px; max-width: 100%; font-family: 微软雅黑; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; line-height: 26.25px; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;">分享签到文章到朋友圈，获得积分。</span></span>
+                <strong style="margin: 0px; padding: 0px; max-width: 100%; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 18px; box-sizing: border-box !important; word-wrap: break-word !important;">3.&nbsp;</span></strong><span style="margin: 0px; padding: 0px; max-width: 100%; font-family: 微软雅黑; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; line-height: 26.25px;  box-sizing: border-box !important; word-wrap: break-word !important;">分享签到文章到朋友圈，获得积分。</span></span>
             </p>
             <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
-                <span style="margin: 0px; padding: 0px; max-width: 100%; font-family: 微软雅黑; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; line-height: 26.25px; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;"><br style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"/></span></span>
+                <span style="margin: 0px; padding: 0px; max-width: 100%; font-family: 微软雅黑; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; line-height: 26.25px;  box-sizing: border-box !important; word-wrap: break-word !important;"><br style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"/></span></span>
             </p>
             <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; line-height: 25.6px; text-align: center; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
-                <span style="margin: 0px; padding: 0px; max-width: 100%; font-family: 微软雅黑; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; line-height: 26.25px; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;"><img data-s="300,640" data-type="jpeg" data-ratio="1.7758620689655173" data-w="522" src="https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbVMspW8P8m3hL2J7mKQguaxNKD9ic0WjqxZRC4fssDaWZ7sIj6zdKKMlVfBz1xJewd9smlkXVElEcg/640?wx_fmt=jpeg" style="margin: 0px; padding: 0px; max-width: 100%; height: auto !important; box-sizing: border-box !important; word-wrap: break-word !important; width: auto !important; visibility: visible !important;"/><br style="margin: 0px; padding: 0px;"/></span></span>
+                <span style="margin: 0px; padding: 0px; max-width: 100%; font-family: 微软雅黑; line-height: 25.6px; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; line-height: 26.25px;  box-sizing: border-box !important; word-wrap: break-word !important;"><img data-s="300,640" data-type="jpeg" data-ratio="1.7758620689655173" data-w="522" src="https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbVMspW8P8m3hL2J7mKQguaxNKD9ic0WjqxZRC4fssDaWZ7sIj6zdKKMlVfBz1xJewd9smlkXVElEcg/640?wx_fmt=jpeg" style="margin: 0px; padding: 0px; max-width: 100%; height: auto !important; box-sizing: border-box !important; word-wrap: break-word !important; width: auto !important; visibility: visible !important;"/><br style="margin: 0px; padding: 0px;"/></span></span>
             </p>
             <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both;">
                 <br style="margin: 0px; padding: 0px;"/>
@@ -458,60 +458,60 @@
             </section>
             <section class="135editor" data-id="24" style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box; border: 0px none; word-wrap: break-word !important;">
                 <section class="135brush layout" style="margin: 3px auto; padding: 15px; max-width: 100%; box-sizing: border-box; line-height: 24px; box-shadow: rgb(170, 170, 170) 0px 0px 3px; border: 2px solid rgb(240, 240, 240); word-wrap: break-word !important;">
-                    <p style="margin-top: 0px; margin-bottom: 15px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 15px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <span style="margin: 0px; padding: 0px; max-width: 100%; line-height: 1.75em; font-size: 18px; box-sizing: border-box !important; word-wrap: break-word !important;"><strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">1.&nbsp;</strong></span><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">报名在线讲座，请先关注</span><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; line-height: 1.75em; color: rgb(255, 76, 65); box-sizing: border-box !important; word-wrap: break-word !important;"><strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">卢勤问答平台微信公众号</strong></span><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">（ID：luqinwendapingtai）；</span>
                     </p>
-                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; text-align: center; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  text-align: center; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; box-sizing: border-box !important; word-wrap: break-word !important;"><img data-s="300,640" data-type="jpeg" data-ratio="1" data-w="200" src="https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbXbmYqaSzFZem1doyiapP7FPYUia2yLyU0dplPVErGiccHvVrIe6k5yN4dd6TuPicp8Iriao8icbdGtJqcg/640?wx_fmt=jpeg" style="margin: 0px; padding: 0px; max-width: 100%; height: auto !important; box-sizing: border-box !important; word-wrap: break-word !important; width: auto !important; visibility: visible !important;"/><br style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"/></span>
                     </p>
-                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; text-align: center; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  text-align: center; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 14px; color: rgb(127, 127, 127); line-height: 28.4375px; box-sizing: border-box !important; word-wrap: break-word !important;">长按识别即可关注</span>
                     </p>
-                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; text-align: center; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  text-align: center; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <br style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"/>
                     </p>
-                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 18px; box-sizing: border-box !important; word-wrap: break-word !important;">2.</span></strong><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; box-sizing: border-box !important; word-wrap: break-word !important;">&nbsp;在卢勤问答平台微信公众号中回复关键词：<span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 18px; color: rgb(255, 76, 65); box-sizing: border-box !important; word-wrap: break-word !important;"><strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">微课</strong></span>，领取属于自己的邀请码。</span>
                     </p>
-                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <br style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"/>
                     </p>
-                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; box-sizing: border-box !important; word-wrap: break-word !important;"><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 18px; box-sizing: border-box !important; word-wrap: break-word !important;"><strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">3.</strong></span><span style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">&nbsp;将<strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">含有邀请码的支持页面转发到100人以上的微信群或者您的朋友圈</strong>，</span><span style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">邀请朋友，在公众号中回复您的邀请码，为您投上一票支持。</span></span>
                     </p>
-                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <br style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"/>
                     </p>
-                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 18px; box-sizing: border-box !important; word-wrap: break-word !important;"><strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">4.</strong></span><span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; box-sizing: border-box !important; word-wrap: break-word !important;">当您的支持票数<span style="margin: 0px; padding: 0px; max-width: 100%; color: rgb(255, 76, 0); box-sizing: border-box !important; word-wrap: break-word !important;"><strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">超过10票</strong></span>后，请<span style="margin: 0px; padding: 0px; max-width: 100%; color: rgb(255, 76, 0); box-sizing: border-box !important; word-wrap: break-word !important;"><strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">将支持票数截图给卢勤问答平台小助手</strong></span>，然后由小助手安排您入群，额满后将不再拉人入群。</span>
                     </p>
-                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <br style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"/>
                     </p>
-                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 1.75em; text-align: center; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  line-height: 1.75em; text-align: center; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; box-sizing: border-box !important; word-wrap: break-word !important;">卢勤问答平台小助手微信（luqinwenda001）。</span>
                     </p>
-                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; text-align: center; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  text-align: center; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <img data-s="300,640" data-type="jpeg" data-ratio="1" data-w="200" src="https://mmbiz.qlogo.cn/mmbiz/2x9sALwpIbXbmYqaSzFZem1doyiapP7FPFB8KWG1YQHiaIAQGbXhdpq2rH03BVRN8K6qx670bkNcJA0XRKbibVKjw/640?wx_fmt=jpeg" style="margin: 0px; padding: 0px; max-width: 100%; height: auto !important; box-sizing: border-box !important; word-wrap: break-word !important; width: auto !important; visibility: visible !important;"/>
                     </p>
-                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; text-align: center; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  text-align: center; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <span style="margin: 0px; padding: 0px; max-width: 100%; color: rgb(127, 127, 127); font-size: 14px; line-height: 28.4375px; box-sizing: border-box !important; word-wrap: break-word !important;">长按识别即可关注</span>
                     </p>
-                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; text-align: center; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  text-align: center; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <br style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"/>
                     </p>
-                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 18px; color: rgb(255, 0, 0); box-sizing: border-box !important; word-wrap: break-word !important;"><strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">加群必知：</strong></span>
                     </p>
-                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">
                         <span style="margin: 0px; padding: 0px; max-width: 100%; color: rgb(217, 33, 66); font-size: 15px; line-height: 1.75em; box-sizing: border-box !important; word-wrap: break-word !important;">已加入卢勤问答平台微课直播群（卢勤和她的朋友们微课堂群）的朋友不用再重复申请入群，可以继续收听。</span>
                     </p>
                 </section>
             </section>
-            <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;">
+            <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  box-sizing: border-box !important; word-wrap: break-word !important;">
                 <br style="margin: 0px; padding: 0px;"/>
             </p>
-            <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;">
+            <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  box-sizing: border-box !important; word-wrap: break-word !important;">
                 <br style="margin: 0px; padding: 0px;"/>
             </p>
         </section>
@@ -531,13 +531,13 @@
         </section>
     </section>
 </p>
-<p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; font-family: &#39;Helvetica Neue&#39;, Helvetica, &#39;Hiragino Sans GB&#39;, &#39;Microsoft YaHei&#39;, Arial, sans-serif; line-height: 25.6px; max-width: 100%; min-height: 1em; white-space: pre-wrap; color: rgb(62, 62, 62); box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
+<p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; font-family: &#39;Helvetica Neue&#39;, Helvetica, &#39;Hiragino Sans GB&#39;, &#39;Microsoft YaHei&#39;, Arial, sans-serif; line-height: 25.6px; max-width: 100%; min-height: 1em;  color: rgb(62, 62, 62); box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
     <br style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"/>
 </p>
 <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; line-height: 25.6px; white-space: normal; max-width: 100%; min-height: 1em; color: rgb(62, 62, 62); font-family: 微软雅黑; box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
     <span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 15px; line-height: 1.6em; box-sizing: border-box !important; word-wrap: break-word !important;">卢勤问答平台创办的，每周以微信群的方式进行授课的互动式线上课堂。</span>
 </p>
-<p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; font-family: &#39;Helvetica Neue&#39;, Helvetica, &#39;Hiragino Sans GB&#39;, &#39;Microsoft YaHei&#39;, Arial, sans-serif; line-height: 25.6px; max-width: 100%; min-height: 1em; white-space: pre-wrap; color: rgb(62, 62, 62); box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
+<p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; font-family: &#39;Helvetica Neue&#39;, Helvetica, &#39;Hiragino Sans GB&#39;, &#39;Microsoft YaHei&#39;, Arial, sans-serif; line-height: 25.6px; max-width: 100%; min-height: 1em;  color: rgb(62, 62, 62); box-sizing: border-box !important; word-wrap: break-word !important; background-color: rgb(255, 255, 255);">
     <br style="margin: 0px; padding: 0px;"/>
 </p>
 <p>
@@ -589,7 +589,7 @@
         <section class="135editor" data-id="86119" data-color="rgb(211, 42, 99)" data-custom="rgb(211, 42, 99)" style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box; line-height: 25.6px; border: 0px none; word-wrap: break-word !important;">
             <section style="margin: 0px 0px 0px 2.5em; padding: 5px 0px 0px 25px; max-width: 100%; box-sizing: border-box; border-left-width: 1px; border-left-style: solid; border-left-color: rgb(211, 42, 99); word-wrap: break-word !important;">
                 <section class="135brush" style="margin: -66px 0px 0px 20px; padding: 0px 0px 20px; max-width: 100%; box-sizing: border-box; color: inherit; word-wrap: break-word !important;">
-                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  box-sizing: border-box !important; word-wrap: break-word !important;">
                         <br style="margin: 0px; padding: 0px;"/>
                     </p>
                 </section>
@@ -608,17 +608,17 @@
                     </section>
                     <section style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box; width: 64px; word-wrap: break-word !important;">
                         <section style="margin: 0px; padding: 0.1em 2px; max-width: 100%; box-sizing: border-box; width: 64px; display: inline-block; border: 1px solid rgb(211, 42, 99); border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; word-wrap: break-word !important; background-color: rgb(254, 254, 254);">
-                            <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;">
+                            <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  box-sizing: border-box !important; word-wrap: break-word !important;">
                                 <strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"><span class="135brush" data-brushtype="text" style="margin: 0px; padding: 0px; max-width: 100%; font-size: 18px; box-sizing: border-box !important; word-wrap: break-word !important;">17</span></strong>
                             </p>
                         </section>
                     </section>
                 </section>
                 <section class="135brush" style="margin: -66px 0px 0px 20px; padding: 0px 0px 20px; max-width: 100%; box-sizing: border-box; color: inherit; word-wrap: break-word !important;">
-                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  box-sizing: border-box !important; word-wrap: break-word !important;">
                         <span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 14px; box-sizing: border-box !important; word-wrap: break-word !important;">著名钢琴教育家、房产投资人、超级辣爸 &nbsp; 张羽冲</span>
                     </p>
-                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  box-sizing: border-box !important; word-wrap: break-word !important;">
                         <strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">《家有女儿，如何养？》</strong>
                     </p>
                 </section>
@@ -635,17 +635,17 @@
                     </section>
                     <section style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box; width: 64px; word-wrap: break-word !important;">
                         <section style="margin: 0px; padding: 0.1em 2px; max-width: 100%; box-sizing: border-box; width: 64px; display: inline-block; border: 1px solid rgb(211, 42, 99); border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; word-wrap: break-word !important; background-color: rgb(254, 254, 254);">
-                            <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;">
+                            <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  box-sizing: border-box !important; word-wrap: break-word !important;">
                                 <strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"><span class="135brush" data-brushtype="text" style="margin: 0px; padding: 0px; max-width: 100%; font-size: 18px; box-sizing: border-box !important; word-wrap: break-word !important;">22</span></strong>
                             </p>
                         </section>
                     </section>
                 </section>
                 <section class="135brush" style="margin: -66px 0px 0px 20px; padding: 0px 0px 20px; max-width: 100%; box-sizing: border-box; color: inherit; word-wrap: break-word !important;">
-                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  box-sizing: border-box !important; word-wrap: break-word !important;">
                         <span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 14px; box-sizing: border-box !important; word-wrap: break-word !important;">著名家庭教育专家 &nbsp; 卢勤</span>
                     </p>
-                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  box-sizing: border-box !important; word-wrap: break-word !important;">
                         <strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">《家庭教育系列微课三》</strong>
                     </p>
                 </section>
@@ -662,17 +662,17 @@
                     </section>
                     <section style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box; width: 64px; word-wrap: break-word !important;">
                         <section style="margin: 0px; padding: 0.1em 2px; max-width: 100%; box-sizing: border-box; width: 64px; display: inline-block; border: 1px solid rgb(211, 42, 99); border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; word-wrap: break-word !important; background-color: rgb(254, 254, 254);">
-                            <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;">
+                            <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  box-sizing: border-box !important; word-wrap: break-word !important;">
                                 <strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"><span class="135brush" data-brushtype="text" style="margin: 0px; padding: 0px; max-width: 100%; font-size: 18px; box-sizing: border-box !important; word-wrap: break-word !important;">24</span></strong>
                             </p>
                         </section>
                     </section>
                 </section>
                 <section class="135brush" style="margin: -66px 0px 0px 20px; padding: 0px 0px 20px; max-width: 100%; box-sizing: border-box; color: inherit; word-wrap: break-word !important;">
-                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  box-sizing: border-box !important; word-wrap: break-word !important;">
                         <span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 14px; box-sizing: border-box !important; word-wrap: break-word !important;">中华礼仪文化研究会会长 &nbsp;吕艳芝</span>
                     </p>
-                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  box-sizing: border-box !important; word-wrap: break-word !important;">
                         <strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">《修养与家教——妈妈礼仪》</strong>
                     </p>
                 </section>
@@ -689,20 +689,20 @@
                     </section>
                     <section style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box; width: 64px; word-wrap: break-word !important;">
                         <section style="margin: 0px; padding: 0.1em 2px; max-width: 100%; box-sizing: border-box; width: 64px; display: inline-block; border: 1px solid rgb(211, 42, 99); border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; word-wrap: break-word !important; background-color: rgb(254, 254, 254);">
-                            <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;">
+                            <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  box-sizing: border-box !important; word-wrap: break-word !important;">
                                 <strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;"><span class="135brush" data-brushtype="text" style="margin: 0px; padding: 0px; max-width: 100%; font-size: 18px; box-sizing: border-box !important; word-wrap: break-word !important;">29</span></strong>
                             </p>
                         </section>
                     </section>
                 </section>
                 <section class="135brush" style="margin: -66px 0px 0px 20px; padding: 0px 0px 20px; max-width: 100%; box-sizing: border-box; color: inherit; word-wrap: break-word !important;">
-                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  box-sizing: border-box !important; word-wrap: break-word !important;">
                         <span style="margin: 0px; padding: 0px; max-width: 100%; font-size: 14px; line-height: 22.4px; box-sizing: border-box !important; word-wrap: break-word !important;">著名家庭教育专家卢勤</span>
                     </p>
-                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  box-sizing: border-box !important; word-wrap: break-word !important;">
                         <strong style="margin: 0px; padding: 0px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">《<strong style="margin: 0px; padding: 0px; line-height: 25.6px; max-width: 100%; box-sizing: border-box !important; word-wrap: break-word !important;">家庭教育系列微课四</strong>》</strong>
                     </p>
-                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em; white-space: pre-wrap; box-sizing: border-box !important; word-wrap: break-word !important;">
+                    <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; clear: both; max-width: 100%; min-height: 1em;  box-sizing: border-box !important; word-wrap: break-word !important;">
                         <br style="margin: 0px; padding: 0px;"/>
                     </p>
                 </section>
