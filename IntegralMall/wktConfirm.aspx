@@ -29,7 +29,7 @@
             Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Server.UrlEncode(Request.Url.ToString()), true);
         }
         Session["user_token"] = token;
-        
+
         JavaScriptSerializer json = new JavaScriptSerializer();
         user = new Users(userId);
         try
@@ -39,26 +39,24 @@
                 NickName = dicUser["nickname"].ToString();
             if (dicUser.Keys.Contains("headimgurl"))
                 UserHeadImg = dicUser["headimgurl"].ToString();
-
-            user_integral = int.Parse(user._fields["integral"].ToString());
-
-            string type = "video";
-            DataTable dt_integral = Integral.GetList(userId, 0, type, article_video_id);
-            if (dt_integral.Rows.Count > 0)
-                is_repeat = 1;
-
-            DataTable dt = Article.Get(article_video_id);
-            if (dt != null && dt.Rows.Count > 0)
-            {
-                article_integral = int.Parse(dt.Rows[0]["article_integral"].ToString());
-            }
-
         }
         catch
         {
 
         }
+        
+        user_integral = int.Parse(user._fields["integral"].ToString());
 
+        string type = "video";
+        DataTable dt_integral = Integral.GetList(userId, 0, type, article_video_id);
+        if (dt_integral.Rows.Count > 0)
+            is_repeat = 1;
+
+        DataTable dt = Article.Get(article_video_id);
+        if (dt != null && dt.Rows.Count > 0)
+        {
+            article_integral = int.Parse(dt.Rows[0]["article_integral"].ToString());
+        }
     }
 </script>
 
