@@ -10,6 +10,7 @@
     public int user_integral = 0;
     private int article_video_id = 20;
     public int article_integral = 0;
+    public int is_repeat = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
         token = Util.GetSafeRequestValue(Request, "token", "");
@@ -40,10 +41,18 @@
                 UserHeadImg = dicUser["headimgurl"].ToString();
 
             user_integral = int.Parse(user._fields["integral"].ToString());
-            DataTable dt = Article.Get(article_video_id);
-            if (dt != null && dt.Rows.Count > 0)
+
+            string type = "video";
+            DataTable dt_integral = Integral.GetList(userId, 0, type, article_video_id);
+            if (dt_integral.Rows.Count > 0)
+                is_repeat = 1;
+            else
             {
-                article_integral = int.Parse(dt.Rows[0]["article_integral"].ToString());
+                DataTable dt = Article.Get(article_video_id);
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    article_integral = int.Parse(dt.Rows[0]["article_integral"].ToString());
+                }
             }
         }
         catch
@@ -81,10 +90,11 @@
         var uintegral = parseInt('<%=user_integral %>');
         var integral = parseInt('<%=article_integral %>');
         var video_aid = '<%=article_video_id %>';
-        function submitVideo()
-        {
+        var isrepeat = '<%=is_repeat %>';
+        function submitVideo() {
+
             if (uintegral > 0) {
-                if (uintegral >= integral) {
+                if (isrepeat == 1 || uintegral >= integral) {
                     location.href = 'wktVideo.aspx?article_video_id=' + video_aid;
                     return;
                 }
