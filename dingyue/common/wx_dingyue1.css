@@ -2170,7 +2170,7 @@ form {
 }
 
 .audio_play_area .icon_audio_default {
-	background: transparent url(http://mp.weixin.qq.com/mmbizwap/zh_CN/htmledition/images/icon/appmsg/audio/icon_audio_unread26f1f1.png) no-repeat 0 0;
+	background: transparent url(../images/icon_audio_unread26f1f1.png) no-repeat 0 0;
 	width: 18px;
 	height: 25px;
 	vertical-align: middle;
