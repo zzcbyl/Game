@@ -114,6 +114,45 @@ public class Users
     }
 
 
+    public static string GetUserAvatarJson(string openid)
+    {
+        string jsonStr = "";
+        string jsonFuwu = Util.GetWebContent("http://weixin.luqinwenda.com/get_user_info.aspx?openid=" + openid,
+            "get", "", "html/text");
+        string nickStr = "";
+        try
+        {
+            nickStr = Util.GetSimpleJsonValueByKey(jsonFuwu, "nickname");
+        }
+        catch
+        {
+
+        }
+
+        if (!nickStr.Trim().Equals(""))
+        {
+            jsonStr = jsonFuwu;
+        }
+        else
+        {
+            string jsonDingyue = Util.GetWebContent("http://weixin.luqinwenda.com/dingyue/get_user_info.aspx?openid=" + openid,
+                "get", "", "html/text");
+            try
+            {
+                nickStr = Util.GetSimpleJsonValueByKey(jsonFuwu, "nickname");
+            }
+            catch
+            {
+
+            }
+            if (!nickStr.Trim().Equals(""))
+            {
+                jsonStr = jsonDingyue;
+            }
+        }
+        return jsonStr.Trim();
+    }
+
 
     public int ID {
         get

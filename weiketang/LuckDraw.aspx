@@ -155,13 +155,17 @@
         try
         {
             JavaScriptSerializer json = new JavaScriptSerializer();
-            string getUrl = "http://weixin.luqinwenda.com/dingyue/get_user_info.aspx?openid=" + openid;
-            string result = HTTPHelper.Get_Http(getUrl);
-            Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(result);
-            if (dic.Keys.Contains("nickname"))
-            {
-                name = dic["nickname"].ToString();
-            }
+            Dictionary<string, object> dicUser = json.Deserialize<Dictionary<string, object>>(Users.GetUserAvatarJson(openid));
+            if (dicUser.Keys.Contains("nickname"))
+                name = dicUser["nickname"].ToString();
+            
+            //string getUrl = "http://weixin.luqinwenda.com/dingyue/get_user_info.aspx?openid=" + openid;
+            //string result = HTTPHelper.Get_Http(getUrl);
+            //Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(result);
+            //if (dic.Keys.Contains("nickname"))
+            //{
+            //    name = dic["nickname"].ToString();
+            //}
         }
         catch { }
         return name;
