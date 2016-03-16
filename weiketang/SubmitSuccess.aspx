@@ -4,33 +4,30 @@
 <!DOCTYPE html>
 
 <script runat="server">
-    public string actid = "3";
-    public string bookName = "";
+    //public string actid = "6";
+    //public string bookName = "";
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (actid != "3")
-        {
-            if (Request["openid"] == null || Request["id"] == null)
-            {
-                Response.Write("参数错误");
-                Response.End();
-            }
-            string openid = Request["openid"].ToString();
-            string id = Request["id"].ToString();
-            JavaScriptSerializer json = new JavaScriptSerializer();
-            string getUrl = "http://game.luqinwenda.com/api/awards_get_info.aspx?actid=" + actid + "&id=" + id + "&openid=" + openid;
-            string result = HTTPHelper.Get_Http(getUrl);
-            Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(result);
-            if (dic["status"].Equals(0))
-            {
-                bookName = "卢勤老师所著新书《" + dic["award"].ToString() + "》一本";
-            }
-            else
-            {
-                Response.Write("您没有中奖");
-                Response.End();
-            }
-        }
+        //if (Request["openid"] == null || Request["id"] == null)
+        //{
+        //    Response.Write("参数错误");
+        //    Response.End();
+        //}
+        //string openid = Request["openid"].ToString();
+        //string id = Request["id"].ToString();
+        //JavaScriptSerializer json = new JavaScriptSerializer();
+        //string getUrl = "http://game.luqinwenda.com/api/awards_get_info.aspx?actid=" + actid + "&id=" + id + "&openid=" + openid;
+        //string result = HTTPHelper.Get_Http(getUrl);
+        //Dictionary<string, object> dic = json.Deserialize<Dictionary<string, object>>(result);
+        //if (dic["status"].Equals(0))
+        //{
+        //    bookName = "卢勤老师所著新书《" + dic["award"].ToString() + "》一本";
+        //}
+        //else
+        //{
+        //    Response.Write("您没有中奖");
+        //    Response.End();
+        //}
     }
 </script>
 
@@ -55,12 +52,7 @@
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
-            if ('<%=actid %>' != '3') {
-                $('#bookName').html('<%=bookName %>');
-            }
-            else {
-                $('#bookName').html(decodeURI(QueryString("name")));
-            }
+            $('#bookName').html(decodeURI(QueryString("name")));
         });
     </script>
 </body>

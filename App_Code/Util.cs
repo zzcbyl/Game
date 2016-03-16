@@ -149,6 +149,11 @@ public class Util
         return ((request[parameterName] == null) ? defaultValue : request[parameterName].Trim()).Replace("'", "");
     }
 
+    public static string GetSafeRequestFormValue(HttpRequest request, string parameterName, string defaultValue)
+    {
+        return ((request.Form[parameterName] == null) ? defaultValue : request.Form[parameterName].Trim()).Replace("'", "");
+    }
+
     /// <summary>创建规定大小的图像 
     /// </summary> 
     /// <param name="oPath">源图像绝对路径</param> 

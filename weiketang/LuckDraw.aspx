@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 
 <script runat="server">
-    public string cName = "ActivityDraw5";
+    public string cName = "ActivityDraw6";
     public string ListStr = "";
     public string ListStr1 = "";
     public string ListStr2 = "";
@@ -13,7 +13,7 @@
     public int AwardType = 1;
     public string CouponCode = "";
     public int CouponAmount = 0;
-    public string actid = "5";
+    public string actid = "6";
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Request["openid"] == null || Request["id"] == null)
@@ -56,8 +56,8 @@
                 else
                 {
                     AwardType = 2;
-                    if (AwardName == "家庭教育光盘")
-                        AwardName = "《家庭教育专题讲座光盘》一套";
+                    if (AwardName == "发掘孩子的大脑潜能")
+                        AwardName = "《发掘孩子的大脑潜能》一本";
                     else
                         AwardName = "卢勤老师所著新书《" + AwardName + "》一本";
                     if (cookie != null && cookie.Value == "1")
