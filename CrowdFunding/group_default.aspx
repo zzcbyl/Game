@@ -7,6 +7,7 @@
     public int fuserId = 0;
     public int crowd_balance = 0;
     public string group_name = "";
+    public int crowdid = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
         fuserId = int.Parse(Util.GetSafeRequestValue(Request, "fuid", "0"));
@@ -24,12 +25,11 @@
             Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Server.UrlEncode(Request.Url.ToString()), true);
         }
 
-        int donateid = 0;
         DataTable dt = Donate.getCrowdByUserid(fuserId);
         if (dt != null && dt.Rows.Count > 0)
         {
             group_name = dt.Rows[0]["crowd_name"].ToString();
-            donateid = int.Parse(dt.Rows[0]["crowd_id"].ToString());
+            crowdid = int.Parse(dt.Rows[0]["crowd_id"].ToString());
             crowd_balance = (int.Parse(dt.Rows[0]["crowd_balance"].ToString()) / 100);
         }
         else
@@ -75,5 +75,19 @@
             </div>
         </div>
     </form>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var crowdid = '<%=crowdid %>';
+            $.ajax({
+                type: "GET",
+                async: false,
+                url: "http://192.168.1.38:8002/api/get_crowd_donatelist.aspx?crowdid=" + crowdid,
+                data: { token: Token, fatheruserid: Fatheruid, articleid: articleid },
+                success: function (data) {
+
+                }
+            });
+        });
+    </script>
 </asp:Content>
 
