@@ -62,7 +62,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
-    <title>卢勤微课堂幸运抽奖活动</title>
+    <title>卢勤问答平台阅读卡</title>
     <style type="text/css">
         .rel { position:relative; }
         .add_list_p { padding:5px 20px 5px 10px; text-indent:0px; margin:0; }

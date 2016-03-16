@@ -28,7 +28,7 @@
 <head runat="server">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>领取卢勤书城读书卡</title>
+    <title>领取卢勤问答平台阅读卡</title>
     <style type="text/css">
         .btnCss { width: 100px; height: 40px; background: #E51925; color: #fff;  font-size: 14pt; border-radius: 5px; border: 0; text-indent:0; line-height:40px;}
     </style>

@@ -176,7 +176,7 @@
 <head runat="server">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>卢勤书城读书卡</title>
+    <title>卢勤问答平台阅读卡</title>
     <style type="text/css">
         .comment_people { background:#fff; margin-top:5px; padding:5px 0; }
         .comment_people p { margin:0;}
@@ -190,19 +190,24 @@
     <script src="../script/jquery-1.3.2.min.js"></script>
     <script src="../script/common.js"></script>
 </head>
-<body style="background: #C81623;">
+<body style="background: #EFD193; background-image:url(/images/bg_draw.jpg); background-repeat:no-repeat; background-position:center;">
     <div style="max-width: 640px; margin: 0 auto; font-size:11pt; line-height: 22px;">
+        <%--<div style="height:100px; line-height:100px; color:#fff; text-align:center; font-weight:bold; font-family:黑体; font-size:26pt; background:#ff7c79; border-radius:5px;">
+            卢勤问答平台阅读卡
+        </div>--%>
         <img src="../images/draw_banner_web.jpg" width="100%" />
-        <div style="margin-top: 5px; background: #fff; padding: 10px;">
-            　<div style="text-align:center; font-size:12pt;"><b>卢勤和她的朋友们微课堂</b></div>
-            　<div>　为感恩广大家长对“卢勤和她的朋友们微课堂”的支持和厚爱，特邀您参加此次抽奖活动，100%中奖！奖品有限，先到先得哦！</div>
-        </div>
-        <div style="text-indent: 20px; line-height: 28px; background: #fff; padding: 10px; text-align:center;">
-            <a id="ASupported"></a>
-            <div style="text-align:center; background:#fff;">
-                <a id="btnSupport" style="display:block; margin:0 auto; background:#fff; color:#C81623;" onclick="SupportVote(this);">
-                    <img src="../images/btn_draw.png" /></a>
-                <div style="clear:both;"></div>
+        <div style="border-radius:5px; background:#fff;">
+            <div style="margin-top: 5px;padding: 10px;">
+            　    <div style="text-align:center; font-size:12pt;"><b>卢勤和她的朋友们微课堂</b></div>
+            　    <div>　为感恩广大家长对“卢勤和她的朋友们微课堂”的支持和厚爱，特邀您参加此次抽奖活动，100%中奖！奖品有限，先到先得哦！</div>
+            </div>
+            <div style="text-indent: 20px; line-height: 28px; padding: 10px; text-align:center;">
+                <a id="ASupported"></a>
+                <div style="text-align:center; background:#fff;">
+                    <a id="btnSupport" style="display:block; margin:0 auto; background:#fff; color:#C81623;" onclick="SupportVote(this);">
+                        <img src="../images/btn_draw.png" /></a>
+                    <div style="clear:both;"></div>
+                </div>
             </div>
         </div>
         <div class="comment_people">
