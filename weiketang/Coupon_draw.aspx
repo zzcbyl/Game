@@ -46,7 +46,7 @@
         </p>
         <p>
             <a id="btnSupport" class="btnCss" style="display:inline-block; margin:0 auto;" href="http://mall.luqinwenda.com/Default.aspx?couponCode=<%=code %>">去购书</a>　
-            <a id="btnSupport_ying" class="btnCss" style="display:inline-block; margin:0 auto; width:120px;" href="Detail_xly.aspx?productid=74">五一营特惠</a>
+            <a id="btnSupport_ying" class="btnCss" style="display:inline-block; margin:0 auto; width:120px;" href="http://mall.luqinwenda.com/Detail_xly.aspx?productid=74">五一营特惠</a>
         </p>
         <div style="text-align:left; line-height:22px;">
             <div>1．该读书卡只能在卢勤问答平台订阅号书城中使用。</div>
