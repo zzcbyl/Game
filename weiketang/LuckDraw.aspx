@@ -210,7 +210,7 @@
                 </div>
             </div>
         </div>
-        <div class="comment_people">
+        <div class="comment_people" style="border-radius:5px; background:#fff;">
             <h4>中奖用户</h4>
             <ul id="commentlist">
                 <%=ListStr %>
