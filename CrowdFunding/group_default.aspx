@@ -45,7 +45,7 @@
     <style type="text/css">
         .recordli { height:50px; line-height:50px; border-bottom:dashed 1px #ccc; margin-bottom:10px;}
         .avatar { width:30%; float:left; text-align:center; height:55px; }
-        .avatar a { width:45px; height:45px; border-radius:5px; display:inline-block; background-size:45px 45px; }
+        .avatar a { width:45px; height:45px; border-radius:5px; display:inline-block;  }
         .nick-name { width:40%; float:left; text-align:center; }
         .donate-price { width:30%; float:left; text-align:center; }
     </style>
@@ -71,12 +71,6 @@
                 <div style="background:#7e3766; height:1px; margin:5px 0 0;"></div>
                 <div style="margin-top:5px;"><img src="../images/record_head.jpg" width="35%" /></div>
                 <div id="recordList" style="margin-top:10px;">
-                    <%--<div class="recordli">
-                        <div class="avatar"><a style="background:url(http://wx.qlogo.cn/mmopen/M13tqMABLia0mbuQSR36GgqxLRqK0ExSLIj8cEVy2pMQYR7xVwxAg5Is6Y3SiaHP03iciaQZJW1PicHhC4122Va5DSw/0); "></a></div>
-                        <div class="nick-name">11</div>
-                        <div class="donate-price">3元</div>
-                        <div style="clear:both;"></div>
-                    </div>--%>
                     
                 </div>
                 <div style="clear:both; height:50px;"></div>
@@ -84,34 +78,71 @@
         </div>
     </form>
     <script type="text/javascript">
+        var cid = '<%=crowdid %>';
+        var PageIndex = 1;
         $(document).ready(function () {
-            var cid = '<%=crowdid %>';
+            window.onscroll = function () {
+                if (getScrollTop() + getClientHeight() == getScrollHeight()) {
+                    fillList();
+                }
+            }
+            fillList();
+        });
 
+
+        function fillList() {
             $.ajax({
                 type: "GET",
                 async: false,
                 url: "http://192.168.1.38:8002/api/get_crowd_donatelist.aspx",
-                data: { crowdid: cid },
+                data: { crowdid: cid, pageindex: PageIndex, pagesize: 3 },
                 dataType: "json",
                 success: function (data) {
-                    alert(data);
-                    alert(data.donate_list[0].donate_userid.nickname);
-                    var listhtml = '';
-                    if (data.status == 0)
-                    {
-                        alert(data.donate_list.length);
+                    var listhtml = $('#recordList').html();
+                    if (data.status == 0) {
+                        PageIndex = data.pageindex + 1;
                         for (var i = 0; i < data.donate_list.length; i++) {
                             listhtml += '<div class="recordli">' +
-                                        '<div class="avatar"><a style="background:url(http://wx.qlogo.cn/mmopen/M13tqMABLia0mbuQSR36GgqxLRqK0ExSLIj8cEVy2pMQYR7xVwxAg5Is6Y3SiaHP03iciaQZJW1PicHhC4122Va5DSw/0); "></a></div>' +
+                                        '<div class="avatar"><a style="background:url(' + data.donate_list[i].donate_userid.headimgurl + '); background-size:45px 45px;"></a></div>' +
                                         '<div class="nick-name">' + data.donate_list[i].donate_userid.nickname + '</div>' +
-                                        '<div class="donate-price">3元</div>' +
+                                        '<div class="donate-price">' + (parseInt(data.donate_list[i].donate_price) / 100) + '元</div>' +
                                         '<div style="clear:both;"></div></div>';
                         }
                     }
                     $('#recordList').html(listhtml);
                 }
             });
-        });
+        }
+
+
+        //获取滚动条当前的位置 
+        function getScrollTop() {
+            var scrollTop = 0;
+            if (document.documentElement && document.documentElement.scrollTop) {
+                scrollTop = document.documentElement.scrollTop;
+            }
+            else if (document.body) {
+                scrollTop = document.body.scrollTop;
+            }
+            return scrollTop;
+        }
+
+        //获取当前可是范围的高度 
+        function getClientHeight() {
+            var clientHeight = 0;
+            if (document.body.clientHeight && document.documentElement.clientHeight) {
+                clientHeight = Math.min(document.body.clientHeight, document.documentElement.clientHeight);
+            }
+            else {
+                clientHeight = Math.max(document.body.clientHeight, document.documentElement.clientHeight);
+            }
+            return clientHeight;
+        }
+
+        //获取文档完整的高度 
+        function getScrollHeight() {
+            return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+        }
     </script>
 </asp:Content>
 
