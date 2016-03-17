@@ -42,6 +42,13 @@
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <style type="text/css">
+        .recordli { height:50px; line-height:50px; border-bottom:dashed 1px #ccc; margin-bottom:10px;}
+        .avatar { width:30%; float:left; text-align:center; height:55px; }
+        .avatar a { width:45px; height:45px; border-radius:5px; display:inline-block; background-size:45px 45px; }
+        .nick-name { width:40%; float:left; text-align:center; }
+        .donate-price { width:30%; float:left; text-align:center; }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <form id="form1" runat="server" method="post">
@@ -60,16 +67,17 @@
             <div style="text-align:center; height:50px; line-height:50px;">
                 <input type="button" class="btn btn-warning" value="点击交费听课" style="font-size:16pt;" onclick="submitApply();" />
             </div>
-            <div style="border: 1px solid #E9E9E9; border-radius: 15px; margin:20px 5px 5px; padding:0 15px; min-height:100px;">
+            <div style="border: 1px solid #E9E9E9; border-radius: 15px; margin:20px 5px 5px; padding:0 15px; min-height:100px; font-family:宋体;">
                 <div style="background:#7e3766; height:1px; margin:5px 0 0;"></div>
                 <div style="margin-top:5px;"><img src="../images/record_head.jpg" width="35%" /></div>
-                <div style="margin-top:10px;">
-                    <div style="height:55px; line-height:55px; border-bottom:dashed 1px #ccc;">
-                        <div style="width:30%; float:left; text-align:center;"><a style="width:50px; height:50px; border-radius:5px; display:inline-block; background:url(http://wx.qlogo.cn/mmopen/M13tqMABLia0mbuQSR36GgqxLRqK0ExSLIj8cEVy2pMQYR7xVwxAg5Is6Y3SiaHP03iciaQZJW1PicHhC4122Va5DSw/0); background-size:50px 50px;"></a></div>
-                        <div style="width:40%; float:left; text-align:center;">11</div>
-                        <div style="width:30%; float:left; text-align:center;">3元</div>
+                <div id="recordList" style="margin-top:10px;">
+                    <%--<div class="recordli">
+                        <div class="avatar"><a style="background:url(http://wx.qlogo.cn/mmopen/M13tqMABLia0mbuQSR36GgqxLRqK0ExSLIj8cEVy2pMQYR7xVwxAg5Is6Y3SiaHP03iciaQZJW1PicHhC4122Va5DSw/0); "></a></div>
+                        <div class="nick-name">11</div>
+                        <div class="donate-price">3元</div>
                         <div style="clear:both;"></div>
-                    </div>
+                    </div>--%>
+                    
                 </div>
                 <div style="clear:both; height:50px;"></div>
             </div>
@@ -77,14 +85,30 @@
     </form>
     <script type="text/javascript">
         $(document).ready(function () {
-            var crowdid = '<%=crowdid %>';
+            var cid = '<%=crowdid %>';
+
             $.ajax({
                 type: "GET",
                 async: false,
-                url: "http://192.168.1.38:8002/api/get_crowd_donatelist.aspx?crowdid=" + crowdid,
-                data: { token: Token, fatheruserid: Fatheruid, articleid: articleid },
+                url: "http://192.168.1.38:8002/api/get_crowd_donatelist.aspx",
+                data: { crowdid: cid },
+                dataType: "json",
                 success: function (data) {
-
+                    alert(data);
+                    alert(data.donate_list[0].donate_userid.nickname);
+                    var listhtml = '';
+                    if (data.status == 0)
+                    {
+                        alert(data.donate_list.length);
+                        for (var i = 0; i < data.donate_list.length; i++) {
+                            listhtml += '<div class="recordli">' +
+                                        '<div class="avatar"><a style="background:url(http://wx.qlogo.cn/mmopen/M13tqMABLia0mbuQSR36GgqxLRqK0ExSLIj8cEVy2pMQYR7xVwxAg5Is6Y3SiaHP03iciaQZJW1PicHhC4122Va5DSw/0); "></a></div>' +
+                                        '<div class="nick-name">' + data.donate_list[i].donate_userid.nickname + '</div>' +
+                                        '<div class="donate-price">3元</div>' +
+                                        '<div style="clear:both;"></div></div>';
+                        }
+                    }
+                    $('#recordList').html(listhtml);
                 }
             });
         });

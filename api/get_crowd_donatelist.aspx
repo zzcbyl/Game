@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" %>
 <%@ Import Namespace="System.Data" %>
+<%@ Import Namespace="System.Web.Script.Serialization" %>
 
 <script runat="server">
     protected void Page_Load(object sender, EventArgs e)
@@ -10,12 +11,21 @@
         if (dt != null && dt.Rows.Count > 0)
         {
             string donateJson = "";
+            JavaScriptSerializer json = new JavaScriptSerializer();
+            Users user = null;
             foreach (DataRow dr in dt.Rows)
             {
                 string fieldsJson = "";
+                string fieldStr = "";
                 foreach (DataColumn c in dt.Columns)
                 {
-                    fieldsJson = fieldsJson + ",\"" + c.Caption.Trim() + "\":\"" + dr[c].ToString().Trim() + "\"";
+                    fieldStr = dr[c].ToString().Trim();
+                    if (c.Caption.Trim().Equals("donate_userid"))
+                    {
+                        user = new Users(int.Parse(dr[c].ToString().Trim()));
+                        fieldStr = user.GetUserAvatarJson();
+                    }
+                    fieldsJson = fieldsJson + ",\"" + c.Caption.Trim() + "\":\"" + fieldStr + "\"";
                 }
                 if (fieldsJson.StartsWith(","))
                     fieldsJson = fieldsJson.Remove(0, 1);

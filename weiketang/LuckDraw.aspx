@@ -185,7 +185,8 @@
         .comment_people li { padding: 3px 10px; margin:0; border-bottom: 1px dashed #C81623; overflow: hidden; line-height:25px; }
         .comment_people li .comment_name { float:left;}
         .comment_people li .comment_time { float:right;}
-        .btnCss { width: 100px; height: 40px; background: #fff; color: #fff;  font-size: 14pt; border-radius: 5px; border: 0; text-indent:0; line-height:40px;}
+        .btnCss { width: 100px; height: 40px; background: #E51925; color: #fff;  font-size: 14pt; border-radius: 5px; border: 0; text-indent:0; line-height:40px;}
+        a { text-decoration:none; }
     </style>
     <script src="../script/jquery-1.3.2.min.js"></script>
     <script src="../script/common.js"></script>
@@ -196,6 +197,11 @@
             卢勤问答平台阅读卡
         </div>--%>
         <img src="../images/draw_banner.jpg" width="100%" />
+        <div style="border-radius:5px; background:#fff; padding:1px 10px 10px;">
+            <p><img src="http://mall.luqinwenda.com/upload/prodimg/51ying.jpg" style="width:100%;" /></p>
+            <p style="color:red; text-align:left; ">现在报名“《用眼光创造财富》五一亲子特训营”优惠300元</p>
+            <p style="text-align:center;"><a id="btnSupport_ying" class="btnCss" style="display:inline-block; margin:0 auto;" href="http://mall.luqinwenda.com/Detail_xly.aspx?productid=74">去报名</a></p>
+        </div>
         <div style="border-radius:5px; background:#fff;">
             <div style="margin-top: 5px;padding: 10px;">
             　    <div style="text-align:center; font-size:12pt;"><b>卢勤和她的朋友们微课堂</b></div>
