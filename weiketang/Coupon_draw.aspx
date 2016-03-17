@@ -31,6 +31,7 @@
     <title>领取卢勤问答平台阅读卡</title>
     <style type="text/css">
         .btnCss { width: 100px; height: 40px; background: #E51925; color: #fff;  font-size: 14pt; border-radius: 5px; border: 0; text-indent:0; line-height:40px;}
+        a { text-decoration:none; }
     </style>
 </head>
 <body>
@@ -47,9 +48,9 @@
         <p>
             <a id="btnSupport" class="btnCss" style="display:inline-block; margin:0 auto;" href="http://mall.luqinwenda.com/Default.aspx?couponCode=<%=code %>">去购书</a>　
         </p>
-        <p><a href="http://mall.luqinwenda.com/Detail_xly.aspx?productid=74"><img src="http://mall.luqinwenda.com/upload/prodimg/51ying.jpg" style="width:100%;" /></a></p>
+        <p><a href="http://mall.luqinwenda.com/Detail_xly.aspx?productid=74"><img src="../images/ying_51.jpg" style="width:100%;" /></a></p>
         <p style="color:red; text-align:left; ">现在报名“《用眼光创造财富》五一亲子特训营”优惠300元</p>
-        <p><a id="btnSupport_ying" class="btnCss" style="display:inline-block; margin:0 auto;" href="http://mall.luqinwenda.com/Detail_xly.aspx?productid=74">去报名</a></p>
+        <p><a id="btnSupport_ying" class="btnCss" style="display:inline-block; margin:0 auto; background:#FB6C69;" href="http://mall.luqinwenda.com/Detail_xly.aspx?productid=74">去报名</a></p>
         <div style="text-align:left; line-height:22px;">
             <div>1．该读书卡只能在卢勤问答平台订阅号书城中使用。</div>
             <div>2．每单只能使用一张。</div>
