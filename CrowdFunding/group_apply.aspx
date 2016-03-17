@@ -53,7 +53,7 @@
                         <li style="position:relative; vertical-align:middle;">
                             票价设置： 
                             <div style="display:inline-block; clear:both; border:1px solid #ccc; height:24px; line-height:22px; margin-top:5px; ">
-                                <a style="width:22px; height:22px; border-right:1px solid #ccc; line-height:22px; text-align:center; display:inline-block;">－</a>
+                                <a style="width:22px; height:22px; border-right:1px solid #ccc; line-height:22px; text-align:center; display:inline-block;" onclick="subANum();">－</a>
                                     <input type="text" id="txtPrice" name="txtPrice" style="width:40px; text-align:center; border:none; display:inline-block; height:22px; line-height:22px; margin-left:-4px;" maxlength="3" value="1" />
                                 <a style="width:22px; height:22px;border-left:1px solid #ccc; line-height:22px; text-align:center; display:inline-block; margin-left:-4px;">＋</a>
                             </div>
@@ -79,6 +79,44 @@
             $('#hidIndex').val('1');
             document.forms[0].submit();
         }
+
+
+        function subANum() {
+            pCount = parseInt($("#txtCount").val());
+            if (pCount <= 1) {
+                $("#txtCount").val("1");
+            }
+            else {
+                $("#txtCount").val(pCount - 1);
+            }
+        }
+
+        function addANum() {
+            pCount = parseInt($("#txtCount").val());
+            if (pCount >= 10) {
+                $("#txtCount").val("10");
+            }
+            else {
+                $("#txtCount").val(pCount + 1);
+            }
+        }
+
+        function updANum() {
+
+            pCount = parseInt($("#txtCount").val());
+            if (!isint($("#txtCount").val())) {
+                $("#txtCount").val("1");
+            }
+            else {
+                if (pCount >= 10) {
+                    $("#txtCount").val("10");
+                }
+                if (pCount <= 1) {
+                    $("#txtCount").val("1");
+                }
+            }
+        }
+
     </script>
 </asp:Content>
 
