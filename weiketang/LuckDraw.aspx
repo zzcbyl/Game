@@ -198,7 +198,7 @@
         </div>--%>
         <img src="../images/draw_banner.jpg" width="100%" />
         <div style="border-radius:5px; background:#fff; padding:1px 10px 10px;">
-            <p><img src="http://mall.luqinwenda.com/upload/prodimg/51ying.jpg" style="width:100%;" /></p>
+            <p><a href="http://mall.luqinwenda.com/Detail_xly.aspx?productid=74"><img src="http://mall.luqinwenda.com/upload/prodimg/51ying.jpg" style="width:100%;" /></a></p>
             <p style="color:red; text-align:left; ">现在报名“《用眼光创造财富》五一亲子特训营”优惠300元</p>
             <p style="text-align:center;"><a id="btnSupport_ying" class="btnCss" style="display:inline-block; margin:0 auto;" href="http://mall.luqinwenda.com/Detail_xly.aspx?productid=74">去报名</a></p>
         </div>
