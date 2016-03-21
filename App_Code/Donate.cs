@@ -57,7 +57,7 @@ public class Donate
 
         int result = DBHelper.ExecteNonQuery(Util.ConnectionStringMall, CommandType.Text, sql, parm);
 
-        sql = "select top 1 donate_id from m_donate ordre by donate_id desc";
+        sql = "select top 1 donate_id from m_donate order by donate_id desc";
         DataTable dt = DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
         if (dt != null && dt.Rows.Count > 0)
         {
