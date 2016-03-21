@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CrowdFunding/Master.master" %>
+﻿<%@ Page Title="确认支付" Language="C#" MasterPageFile="~/CrowdFunding/Master.master" %>
 <%@ Import Namespace="System.Data" %>
 
 <script runat="server">
@@ -70,9 +70,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <form id="form1" runat="server" method="post">
     <div class="mainPage">
-        <div id="head">
-            确认支付
-        </div>
+        <img src="../images/main_head.jpg" width="100%" />
         <div style="border:3px solid #E9E9E9; border-radius:15px; margin:5px;">
             <div style="background:#ECECEC; margin:5px;  padding:30px 20px;">
                 <div style="background:#fff; width:100%; padding:20px 10px;">
