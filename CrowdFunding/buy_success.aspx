@@ -67,7 +67,9 @@
             int Donateid = Donate.addDonate(crowdid, userId, (0 - cost * 100), "购买" + count + "个直播群");
             if (Donateid > 0)
             {
-                Donate.setTotal(Donateid);
+                int result = Donate.setTotal(Donateid);
+                if (result > 0)
+                    Donate.updPayState(Donateid);
             }
         }
         else
