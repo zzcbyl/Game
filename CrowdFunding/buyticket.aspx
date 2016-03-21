@@ -83,11 +83,13 @@
     <div class="mainPage">
         <img src="../images/main_head.jpg" width="100%" />
         <div style="border:3px solid #E9E9E9; border-radius:15px; margin:5px;">
-            <div style="background:#ECECEC; margin:5px;  padding:30px 20px;">
+            <div style="background:#ECECEC; margin:5px;  padding:20px;">
+                <div style="height:35px; line-height:35px; font-size:13pt;">购买门票</div>
                 <div style="background:#fff; width:100%; padding:20px 10px;">
                     <ul class="applyUL">
                         <li>　　群名： <%=group_name %></li>
                         <li>　申请人： <%=NickName %></li>
+                        <li>众筹金额： ￥<%=userBalance %> 元</li>
                         <li style="position:relative; vertical-align:middle;">
                         　群数量： 
                             <div style="display:inline-block; clear:both; border:1px solid #ccc; height:23px; line-height:23px; margin-top:5px; ">
@@ -97,12 +99,12 @@
                             </div>
                             <a style="display:inline-block; margin-left:3px;">个</a>
                         </li>
-                        <li>　　总价：<span id="sp_price"></span></li>
+                        <li>　　总价：<span id="sp_price" style="color:#ff0000;"></span> 元</li>
                     </ul>
                 </div>
                 <div style="margin:50px 0; text-align:center;">
                     <input type="hidden" id="hidIndex" name="hidIndex" value="" />
-                    <input type="button" class="btn btn-success" value="确认支付" style="font-size:16pt;" onclick="" />
+                    <input type="button" class="btn btn-success" value="确认购买" style="font-size:16pt;" onclick="submitBuy();" />
                 </div>
             </div>
         </div>
@@ -112,7 +114,9 @@
         var userbalance = '<%=userBalance %>';
         var price = '<%=courseprice %>';
         var perprice = '<%=coursepriceadd %>';
-
+        $(document).ready(function () {
+            filltotal();
+        });
         var txtCount;
         function subANum() {
             txtCount = parseInt($("#txtCount").val());
@@ -143,13 +147,25 @@
             }
             filltotal();
         }
+        var totalPrice = 0;
         function filltotal()
         {
             txtCount = parseInt($("#txtCount").val());
-            if (txtCount == 1)
-                $('#sp_price').html("￥" + price);
+            if (txtCount == 1) {
+                totalPrice = parseInt(price);
+            }
             else if (txtCount > 1) {
-                $('#sp_price').html("￥" + ((txtCount - 1) * parseInt(perprice) + parseInt(price)).toString());
+                totalPrice = (txtCount - 1) * parseInt(perprice) + parseInt(price);
+            }
+            $('#sp_price').html("￥" + totalPrice.toString());
+        }
+
+        function submitBuy() {
+            if (totalPrice > parseInt(userbalance)) {
+                location.href = 'balance_error.aspx';
+            }
+            else {
+                location.href = 'buy_success.aspx?courseid=<%=courseId %>&fuid=<%=userId %>&count=' + parseInt($("#txtCount").val());
             }
         }
     </script>
