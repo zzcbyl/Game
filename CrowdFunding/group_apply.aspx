@@ -15,12 +15,6 @@
     {
         courseId = int.Parse(Util.GetSafeRequestValue(Request, "courseid", "0"));
         string config = Util.GetSafeRequestValue(Request, "config", "");
-        if (courseId == 0)
-        {
-            Response.Write("参数错误");
-            Response.End();
-            return;
-        }
         
         token = Util.GetSafeRequestValue(Request, "token", "");
         userId = Users.CheckToken(token);
