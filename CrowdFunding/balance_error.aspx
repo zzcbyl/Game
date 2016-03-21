@@ -19,8 +19,7 @@
                     </div>
                 </div>
                 <div style="margin:50px 0; text-align:center;">
-                    <input type="hidden" id="hidIndex" name="hidIndex" value="" />
-                    <input type="button" class="btn btn-success" value="确认购买" style="font-size:16pt;" onclick="submitBuy();" />
+                    
                 </div>
             </div>
         </div>
