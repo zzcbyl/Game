@@ -9,11 +9,17 @@
     public int crowd_balance = 0;
     public string group_name = "";
     public int crowdid = 0;
+    public string crowd_remark = "";
     public string NickName = "匿名";
+    public string UserHeadImg = "http://game.luqinwenda.com/images/noAvatar.jpg";
+    public int courseId = 0;
+    public DataTable currentCDt = new DataTable();
     protected void Page_Load(object sender, EventArgs e)
     {
         fuserId = int.Parse(Util.GetSafeRequestValue(Request, "fuid", "0"));
-        if (fuserId == 0)
+        courseId = int.Parse(Util.GetSafeRequestValue(Request, "courseid", "0"));
+
+        if (fuserId == 0 || courseId == 0)
         {
             Response.Write("参数错误");
             Response.End();
@@ -27,8 +33,8 @@
             Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Server.UrlEncode(Request.Url.ToString()), true);
         }
 
-        if (fuserId == userId)
-            this.btn_with.Visible = true;
+        //if (fuserId == userId)
+        //    this.btn_with.Visible = true;
         
         Users currentUser = new Users(userId);
         string userHeadNick = currentUser.GetUserAvatarJson();
@@ -40,18 +46,25 @@
                 Dictionary<string, object> dicUser = json.Deserialize<Dictionary<string, object>>(userHeadNick);
                 if (dicUser.Keys.Contains("nickname"))
                     NickName = dicUser["nickname"].ToString();
-                //if (dicUser.Keys.Contains("headimgurl"))
-                //    UserHeadImg = dicUser["headimgurl"].ToString();
+                if (dicUser.Keys.Contains("headimgurl"))
+                    UserHeadImg = dicUser["headimgurl"].ToString();
             }
             catch { }
         }
 
-        DataTable dt = Donate.getCrowdByUserid(fuserId);
+        DataTable CourseDt = Donate.getCourse(courseId);
+        if (CourseDt != null && CourseDt.Rows.Count > 0)
+        {
+            currentCDt = CourseDt;
+        }
+        
+        DataTable dt = Donate.getCrowdByUserid(fuserId, courseId);
         if (dt != null && dt.Rows.Count > 0)
         {
             group_name = dt.Rows[0]["crowd_name"].ToString();
             crowdid = int.Parse(dt.Rows[0]["crowd_id"].ToString());
             crowd_balance = int.Parse(dt.Rows[0]["crowd_balance"].ToString());
+            crowd_remark = dt.Rows[0]["crowd_remark"].ToString();
         }
         else
         {
@@ -79,20 +92,36 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <form id="form1" runat="server" method="post">
         <div class="mainPage">
-            <div id="head" style="color:#7e3766; font-weight:normal;">
-                <div style="float:left; margin-left:15px; ">群名：<%=group_name %></div>
-                <div style="float:right; margin-right:15px; ">申请人：<%=NickName %></div>
+            <img src="../images/main_head.jpg" width="100%" />
+            <div id="head" style="color:#7e3766; font-weight:normal; text-align:left; margin-top:10px;">
+                <div style="float:left; margin-left:10px;">申请人：</div>
+                <div style="float:left; width:30px; height:30px; margin:2px 0 0; background:url(<%=UserHeadImg %>) no-repeat; background-size:30px 30px; border-radius:15px;">　</div>
+                <div style="float:left; margin-left:10px; margin-top:2px;"><%=(NickName.Length > 5 ? NickName.Substring(0, 5) + "..." : NickName) %></div>
+                <div style="float:right; margin-right:10px;">群名：<%=group_name %></div>
+                <div style="clear:both;"></div>
             </div>
-            <div style="border: 1px solid #E9E9E9; border-radius: 10px; padding:15px; margin:5px;">
-                啊岁的法撒旦啊岁的法撒旦<br />
-                啊岁的法撒旦啊岁的法撒旦<br />
+            <% if (currentCDt.Rows.Count>0) { %>
+            <div style="border: 1px solid #E9E9E9; border-radius: 10px; padding:15px; margin:5px; line-height:22px;" 
+                onclick="location.href='<%=currentCDt.Rows[0]["course_link"].ToString() %>';">
+                <div><img src="<%=currentCDt.Rows[0]["course_headimg"].ToString() %>" width="100%" /></div>
+                <div style="margin-top:5px;">主题：<%=currentCDt.Rows[0]["course_title"].ToString() %></div>
+                <div>主讲人：<%=currentCDt.Rows[0]["course_lecturer"].ToString() %>　　时间：<%=Convert.ToDateTime(currentCDt.Rows[0]["course_time"].ToString()).ToString("yyyy-MM-dd") %></div>
+            </div>
+            <% } %>
+            <div style="padding:15px; margin:10px 5px 5px; line-height:22px;">
+                群主：<%=crowd_remark %>
+            </div>
+            
+            <div style="text-align:center; height:50px; line-height:50px;">
+                <input type="button" class="btn btn-warning" value="去设置" style="font-size:16pt;" onclick="submitApply();" />　
+                <input type="button" class="btn btn-warning" value="买门票" style="font-size:16pt;" onclick="submitApply();" />
             </div>
             <div style="color:#7e3766; font-size:14pt; text-align:center; height:50px; line-height:50px;">
                 现已有总金额：<%=crowd_balance / 100 %>元
             </div>
             <div style="text-align:center; height:50px; line-height:50px;">
                 <input type="button" class="btn btn-warning" value="点击交费听课" style="font-size:16pt;" onclick="submitApply();" />
-                <asp:Button ID="btn_with" runat="server" Text="提现" CssClass="btn btn-success" Font-Size="14pt" style="margin-left:15px;" Visible="false" OnClick="btn_with_Click" />
+                <%--<asp:Button ID="btn_with" runat="server" Text="提现" CssClass="btn btn-success" Font-Size="14pt" style="margin-left:15px;" Visible="false" OnClick="btn_with_Click" />--%>
             </div>
             <div style="border: 1px solid #E9E9E9; border-radius: 15px; margin:20px 5px 5px; padding:0 15px; min-height:100px; font-family:宋体;">
                 <div style="background:#7e3766; height:1px; margin:5px 0 0;"></div>
@@ -109,7 +138,7 @@
         var PageIndex = 1;
         $(document).ready(function () {
 
-            shareLink = 'http://game.luqinwenda.com/CrowdFunding/group_default.aspx?fuid=<%=fuserId %>';
+            shareLink = 'http://game.luqinwenda.com/CrowdFunding/group_default.aspx?fuid=<%=fuserId %>&courseid=<%=courseId %>';
 
             window.onscroll = function () {
                 if (getScrollTop() + getClientHeight() == getScrollHeight()) {
@@ -186,7 +215,7 @@
 
         function submitApply()
         {
-            location.href = "personal_pay.aspx?fuid=<%=fuserId %>";
+            location.href = "personal_pay.aspx?fuid=<%=fuserId %>&courseid=<%=courseId %>";
         }
     </script>
 </asp:Content>

@@ -33,7 +33,7 @@
     <script src="../script/common.js"></script>
     <style type="text/css">
         .mainPage { max-width:640px; margin:0 auto; background:#fff; color:#505050;  font-family:黑体;}
-        .mainPage #head { height:50px; line-height:50px; font-size:13pt; font-weight:bold; text-align:center; }
+        .mainPage #head { height:35px; line-height:35px; font-size:12pt; font-weight:bold; text-align:center; }
         ul li { list-style:none;}
         .applyUL li { height:40px; line-height:40px; }
         .applyUL input { height:25px; line-height:25px; border:none; border-bottom:1px solid #ccc; width:60%; }

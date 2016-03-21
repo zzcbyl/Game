@@ -9,10 +9,12 @@
     public string group_name = "";
     public int crowdid = 0;
     public string courseIntro = "";
+    public int courseId = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
         fuserId = int.Parse(Util.GetSafeRequestValue(Request, "fuid", "0"));
-        if (fuserId == 0)
+        courseId = int.Parse(Util.GetSafeRequestValue(Request, "courseid", "0"));
+        if (fuserId == 0 || courseId == 0)
         {
             Response.Write("参数错误");
             Response.End();
@@ -26,7 +28,7 @@
             Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Server.UrlEncode(Request.Url.ToString()), true);
         }
         
-        DataTable dt = Donate.getCrowdByUserid(fuserId);
+        DataTable dt = Donate.getCrowdByUserid(fuserId, courseId);
         if (dt != null && dt.Rows.Count > 0)
         {
             group_name = dt.Rows[0]["crowd_name"].ToString();
@@ -72,11 +74,11 @@
             确认支付
         </div>
         <div style="border:3px solid #E9E9E9; border-radius:15px; margin:5px;">
-            <div style="background:#ECECEC; margin:5px;  padding:40px 30px;">
+            <div style="background:#ECECEC; margin:5px;  padding:30px 20px;">
                 <div style="background:#fff; width:100%; padding:20px 10px;">
                     <ul class="applyUL">
                         <li>　　群名： <%=group_name %></li>
-                        <li>课程介绍： <%=courseIntro %></li>
+                        <%--<li>课程介绍： <%=courseIntro %></li>--%>
                         <li style="position:relative; vertical-align:middle;">
                         　　票价： 
                             <div style="display:inline-block; clear:both; border:1px solid #ccc; height:24px; line-height:22px; margin-top:5px; ">
@@ -99,7 +101,7 @@
         var minPrice = parseInt('<%=min_price %>');
         $(document).ready(function () {
 
-            shareLink = 'http://game.luqinwenda.com/CrowdFunding/group_default.aspx?fuid=<%=fuserId %>';
+            shareLink = 'http://game.luqinwenda.com/CrowdFunding/group_default.aspx?fuid=<%=fuserId %>&courseid=<%=courseId %>';
 
             $('#txtPrice').val(minPrice);
         });

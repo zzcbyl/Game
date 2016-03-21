@@ -17,17 +17,18 @@ public class Donate
 		//
 	}
 
-    public static int addCrowd(int userid, string name, string course, int price, string remark = "")
+    public static int addCrowd(int userid, string name, string course, int price, int courseid, string remark = "")
     {
-        string sql = "INSERT INTO m_crowd(crowd_userid,crowd_name,crowd_course,crowd_minprice,crowd_remark) VALUES" +
-            "(@crowd_userid,@crowd_name,@crowd_course,@crowd_minprice,@crowd_remark) ";
+        string sql = "INSERT INTO m_crowd(crowd_userid,crowd_name,crowd_course,crowd_minprice,crowd_remark,crowd_courseid) VALUES" +
+            "(@crowd_userid,@crowd_name,@crowd_course,@crowd_minprice,@crowd_remark,@crowd_courseid) ";
 
         SqlParameter[] parm = new SqlParameter[] { 
             new SqlParameter("@crowd_userid",userid),
             new SqlParameter("@crowd_name",name),
             new SqlParameter("@crowd_course",course),
             new SqlParameter("@crowd_minprice",price),
-            new SqlParameter("@crowd_remark",remark)
+            new SqlParameter("@crowd_remark",remark),
+            new SqlParameter("@crowd_courseid",courseid)
         };
 
         int result = DBHelper.ExecteNonQuery(Util.ConnectionStringMall, CommandType.Text, sql, parm);
@@ -35,9 +36,9 @@ public class Donate
         return result;
     }
 
-    public static DataTable getCrowdByUserid(int userid)
+    public static DataTable getCrowdByUserid(int userid, int courseId)
     {
-        string sql = "select * from m_crowd where crowd_userid=" + userid;
+        string sql = "select * from m_crowd where crowd_userid=" + userid + " and crowd_courseid=" + courseId;
         return DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
     }
 
@@ -89,5 +90,13 @@ public class Donate
             result = DBHelper.ExecteNonQuery(Util.ConnectionStringMall, CommandType.Text, sql);
         }
         return result;
+    }
+
+    public static DataTable getCourse(int courseId)
+    {
+        DataTable dt = null;
+        string sql = "select * from m_course where course_id=" + courseId;
+        dt = DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
+        return dt;
     }
 }
