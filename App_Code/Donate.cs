@@ -112,4 +112,12 @@ public class Donate
         dt = DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
         return dt;
     }
+
+    public static DataTable getNewCourseId()
+    {
+        DataTable dt = null;
+        string sql = "select top 1 course_id from m_course order by course_id desc";
+        dt = DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
+        return dt;
+    }
 }

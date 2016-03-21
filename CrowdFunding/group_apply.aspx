@@ -29,8 +29,13 @@
             Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Server.UrlEncode(Request.Url.ToString()), true);
         }
 
+        if (courseId == 0)
+        {
+            DataTable courseDt = Donate.getNewCourseId();
+            courseId = int.Parse(courseDt.Rows[0][0].ToString());
+        }
+        
         JavaScriptSerializer json = new JavaScriptSerializer();
-
         Users user = new Users(userId);
         try
         {
