@@ -123,9 +123,19 @@
                     if (data.status == 0) {
                         PageIndex = data.pageindex + 1;
                         for (var i = 0; i < data.donate_list.length; i++) {
+                            var nickName = data.donate_list[i].donate_userid.nickname;
+                            if (nickName!="") {
+                                if (nickName.length > 2)
+                                    nickName = nickName.substr(0, 2) + "**";
+                                else
+                                    nickName = nickName + "**";
+                            }
+                            else
+                                nickName = "匿名网友";
+
                             listhtml += '<div class="recordli">' +
                                         '<div class="avatar"><a style="background:url(' + data.donate_list[i].donate_userid.headimgurl + '); background-size:45px 45px;"></a></div>' +
-                                        '<div class="nick-name">' + data.donate_list[i].donate_userid.nickname + '</div>' +
+                                        '<div class="nick-name">' + nickName + '</div>' +
                                         '<div class="donate-price">' + (parseInt(data.donate_list[i].donate_price) / 100) + '元</div>' +
                                         '<div style="clear:both;"></div></div>';
                         }
