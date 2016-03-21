@@ -84,6 +84,7 @@
                                 <input type="text" id="txtPrice" name="txtPrice" style="width:40px; text-align:center; border:none; display:inline-block; height:20px; line-height:20px; margin-left:-2px;" maxlength="5" value="1" onblur="updANum();" />
                                 <a style="width:22px; height:22px;border-left:1px solid #ccc; line-height:22px; text-align:center; display:inline-block; margin-left:-4px;" onclick="addANum();">＋</a>
                             </div>
+                            <a style="display:inline-block; margin-left:3px;">元</a>
                         </li>
                     </ul>
                 </div>
