@@ -112,14 +112,14 @@
                 <b>群主：</b><%=crowd_remark %>
             </div>
             <div style="text-align:center; height:50px; line-height:50px;" id="groupMaster" runat="server" visible="false">
-                <input type="button" class="btn btn-warning" value="去设置" style="font-size:16pt;" onclick="setConfig();" />　
+                <input type="button" class="btn btn-warning" value="设置" style="font-size:16pt;" onclick="setConfig();" />　
                 <input type="button" class="btn btn-warning" value="买门票" style="font-size:16pt;" onclick="" />
             </div>
             <div style="color:#7e3766; font-size:14pt; text-align:center; height:50px; line-height:50px;">
                 现已有总金额：<%=crowd_balance / 100 %>元
             </div>
             <div style="text-align:center; height:50px; line-height:50px;">
-                <input type="button" class="btn btn-warning" value="点击交费听课" style="font-size:16pt;" onclick="submitApply();" />
+                <input type="button" class="btn btn-success" value="点击交费听课" style="font-size:16pt;" onclick="submitApply();" />
                 <%--<asp:Button ID="btn_with" runat="server" Text="提现" CssClass="btn btn-success" Font-Size="14pt" style="margin-left:15px;" Visible="false" OnClick="btn_with_Click" />--%>
             </div>
             <div style="border: 1px solid #E9E9E9; border-radius: 15px; margin:20px 5px 5px; padding:0 15px; min-height:100px; font-family:宋体;">
