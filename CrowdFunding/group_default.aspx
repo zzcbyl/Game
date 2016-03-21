@@ -33,8 +33,8 @@
             Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Server.UrlEncode(Request.Url.ToString()), true);
         }
 
-        //if (fuserId == userId)
-        //    this.btn_with.Visible = true;
+        if (fuserId == userId)
+            this.groupMaster.Visible = true;
         
         Users currentUser = new Users(userId);
         string userHeadNick = currentUser.GetUserAvatarJson();
@@ -108,13 +108,12 @@
                 <div>主讲人：<%=currentCDt.Rows[0]["course_lecturer"].ToString() %>　　时间：<%=Convert.ToDateTime(currentCDt.Rows[0]["course_time"].ToString()).ToString("yyyy-MM-dd") %></div>
             </div>
             <% } %>
-            <div style="padding:15px; margin:10px 5px 5px; line-height:22px;">
-                群主：<%=crowd_remark %>
+            <div style="padding:10px; margin:5px; line-height:22px;">
+                <b>群主：</b><%=crowd_remark %>
             </div>
-            
-            <div style="text-align:center; height:50px; line-height:50px;">
-                <input type="button" class="btn btn-warning" value="去设置" style="font-size:16pt;" onclick="submitApply();" />　
-                <input type="button" class="btn btn-warning" value="买门票" style="font-size:16pt;" onclick="submitApply();" />
+            <div style="text-align:center; height:50px; line-height:50px;" id="groupMaster" runat="server" visible="false">
+                <input type="button" class="btn btn-warning" value="去设置" style="font-size:16pt;" onclick="setConfig();" />　
+                <input type="button" class="btn btn-warning" value="买门票" style="font-size:16pt;" onclick="" />
             </div>
             <div style="color:#7e3766; font-size:14pt; text-align:center; height:50px; line-height:50px;">
                 现已有总金额：<%=crowd_balance / 100 %>元
@@ -216,6 +215,11 @@
         function submitApply()
         {
             location.href = "personal_pay.aspx?fuid=<%=fuserId %>&courseid=<%=courseId %>";
+        }
+
+        function setConfig()
+        {
+            location.href = 'group_apply.aspx?config=set&courseid=<%=courseId %>';
         }
     </script>
 </asp:Content>

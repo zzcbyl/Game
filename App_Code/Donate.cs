@@ -36,6 +36,19 @@ public class Donate
         return result;
     }
 
+    public static void updCrowd(int crowid, string name, int price, string remark)
+    {
+        string sql = "update m_crowd set crowd_name=@crowd_name, crowd_minprice=@crowd_minprice, crowd_remark=@crowd_remark where crowd_id="+crowid;
+
+        SqlParameter[] parm = new SqlParameter[] { 
+            new SqlParameter("@crowd_name",name),
+            new SqlParameter("@crowd_minprice",price),
+            new SqlParameter("@crowd_remark",remark)
+        };
+
+        DBHelper.ExecteNonQuery(Util.ConnectionStringMall, CommandType.Text, sql, parm);
+    }
+
     public static DataTable getCrowdByUserid(int userid, int courseId)
     {
         string sql = "select * from m_crowd where crowd_userid=" + userid + " and crowd_courseid=" + courseId;
