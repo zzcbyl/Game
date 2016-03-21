@@ -27,6 +27,9 @@
             Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Server.UrlEncode(Request.Url.ToString()), true);
         }
 
+        if (fuserId == userId)
+            this.btn_with.Visible = true;
+        
         Users currentUser = new Users(userId);
         string userHeadNick = currentUser.GetUserAvatarJson();
         if (userHeadNick != "")
@@ -57,6 +60,11 @@
             return;
         }
     }
+
+    protected void btn_with_Click(object sender, EventArgs e)
+    {
+        this.Response.Redirect("withdraw.aspx?uid=" + userId);
+    }
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
@@ -84,6 +92,7 @@
             </div>
             <div style="text-align:center; height:50px; line-height:50px;">
                 <input type="button" class="btn btn-warning" value="点击交费听课" style="font-size:16pt;" onclick="submitApply();" />
+                <asp:Button ID="btn_with" runat="server" Text="提现" CssClass="btn btn-success" Font-Size="14pt" style="margin-left:15px;" Visible="false" OnClick="btn_with_Click" />
             </div>
             <div style="border: 1px solid #E9E9E9; border-radius: 15px; margin:20px 5px 5px; padding:0 15px; min-height:100px; font-family:宋体;">
                 <div style="background:#7e3766; height:1px; margin:5px 0 0;"></div>
