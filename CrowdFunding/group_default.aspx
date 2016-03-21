@@ -115,7 +115,7 @@
             </div>
             <div style="text-align:center; height:50px; line-height:50px;" id="groupMaster" runat="server" visible="false">
                 <input type="button" class="btn btn-warning" value="设置" style="font-size:16pt;" onclick="setConfig();" />　
-                <input type="button" class="btn btn-warning" value="买门票" style="font-size:16pt;" onclick="" />
+                <input type="button" class="btn btn-warning" value="买门票" style="font-size:16pt;" onclick="buyTicket();" />
             </div>
             <div style="color:#7e3766; font-size:14pt; text-align:center; height:50px; line-height:50px;">
                 现已有总金额：<%=crowd_balance / 100 %>元
@@ -222,6 +222,10 @@
         function setConfig()
         {
             location.href = 'group_apply.aspx?config=set&courseid=<%=courseId %>';
+        }
+        function buyTicket()
+        {
+            location.href = "buyticket.aspx?fuid=<%=fuserId %>&courseid=<%=courseId %>";
         }
     </script>
 </asp:Content>
