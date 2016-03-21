@@ -75,4 +75,19 @@ public class Donate
         return result;
     }
 
+    public static int setTotal(int donateid)
+    {
+        int result = 0;
+        string sql = "select * from m_donate where donate_id=" + donateid;
+        DataTable dt = DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
+        if (dt != null && dt.Rows.Count > 0)
+        {
+            int amount = int.Parse(dt.Rows[0]["donate_price"].ToString());
+            int crowdid = int.Parse(dt.Rows[0]["donate_crowdid"].ToString());
+
+            sql = "update m_crowd set crowd_balance=crowd_balance+" + amount + " where crowd_id=" + crowdid;
+            result = DBHelper.ExecteNonQuery(Util.ConnectionStringMall, CommandType.Text, sql);
+        }
+        return result;
+    }
 }

@@ -14,7 +14,11 @@
 
         if (Request["product_id"] != null && Request["product_id"] != "" && int.Parse(Request["product_id"]) > 0)
         {
-            Donate.updPayState(int.Parse(Request["product_id"]));
+            int result = Donate.updPayState(int.Parse(Request["product_id"]));
+            if (result > 0)
+            {
+                Donate.setTotal(int.Parse(Request["product_id"]));
+            }
         }
         else
         {
