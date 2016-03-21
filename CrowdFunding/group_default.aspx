@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CrowdFunding/Master.master" %>
 <%@ Import Namespace="System.Data" %>
+<%@ Import Namespace="System.Web.Script.Serialization" %>
 
 <script runat="server">
     public string token = "";
@@ -8,6 +9,7 @@
     public int crowd_balance = 0;
     public string group_name = "";
     public int crowdid = 0;
+    public string NickName = "匿名";
     protected void Page_Load(object sender, EventArgs e)
     {
         fuserId = int.Parse(Util.GetSafeRequestValue(Request, "fuid", "0"));
@@ -23,6 +25,22 @@
         if (userId <= 0)
         {
             Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Server.UrlEncode(Request.Url.ToString()), true);
+        }
+
+        Users currentUser = new Users(userId);
+        string userHeadNick = currentUser.GetUserAvatarJson();
+        if (userHeadNick != "")
+        {
+            try
+            {
+                JavaScriptSerializer json = new JavaScriptSerializer();
+                Dictionary<string, object> dicUser = json.Deserialize<Dictionary<string, object>>(userHeadNick);
+                if (dicUser.Keys.Contains("nickname"))
+                    NickName = dicUser["nickname"].ToString();
+                //if (dicUser.Keys.Contains("headimgurl"))
+                //    UserHeadImg = dicUser["headimgurl"].ToString();
+            }
+            catch { }
         }
 
         DataTable dt = Donate.getCrowdByUserid(fuserId);
@@ -55,7 +73,7 @@
         <div class="mainPage">
             <div id="head" style="color:#7e3766; font-weight:normal;">
                 <div style="float:left; margin-left:15px; ">群名：<%=group_name %></div>
-                <div style="float:right; margin-right:15px; ">申请人：</div>
+                <div style="float:right; margin-right:15px; ">申请人：<%=NickName %></div>
             </div>
             <div style="border: 1px solid #E9E9E9; border-radius: 10px; padding:15px; margin:5px;">
                 啊岁的法撒旦啊岁的法撒旦<br />
@@ -142,6 +160,11 @@
         //获取文档完整的高度 
         function getScrollHeight() {
             return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+        }
+
+        function submitApply()
+        {
+            location.href = "personal_pay.aspx?fuid=<%=fuserId %>";
         }
     </script>
 </asp:Content>

@@ -12,26 +12,23 @@
         {
             Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Server.UrlEncode(Request.Url.ToString()), true);
         }
+        DataTable dt = Donate.getCrowdByUserid(userId);
+        if (dt != null && dt.Rows.Count > 0)
+        {
+            //已申请
+            Response.Redirect("group_default.aspx?fuid=" + userId);
+        }
 
         if (Request.Form["hidIndex"] != null && Request.Form["hidIndex"].ToString().Equals("1"))
         {
-            DataTable dt = Donate.getCrowdByUserid(userId);
-            if (dt != null && dt.Rows.Count > 0)
-            {
-                //已申请
-                Response.Redirect("group_default.aspx?fuid=" + userId);
-            }
-            else
-            {
-                string name = Util.GetSafeRequestFormValue(Request, "groupName", "");
-                string course = Util.GetSafeRequestFormValue(Request, "courseIntro", "");
-                int price = int.Parse(Util.GetSafeRequestFormValue(Request, "txtPrice", "0")) * 100;
-                string remark = Util.GetSafeRequestFormValue(Request, "txtRemark", "");
+            string name = Util.GetSafeRequestFormValue(Request, "groupName", "");
+            string course = Util.GetSafeRequestFormValue(Request, "courseIntro", "");
+            int price = int.Parse(Util.GetSafeRequestFormValue(Request, "txtPrice", "0")) * 100;
+            string remark = Util.GetSafeRequestFormValue(Request, "txtRemark", "");
 
-                int result = Donate.addCrowd(userId, name, course, price, remark);
-                if (result > 0)
-                    Response.Redirect("group_default.aspx?fuid=" + userId);
-            }
+            int result = Donate.addCrowd(userId, name, course, price, remark);
+            if (result > 0)
+                Response.Redirect("group_default.aspx?fuid=" + userId);
         }
     }
 </script>
