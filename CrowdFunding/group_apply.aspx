@@ -102,7 +102,7 @@
                         <li>　申请人： <%=NickName %></li>
                         <li style="position:relative; vertical-align:middle;">
                             最低金额： 
-                            <div style="display:inline-block; clear:both; border:1px solid #ccc; height:24px; line-height:22px; margin-top:5px; ">
+                            <div style="display:inline-block; clear:both; border:1px solid #ccc; height:23px; line-height:23px; margin-top:5px; ">
                                 <a style="width:22px; height:22px; border-right:1px solid #ccc; line-height:22px; text-align:center; display:inline-block;" onclick="subANum();">－</a>
                                 <input type="text" id="txtPrice" name="txtPrice" style="width:40px; text-align:center; border:none; display:inline-block; height:20px; line-height:20px; margin-left:-2px;" maxlength="5" value="<%=minPrice %>" onblur="updANum();" />
                                 <a style="width:22px; height:22px;border-left:1px solid #ccc; line-height:22px; text-align:center; display:inline-block; margin-left:-4px;" onclick="addANum();">＋</a>
