@@ -95,6 +95,9 @@
     <script type="text/javascript">
         var minPrice = parseInt('<%=min_price %>');
         $(document).ready(function () {
+
+            shareLink = 'http://game.luqinwenda.com/CrowdFunding/group_default.aspx?fuid=<%=fuserId %>';
+
             $('#txtPrice').val(minPrice);
         });
 

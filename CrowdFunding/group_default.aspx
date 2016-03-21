@@ -99,6 +99,9 @@
         var cid = '<%=crowdid %>';
         var PageIndex = 1;
         $(document).ready(function () {
+
+            shareLink = 'http://game.luqinwenda.com/CrowdFunding/group_default.aspx?fuid=<%=fuserId %>';
+
             window.onscroll = function () {
                 if (getScrollTop() + getClientHeight() == getScrollHeight()) {
                     fillList();
