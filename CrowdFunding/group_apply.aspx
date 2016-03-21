@@ -44,7 +44,7 @@
         <div style="border:3px solid #E9E9E9; border-radius:15px; margin:5px;">
             <div style="background:#ECECEC; margin:5px;  padding:40px 30px;">
                 <div style="background:#fff; width:100%; padding:20px 10px;">
-                    <ul class="applyUL">
+                    <ul class="applyUL" style="margin-left: -20px;">
                         <li>　　群名： <input id="groupName" name="groupName" type="text" maxlength="100" /></li>
                         <li>课程介绍： <input id="courseIntro" name="courseIntro" type="text" maxlength="100" /></li>
                         <li style="position:relative; vertical-align:middle;">
