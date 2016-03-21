@@ -10,7 +10,7 @@
         int pageindex = int.Parse(Util.GetSafeRequestValue(Request, "pageindex", "1"));
 
         int intop = pagesize * (pageindex - 1);
-        string sql = "SELECT TOP " + pagesize + " * FROM m_donate WHERE donate_crowdid = " + crowdid + " and donate_id NOT IN (SELECT TOP " + intop + " donate_id FROM m_donate where donate_crowdid = " + crowdid + " ORDER BY donate_id) ORDER BY donate_id";
+        string sql = "SELECT TOP " + pagesize + " * FROM m_donate WHERE donate_state=1 and donate_paystate=1 and donate_crowdid = " + crowdid + " and donate_id NOT IN (SELECT TOP " + intop + " donate_id FROM m_donate where donate_state=1 and donate_paystate=1 and donate_crowdid = " + crowdid + " ORDER BY donate_id) ORDER BY donate_id";
         DataTable dt = DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
         if (dt != null && dt.Rows.Count > 0)
         {

@@ -17,7 +17,7 @@ public class Donate
 		//
 	}
 
-    public static int add(int userid, string name, string course, int price, string remark)
+    public static int addCrowd(int userid, string name, string course, int price, string remark = "")
     {
         string sql = "INSERT INTO m_crowd(crowd_userid,crowd_name,crowd_course,crowd_minprice,crowd_remark) VALUES" +
             "(@crowd_userid,@crowd_name,@crowd_course,@crowd_minprice,@crowd_remark) ";
@@ -41,5 +41,38 @@ public class Donate
         return DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
     }
 
+
+
+    public static int addDonate(int crowdid, int userid, int price, string remark = "")
+    {
+        string sql = "INSERT INTO m_donate(donate_crowdid, donate_userid, donate_price, donate_remark) VALUES" +
+            "(@donate_crowdid, @donate_userid, @donate_price, @donate_remark)";
+
+        SqlParameter[] parm = new SqlParameter[] { 
+            new SqlParameter("@donate_crowdid", crowdid),
+            new SqlParameter("@donate_userid", userid),
+            new SqlParameter("@donate_price", price),
+            new SqlParameter("@donate_remark", remark)
+        };
+
+        int result = DBHelper.ExecteNonQuery(Util.ConnectionStringMall, CommandType.Text, sql, parm);
+
+        sql = "select top 1 donate_id from m_donate ordre by donate_id desc";
+        DataTable dt = DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
+        if (dt != null && dt.Rows.Count > 0)
+        {
+            result = int.Parse(dt.Rows[0][0].ToString());
+        }
+
+        return result;
+    }
+
+    public static int updPayState(int donateid)
+    {
+        string sql = "update m_donate set donate_paystate = 1, donate_paysuccesstime='" + DateTime.Now.ToString()
+            + "' where donate_id=" + donateid + " and donate_paystate = 0";
+        int result = DBHelper.ExecteNonQuery(Util.ConnectionStringMall, CommandType.Text, sql);
+        return result;
+    }
 
 }

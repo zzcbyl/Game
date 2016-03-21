@@ -30,7 +30,7 @@
         {
             group_name = dt.Rows[0]["crowd_name"].ToString();
             crowdid = int.Parse(dt.Rows[0]["crowd_id"].ToString());
-            crowd_balance = (int.Parse(dt.Rows[0]["crowd_balance"].ToString()) / 100);
+            crowd_balance = int.Parse(dt.Rows[0]["crowd_balance"].ToString());
         }
         else
         {
@@ -62,7 +62,7 @@
                 啊岁的法撒旦啊岁的法撒旦<br />
             </div>
             <div style="color:#7e3766; font-size:14pt; text-align:center; height:50px; line-height:50px;">
-                现已有总金额：<%=crowd_balance %>元
+                现已有总金额：<%=crowd_balance / 100 %>元
             </div>
             <div style="text-align:center; height:50px; line-height:50px;">
                 <input type="button" class="btn btn-warning" value="点击交费听课" style="font-size:16pt;" onclick="submitApply();" />
