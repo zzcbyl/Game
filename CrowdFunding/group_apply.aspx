@@ -54,7 +54,7 @@
                 string remark = Util.GetSafeRequestFormValue(Request, "txtRemark", "");
 
                 Donate.updCrowd(int.Parse(Request.Form["hidCrowdid"]), name, price, remark);
-                Response.Redirect(Request.Url.ToString());
+                Response.Redirect(Request.Url.ToString() + "&upd=1");
             }
             else
             {
@@ -128,6 +128,10 @@
                 $('#btn_apply').val("修改申请");
                 $('#btn_return').show();
             }
+            if (QueryString("upd") != null)
+                alert("修改成功");
+
+            shareLink = 'http://game.luqinwenda.com/CrowdFunding/group_apply.aspx?courseid=<%=courseId %>';
         });
 
         function submitApply() {
