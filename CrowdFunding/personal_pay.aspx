@@ -25,6 +25,21 @@
         {
             Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Server.UrlEncode(Request.Url.ToString()), true);
         }
+        
+        DataTable dt = Donate.getCrowdByUserid(fuserId);
+        if (dt != null && dt.Rows.Count > 0)
+        {
+            group_name = dt.Rows[0]["crowd_name"].ToString();
+            courseIntro = dt.Rows[0]["crowd_course"].ToString();
+            crowdid = int.Parse(dt.Rows[0]["crowd_id"].ToString());
+            min_price = (int.Parse(dt.Rows[0]["crowd_minprice"].ToString()) / 100);
+        }
+        else
+        {
+            Response.Write("参数错误");
+            Response.End();
+            return;
+        }
 
         if (Request.Form["hidIndex"] != null && Request.Form["hidIndex"].ToString().Equals("1"))
         {
@@ -40,23 +55,6 @@
                 string payurl = "http://weixin.luqinwenda.com/payment/payment.aspx?body=卢勤问答平台微课堂&detail=听课费&userid=" + userId + "&product_id=" + result + "&total_fee=" + price.ToString()
                     + "&callback=" + Server.UrlEncode("http://game.luqinwenda.com/CrowdFunding/paySuccess.aspx?product_id=" + result);
                 Response.Redirect(payurl);
-            }
-        }
-        else
-        {
-            DataTable dt = Donate.getCrowdByUserid(fuserId);
-            if (dt != null && dt.Rows.Count > 0)
-            {
-                group_name = dt.Rows[0]["crowd_name"].ToString();
-                courseIntro = dt.Rows[0]["crowd_course"].ToString();
-                crowdid = int.Parse(dt.Rows[0]["crowd_id"].ToString());
-                min_price = (int.Parse(dt.Rows[0]["crowd_minprice"].ToString()) / 100);
-            }
-            else
-            {
-                Response.Write("参数错误");
-                Response.End();
-                return;
             }
         }
     }
