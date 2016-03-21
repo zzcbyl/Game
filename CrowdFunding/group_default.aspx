@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CrowdFunding/Master.master" %>
+﻿<%@ Page Title="卢勤微课堂" Language="C#" MasterPageFile="~/CrowdFunding/Master.master" %>
 <%@ Import Namespace="System.Data" %>
 <%@ Import Namespace="System.Web.Script.Serialization" %>
 
@@ -97,8 +97,10 @@
                 <div style="float:left; margin-left:10px;">申请人：</div>
                 <div style="float:left; width:30px; height:30px; margin:2px 0 0; background:url(<%=UserHeadImg %>) no-repeat; background-size:30px 30px; border-radius:15px;">　</div>
                 <div style="float:left; margin-left:10px; margin-top:2px;"><%=(NickName.Length > 5 ? NickName.Substring(0, 5) + "..." : NickName) %></div>
-                <div style="float:right; margin-right:10px;">群名：<%=group_name %></div>
                 <div style="clear:both;"></div>
+            </div>
+            <div id="head" style="color:#7e3766; font-weight:normal; text-align:left;">
+                <div style="float:left; margin-left:10px; width:100%; height:35px; overflow:hidden;">群名：<%=group_name %></div>
             </div>
             <% if (currentCDt.Rows.Count>0) { %>
             <div style="border: 1px solid #E9E9E9; border-radius: 10px; padding:15px; margin:5px; line-height:22px;" 
