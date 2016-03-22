@@ -99,8 +99,8 @@
                 <div style="float:left; margin-left:10px; margin-top:2px;"><%=(NickName.Length > 5 ? NickName.Substring(0, 5) + "..." : NickName) %></div>
                 <div style="clear:both;"></div>
             </div>
-            <div id="head" style="color:#7e3766; font-weight:normal; text-align:left;">
-                <div style="float:left; margin-left:10px; width:100%; height:35px; overflow:hidden;">群名：<%=group_name %></div>
+            <div id="head" style="color:#7e3766; font-weight:normal; text-align:left; margin-top:2px;">
+                <div style="float:left; margin-left:10px; height:35px; overflow:hidden;">群名：<%=(group_name.Length > 15 ? group_name.Substring(0, 15) + "..." : group_name) %></div>
             </div>
             <% if (currentCDt.Rows.Count>0) { %>
             <div style="border: 1px solid #E9E9E9; border-radius: 10px; padding:15px; margin:5px; line-height:22px;" 
