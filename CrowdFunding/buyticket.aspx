@@ -162,11 +162,13 @@
         }
 
         function submitBuy() {
-            if (totalPrice > parseInt(userbalance)) {
-                location.href = 'balance_error.aspx';
-            }
-            else {
-                location.href = 'buy_success.aspx?courseid=<%=courseId %>&fuid=<%=userId %>&count=' + parseInt($("#txtCount").val());
+            if (confirm("确定要购买吗？")) {
+                if (totalPrice > parseInt(userbalance)) {
+                    location.href = 'balance_error.aspx';
+                }
+                else {
+                    location.href = 'buy_success.aspx?courseid=<%=courseId %>&fuid=<%=userId %>&count=' + parseInt($("#txtCount").val());
+                }
             }
         }
     </script>
