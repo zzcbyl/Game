@@ -93,10 +93,10 @@
                         <li>众筹金额： ￥<%=userBalance %> 元</li>
                         <li style="position:relative; vertical-align:middle;">
                         　群数量： 
-                            <div style="display:inline-block; clear:both; border:1px solid #ccc; height:23px; line-height:23px; margin-top:5px; ">
-                                <a style="width:22px; height:22px; border-right:1px solid #ccc; line-height:22px; text-align:center; display:inline-block;" onclick="subANum();">－</a>
-                                <input type="text" id="txtCount" name="txtCount" style="width:40px; text-align:center; border:none; display:inline-block; height:20px; line-height:20px; margin-left:-2px;" maxlength="5" value="1" onblur="updANum();" />
-                                <a style="width:22px; height:22px;border-left:1px solid #ccc; line-height:22px; text-align:center; display:inline-block; margin-left:-4px;" onclick="addANum();">＋</a>
+                            <div class="spinner_block">
+                                <a class="sub-li" onclick="subANum();">－</a>
+                                <input class="input-li" type="text" id="txtCount" name="txtCount" maxlength="3" value="1" onblur="updANum();" />
+                                <a class="add-li" onclick="addANum();">＋</a>
                             </div>
                             <a style="display:inline-block; margin-left:3px;">个</a>
                         </li>
