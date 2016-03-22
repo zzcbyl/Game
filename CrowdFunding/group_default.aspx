@@ -14,6 +14,7 @@
     public string UserHeadImg = "http://game.luqinwenda.com/images/noAvatar.jpg";
     public int courseId = 0;
     public DataTable currentCDt = new DataTable();
+    public string buyedCount = "";
     protected void Page_Load(object sender, EventArgs e)
     {
         fuserId = int.Parse(Util.GetSafeRequestValue(Request, "fuid", "0"));
@@ -25,7 +26,7 @@
             Response.End();
             return;
         }
-        
+
         token = Util.GetSafeRequestValue(Request, "token", "");
         userId = Users.CheckToken(token);
         if (userId <= 0)
@@ -35,7 +36,7 @@
 
         if (fuserId == userId)
             this.groupMaster.Visible = true;
-        
+
         Users currentUser = new Users(userId);
         string userHeadNick = currentUser.GetUserAvatarJson();
         if (userHeadNick != "")
@@ -57,7 +58,7 @@
         {
             currentCDt = CourseDt;
         }
-        
+
         DataTable dt = Donate.getCrowdByUserid(fuserId, courseId);
         if (dt != null && dt.Rows.Count > 0)
         {
@@ -71,6 +72,20 @@
             Response.Write("参数错误");
             Response.End();
             return;
+        }
+        //购买个数
+        DataTable donateDt = Donate.getDonateByCrowdid(crowdid, 2);
+        if (donateDt != null && donateDt.Rows.Count > 0)
+        {
+            string remark="";
+            int groupCount = 0;
+            foreach (DataRow row in donateDt.Rows)
+            {
+                remark = row["donate_remark"].ToString();
+                remark = remark.Replace("购买", "").Replace("个直播群", "");
+                groupCount += int.Parse(remark);
+            }
+            buyedCount = "已购群：" + groupCount + "个";
         }
     }
 
@@ -98,6 +113,7 @@
                 <div style="float:left; margin-left:10px;">申请人：</div>
                 <div style="float:left; width:30px; height:30px; margin:2px 0 0; background:url(<%=UserHeadImg %>) no-repeat; background-size:30px 30px; border-radius:15px;">　</div>
                 <div style="float:left; margin-left:10px; margin-top:2px;"><%=(NickName.Length > 5 ? NickName.Substring(0, 5) + "..." : NickName) %></div>
+                <div style="float:right; margin-right:10px; color:#808080;"><%=buyedCount %></div>
                 <div style="clear:both;"></div>
             </div>
             <div id="head" style="color:#7e3766; font-weight:normal; text-align:left; margin-top:2px;">
