@@ -37,7 +37,7 @@
         if (fuserId == userId)
             this.groupMaster.Visible = true;
 
-        Users currentUser = new Users(userId);
+        Users currentUser = new Users(fuserId);
         string userHeadNick = currentUser.GetUserAvatarJson();
         if (userHeadNick != "")
         {

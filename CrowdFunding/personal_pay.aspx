@@ -55,11 +55,11 @@
                 }
                 int result = Donate.addDonate(crowdid, userId, price, 1);
                 
-                //string payurl = "http://weixin.luqinwenda.com/payment/payment.aspx?body=卢勤问答平台微课堂&detail=听课费&userid=" + userId + "&product_id=" + result + "&total_fee=" + price.ToString()
-                //    + "&callback=" + Server.UrlEncode("http://game.luqinwenda.com/CrowdFunding/paySuccess.aspx?product_id=" + result);
-                
-                string payurl = "http://weixin.luqinwenda.com/payment/payment.aspx?body=卢勤问答平台微课堂&detail=听课费&userid=" + userId + "&product_id=" + result + "&total_fee=1"
+                string payurl = "http://weixin.luqinwenda.com/payment/payment.aspx?body=卢勤问答平台微课堂&detail=听课费&userid=" + userId + "&product_id=" + result + "&total_fee=" + price.ToString()
                     + "&callback=" + Server.UrlEncode("http://game.luqinwenda.com/CrowdFunding/paySuccess.aspx?product_id=" + result);
+                
+                //string payurl = "http://weixin.luqinwenda.com/payment/payment.aspx?body=卢勤问答平台微课堂&detail=听课费&userid=" + userId + "&product_id=" + result + "&total_fee=1"
+                //    + "&callback=" + Server.UrlEncode("http://game.luqinwenda.com/CrowdFunding/paySuccess.aspx?product_id=" + result);
                 Response.Redirect(payurl);
             }
         }
