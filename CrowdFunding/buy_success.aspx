@@ -14,6 +14,7 @@
     public string countStr = "";
     public string NickName = "";
     public string groupName = "";
+    public string buyedTime = "";
     protected void Page_Load(object sender, EventArgs e)
     {
         int count = int.Parse(Util.GetSafeRequestValue(Request, "count", "0"));
@@ -93,6 +94,7 @@
                 if (Donateid > 0)
                 {
                     int result = Donate.setTotal(Donateid);
+                    buyedTime = DateTime.Now.ToString("yyyy-MM-dd HH:ss");
                     //if (result > 0)
                     //    Donate.updPayState(Donateid);
                 }
@@ -124,6 +126,7 @@
                     <div>群名：<%=groupName %></div>
                     <div>申请人：<%=NickName %></div>
                     <div>购买群数：<%=countStr %></div>
+                    <div>购买时间：<%=buyedTime %></div>
                     <div style="text-indent:30px;">
                         感谢您的支持！请将本页面截图作为购买凭证，发送给卢勤问答平台旭老师（ID:xulaoshi0224）,安排听课事宜。
                     </div>
