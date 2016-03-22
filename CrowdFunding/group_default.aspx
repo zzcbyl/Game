@@ -83,10 +83,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style type="text/css">
         .recordli { height:50px; line-height:50px; border-bottom:dashed 1px #ccc; margin-bottom:10px;}
-        .avatar { width:30%; float:left; text-align:center; height:55px; }
-        .avatar a { width:45px; height:45px; border-radius:5px; display:inline-block;  }
-        .nick-name { width:40%; float:left; text-align:center; }
-        .donate-price { width:30%; float:left; text-align:center; }
+        .avatar { width:20%; float:left; text-align:left; height:50px; }
+        .avatar a { width:45px; height:45px; border-radius:5px; display:inline-block;}
+        .nick-name { width:20%; float:left; text-align:center; }
+        .donate-price { width:20%; float:left; text-align:center; }
+        .donate-time { width:40%; float:left; text-align:right; }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -154,7 +155,7 @@
             $.ajax({
                 type: "GET",
                 async: false,
-                url: "http://game.luqinwenda.com/api/get_crowd_donatelist.aspx",
+                url: "http://192.168.1.38:8002/api/get_crowd_donatelist.aspx",
                 data: { crowdid: cid, pageindex: PageIndex, pagesize: 3 },
                 dataType: "json",
                 success: function (data) {
@@ -176,6 +177,7 @@
                                         '<div class="avatar"><a style="background:url(' + data.donate_list[i].donate_userid.headimgurl + '); background-size:45px 45px;"></a></div>' +
                                         '<div class="nick-name">' + nickName + '</div>' +
                                         '<div class="donate-price">' + (parseInt(data.donate_list[i].donate_price) / 100) + '元</div>' +
+                                        '<div class="donate-time">' + data.donate_list[i].donate_creattime + '</div>' +
                                         '<div style="clear:both;"></div></div>';
                         }
                     }
