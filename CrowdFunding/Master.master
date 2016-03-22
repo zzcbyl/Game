@@ -40,6 +40,11 @@
         a { color:#505050;}
         a:hover { text-decoration:none; background:#F0AD4E; color:#fff;}
         .btn-warning { background:#f3ca4a; border:none; }
+
+        .spinner_block { display:inline-block; clear:both; border:1px solid #ccc; height:23px; line-height:20px; margin-top:5px; }
+        .spinner_block .sub-li { width:22px; height:22px; border-right:1px solid #ccc; line-height:22px; text-align:center; display:inline-block;}
+        .spinner_block .add-li { width:22px; height:22px;border-left:1px solid #ccc; line-height:22px; text-align:center; display:inline-block; margin-left:-4px;}
+        .spinner_block .input-li { width:40px; text-align:center; border:none; display:inline-block; height:19px; line-height:19px; margin-left:-2px; }
     </style>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
