@@ -94,7 +94,7 @@
                 if (Donateid > 0)
                 {
                     int result = Donate.setTotal(Donateid);
-                    buyedTime = DateTime.Now.ToString("yyyy-MM-dd HH:ss");
+                    buyedTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                     //if (result > 0)
                     //    Donate.updPayState(Donateid);
                 }
