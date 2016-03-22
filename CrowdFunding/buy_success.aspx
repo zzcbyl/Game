@@ -1,5 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CrowdFunding/Master.master" %>
+﻿<%@ Page Title="购买门票成功" Language="C#" MasterPageFile="~/CrowdFunding/Master.master" %>
 <%@ Import Namespace="System.Data" %>
+<%@ Import Namespace="System.Web.Script.Serialization" %>
 
 <script runat="server">
     public string token = "";
@@ -10,6 +11,9 @@
     public int courseprice = 0;
     public int coursepriceadd = 0;
     public int crowdid = 0;
+    public string countStr = "";
+    public string NickName = "";
+    public string groupName = "";
     protected void Page_Load(object sender, EventArgs e)
     {
         int count = int.Parse(Util.GetSafeRequestValue(Request, "count", "0"));
@@ -34,9 +38,28 @@
             Response.End();
             return;
         }
+
+        Users currentUser = new Users(userId);
+        string userHeadNick = currentUser.GetUserAvatarJson();
+        if (userHeadNick != "")
+        {
+            try
+            {
+                JavaScriptSerializer json = new JavaScriptSerializer();
+                Dictionary<string, object> dicUser = json.Deserialize<Dictionary<string, object>>(userHeadNick);
+                if (dicUser.Keys.Contains("nickname"))
+                    NickName = dicUser["nickname"].ToString();
+                //if (dicUser.Keys.Contains("headimgurl"))
+                //    UserHeadImg = dicUser["headimgurl"].ToString();
+            }
+            catch { }
+        }
+        
         DataTable dt = Donate.getCrowdByUserid(fuserId, courseId);
         if (dt != null && dt.Rows.Count > 0)
         {
+            groupName = dt.Rows[0]["crowd_name"].ToString();
+            groupName = (groupName.Length > 12 ? groupName.Substring(0, 12) + "..." : groupName);
             userBalance = int.Parse(dt.Rows[0]["crowd_balance"].ToString()) / 100; 
             crowdid = int.Parse(dt.Rows[0]["crowd_id"].ToString());  
         }
@@ -62,6 +85,7 @@
 
         if (count > 0)
         {
+            countStr = count.ToString() + "个";
             int cost = courseprice + (count - 1) * coursepriceadd;
             if (userBalance >= cost)
             {
@@ -95,10 +119,16 @@
         <img src="../images/main_head.jpg" width="100%" />
         <div style="border:3px solid #E9E9E9; border-radius:15px; margin:5px;">
             <div style="background:#ECECEC; margin:5px;  padding:20px;">
-                <div style="height:35px; line-height:35px; font-size:13pt;">购买门票</div>
-                <div style="background:#fff; width:100%; padding:20px 10px;">
-                    <div>
-                        购买成功！
+                <div style="height:35px; line-height:35px; font-size:13pt;">购买门票成功</div>
+                <div style="background:#fff; width:100%; padding:20px; line-height:25px;">
+                    <div>群名：<%=groupName %></div>
+                    <div>申请人：<%=NickName %></div>
+                    <div>购买群数：<%=countStr %></div>
+                    <div style="text-indent:30px;">
+                        感谢您的支持！请将本页面截图作为购买凭证，发送给卢勤问答平台旭老师（ID:xulaoshi0224）,安排听课事宜。
+                    </div>
+                    <div style="text-align:center; margin-top:10px;">
+                        <img src="../images/xulaoshi.jpg" width="80%" />
                     </div>
                 </div>
                 <div style="margin:50px 0; text-align:center;">

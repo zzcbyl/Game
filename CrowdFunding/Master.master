@@ -52,9 +52,9 @@
     </div>
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
-        var shareTitle = "众筹标题文字"; //标题
+        var shareTitle = "【邀您助力】微课众筹，让我们一起助力孩子成长！"; //标题
         var shareImg = "http://game.luqinwenda.com/images/icon_zhongchou.jpg"; //图片
-        var shareContent = '众筹简介'; //简介
+        var shareContent = '想听优质的家庭教育微课直播？请大家支持我的项目，为本群听课尽一份力。'; //简介
         var shareLink = 'http://game.luqinwenda.com/CrowdFunding/group_apply.aspx'; //链接
         wx.config({
             debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
