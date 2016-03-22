@@ -32,7 +32,7 @@
         if (dt != null && dt.Rows.Count > 0)
         {
             group_name = dt.Rows[0]["crowd_name"].ToString();
-            group_name = (group_name.Length > 15 ? group_name.Substring(0, 15) + "..." : group_name);
+            group_name = (group_name.Length > 12 ? group_name.Substring(0, 12) + "..." : group_name);
             courseIntro = dt.Rows[0]["crowd_course"].ToString();
             crowdid = int.Parse(dt.Rows[0]["crowd_id"].ToString());
             min_price = (int.Parse(dt.Rows[0]["crowd_minprice"].ToString()) / 100);
@@ -75,7 +75,7 @@
         <div style="border:3px solid #E9E9E9; border-radius:15px; margin:5px;">
             <div style="background:#ECECEC; margin:5px;  padding:30px 20px;">
                 <div style="background:#fff; width:100%; padding:20px 10px;">
-                    <ul class="applyUL" style="margin-left: -20px;">
+                    <ul class="applyUL" style="margin-left: -50px;">
                         <li>　　群名： <%=group_name %></li>
                         <%--<li>课程介绍： <%=courseIntro %></li>--%>
                         <li style="position:relative; vertical-align:middle;">

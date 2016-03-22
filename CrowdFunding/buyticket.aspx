@@ -57,6 +57,7 @@
         if (dt != null && dt.Rows.Count > 0)
         {
             group_name = dt.Rows[0]["crowd_name"].ToString();
+            group_name = (group_name.Length > 12 ? group_name.Substring(0, 12) + "..." : group_name);
             userBalance = int.Parse(dt.Rows[0]["crowd_balance"].ToString()) / 100;
             crowdid = int.Parse(dt.Rows[0]["crowd_id"].ToString());
         }
@@ -86,7 +87,7 @@
             <div style="background:#ECECEC; margin:5px;  padding:20px;">
                 <div style="height:35px; line-height:35px; font-size:13pt;">购买门票</div>
                 <div style="background:#fff; width:100%; padding:20px 10px;">
-                    <ul class="applyUL">
+                    <ul class="applyUL" style="margin-left: -20px;">
                         <li>　　群名： <%=group_name %></li>
                         <li>　申请人： <%=NickName %></li>
                         <li>众筹金额： ￥<%=userBalance %> 元</li>
