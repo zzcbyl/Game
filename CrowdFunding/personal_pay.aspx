@@ -82,7 +82,7 @@
                         　　票价： 
                             <div class="spinner_block">
                                 <a class="sub-li" onclick="subANum();">－</a>
-                                <input class="input-li" type="text" id="txtPrice" name="txtPrice" maxlength="5" value="1" onblur="updANum();" />
+                                <input class="input-li" type="text" id="txtPrice" name="txtPrice" maxlength="3" value="1" onblur="updANum();" />
                                 <a class="add-li" onclick="addANum();">＋</a>
                             </div>
                             <a style="display:inline-block; margin-left:3px;">元</a>
