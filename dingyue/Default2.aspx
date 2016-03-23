@@ -9,13 +9,17 @@
     public string UserHeadImg = "http://game.luqinwenda.com/images/noAvatar.jpg";
     public string NickName = "匿名";
     public string FirstDate = DateTime.Now.AddDays(1).ToString("yyyy-MM-dd");
+    public int userId = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
         token = Util.GetSafeRequestValue(Request, "token", "");
-        int userId = Users.CheckToken(token);
+        userId = Users.CheckToken(token);
         if (userId <= 0)
         {
-            Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Server.UrlEncode(Request.Url.ToString()), true);
+            string currentUrl = Request.Url.ToString();
+            if (token != "")
+                currentUrl = currentUrl.Replace("&token=" + token, "").Replace("?token=" + token, "");
+            Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Server.UrlEncode(currentUrl), true);
         }
         JavaScriptSerializer json = new JavaScriptSerializer();
 
@@ -84,7 +88,7 @@
         var shareContent = '转发签到文章到朋友圈可获得积分'; //简介
         var shareLink = 'http://game.luqinwenda.com/dingyue/default.aspx'; //链接
         $(document).ready(function () {
-            
+            $('#article-List').html('<div class="loading"><img src="/images/loading.gif" /><br />加载中...</div>');
             //window.onscroll = function () {
             //    if (getScrollTop() + getClientHeight() == getScrollHeight()) {
             //        fillArticleList();
@@ -131,6 +135,7 @@
             }
         }
 
+        var uid = '<%=userId %>';
         var maxdate = '<%=FirstDate %>';
         var pagesize = 10;
         function fillArticleList() {
@@ -138,7 +143,7 @@
                 type: "GET",
                 async: false,
                 url: "Handler_Article.ashx",
-                data: { pagesize: pagesize, maxdate: maxdate, random: Math.random() },
+                data: { userid: uid, pagesize: pagesize, maxdate: maxdate, random: Math.random() },
                 dataType: "json",
                 success: function (data) {
                     if (data.status == 0) {
@@ -153,20 +158,33 @@
 
                             for (var j = 0; j < data.article_list[i].date_article_list.length; j++) {
                                 var articleObj = data.article_list[i].date_article_list[j];
+                                var headImg = articleObj.article_headimg;
+                                var forwardstr = '';
+                                var titleColor = '';
+                                var pointI = '';
+                                if (articleObj.forward == 1) {
+                                    headImg = headImg.substr(0, headImg.lastIndexOf('.')) + "_gray" + headImg.substr(headImg.lastIndexOf('.'));
+                                    forwardstr = '已转';
+                                    titleColor = 'color:#999;';
+                                }
+                                else {
+                                    pointI = '<i id="point_' + articleObj.article_id + '" class="i_icon" style="position:absolute; left:55px; top:2px;"></i>';
+                                }
 
                                 articleHtml += '<div style="border-top:1px solid #f3f3f3; height:50px; padding:5px 10px;  position:relative;" onclick="jumpUrl(' + articleObj.article_id + ');">' +
                                         '<div style="width:50px; height:50px;">' +
-                                        '<img src="' + articleObj.article_headimg + '" width="50px" height="50px" />' +
-                                        '<i id="point_43" class="i_icon" style="position:absolute; left:55px; top:2px; display:none;"></i>' +
+                                        '<img src="' + headImg + '" width="50px" height="50px" />' +
+                                         pointI +
                                         '</div>' +
-                                        '<div style="position:absolute; left:70px; top:5px; right:5px; height:44px; line-height:22px; overflow:hidden; color:#999; ">' + (articleObj.article_title.length > 25 ? articleObj.article_title.substr(0, 25) + "..." : articleObj.article_title) + '</div>' +
-                                        '<div style="position:absolute; top:30px; right:15px; background:#fff; color:#b7b7b7; padding-left:10px;">已转</div>' +
+                                        '<div style="position:absolute; left:70px; top:5px; right:5px; height:44px; line-height:22px; overflow:hidden; ' + titleColor + ' ">' + (articleObj.article_title.length > 25 ? articleObj.article_title.substr(0, 25) + "..." : articleObj.article_title) + '</div>' +
+                                        '<div style="position:absolute; top:30px; right:15px; background:#fff; color:#b7b7b7; padding-left:10px;">' + forwardstr + '</div>' +
                                         '<div style="clear:both;"></div>' +
                                         '</div>';
                             }
 
                             articleHtml += '</div></div>';
                         }
+                        $('.loading').hide();
                         $("#article-List").append(articleHtml);
                     }
                 }

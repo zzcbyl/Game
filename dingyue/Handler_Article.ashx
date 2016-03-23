@@ -4,16 +4,26 @@ using System;
 using System.Web;
 using System.Data;
 using System.Web.Script.Serialization;
+using System.Collections;
 
 public class Handler_Article : IHttpHandler {
     
     public void ProcessRequest (HttpContext context) {
         context.Response.ContentType = "text/plain";
+        int userId = int.Parse(Util.GetSafeRequestValue(context.Request, "userid", "0"));
         int pageSize = int.Parse(Util.GetSafeRequestValue(context.Request, "pagesize", "20"));
         string maxDate = Util.GetSafeRequestValue(context.Request, "maxdate", DateTime.Now.AddDays(1).ToString("yyyy-MM-dd"));
 
         DataTable dateDt = Article.GetDate(pageSize, Convert.ToDateTime(maxDate));
         DataTable articleDt = Article.GetAll(pageSize, Convert.ToDateTime(maxDate));
+        
+        ArrayList IDList = new ArrayList();
+        DataTable MyDt = Integral.GetList(userId, 0, "article");
+        foreach (DataRow item in MyDt.Rows)
+        {
+            if (!IDList.Contains(item["integral_type_id"].ToString()))
+                IDList.Add(item["integral_type_id"].ToString());
+        }
 
         if (dateDt != null && dateDt.Rows.Count > 0)
         {
@@ -35,6 +45,10 @@ public class Handler_Article : IHttpHandler {
                     }
                     if (rowJson.StartsWith(","))
                         rowJson = rowJson.Remove(0, 1);
+                    if (IDList.Contains(row["article_id"].ToString()))
+                        rowJson += ",\"forward\": 1";
+                    else
+                        rowJson += ",\"forward\": 0";
                     articleJson = articleJson + ",{" + rowJson + " }";
                 }
                 if (articleJson.StartsWith(","))
