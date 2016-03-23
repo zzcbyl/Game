@@ -89,11 +89,11 @@
         var shareLink = 'http://game.luqinwenda.com/dingyue/default.aspx'; //链接
         $(document).ready(function () {
             $('#article-List').html('<div class="loading"><img src="/images/loading.gif" /><br />加载中...</div>');
-            //window.onscroll = function () {
-            //    if (getScrollTop() + getClientHeight() == getScrollHeight()) {
-            //        fillArticleList();
-            //    }
-            //}
+            window.onscroll = function () {
+                if (getScrollTop() + getClientHeight() == getScrollHeight()) {
+                    fillArticleList();
+                }
+            }
             fillArticleList();
 
             showRedPoint();
