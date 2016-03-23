@@ -64,4 +64,21 @@ public class Article
         return dt;
     }
 
+    public static DataTable GetDate(int pageSize, DateTime maxDt)
+    {
+        pageSize = (pageSize == 0 ? 10 : pageSize);
+        DataTable dt = null;
+        string sql = "select top " + pageSize + " article_date from dbo.m_article where article_date<>'' and article_date<'" + maxDt.ToString("yyyy-MM-dd") + "' group by article_date order by article_date desc";
+        dt = DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
+        return dt;
+    }
+
+    public static DataTable GetAll(int pageSize, DateTime maxDt)
+    {
+        pageSize = (pageSize == 0 ? 10 : pageSize);
+        DataTable dt = null;
+        string sql = "select top " + (pageSize * 5) + " * from m_article where article_date<>'' and article_date<'" + maxDt.ToString("yyyy-MM-dd") + "' order by article_date desc, article_id ";
+        dt = DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
+        return dt;
+    }
 }
