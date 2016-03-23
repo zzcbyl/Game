@@ -54,8 +54,7 @@ public class Donate
         string sql = "select * from m_crowd where crowd_userid=" + userid + " and crowd_courseid=" + courseId;
         return DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
     }
-
-
+    
 
     public static int addDonate(int crowdid, int userid, int price, int state, string remark = "")
     {
@@ -126,6 +125,14 @@ public class Donate
     {
         DataTable dt = null;
         string sql = "select * from m_donate where donate_crowdid=" + crowdid + " and donate_state=" + state;
+        dt = DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
+        return dt;
+    }
+
+    public static DataTable getDonateByUserid(int userid, int state)
+    {
+        DataTable dt = null;
+        string sql = "select * from m_donate where donate_userid=" + userid + " and donate_state=" + state;
         dt = DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
         return dt;
     }
