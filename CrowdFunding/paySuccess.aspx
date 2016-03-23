@@ -9,7 +9,10 @@
         userId = Users.CheckToken(token);
         if (userId <= 0)
         {
-            Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Server.UrlEncode(Request.Url.ToString()), true);
+            string currentUrl = Request.Url.ToString();
+            if (token != "")
+                currentUrl = currentUrl.Replace("&token=" + token, "").Replace("?token=" + token, "");
+            Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Server.UrlEncode(currentUrl), true);
         }
 
         if (Request["product_id"] != null && Request["product_id"] != "" && int.Parse(Request["product_id"]) > 0)
