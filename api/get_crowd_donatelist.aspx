@@ -26,7 +26,16 @@
                     if (c.Caption.Trim().Equals("donate_userid"))
                     {
                         user = new Users(int.Parse(dr[c].ToString().Trim()));
-                        fieldsJson = fieldsJson + ",\"" + c.Caption.Trim() + "\":" + user.GetUserAvatarJson();
+                        string userAvatarJson = "";
+                        try
+                        {
+                            userAvatarJson = user.GetUserAvatarJson();
+                        }
+                        catch { }
+                        if (userAvatarJson.Trim() == "")
+                            userAvatarJson = "{}";
+
+                        fieldsJson = fieldsJson + ",\"" + c.Caption.Trim() + "\":" + userAvatarJson;
                     }
                     else
                         fieldsJson = fieldsJson + ",\"" + c.Caption.Trim() + "\":\"" + dr[c].ToString().Trim() + "\"";
