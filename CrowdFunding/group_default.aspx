@@ -175,7 +175,7 @@
                 type: "GET",
                 async: false,
                 url: "http://game.luqinwenda.com/api/get_crowd_donatelist.aspx",
-                data: { crowdid: cid, pageindex: PageIndex, pagesize: 3 },
+                data: { crowdid: cid, pageindex: PageIndex, pagesize: 20 },
                 dataType: "json",
                 success: function (data) {
                     var listhtml = $('#recordList').html();
