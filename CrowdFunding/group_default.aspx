@@ -174,11 +174,10 @@
             $.ajax({
                 type: "GET",
                 async: false,
-                url: "http://192.168.1.38:8002/api/get_crowd_donatelist.aspx",
+                url: "http://game.luqinwenda.com/api/get_crowd_donatelist.aspx",
                 data: { crowdid: cid, pageindex: PageIndex, pagesize: 3 },
-                //dataType: "json",
+                dataType: "json",
                 success: function (data) {
-                    alert(data);
                     var listhtml = $('#recordList').html();
                     if (data.status == 0) {
                         PageIndex = data.pageindex + 1;
