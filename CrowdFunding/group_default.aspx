@@ -181,9 +181,10 @@
                     var listhtml = $('#recordList').html();
                     if (data.status == 0) {
                         PageIndex = data.pageindex + 1;
+                        
                         for (var i = 0; i < data.donate_list.length; i++) {
                             var nickName = data.donate_list[i].donate_userid.nickname;
-                            if (nickName!="") {
+                            if (nickName && nickName != "") {
                                 if (nickName.length > 2)
                                     nickName = nickName.substr(0, 2) + "**";
                                 else
@@ -191,7 +192,6 @@
                             }
                             else
                                 nickName = "匿名网友";
-
                             listhtml += '<div class="recordli">' +
                                         '<div class="avatar"><a style="background:url(' + data.donate_list[i].donate_userid.headimgurl + '); background-size:45px 45px;"></a></div>' +
                                         '<div class="nick-name">' + nickName + '</div>' +
