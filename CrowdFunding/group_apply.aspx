@@ -67,7 +67,7 @@
 
                 int result = Donate.addCrowd(userId, name, course, price, courseId, remark);
                 if (result > 0)
-                    Response.Redirect("group_default.aspx?courseid=" + courseId + "&fuid=" + userId);
+                    Response.Redirect("group_confirm.aspx?courseid=" + courseId + "&fuid=" + userId + "&price=" + (price / 100).ToString());
             }
         }
         else
