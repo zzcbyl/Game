@@ -39,7 +39,7 @@
             location.href = "group_default.aspx?courseid=" + courseid + "&fuid=" + fuid;
         }
         function ReturnApply() {
-            location.href = "group_apply.aspx";
+            location.href = 'group_apply.aspx?config=set&courseid=' + courseid;
         }
     </script>
 </asp:Content>
