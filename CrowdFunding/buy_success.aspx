@@ -93,7 +93,7 @@
             int cost = courseprice + (count - 1) * coursepriceadd;
             if (userBalance >= cost)
             {
-                int Donateid = Donate.addDonate(crowdid, userId, (0 - cost * 100), 2, "购买" + count + "个直播群");
+                int Donateid = Donate.addDonate(crowdid, userId, (0 - cost * 100), 2, courseId, "购买" + count + "个直播群");
                 if (Donateid > 0)
                 {
                     int result = Donate.setTotal(Donateid);

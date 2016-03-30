@@ -56,7 +56,7 @@
                 {
                     price = min_price * 100;
                 }
-                int result = Donate.addDonate(crowdid, userId, price, 1);
+                int result = Donate.addDonate(crowdid, userId, price, 1, courseId);
                 
                 string payurl = "http://weixin.luqinwenda.com/payment/payment.aspx?body=卢勤问答平台微课堂&detail=听课费&userid=" + userId + "&product_id=" + result + "&total_fee=" + price.ToString()
                     + "&callback=" + Server.UrlEncode("http://game.luqinwenda.com/CrowdFunding/paySuccess.aspx?product_id=" + result);

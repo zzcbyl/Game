@@ -61,17 +61,18 @@ public class Donate
         return DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
     }
     
-    public static int addDonate(int crowdid, int userid, int price, int state, string remark = "")
+    public static int addDonate(int crowdid, int userid, int price, int state, int courseid, string remark = "")
     {
-        string sql = "INSERT INTO m_donate(donate_crowdid, donate_userid, donate_price, donate_remark, donate_state) VALUES" +
-            "(@donate_crowdid, @donate_userid, @donate_price, @donate_remark, @donate_state)";
+        string sql = "INSERT INTO m_donate(donate_crowdid, donate_userid, donate_price, donate_remark, donate_state, donate_courseid) VALUES" +
+            "(@donate_crowdid, @donate_userid, @donate_price, @donate_remark, @donate_state, @donate_courseid)";
 
         SqlParameter[] parm = new SqlParameter[] { 
             new SqlParameter("@donate_crowdid", crowdid),
             new SqlParameter("@donate_userid", userid),
             new SqlParameter("@donate_price", price),
             new SqlParameter("@donate_remark", remark),
-            new SqlParameter("@donate_state", state)
+            new SqlParameter("@donate_state", state),
+            new SqlParameter("@donate_courseid", courseid)
         };
 
         int result = DBHelper.ExecteNonQuery(Util.ConnectionStringMall, CommandType.Text, sql, parm);
