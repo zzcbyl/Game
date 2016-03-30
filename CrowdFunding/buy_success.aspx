@@ -59,7 +59,7 @@
             catch { }
         }
         
-        DataTable dt = Donate.getCrowdByUserid(fuserId, courseId);
+        DataTable dt = Donate.getCrowdByOnlyUserid(fuserId);
         if (dt != null && dt.Rows.Count > 0)
         {
             groupName = dt.Rows[0]["crowd_name"].ToString();

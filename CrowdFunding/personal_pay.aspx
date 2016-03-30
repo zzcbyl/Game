@@ -31,7 +31,7 @@
             Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Server.UrlEncode(currentUrl), true);
         }
         
-        DataTable dt = Donate.getCrowdByUserid(fuserId, courseId);
+        DataTable dt = Donate.getCrowdByOnlyUserid(fuserId);
         if (dt != null && dt.Rows.Count > 0)
         {
             group_name = dt.Rows[0]["crowd_name"].ToString();

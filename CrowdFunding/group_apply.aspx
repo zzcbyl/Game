@@ -72,7 +72,8 @@
         }
         else
         {
-            DataTable dt = Donate.getCrowdByUserid(userId, courseId);
+            //DataTable dt = Donate.getCrowdByUserid(userId, courseId);
+            DataTable dt = Donate.getCrowdByOnlyUserid(userId);
             if (dt != null && dt.Rows.Count > 0)
             {
                 //已申请
@@ -86,6 +87,7 @@
                     crowdid = int.Parse(dt.Rows[0]["crowd_id"].ToString());
                 }
             }
+            
         }
     }
 </script>

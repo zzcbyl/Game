@@ -49,13 +49,18 @@ public class Donate
         DBHelper.ExecteNonQuery(Util.ConnectionStringMall, CommandType.Text, sql, parm);
     }
 
-    public static DataTable getCrowdByUserid(int userid, int courseId)
+    public DataTable getCrowdByUserid(int userid, int courseId)
     {
         string sql = "select * from m_crowd where crowd_userid=" + userid + " and crowd_courseid=" + courseId;
         return DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
     }
-    
 
+    public static DataTable getCrowdByOnlyUserid(int userid)
+    {
+        string sql = "select * from m_crowd where crowd_userid=" + userid;
+        return DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
+    }
+    
     public static int addDonate(int crowdid, int userid, int price, int state, string remark = "")
     {
         string sql = "INSERT INTO m_donate(donate_crowdid, donate_userid, donate_price, donate_remark, donate_state) VALUES" +
