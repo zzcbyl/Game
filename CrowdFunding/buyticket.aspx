@@ -74,7 +74,7 @@
         DataTable crouseDt = Donate.getCourse(courseId);
         if (crouseDt != null && crouseDt.Rows.Count > 0)
         {
-            DataTable donateCrowdDt = Donate.getDonateByCrowdid(crowdid, 2);
+            DataTable donateCrowdDt = Donate.getDonateByCrowdid(crowdid, courseId, 2);
             if (donateCrowdDt != null && donateCrowdDt.Rows.Count > 0)
                 courseprice = int.Parse(crouseDt.Rows[0]["course_priceadd"].ToString()) / 100;
             else

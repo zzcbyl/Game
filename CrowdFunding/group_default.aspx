@@ -78,7 +78,7 @@
             return;
         }
         //购买个数
-        DataTable donateDt = Donate.getDonateByCrowdid(crowdid, 2);
+        DataTable donateDt = Donate.getDonateByCrowdid(crowdid, courseId, 2);
         if (donateDt != null && donateDt.Rows.Count > 0)
         {
             string remark="";
