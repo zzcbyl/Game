@@ -1,5 +1,4 @@
 ﻿
-
 $(document).ready(function () {
     var movepx = $('#mydiv').css('height').replace("px", "");
     $wd = $(window);
@@ -104,11 +103,7 @@ function fillList() {
                     switch (chatline.message_type) {
                         case "text":
                             {
-                                if (chatline.user_id == userid) {
-                                    liItem = String.format(textRight, chatline.avatar, chatline.message_content);
-                                } else {
-                                    liItem = String.format(textLeft, chatline.avatar, chatline.nick, chatline.message_content);
-                                }
+                                liItem = String.format(textLeft, chatline.avatar, chatline.nick, chatline.message_content);
                             }
                             break;
                         case "voice":
@@ -116,11 +111,7 @@ function fillList() {
                                 var vlen = parseInt(chatline.voice_length) * 3;
                                 if (vlen < 60)
                                     vlen = 60;
-                                if (chatline.user_id == userid) {
-                                    liItem = String.format(voiceRight, chatline.avatar, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString(), chatline.voice_length, "width:" + vlen + "px");
-                                } else {
-                                    liItem = String.format(voiceLeft, chatline.avatar, chatline.nick, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString(), chatline.voice_length, "width:" + vlen + "px");
-                                }
+                                liItem = String.format(voiceLeft, chatline.avatar, chatline.nick, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString(), chatline.voice_length, "width:" + vlen + "px");
                             }
                             break;
                         default:
@@ -143,17 +134,17 @@ function scrollPage() {
 
 function inputText() {
     if ($('#textContent').val().Trim() != "") {
-        submitInput('text', $('#textContent').val());
+        submitInput('text', $('#textContent').val(), 0);
         $('#textContent').val("");
     }
 }
 
-function submitInput(type, content) {
+function submitInput(type, content, parentid) {
     $.ajax({
         type: "GET",
         async: false,
         url: "http://" + domainName + "/api/chat_timeline_publish.aspx",
-        data: { type: type, token: token, roomid: roomid, content: content },
+        data: { type: type, token: token, roomid: roomid, content: content, parentid: parentid },
         dataType: "json",
         success: function (data) {
             fillList();
@@ -227,7 +218,7 @@ wx.ready(function () {
                 //alert('上传语音成功，serverId 为' + res.serverId);
                 voice.serverId = res.serverId;
 
-                submitInput('voice', voice.serverId);
+                submitInput('voice', voice.serverId, feedid);
             }
         });
     }

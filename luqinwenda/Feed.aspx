@@ -1,20 +1,29 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/luqinwenda/Master.master" %>
 
 <script runat="server">
-    public string token = "89970452e9cf12c3dfe576e0eef8c47a10fc94a4a36a8ac60a51e9a4488bb3027e9d1499";
-    public string roomid = "2";
-    public int userid = 0;
-    public int voiceIndex = 1;
-    public string maxid = "0";
-    public string domainName = System.Configuration.ConfigurationManager.AppSettings["domain_name"].ToString();
-
     public string timeStamp = "";
     public string nonceStr = "wsa11fiqfs2ad0ewf90fqmcwbb";
     public string ticket = "";
     public string shaParam = "";
     public string appId = System.Configuration.ConfigurationManager.AppSettings["wxappid_dingyue"];
+    
+    public string token = "";
+    public string roomid = "2";
+    public int userid = 0;
+    public int voiceIndex = 1;
+    public string maxid = "0";
+    public string domainName = System.Configuration.ConfigurationManager.AppSettings["domain_name"].ToString();
+    public int feedId = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
+        feedId = int.Parse(Util.GetSafeRequestValue(Request, "feedid", "0"));
+        if (feedId == 0)
+        {
+            Response.Write("参数错误");
+            Response.End();
+        }
+        
+        
         token = Util.GetSafeRequestValue(Request, "token", "");
         userid = Users.CheckToken(token);
         if (userid <= 0)
@@ -60,6 +69,7 @@
     </div>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
+        var feedid = '<%=feedId %>';
         var userid = '<%=userid %>';
         var token = '<%=token %>';
         var roomid = '<%=roomid %>';
