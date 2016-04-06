@@ -8,6 +8,7 @@
         int roomId = int.Parse(Util.GetSafeRequestValue(Request, "roomid", "1"));
         string content = Util.GetSafeRequestValue(Request, "content", "gsaPXrg1KRRO8dpTmjDeYg3eIgup1Tqm-YEAELtZy0oIp1_4f-pctI6s9-3szzUs");
         string type = Util.GetSafeRequestValue(Request, "type", "voice");
+        int parentid = int.Parse(Util.GetSafeRequestValue(Request, "parentid", "0"));
         string errorMessage = "";
         int newMessageId = 0;
         if (content.Trim().Equals(""))
@@ -56,7 +57,7 @@
 
                     if (errorMessage.Trim().Equals(""))
                     {
-                        newMessageId = ChatTimeLine.PublishMessage(roomId, userId, type, content);
+                        newMessageId = ChatTimeLine.PublishMessage(roomId, userId, type, content, parentid);
                         
                         if (type.Equals("voice"))
                         {

@@ -55,8 +55,8 @@ public class ChatTimeLine
     }
 
     public static ChatTimeLine[] GetRoomChatList(int roomId, int maxId)
-    { 
-        DataTable dt = DBHelper.GetDataTable(" select * from chat_list where [id] > " + maxId.ToString() + "   order by [id] ", Util.ConnectionString.Trim());
+    {
+        DataTable dt = DBHelper.GetDataTable(" select * from chat_list where chat_room_id = " + roomId + " and [id] > " + maxId.ToString() + "   order by [id] ", Util.ConnectionString.Trim());
         ChatTimeLine[] chatTimeLineArr = new ChatTimeLine[dt.Rows.Count];
         for(int i = 0 ; i < dt.Rows.Count ; i++)
         {
@@ -68,7 +68,7 @@ public class ChatTimeLine
 
 
 
-    public static int PublishMessage(int roomId, int userId, string type, string content)
+    public static int PublishMessage(int roomId, int userId, string type, string content, int parentid)
     {
         Users users = new Users(userId);
         string avatarJsonStr = users.GetUserAvatarJson();
@@ -84,7 +84,8 @@ public class ChatTimeLine
                                     {"nick", "varchar", nick.Trim()},
                                     {"avatar", "varchar", headImageUrl.Trim()},
                                     {"message_type", "varchar", type.Trim()},
-                                    {"message_content", "varchar", content.Trim()}};
+                                    {"message_content", "varchar", content.Trim()},
+                                    {"parent_id", "int", parentid.ToString()}};
         int i = DBHelper.InsertData("chat_list", insertParameter, Util.ConnectionString);
         int maxId = 0;
         if (i > 0)
@@ -97,6 +98,16 @@ public class ChatTimeLine
         return maxId;
     }
 
-    
+    public static ChatTimeLine[] GetRoomChatList(int roomId, int maxId, int userid)
+    {
+        DataTable dt = DBHelper.GetDataTable(" select * from dbo.chat_list where chat_room_id=" + roomId + " and [id] in (select parent_id from dbo.chat_list where parent_id>0) and [id] > " + maxId + " order by [id] ", Util.ConnectionString.Trim());
+        ChatTimeLine[] chatTimeLineArr = new ChatTimeLine[dt.Rows.Count];
+        for (int i = 0; i < dt.Rows.Count; i++)
+        {
+            chatTimeLineArr[i] = new ChatTimeLine();
+            chatTimeLineArr[i]._fields = dt.Rows[i];
+        }
+        return chatTimeLineArr;
+    }
 
 }
