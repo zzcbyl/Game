@@ -8,9 +8,9 @@ $(document).ready(function () {
     var wh = document.body.clientWidth;
     $("#textContent").css("width", (wh - 180).toString() + "px");
 
-    setDots();
+    //setDots();
 
-    setInterval("fillList()", 5000);
+    //setInterval("fillList()", 5000);
 });
 
 var ssset = 0;
