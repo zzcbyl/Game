@@ -9,9 +9,7 @@
     
     public string token = "";
     public string roomid = "2";
-    public int userid = 0;
-    public int voiceIndex = 1;
-    public string maxid = "0";
+    public int userid = 0;    
     public string domainName = System.Configuration.ConfigurationManager.AppSettings["domain_name"].ToString();
     public int feedId = 0;
     protected void Page_Load(object sender, EventArgs e)
@@ -22,7 +20,6 @@
             Response.Write("参数错误");
             Response.End();
         }
-        
         
         token = Util.GetSafeRequestValue(Request, "token", "");
         userid = Users.CheckToken(token);
@@ -73,9 +70,10 @@
         var userid = '<%=userid %>';
         var token = '<%=token %>';
         var roomid = '<%=roomid %>';
-        var voiceIndex = '<%=voiceIndex %>';
-        var maxid = '<%=maxid %>';
+        var voiceIndex = '1';
+        var maxid = '0';
         var domainName = '<%=domainName %>';
+        var parentid = -1;
         var textLeft = "<div class=\"text-li\"><div class=\"left-head\"><img src=\"{0}\" /></div><div class=\"right-content\"><div class=\"text-nick\">{1}</div><div class=\"text-content\">{2}</div><div style=\"position:absolute; left:65px; top:28px;\"><img src=\"images/jt_icon_left.png\" /></div></div><div class=\"clear\"></div></div>";
         var textRight = "<div class=\"text-li-right\"><div class=\"left-head\"><img src=\"{0}\" /></div><div class=\"right-content\"><div class=\"text-content\">{1}</div><div style=\"position:absolute; right:65px; top:0px;\"><img src=\"images/jt_icon_right.png\" /></div></div></div><div class=\"clear\"></div>";
         var voiceLeft = "<div class=\"text-li\"><div class=\"left-head\"><img src=\"{0}\" /></div><div class=\"right-content\"><div class=\"text-nick\">{1}</div><div class=\"text-content_radio\"><div id=\"jquery_jplayer_{3}\" class=\"jp-jplayer\"></div><div style=\"background:url(images/jplayerleft.png); width: 6px; height: 30px; top:29px; position: absolute;\"></div><div id=\"jp_container_{3}\" class=\"jp-audio\" role=\"application\" aria-label=\"media player\" onclick='changePlay(\"{3}\");' style=\"float:left;{6}\"><a id=\"a_jp_play_{3}\" class=\"jp-play\" role=\"button\" tabindex=\"0\"><span class=\"jplay_play\"></span></a><a id=\"a_jp_stop_{3}\" class=\"jp-stop\" style=\"display: none;\" role=\"button\" tabindex=\"0\"><span class=\"jplay_stop\"></span></a><div class=\"jp-duration\" role=\"timer\" aria-label=\"duration\" style=\"display: none;\"></div></div><div style=\"float:left; line-height:36px; margin-left:8px;\">{5}”</div><div id=\"dot_{3}\" class=\"dots\"><img src=\"images/dots.png\"></div><div style=\"clear:both;\"></div><script type=\"text/javascript\">$(\"#jquery_jplayer_{3}\").jPlayer({ready: function () {$(this).jPlayer(\"setMedia\", {mp3: \"{2}\"});},play: function () {$(this).jPlayer(\"stopOthers\");},ended: function () {$(\"#jp_container_{3}\").click();$(\"#jquery_jplayer_{4}\").jPlayer(\"play\");$(\"#jp_container_{4}\").click();},swfPath: \"__THEME__/js\",supplied: \"mp3\",cssSelectorAncestor: \"#jp_container_{3}\",wmode: \"window\",globalVolume: true,useStateClassSkin: true,autoBlur: false,smoothPlayBar: true,keyEnabled: true});&lt;/script&gt;</div></div><div class=\"clear\"></div></div>";
@@ -104,5 +102,6 @@
             ]
         });
     </script>
+    <script src="wxRecord.js"></script>
 </asp:Content>
 

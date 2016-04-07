@@ -7,6 +7,7 @@
         string token = Util.GetSafeRequestValue(Request, "token", "");
 
         int maxId = int.Parse(Util.GetSafeRequestValue(Request, "maxid", "0"));
+        int parentId = int.Parse(Util.GetSafeRequestValue(Request, "parentid", "-1"));
         
         
         int userId = Users.CheckToken(token);
@@ -18,7 +19,7 @@
         
         if (userChatRoomRight.CanEnter)
         {
-            ChatTimeLine[] chatTimeLineArr = ChatTimeLine.GetRoomChatList(roomId, maxId);
+            ChatTimeLine[] chatTimeLineArr = ChatTimeLine.GetRoomChatList(roomId, maxId, parentId);
             string itemJson = "";
             foreach (ChatTimeLine chatTimeLine in chatTimeLineArr)
             {
