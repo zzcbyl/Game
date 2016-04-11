@@ -143,6 +143,8 @@
                 $('#bottomDiv').css('height', '60px');
             }
         }
+
+        
     </script>
 </asp:Content>
 

@@ -128,4 +128,15 @@ public class ChatTimeLine
         return chatTimeLineArr;
     }
 
+    public static DataTable GetDTRoomChatList(int roomId, int maxId, int parentId)
+    {
+        string sql = "select * from chat_list where chat_room_id = " + roomId;
+        if (parentId >= 0)
+            sql += " and parent_id=" + parentId;
+
+        sql += " and [id] > " + maxId.ToString() + " order by [id]";
+
+        DataTable dt = DBHelper.GetDataTable(sql, Util.ConnectionString.Trim());
+        return dt;
+    }
 }

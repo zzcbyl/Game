@@ -117,6 +117,25 @@ function fillList() {
     });
 }
 
+function fillList_QA() {
+    $.ajax({
+        type: "GET",
+        async: false,
+        url: "http://" + domainName + "/api/chat_timeline_qa_list.aspx",
+        data: { roomid: roomid, token: token, maxid: maxid },
+        dataType: "json",
+        success: function (data) {
+            var inHtml = '';
+            if (data.status == 0 && data.count > 0) {
+                maxid = data.max_id;
+                for (var i = 0; i < data.chat_time_line.length; i++) {
+
+                }
+            }
+        }
+    });
+}
+
 function scrollPage() {
     var movepx = $('.feed_file_list li:last div').css('height').replace("px", "");
     $wd = $(window);
