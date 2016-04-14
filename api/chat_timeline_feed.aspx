@@ -7,8 +7,8 @@
         string token = Util.GetSafeRequestValue(Request, "token", "");
 
         int maxId = int.Parse(Util.GetSafeRequestValue(Request, "maxid", "0"));
-        int parentId = int.Parse(Util.GetSafeRequestValue(Request, "parentid", "-1"));
-        int state = int.Parse(Util.GetSafeRequestValue(Request, "state", "-1"));
+        int messageid = int.Parse(Util.GetSafeRequestValue(Request, "messageid", "0"));
+        
         
         int userId = Users.CheckToken(token);
         if (userId <= 0)
@@ -23,8 +23,11 @@
         
         if (userChatRoomRight.CanEnter)
         {
-            ChatTimeLine[] chatTimeLineArr = ChatTimeLine.GetRoomChatList(roomId, maxId, parentId, state);
+            ChatTimeLine message = new ChatTimeLine(messageid);
+            string fatherJson = message.Json.Trim();
+            
             string itemJson = "";
+            ChatTimeLine[] chatTimeLineArr = ChatTimeLine.GetRoomChatList(roomId, maxId, messageid, -1);
             foreach (ChatTimeLine chatTimeLine in chatTimeLineArr)
             {
                 itemJson = itemJson + "," + chatTimeLine.Json.Trim();
@@ -32,12 +35,15 @@
             }
             if (itemJson.StartsWith(","))
                 itemJson = itemJson.Remove(0,1);
+            
             Response.Write("{\"status\":0 , \"room_id\" : " + roomId.ToString() + " ,  \"max_id\" : " + newMaxId.ToString().Trim() + "    , \"count\" : " + chatTimeLineArr.Length.ToString()
-                + " , \"chat_time_line\" : [" + itemJson + "] }");
+                + " , \"chat_time_line_father\" : " + fatherJson + " , \"chat_time_line\" : [" + itemJson + "] }");
         }
         else
         {
             Response.Write("{\"status\": 1 , \"error_message\" : \"This user can`t enter this chat room.\" }");
         }
     }
+
+    
 </script>

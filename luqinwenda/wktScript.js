@@ -3,6 +3,7 @@ var ssset = 0;
 var stopindex = 1;
 var direction = "";
 var cookieName = "voiceReaded" + roomid;
+var winWidth = document.body.clientWidth;
 function changePlay(id, fx) {
     if ($('#a_jp_stop_' + id).css('display') == 'none') {
         stopindex = 1;
@@ -71,96 +72,38 @@ function setDots() {
     }
 }
 
-var lasttime = '';
-var index = 1;
-function fillList() {
-    $.ajax({
-        type: "GET",
-        async: false,
-        url: "http://" + domainName + "/api/chat_timeline_list.aspx",
-        data: { roomid: roomid, token: token, maxid: maxid, parentid: parentid },
-        dataType: "json",
-        success: function (data) {
-            var inHtml = '';
-            if (data.status == 0 && data.count > 0) {
-                maxid = data.max_id;
-                for (var i = 0; i < data.chat_time_line.length; i++) {
-                    inHtml = "";
-                    var liItem = '';
-                    var chatline = data.chat_time_line[i];
-                    switch (chatline.message_type) {
-                        case "text":
-                            {
-                                liItem = String.format(textLeft, chatline.avatar, chatline.nick, chatline.message_content);
-                            }
-                            break;
-                        case "voice":
-                            {
-                                var vlen = parseInt(chatline.voice_length) * 3;
-                                if (vlen < 60)
-                                    vlen = 60;
-                                liItem = String.format(voiceLeft, chatline.avatar, chatline.nick, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString(), chatline.voice_length, "width:" + vlen + "px");
-                            }
-                            break;
-                        default:
-                    }
-                    voiceIndex = (parseInt(voiceIndex) + 1).toString();
-                    inHtml += "<li>" + liItem.replace("&lt;", "<").replace("&gt;", ">") + "</li>";
-                    if ($('.feed_file_list li').length == 0)
-                        $('.feed_file_list').html(inHtml);
-                    else
-                        $('.feed_file_list li:last').after(inHtml);
-                    scrollPage();
-                }
-            }
-        }
-    });
-}
-
-function fillList_QA() {
-    $.ajax({
-        type: "GET",
-        async: false,
-        url: "http://" + domainName + "/api/chat_timeline_qa_list.aspx",
-        data: { roomid: roomid, token: token, maxid: maxid },
-        dataType: "json",
-        success: function (data) {
-            var inHtml = '';
-            if (data.status == 0 && data.count > 0) {
-                maxid = data.max_id;
-                for (var i = 0; i < data.chat_time_line.length; i++) {
-
-                }
-            }
-        }
-    });
-}
-
 function scrollPage() {
     var movepx = $('.feed_file_list li:last div').css('height').replace("px", "");
     $wd = $(window);
     $wd.scrollTop($wd.scrollTop() + parseInt(movepx) + 10);
 }
 
-function inputText() {
+function inputText(parentid) {
     if ($('#textContent').val().Trim() != "") {
-        submitInput('text', $('#textContent').val(), 0);
+        submitInput('text', encodeURI($('#textContent').val()), parentid);
         $('#textContent').val("");
     }
 }
 
 function submitInput(type, content, parentid) {
+    alert(token)
     $.ajax({
-        type: "GET",
+        type: "POST",
         async: false,
         url: "http://" + domainName + "/api/chat_timeline_publish.aspx",
         data: { type: type, token: token, roomid: roomid, content: content, parentid: parentid },
         dataType: "json",
         success: function (data) {
-            fillList();
+            fillAnswer();
         }
     });
 }
 
+function strTohoursecond(str) {
+    //var currentdate = new Date(Date.parse(str.replace(/-/g, "/")));
+    //return currentdate.getHours() + ":" + currentdate.getMinutes();
+    var timeArr = str.split(' ')[1].split(':');
+    return timeArr[0] + ":" + timeArr[1];
+}
 
 

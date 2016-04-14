@@ -9,6 +9,11 @@
         int maxId = int.Parse(Util.GetSafeRequestValue(Request, "maxid", "0"));
         
         int userId = Users.CheckToken(token);
+        if (userId <= 0)
+        {
+            Response.Write("{\"status\": 1 , \"error_message\" : \"Token is unavaliable.\" }");
+            return;
+        }
         Users user = new Users(userId);
 
         UserChatRoomRights userChatRoomRight = new UserChatRoomRights(userId, roomId);

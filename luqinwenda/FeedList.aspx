@@ -1,32 +1,45 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/luqinwenda/Master.master" %>
 
 <script runat="server">
-    public string roomid = "2";
+    public string token = "";
+    public string roomid = Util.LuqinwendaRoomId.ToString();
+    public int userid = 0;
     public string domainName = System.Configuration.ConfigurationManager.AppSettings["domain_name"].ToString();
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+
+        token = Util.GetSafeRequestValue(Request, "token", "");
+        userid = Users.CheckToken(token);
+        if (userid <= 0)
+        {
+            string currentUrl = Request.Url.ToString();
+            if (token != "")
+                currentUrl = currentUrl.Replace("&token=" + token, "").Replace("?token=" + token, "");
+            Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Server.UrlEncode(currentUrl), true);
+        }
+
     }
 </script>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div id="mydiv">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div id="mydiv" class="main-page">
         <ul id="feed_file_list" class="feed_file_list">
-
+            
         </ul>
-        <div style="clear:both; height:60px;"></div>
+        <div style="clear: both; height: 10px;"></div>
     </div>
     <script type="text/javascript">
         var textLeft = "<div class=\"text-li\"><div class=\"left-head\"><img src=\"{0}\" /></div>"
                 + "<div class=\"right-content\"><div class=\"text-nick\">{1}</div>"
-                + "<div class=\"text-content\">{2}</div>"
-                + "<div style=\"position:absolute; left:65px; top:28px;\"><img src=\"images/jt_icon_left.png\" /></div></div>"
-                + "<div class=\"clear\"></div></div>";
+                + "<div class=\"text-content{5}\" onclick=\"enterFeed({4});\">{2}</div>"
+                + "<div class=\"text_jiantou\"><img src=\"images/jt_icon_left.png\" /></div></div>"
+                + "<div class=\"clear\"></div><div class=\"text-time\">{3}</div></div>";
         var textRight = "<div class=\"text-li-right\"><div class=\"left-head\"><img src=\"{0}\" /></div>"
             + "<div class=\"right-content\"><div class=\"text-content\">{1}</div>"
-            + "<div style=\"position:absolute; right:65px; top:0px;\"><img src=\"images/jt_icon_right.png\" /></div></div></div>"
+            + "<div class=\"text_jiantou\"><img src=\"images/jt_icon_right.png\" /></div></div>"
+            + "<div class=\"clear\"></div><div class=\"text-time\">{2}</div></div>"
             + "<div class=\"clear\"></div>";
         var voiceLeft = "<div class=\"text-li\"><div class=\"left-head\"><img src=\"{0}\" /></div>"
             + "<div class=\"right-content\"><div class=\"text-nick\">{1}</div>"
@@ -43,11 +56,12 @@
         var maxid = 0;
         var roomid = '<%=roomid %>';
         var domainName = '<%=domainName %>';
-        var token = '';
+        var token = '<%=token %>';
         var parentid = 0;
         var voiceIndex = '1';
         $(document).ready(function () {
-            fillList();
+            fillFeedList(1);
+            fillFeedList(0);
 
             //var movepx = $('#mydiv').css('height').replace("px", "");
             //$wd = $(window);
@@ -58,9 +72,54 @@
 
             //setDots();
 
-            //setInterval("fillList()", 5000);
+            setInterval("fillFeedList(0)", 5000);
         });
 
+        function fillFeedList(state) {
+            //alert(state);
+            $.ajax({
+                type: "GET",
+                async: false,
+                url: "http://" + domainName + "/api/chat_timeline_list.aspx",
+                data: { roomid: roomid, token: token, maxid: maxid, parentid: parentid, state: state },
+                dataType: "json",
+                success: function (data) {
+                    var inHtml = '';
+                    if (data.status == 0 && data.count > 0) {
+                        if (state == 0)
+                            maxid = data.max_id;
+                        for (var i = 0; i < data.chat_time_line.length; i++) {
+                            inHtml = "";
+                            var liItem = '';
+                            var chatline = data.chat_time_line[i];
+                            switch (chatline.message_type) {
+                                case "text":
+                                    {
+                                        var state_css = "";
+                                        if (chatline.state > 0)
+                                            state_css = " text-content_readed";
+                                        liItem = String.format(textLeft, chatline.avatar, chatline.nick, chatline.message_content, strTohoursecond(chatline.create_date), chatline.id, state_css);
+                                    }
+                                    break;
+                                default:
+                            }
+                            
+                            inHtml += "<li>" + liItem.replace("&lt;", "<").replace("&gt;", ">") + "</li>";
+                            if ($('.feed_file_list li').length == 0)
+                                $('.feed_file_list').html(inHtml);
+                            else
+                                $('.feed_file_list li:first').before(inHtml);
+                            scrollPage();
+                        }
+                    }
+                }
+            });
+        }
+
+
+        function enterFeed(feedid) {
+            location.href = "Feed.aspx?roomid=" + roomid + "&feedid=" + feedid + "&token=" + token;
+        }
     </script>
 </asp:Content>
 

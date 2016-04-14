@@ -19,7 +19,7 @@
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body style="max-width:640px; margin:0 auto; background:#F2F2F2; border:1px solid #ccc;">
+<body>
     <form id="form1" runat="server">
     <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         

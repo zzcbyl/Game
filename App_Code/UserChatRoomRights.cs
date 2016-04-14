@@ -9,13 +9,13 @@ using System.Data;
 /// </summary>
 public class UserChatRoomRights
 {
-    public bool canEnter = true;
+    public bool canEnter = false;
 
-    public bool canPublishText = true;
+    public bool canPublishText = false;
 
-    public bool canPublishVoice = true;
+    public bool canPublishVoice = false;
 
-    public bool canPublishImage = true;
+    public bool canPublishImage = false;
 
     public DataRow _fieldsTemplate;
 

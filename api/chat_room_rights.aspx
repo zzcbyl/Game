@@ -6,6 +6,11 @@
         int roomId = int.Parse(Util.GetSafeRequestValue(Request, "roomid", "0"));
         string token = Util.GetSafeRequestValue(Request, "token", "");
         int userId = Users.CheckToken(token);
+        if (userId <= 0)
+        {
+            Response.Write("{\"status\": 1 , \"error_message\" : \"Token is unavaliable.\" }");
+            return;
+        }
         UserChatRoomRights userChatRoomRight;
         if (roomId==0)
             userChatRoomRight = new UserChatRoomRights(userId);

@@ -57,7 +57,7 @@
 
                     if (errorMessage.Trim().Equals(""))
                     {
-                        newMessageId = ChatTimeLine.PublishMessage(roomId, userId, type, content, parentid);
+                        newMessageId = ChatTimeLine.PublishMessage(roomId, userId, type, Server.UrlDecode(content), parentid);
                         
                         if (type.Equals("voice"))
                         {
