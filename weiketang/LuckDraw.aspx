@@ -213,7 +213,7 @@
         </div>
         <div style="border-radius:5px; background:#fff; padding:1px 10px 10px; margin-top:10px;">
             <p><a href="http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=405844141&idx=1&sn=fb85317b54adbd207fbb7a56ffd5b4eb#rd"><img src="../images/ying_speak.jpg" style="width:100%;" /></a></p>
-            <p style="color:red; text-align:left; ">现在报名“《用眼光创造财富》五一亲子特训营”优惠300元</p>
+            <p style="color:red; text-align:left; ">现在报名“少年演说家”潜能开发营”优惠300元</p>
             <p style="text-align:center;"><a id="btnSupport_ying" class="btnCss" style="display:inline-block; margin:0 auto; background:#FB6C69;" href="http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=405844141&idx=1&sn=fb85317b54adbd207fbb7a56ffd5b4eb#rd">去报名</a></p>
         </div>
         <div class="comment_people" style="border-radius:5px; background:#fff;">
