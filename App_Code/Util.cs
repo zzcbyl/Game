@@ -24,6 +24,7 @@ public class Util
     protected static DateTime tokenTime = DateTime.MinValue;
     public static string DomainName = System.Configuration.ConfigurationSettings.AppSettings["domain_name"].Trim();
     public static int LuqinwendaRoomId = int.Parse(System.Configuration.ConfigurationSettings.AppSettings["Luqinwenda_Chat_RoomId"].Trim());
+    public static string LuqinwendaExpertList = System.Configuration.ConfigurationSettings.AppSettings["Luqinwenda_expert_Idlist"].Trim();
 
 	public Util()
 	{
@@ -147,12 +148,12 @@ public class Util
 
     public static string GetSafeRequestValue(HttpRequest request, string parameterName, string defaultValue)
     {
-        return ((request[parameterName] == null) ? defaultValue : request[parameterName].Trim()).Replace("'", "");
+        return ((request[parameterName] == null || request[parameterName] == "") ? defaultValue : request[parameterName].Trim()).Replace("'", "");
     }
 
     public static string GetSafeRequestFormValue(HttpRequest request, string parameterName, string defaultValue)
     {
-        return ((request.Form[parameterName] == null) ? defaultValue : request.Form[parameterName].Trim()).Replace("'", "");
+        return ((request.Form[parameterName] == null || request.Form[parameterName] == "") ? defaultValue : request.Form[parameterName].Trim()).Replace("'", "");
     }
 
     /// <summary>创建规定大小的图像 

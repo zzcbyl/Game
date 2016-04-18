@@ -54,27 +54,17 @@ public class ChatTimeLine
         }
     }
 
-    public static ChatTimeLine[] GetRoomChatList(int roomId, int maxId)
-    {
-        DataTable dt = DBHelper.GetDataTable(" select * from chat_list where audit_state = 1 and chat_room_id = " + roomId + " and [id] > " + maxId.ToString() + "   order by [id] ", Util.ConnectionString.Trim());
-        ChatTimeLine[] chatTimeLineArr = new ChatTimeLine[dt.Rows.Count];
-        for(int i = 0 ; i < dt.Rows.Count ; i++)
-        {
-            chatTimeLineArr[i] = new ChatTimeLine();
-            chatTimeLineArr[i]._fields = dt.Rows[i];
-        }
-        return chatTimeLineArr;
-    }
-
-    public static ChatTimeLine[] GetRoomChatList(int roomId, int maxId, int parentId, int state)
+    public static ChatTimeLine[] GetRoomChatList(int roomId, DateTime maxId, int parentId, int state)
     {
         string sql = "select * from chat_list where audit_state = 1 and chat_room_id = " + roomId;
         if (parentId >= 0)
-            sql += " and parent_id=" + parentId;
-        if (state >= 0)
-            sql += " and state=" + state;
+            sql += " and parent_id = " + parentId;
+        if (state == 0)
+            sql += " and state = 0";
+        else if (state > 0)
+            sql += " and state > 0";
 
-        sql += " and [id] > " + maxId.ToString() + " order by [id]";
+        sql += " and update_date > '" + maxId + "' order by update_date";
 
         DataTable dt = DBHelper.GetDataTable(sql, Util.ConnectionString.Trim());
         ChatTimeLine[] chatTimeLineArr = new ChatTimeLine[dt.Rows.Count];
@@ -132,6 +122,14 @@ public class ChatTimeLine
         int maxId = 0;
         if (result > 0)
         {
+            if (parentid > 0)
+            {
+                //更新为已回答
+                ChatTimeLine.Update_State(parentid, 2);
+                //回答数+1
+                Add_SonCount(parentid);
+            }
+
             DataTable dt = DBHelper.GetDataTable(" select max([id]) from chat_list ", Util.ConnectionString);
             if (dt.Rows.Count > 0)
                 maxId = int.Parse(dt.Rows[0][0].ToString());
@@ -152,11 +150,47 @@ public class ChatTimeLine
         return chatTimeLineArr;
     }
 
-    public static DataTable GetDTRoomChatList(int roomId, int maxId, int parentId)
+    public static DataTable GetChatList_Q(int roomId, int userId, DateTime maxDt, string expertlist)
+    {
+        string sql = "select * from dbo.chat_list where chat_room_id=" + roomId + " and parent_id=0 and son_count=0 and user_id not in (" + expertlist + ") "
+            + "and (audit_state=1 or user_id=" + userId + ") and update_date>'" + maxDt + "'  order by update_date";
+
+        DataTable dt = DBHelper.GetDataTable(sql, Util.ConnectionString.Trim());
+        return dt;
+    }
+
+    public static DataTable GetChatList_QA(int roomId, DateTime maxDt, string expertlist)
+    {
+        string sql = "select * from dbo.chat_list where chat_room_id=" + roomId + " and audit_state=1 "
+            + "and ((user_id in (" + expertlist + ") and parent_id=0) or son_count>0) "
+            + "and update_date>'" + maxDt + "'  order by update_date";
+
+        DataTable dt = DBHelper.GetDataTable(sql, Util.ConnectionString.Trim());
+        return dt;
+    }
+
+    public static DataTable GetSonChatList(int roomId, int maxId, int parentId)
     {
         string sql = "select * from chat_list where audit_state = 1 and chat_room_id = " + roomId;
         if (parentId >= 0)
-            sql += " and parent_id=" + parentId;
+            sql += " and parent_id = " + parentId;
+
+        sql += " and [id] > " + maxId.ToString() + " order by [id]";
+
+        DataTable dt = DBHelper.GetDataTable(sql, Util.ConnectionString.Trim());
+        return dt;
+    }
+
+
+    public static DataTable GetDtChatList(int roomId, int maxId, int parentId, int sonCount)
+    {
+        string sql = "select * from chat_list where audit_state = 1 and chat_room_id = " + roomId;
+        if (parentId >= 0)
+            sql += " and parent_id = " + parentId;
+        if (sonCount == 0)
+            sql += " and son_count = 0";
+        else if (sonCount > 0)
+            sql += " and son_count > 0";
 
         sql += " and [id] > " + maxId.ToString() + " order by [id]";
 
@@ -175,13 +209,20 @@ public class ChatTimeLine
 
     public static void Audit_State(int chatid, int audit_state)
     {
-        string sql = "update chat_list set audit_state=" + audit_state + " where [id] = " + chatid;
+        string sql = "update chat_list set audit_state=" + audit_state + ", update_date='" + DateTime.Now.ToString() + "' where [id] = " + chatid;
         DBHelper.ExecteNonQuery(Util.ConnectionString, CommandType.Text, sql);
     }
 
     public static void Update_State(int chatid, int state)
     {
-        string sql = "update chat_list set state=" + state + " where [id] = " + chatid;
+        string sql = "update chat_list set state=" + state + ", update_date='" + DateTime.Now.ToString() + "' where [id] = " + chatid;
+        DBHelper.ExecteNonQuery(Util.ConnectionString, CommandType.Text, sql);
+    }
+
+
+    public static void Add_SonCount(int chatid)
+    {
+        string sql = "update chat_list set son_count = son_count + 1 where [id] = " + chatid;
         DBHelper.ExecteNonQuery(Util.ConnectionString, CommandType.Text, sql);
     }
 }

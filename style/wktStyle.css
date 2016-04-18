@@ -19,15 +19,15 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { l
 .jp-stop_right_1 { background: url(/luqinwenda/images/jplayerplay_right.png) no-repeat -41px 0; width: 16px; height: 19px;  }
 .jp-stop_right_2 { background: url(/luqinwenda/images/jplayerplay_right.png) no-repeat -23px 0; width: 16px; height: 19px;  }
 .jp-stop_right_3 { background: url(/luqinwenda/images/jplayerplay_right.png) no-repeat -0px 0; width: 18px; height: 19px;  }
-.feed_file_list li { padding-left: 0px; padding:10px 10px 0; background:#e9f1ff; }
-.feed_file_list .expert-li { padding-left: 0px; padding:10px 10px 0; background:#fff; }
+.feed_file_list li { padding-left: 0px; padding:5px 10px; background:#e9f1ff; }
+.feed_file_list .expert-li { padding-left: 0px; padding:5px 10px; background:#fff; }
 
 .text-li { position:relative; min-height:50px; width:95%;}
 .text-li .left-head { position:absolute; top:10px; left:5px; }
-.text-li .left-head img { width:36px; border-radius:18px; }
+.text-li .left-head img { width:36px; height:36px; border-radius:18px; }
 .text-li .right-content { float:left; margin-left:55px; }
 .text-li .right-content .text-nick { line-height:22px; height:22px; font-size:12px; color:#B2B2B2; }
-.text-li .right-content .text_jiantou { position:absolute; left:50px; top:24px; }
+.text-li .right-content .text_jiantou { position:absolute; left:48px; top:27px; }
 .text-li .right-content .text-content { background:#fff; border-radius:3px; padding:6px 10px; line-height:20px; color:#000; border:1px solid #e0e0e0; letter-spacing:0.03em}
 .text-li .right-content .text-content_radio { line-height:22px; margin-top:5px;}
 .text-li .right-content .text-content_readed { color:#8F8F8F; }
@@ -36,11 +36,11 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { l
 .text-li-right .left-head { position:absolute; top:0px; right:5px; }
 .text-li-right .left-head img { width:36px; border-radius:18px; }
 .text-li-right .right-content { float:right; margin-right:55px; }
-.text-li-right .right-content .text_jiantou { position:absolute; right:49px; top:-4px; }
+.text-li-right .right-content .text_jiantou { position:absolute; right:49px; top:-6px; }
 .text-li-right .right-content .text-content {  background:#B5EB7C; border-radius:3px; padding:6px 10px; line-height:20px; float:right;  color:#000; letter-spacing:0.03em}
-.text-li .text-time, .text-li-right .text-time { color:#B2B2B2; text-align:center; font-size:12px; margin-top:10px; height:22px; line-height:22px;}
+.text-li .text-time, .text-li-right .text-time { color:#B2B2B2; text-align:center; font-size:12px; margin-top:2px; height:22px; line-height:22px;}
 
-.jt_right { background:url(/luqinwenda/images/jt_icon_right.png) no-repeat; width: 10px; height: 30px; right:50px; top:0px; position: absolute; z-index:99 }
+.jt_right { background:url(/luqinwenda/images/jt_icon_right.png) no-repeat; width: 10px; height: 30px; right:49px; top:0px; position: absolute; z-index:99 }
 .jt_left { background:url(/luqinwenda/images/jt_icon_left.png); width: 6px; height: 20px; top:29px; position: absolute;}
 .text-li-right .right-content .dots { float:left; line-height:32px; margin-top: 3px; margin-right:8px;}
 .text-li-right .right-content .voice-second { float:left; line-height:32px; margin-top: 5px; color:#b2b2b2; }
@@ -53,3 +53,10 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { l
 
 .horn-change { display:block; background:url(../luqinwenda/images/horn-icon.png) no-repeat; background-size:30px; height:30px; width:30px; margin:12px 0 0 10px; }
 .btn-feed-send { display:block; background:url(../luqinwenda/images/btn-send.png) no-repeat; background-size:70px 27px; height:27px; width:70px; margin:14px 10px 0 0; float:right; border:none; }
+
+.main-header { position:fixed; top:0px; left:0px; background:#fff; z-index:999; width:100%; padding:10px 0; border-bottom:1px solid #F5F5F5;}
+.main-header .header-userlist { display:block; height:44px; overflow:hidden; }
+.main-header .header-userlist a { width:40px; height:40px; border:2px solid #413127; border-radius:20px; display:inline-block; margin-left:5px; }
+.main-header .header-loginuser { display:block; float:left; margin-left:15px; }
+.main-header .header-loginuser a {width:40px; height:40px; border:2px solid #413127; border-radius:20px; display:block; }
+.main-header .header-total { display:block; margin:0 10px; height:44px; line-height:22px; float:left; color: #666;}

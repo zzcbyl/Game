@@ -6,7 +6,7 @@
         int roomId = int.Parse(Util.GetSafeRequestValue(Request, "roomid", "1"));
         string token = Util.GetSafeRequestValue(Request, "token", "");
 
-        int maxId = int.Parse(Util.GetSafeRequestValue(Request, "maxid", "0"));
+        DateTime maxId = DateTime.Parse(Util.GetSafeRequestValue(Request, "maxid", "2016-1-1")).AddSeconds(1);
         int messageid = int.Parse(Util.GetSafeRequestValue(Request, "messageid", "0"));
         
         
@@ -19,8 +19,7 @@
         Users user = new Users(userId);
         UserChatRoomRights userChatRoomRight = new UserChatRoomRights(userId, roomId);
 
-        int newMaxId = 0;
-        
+
         if (userChatRoomRight.CanEnter)
         {
             ChatTimeLine message = new ChatTimeLine(messageid);
@@ -28,15 +27,16 @@
             
             string itemJson = "";
             ChatTimeLine[] chatTimeLineArr = ChatTimeLine.GetRoomChatList(roomId, maxId, messageid, -1);
+            if (chatTimeLineArr.Length > 0)
+                maxId = DateTime.Parse(chatTimeLineArr[chatTimeLineArr.Length - 1]._fields["update_date"].ToString());
             foreach (ChatTimeLine chatTimeLine in chatTimeLineArr)
             {
                 itemJson = itemJson + "," + chatTimeLine.Json.Trim();
-                newMaxId = int.Parse(chatTimeLine._fields["id"].ToString().Trim());
             }
             if (itemJson.StartsWith(","))
                 itemJson = itemJson.Remove(0,1);
-            
-            Response.Write("{\"status\":0 , \"room_id\" : " + roomId.ToString() + " ,  \"max_id\" : " + newMaxId.ToString().Trim() + "    , \"count\" : " + chatTimeLineArr.Length.ToString()
+
+            Response.Write("{\"status\":0 , \"room_id\" : " + roomId.ToString() + " ,  \"max_id\" : \"" + maxId + "\", \"count\" : " + chatTimeLineArr.Length.ToString()
                 + " , \"chat_time_line_father\" : " + fatherJson + " , \"chat_time_line\" : [" + itemJson + "] }");
         }
         else

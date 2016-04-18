@@ -72,21 +72,26 @@ function setDots() {
     }
 }
 
+function scrollPageBottom() {
+    var movepx = $('#mydiv').css('height').replace("px", "");
+    $wd = $(window);
+    $wd.scrollTop($wd.scrollTop() + parseInt(movepx));
+}
+
 function scrollPage() {
-    var movepx = $('.feed_file_list li:last div').css('height').replace("px", "");
+    var movepx = $('.feed_file_list li:last').css('height').replace("px", "");
     $wd = $(window);
     $wd.scrollTop($wd.scrollTop() + parseInt(movepx) + 10);
 }
 
-function inputText(parentid) {
+function inputText(parentid, callback) {
     if ($('#textContent').val().Trim() != "") {
-        submitInput('text', encodeURI($('#textContent').val()), parentid);
+        submitInput('text', encodeURI($('#textContent').val()), parentid, callback);
         $('#textContent').val("");
     }
 }
 
-function submitInput(type, content, parentid) {
-    alert(token)
+function submitInput(type, content, parentid, callback) {
     $.ajax({
         type: "POST",
         async: false,
@@ -94,7 +99,8 @@ function submitInput(type, content, parentid) {
         data: { type: type, token: token, roomid: roomid, content: content, parentid: parentid },
         dataType: "json",
         success: function (data) {
-            fillAnswer();
+            //fillAnswer();
+            eval(callback + "()");
         }
     });
 }
@@ -107,3 +113,69 @@ function strTohoursecond(str) {
 }
 
 
+function fomatLi(chatline) {
+    var liItem = "";
+    switch (chatline.message_type) {
+        case "text":
+            {
+                if ($.inArray(chatline.user_id.toString(), expertArr) >= 0)
+                    liItem = String.format(textRight, chatline.avatar, chatline.message_content, strTohoursecond(chatline.update_date));
+                else
+                    liItem = String.format(textLeft, chatline.avatar, chatline.nick, chatline.message_content, strTohoursecond(chatline.update_date), "", "");
+            }
+            break;
+        case "voice":
+            {
+                var vlen = parseInt(chatline.voice_length) * 3;
+                if (vlen < 60)
+                    vlen = 60;
+                if ($.inArray(chatline.user_id.toString(), expertArr) >= 0)
+                    liItem = String.format(voiceRight, chatline.avatar, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString(), chatline.voice_length, "width:" + vlen + "px", strTohoursecond(chatline.update_date));
+                else
+                    liItem = String.format(voiceLeft, chatline.avatar, chatline.nick, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString(), chatline.voice_length, "width:" + vlen + "px", strTohoursecond(chatline.update_date));
+
+                voiceIndex = (parseInt(voiceIndex) + 1).toString();
+            }
+            break;
+        default:
+    }
+    return liItem;
+}
+
+
+function fillHeader() {
+    var headA = '<a style="background:url({0}) no-repeat; background-size:40px;"></a>';
+    var currentUser = '';
+    var userlist = '';
+    $.ajax({
+        type: "GET",
+        async: false,
+        url: "http://" + domainName + "/api/chat_room_userlist.aspx",
+        data: { roomid: roomid, token: token, random: Math.random() },
+        dataType: "json",
+        success: function (data) {
+            if (data.status == 0) {
+                for (var i = 0; i < data.chatUserList.length; i++) {
+                    var chatuser = data.chatUserList[i];
+                    if (chatuser.user_id == userid) {
+                        currentUser = String.format(headA, chatuser.userinfo.headimgurl);
+
+                    }
+                    userlist += String.format(headA, chatuser.userinfo.headimgurl);
+                }
+
+                $('.header-loginuser').html(currentUser);
+                $('.header-userlist').html(userlist);
+                $('#personCount').html(data.count);
+            }
+        }
+    });
+}
+
+function Redirect(m)
+{
+    if (m == 1)
+        location.href = 'Default.aspx?token=' + token;
+    else
+        location.href = 'QuestionList.aspx?token=' + token;
+}

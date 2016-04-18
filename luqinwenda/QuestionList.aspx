@@ -36,6 +36,8 @@
                 canVoice = "1";
         }
 
+
+
     }
     
     
@@ -44,7 +46,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <div class="main-header" style="">
+    <div class="main-header">
         <div class="header-loginuser">
         </div>
         <div class="header-total">当前人数<br /><span id="personCount">238</span></div>
@@ -57,22 +59,22 @@
     <div id="mydiv" class="main-page" style="margin-top:60px;">
         <div>
             <ul id="feed_file_list" class="feed_file_list">
-                <div style="clear: both;"></div>
+                
             </ul>
         </div>
-        <div id="bottomDiv" style="height: 40px; clear: both;"></div>
-        <%--<div style="position: fixed; bottom: 45px; left: 0; width: 100%; text-align: center; line-height: 55px; z-index: 100;">
+        <div id="bottomDiv" style="height: 90px; clear: both;"></div>
+        <div style="position: fixed; bottom: 45px; left: 0; width: 100%; text-align: center; line-height: 55px; z-index: 100;">
             <div id="input_text" style="width: auto; margin: 0 15px; background: #fff; ">
                 <div style="width: auto; float: left; margin-left: 10px;">
                     <input id="textContent" type="text" style="border: 2px solid #CACACA; border-radius: 5px; width: 100%; height: 30px; line-height: 30px; padding: 2px 5px;" /></div>
                 <div style="width: 90px; float: right;">
-                    <input type="button" class="btn-feed-send" onclick="inputText(0);" /></div>
+                    <input type="button" class="btn-feed-send" onclick="inputText(0, 'fillList_Q');" /></div>
                 <div style="clear: both;"></div>
             </div>
-        </div>--%>
-        <div style="position: fixed; bottom: 0; left: 0; width: 100%; background: #71b4ff; text-align: center; line-height: 45px; z-index: 100; color: #fff; font-weight: bold; font-size: 12pt; letter-spacing: 0.05em;">
-            <div style="float: left; width: 50%; text-align: center; background: #0259bb;">全部问题</div>
-            <div style="float: right; width: 50%; text-align: center;" onclick="Redirect(0);">我的问题</div>
+        </div>
+        <div style="position: fixed; bottom: 0; left: 0; width: 100%; background: #0259bb; text-align: center; line-height: 45px; z-index: 100; color: #fff; font-weight: bold; font-size: 12pt; letter-spacing: 0.05em;">
+            <div style="float: left; width: 50%; text-align: center; background: #71b4ff;" onclick="Redirect(1);">全部问题</div>
+            <div style="float: right; width: 50%; text-align: center;">我的问题</div>
         </div>
     </div>
     <script type="text/javascript">
@@ -100,16 +102,16 @@
         $(document).ready(function () {
             $("#textContent").parent().css("width", (winWidth- 150).toString() + "px");
             fillHeader();
-            fillList_QA();
+            fillList_Q();
             scrollPageBottom();
-            setInterval("fillList_QA()", 5000);
+            setInterval("fillList_Q()", 5000);
         });
 
-        function fillList_QA() {
+        function fillList_Q() {
             $.ajax({
                 type: "GET",
                 async: false,
-                url: "http://" + domainName + "/api/chat_timeline_qa_list.aspx",
+                url: "http://" + domainName + "/api/chat_timeline_q_list.aspx",
                 data: { roomid: roomid, token: token, maxdt: maxdt },
                 dataType: "json",
                 success: function (data) {
@@ -120,29 +122,14 @@
                             inHtml = "";
                             var chatline = data.chat_time_line[i];
                             var liItem = fomatLi(chatline);
-                            var expertlicss = "";
-                            if ($.inArray(chatline.user_id.toString(), expertArr) >= 0)
-                            {
-                                expertlicss = 'class = "expert-li"';
-                            }
-                            inHtml = "<li " + expertlicss + ">" + liItem.replace("&lt;", "<").replace("&gt;", ">") + "</li>";
+                            inHtml = "<li>" + liItem.replace("&lt;", "<").replace("&gt;", ">") + "</li>";
                             if ($('.feed_file_list li').length == 0)
                                 $('.feed_file_list').html(inHtml);
                             else
                                 $('.feed_file_list li:last').after(inHtml);
 
-                            if (chatline.answerlist.length > 0) {
-                                var answerlist = "";
-                                for (var j = 0; j < chatline.answerlist.length; j++) {
-                                    var answerchat = chatline.answerlist[j];
-                                    var answerItem = fomatLi(answerchat);
-                                    answerlist += "<li>" + answerItem.replace("&lt;", "<").replace("&gt;", ">") + "</li>";
-                                }
-                                
-                                $('.feed_file_list li:last').after(answerlist);
-                            }
-
                         }
+                        scrollPage();
                     }
                 }
             });
