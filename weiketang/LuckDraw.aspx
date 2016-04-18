@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 
 <script runat="server">
-    public string cName = "ActivityDraw6";
+    public string cName = "ActivityDraw7";
     public string ListStr = "";
     public string ListStr1 = "";
     public string ListStr2 = "";
@@ -13,7 +13,7 @@
     public int AwardType = 1;
     public string CouponCode = "";
     public int CouponAmount = 0;
-    public string actid = "6";
+    public string actid = "7";
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Request["openid"] == null || Request["id"] == null)
