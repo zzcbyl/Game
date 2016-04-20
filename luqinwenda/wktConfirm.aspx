@@ -54,7 +54,7 @@
             <div></div>
         </div>
         <div style="text-align:center; margin:35px 0 80px;">
-            <a class="btn" style="background:#E06F61; color:#fff;" href="javascript:submitVideo();">确定</a>　　
+            <a class="btn" style="background:#E06F61; color:#fff;" href="javascript:submitPay();">确定</a>　　
             <a class="btn" style="background:#E06F61; color:#fff;" href="javascript:history.go(-1);">取消</a>
         </div>
     </div>
