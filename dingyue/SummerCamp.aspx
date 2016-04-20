@@ -30,9 +30,9 @@
     <title>卢勤问答暑期成长营</title>
     <script src="../script/jquery-1.3.2.min.js"></script>
 </head>
-<body style="">
+<body style="background:#00c0c1;">
     <form id="form1" runat="server">
-    <div style="max-width:640px; margin:0 auto; background:#00c0c1; padding-bottom:60px;">
+    <div style="max-width:640px; margin:0 auto; padding-bottom:60px;">
         <div><img src="upload/camp_01.jpg" width="100%" /></div>
         <div><a href="http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506765618&idx=5&sn=c58b90ea74da22dbff472cc2832d4e8f&scene=0&previewkey=CaNeql4rjG8mbFEHXBc6BcwqSljwj2bfCUaCyDofEow%3D#wechat_redirect" style="display:block">
             <img src="upload/camp_02.jpg" width="100%" alt="“少年摄影家”秦岭户外训练营" /></a></div>
