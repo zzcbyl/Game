@@ -74,10 +74,21 @@
             return;
         }
 
+
         DataTable crouseDt = Donate.getCourse(courseId);
         if (crouseDt != null && crouseDt.Rows.Count > 0)
         {
-            courseprice = int.Parse(crouseDt.Rows[0]["course_price"].ToString()) / 100;
+            DataTable donateCrowdDt = Donate.getDonateByCrowdCourseid(crowdid, courseId, 2);
+            if (donateCrowdDt != null && donateCrowdDt.Rows.Count > 0)
+                courseprice = int.Parse(crouseDt.Rows[0]["course_priceadd"].ToString()) / 100;
+            else
+            {
+                DataTable donateUserDt = Donate.getDonateByUserid(fuserId, 2);
+                if (donateUserDt != null && donateUserDt.Rows.Count > 0)
+                    courseprice = int.Parse(crouseDt.Rows[0]["course_price"].ToString()) / 100 / 2;
+                else
+                    courseprice = int.Parse(crouseDt.Rows[0]["course_price"].ToString()) / 100;
+            }
             coursepriceadd = int.Parse(crouseDt.Rows[0]["course_priceadd"].ToString()) / 100;
         }
         else
@@ -86,6 +97,19 @@
             Response.End();
             return;
         }
+        
+        //DataTable crouseDt = Donate.getCourse(courseId);
+        //if (crouseDt != null && crouseDt.Rows.Count > 0)
+        //{
+        //    courseprice = int.Parse(crouseDt.Rows[0]["course_price"].ToString()) / 100;
+        //    coursepriceadd = int.Parse(crouseDt.Rows[0]["course_priceadd"].ToString()) / 100;
+        //}
+        //else
+        //{
+        //    Response.Write("参数错误");
+        //    Response.End();
+        //    return;
+        //}
 
         if (count > 0)
         {
