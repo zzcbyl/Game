@@ -211,7 +211,7 @@
             $.ajax({
                 type: "GET",
                 async: false,
-                url: "http://game.luqinwenda.com/api/get_crowd_donatelist.aspx",
+                url: "http://192.168.1.38:8002/api/get_crowd_donatelist.aspx",
                 data: { crowdid: cid, pageindex: PageIndex, pagesize: 20 },
                 dataType: "json",
                 success: function (data) {
@@ -229,8 +229,14 @@
                             }
                             else
                                 nickName = "匿名网友";
+                            var headimgurl = data.donate_list[i].donate_userid.headimgurl;
+                            alert(headimgurl);
+                            if (headimgurl) {
+                            }
+                            else
+                                headimgurl = '/images/noAvatar.jpg';
                             listhtml += '<div class="recordli">' +
-                                        '<div class="avatar"><a style="background:url(' + data.donate_list[i].donate_userid.headimgurl + '); background-size:45px 45px;"></a></div>' +
+                                        '<div class="avatar"><a style="background:url(' + headimgurl + '); background-size:45px 45px;"></a></div>' +
                                         '<div class="nick-name">' + nickName + '</div>' +
                                         '<div class="donate-price">' + (parseInt(data.donate_list[i].donate_price) / 100) + '元</div>' +
                                         '<div class="donate-time">' + data.donate_list[i].donate_creattime + '</div>' +
