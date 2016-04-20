@@ -230,9 +230,7 @@
                             else
                                 nickName = "匿名网友";
                             var headimgurl = data.donate_list[i].donate_userid.headimgurl;
-                            alert(headimgurl);
-                            if (headimgurl) {
-                            }
+                            if (headimgurl) { }
                             else
                                 headimgurl = '/images/noAvatar.jpg';
                             listhtml += '<div class="recordli">' +
