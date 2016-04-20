@@ -10,12 +10,12 @@ using System.Data.SqlClient;
 /// </summary>
 public class Donate
 {
-	public Donate()
-	{
-		//
-		// TODO: 在此处添加构造函数逻辑
-		//
-	}
+    public Donate()
+    {
+        //
+        // TODO: 在此处添加构造函数逻辑
+        //
+    }
 
     public static int addCrowd(int userid, string name, string course, int price, int courseid, string remark = "")
     {
@@ -38,7 +38,7 @@ public class Donate
 
     public static void updCrowd(int crowid, string name, int price, string remark)
     {
-        string sql = "update m_crowd set crowd_name=@crowd_name, crowd_minprice=@crowd_minprice, crowd_remark=@crowd_remark where crowd_id="+crowid;
+        string sql = "update m_crowd set crowd_name=@crowd_name, crowd_minprice=@crowd_minprice, crowd_remark=@crowd_remark where crowd_id=" + crowid;
 
         SqlParameter[] parm = new SqlParameter[] { 
             new SqlParameter("@crowd_name",name),
@@ -60,7 +60,7 @@ public class Donate
         string sql = "select * from m_crowd where crowd_userid=" + userid;
         return DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
     }
-    
+
     public static int addDonate(int crowdid, int userid, int price, int state, int courseid, string remark = "")
     {
         string sql = "INSERT INTO m_donate(donate_crowdid, donate_userid, donate_price, donate_remark, donate_state, donate_courseid) VALUES" +
@@ -134,7 +134,7 @@ public class Donate
         string sql = "select * from m_donate where donate_crowdid=" + crowdid + " and donate_state=" + state;
         if (paystate != -1)
             sql += " and donate_paystate = " + paystate;
-        
+
         dt = DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
         return dt;
     }
@@ -156,5 +156,34 @@ public class Donate
         string sql = "select * from m_donate where donate_userid=" + userid + " and donate_state=" + state;
         dt = DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
         return dt;
+    }
+
+    public static DataTable getTicket(int ticketid)
+    {
+        string sql = " select * from ticket_room where ticketid = " + ticketid;
+        return DBHelper.GetDataTable(sql, Util.ConnectionString);
+    }
+
+    public static int buyTicket(int userid, int roomid, int price, string remark)
+    {
+        int ticketid = 0;
+        string sql = "INSERT INTO ticket_room (userid, roomid, price, remark) VALUES (" + userid + "," + roomid + "," + price + ",'" + remark + "')";
+        int result = DBHelper.ExecteNonQuery(Util.ConnectionString, CommandType.Text, sql, null);
+        if (result > 0)
+        {
+            sql = "select top 1 ticketid from ticket_room order by ticketid desc";
+            DataTable TicketDt = DBHelper.GetDataTable(sql, Util.ConnectionString);
+            if (TicketDt != null && TicketDt.Rows.Count > 0)
+            {
+                ticketid = int.Parse(TicketDt.Rows[0][0].ToString());
+            }
+        }
+        return ticketid;
+    }
+
+    public static int setBuyTicketState(int ticketid)
+    {
+        string sql = " update ticket_room set paystate = 1, paysuccesstime = '" + DateTime.Now.ToString() + "' where ticketid = " + ticketid + " and paystate = 0";
+        return DBHelper.ExecteNonQuery(Util.ConnectionString, CommandType.Text, sql, null);
     }
 }

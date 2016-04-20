@@ -81,6 +81,17 @@ public class UserChatRoomRights
         return i;
     }
 
+    public static int CreateUserChatRights(int RoomId, int UserId)
+    {
+        string[,] insertParameters = { {"user_id", "int", UserId.ToString() }, 
+                                     {"chat_room_id", "int", RoomId.ToString() },
+                                     {"can_enter_chat_room", "int", "1"}, 
+                                     {"can_chat_text", "int", "1"}, 
+                                     {"can_chat_voice", "int", "0" } };
+        int i = DBHelper.InsertData("user_rights_template", insertParameters, Util.ConnectionString);
+        return i;
+    }
+
     public int UpdateUserRightTemplate()
     {
         string[,] updateParameters = { { "can_enter_chat_room", "int", _fieldsTemplate["can_enter_chat_room"].ToString() },
@@ -189,8 +200,8 @@ public class UserChatRoomRights
     public static int CreateUserRightTemplate(int UserId)
     {
         string[,] insertParameters = { {"user_id", "int", UserId.ToString() }, 
-                                     {"can_enter_chat_room", "int", "0"}, 
-                                     {"can_chat_text", "int", "0"}, 
+                                     {"can_enter_chat_room", "int", "1"}, 
+                                     {"can_chat_text", "int", "1"}, 
                                      {"can_chat_voice", "int", "0" } };
         int i = DBHelper.InsertData("user_rights_template", insertParameters, Util.ConnectionString);
         return i;

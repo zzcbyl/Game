@@ -33,6 +33,23 @@
 
         ChatRoom chatRoom = new ChatRoom(Util.LuqinwendaRoomId);
         drow = chatRoom._fields;
+        if (drow == null)
+        {
+            Response.Write("参数错误");
+            Response.End();
+            return;
+        }
+
+        if (Request.Form["hidPay"] != null && Request.Form["hidPay"].Equals("1"))
+        {
+            int price = int.Parse(chatRoom._fields["price"].ToString());
+            int ticketid = Donate.buyTicket(userId, Util.LuqinwendaRoomId, price, "购买进入 " + Util.LuqinwendaRoomId + " Room的票");
+
+
+            string payurl = "http://weixin.luqinwenda.com/payment/payment.aspx?body=卢勤问答平台微课堂&detail=听课费&userid=" + userId + "&product_id=" + ticketid + "&total_fee=" + price.ToString()
+                    + "&callback=" + Server.UrlEncode("http://game.luqinwenda.com/luqinwenda/paySuccess.aspx?product_id=" + ticketid);
+            Response.Redirect(payurl);
+        }
     }
 </script>
 
@@ -58,5 +75,13 @@
             <a class="btn" style="background:#E06F61; color:#fff;" href="javascript:history.go(-1);">取消</a>
         </div>
     </div>
+    <input type="hidden" id="hidPay" name="hidPay" value="" />
+
+    <script type="text/javascript">
+        function submitPay() {
+            $('#hidPay').val("1");
+            document.forms[0].submit();
+        }
+    </script>
 </asp:Content>
 

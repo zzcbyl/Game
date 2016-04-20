@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="支付成功" Language="C#" MasterPageFile="~/luqinwenda/Master.master" %>
-
+<%@ Import Namespace="System.Data" %>
 <script runat="server">
     public string token = "";
     public int userId = 0;
@@ -17,10 +17,17 @@
 
         if (Request["product_id"] != null && Request["product_id"] != "" && int.Parse(Request["product_id"]) > 0)
         {
-            int result = Donate.updPayState(int.Parse(Request["product_id"]));
-            if (result > 0)
+            Donate.setBuyTicketState(int.Parse(Request["product_id"]));
+            DataTable ticketDt = Donate.getTicket(int.Parse(Request["product_id"]));
+            if (ticketDt != null && ticketDt.Rows.Count > 0)
             {
-                Donate.setTotal(int.Parse(Request["product_id"]));
+                if (ticketDt.Rows[0]["paystate"].ToString().Equals("1"))
+                {
+                    UserChatRoomRights.CreateUserRightTemplate(int.Parse(ticketDt.Rows[0]["userid"].ToString()));
+                    UserChatRoomRights.CreateUserChatRights(int.Parse(ticketDt.Rows[0]["roomid"].ToString()), int.Parse(ticketDt.Rows[0]["userid"].ToString()));
+
+                    this.Response.Redirect("Default.aspx?roomid=" + int.Parse(ticketDt.Rows[0]["roomid"].ToString()));
+                }
             }
         }
         else
