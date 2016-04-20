@@ -54,7 +54,7 @@ public class ChatTimeLine
         }
     }
 
-    public static ChatTimeLine[] GetRoomChatList(int roomId, DateTime maxId, int parentId, int state)
+    public static ChatTimeLine[] GetRoomChatList(int roomId, DateTime maxId, int parentId, int state, string expertlist)
     {
         string sql = "select * from chat_list where audit_state = 1 and chat_room_id = " + roomId;
         if (parentId >= 0)
@@ -63,6 +63,8 @@ public class ChatTimeLine
             sql += " and state = 0";
         else if (state > 0)
             sql += " and state > 0";
+        if (expertlist.Trim() != "")
+            sql += " and user_id not in (" + expertlist + ")";
 
         sql += " and update_date > '" + maxId + "' order by update_date";
 
@@ -216,6 +218,10 @@ public class ChatTimeLine
     public static void Update_State(int chatid, int state)
     {
         string sql = "update chat_list set state=" + state + ", update_date='" + DateTime.Now.ToString() + "' where [id] = " + chatid;
+        if (state == 1)
+            sql += " and state=0";
+        else if (state == 2)
+            sql += " and state=1";
         DBHelper.ExecteNonQuery(Util.ConnectionString, CommandType.Text, sql);
     }
 

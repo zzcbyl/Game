@@ -23,7 +23,7 @@
         
         if (userChatRoomRight.CanEnter)
         {
-            ChatTimeLine[] chatTimeLineArr = ChatTimeLine.GetRoomChatList(roomId, maxId, parentId, state);
+            ChatTimeLine[] chatTimeLineArr = ChatTimeLine.GetRoomChatList(roomId, maxId, parentId, state, Util.LuqinwendaExpertList);
             if (chatTimeLineArr.Length > 0)
                 maxId = DateTime.Parse(chatTimeLineArr[chatTimeLineArr.Length-1]._fields["update_date"].ToString());
             string itemJson = "";

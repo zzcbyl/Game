@@ -127,10 +127,14 @@ public class Donate
         return dt;
     }
 
-    public static DataTable getDonateByCrowdid(int crowdid, int courseid, int state)
+    public static DataTable getDonateByCrowdid(int crowdid, int courseid, int state, int paystate = -1)
     {
         DataTable dt = null;
-        string sql = "select * from m_donate where donate_crowdid=" + crowdid + " and donate_courseid=" + courseid + " and donate_state=" + state;
+        //string sql = "select * from m_donate where donate_crowdid=" + crowdid + " and donate_courseid=" + courseid + " and donate_state=" + state;
+        string sql = "select * from m_donate where donate_crowdid=" + crowdid + " and donate_state=" + state;
+        if (paystate != -1)
+            sql += " and donate_paystate = " + paystate;
+        
         dt = DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
         return dt;
     }

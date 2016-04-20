@@ -34,7 +34,15 @@
                 user = new Users(uid);
                 if (user._fields != null && user.ID > 0)
                 {
-                    dJson = dJson + ",\"userinfo\" : " + user.GetUserAvatarJson();
+                    string userAvatarJson = "";
+                    try
+                    {
+                        userAvatarJson = user.GetUserAvatarJson();
+                    }
+                    catch { }
+                    if (userAvatarJson.Trim() == "")
+                        userAvatarJson = "{}";
+                    dJson = dJson + ",\"userinfo\" : " + userAvatarJson;
                 }
                 
                 if (dJson.StartsWith(","))

@@ -119,9 +119,9 @@ function fomatLi(chatline) {
         case "text":
             {
                 if ($.inArray(chatline.user_id.toString(), expertArr) >= 0)
-                    liItem = String.format(textRight, chatline.avatar, chatline.message_content, strTohoursecond(chatline.update_date));
+                    liItem = String.format(textRight, chatline.avatar, chatline.message_content, strTohoursecond(chatline.create_date));
                 else
-                    liItem = String.format(textLeft, chatline.avatar, chatline.nick, chatline.message_content, strTohoursecond(chatline.update_date), "", "");
+                    liItem = String.format(textLeft, chatline.avatar, chatline.nick, chatline.message_content, strTohoursecond(chatline.create_date), "", "");
             }
             break;
         case "voice":
@@ -130,9 +130,9 @@ function fomatLi(chatline) {
                 if (vlen < 60)
                     vlen = 60;
                 if ($.inArray(chatline.user_id.toString(), expertArr) >= 0)
-                    liItem = String.format(voiceRight, chatline.avatar, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString(), chatline.voice_length, "width:" + vlen + "px", strTohoursecond(chatline.update_date));
+                    liItem = String.format(voiceRight, chatline.avatar, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString(), chatline.voice_length, "width:" + vlen + "px", strTohoursecond(chatline.create_date));
                 else
-                    liItem = String.format(voiceLeft, chatline.avatar, chatline.nick, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString(), chatline.voice_length, "width:" + vlen + "px", strTohoursecond(chatline.update_date));
+                    liItem = String.format(voiceLeft, chatline.avatar, chatline.nick, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString(), chatline.voice_length, "width:" + vlen + "px", strTohoursecond(chatline.create_date));
 
                 voiceIndex = (parseInt(voiceIndex) + 1).toString();
             }
@@ -145,6 +145,7 @@ function fomatLi(chatline) {
 
 function fillHeader() {
     var headA = '<a style="background:url({0}) no-repeat; background-size:40px;"></a>';
+    var headImage = "";
     var currentUser = '';
     var userlist = '';
     $.ajax({
@@ -157,13 +158,16 @@ function fillHeader() {
             if (data.status == 0) {
                 for (var i = 0; i < data.chatUserList.length; i++) {
                     var chatuser = data.chatUserList[i];
-                    if (chatuser.user_id == userid) {
-                        currentUser = String.format(headA, chatuser.userinfo.headimgurl);
-
-                    }
-                    userlist += String.format(headA, chatuser.userinfo.headimgurl);
+                    headImage = '/images/noAvatar.jpg';
+                    if (chatuser.userinfo.headimgurl)
+                        headImage = chatuser.userinfo.headimgurl;
+                    if (chatuser.user_id == userid)
+                        currentUser = String.format(headA, headImage);
+                    else
+                        userlist += String.format(headA, headImage);
                 }
-
+                if (currentUser == '')
+                    currentUser = String.format(headA, "/images/noAvatar.jpg");
                 $('.header-loginuser').html(currentUser);
                 $('.header-userlist').html(userlist);
                 $('#personCount').html(data.count);

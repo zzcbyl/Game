@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="卢勤微课堂" Language="C#" MasterPageFile="~/CrowdFunding/Master.master" %>
 <%@ Import Namespace="System.Data" %>
 <%@ Import Namespace="System.Web.Script.Serialization" %>
+<%@ Import Namespace="System.Threading" %>
 
 <script runat="server">
     public string token = "";
@@ -70,6 +71,12 @@
             crowdid = int.Parse(dt.Rows[0]["crowd_id"].ToString());
             crowd_balance = int.Parse(dt.Rows[0]["crowd_balance"].ToString());
             crowd_remark = dt.Rows[0]["crowd_remark"].ToString();
+
+            paystate ps = new paystate();
+            ps.course_id = courseId;
+            ps.crowd_id = crowdid;
+            Thread th = new Thread(new ThreadStart(ps.UpdPayState));
+            th.Start();
         }
         else
         {
@@ -90,6 +97,35 @@
                 groupCount += int.Parse(remark);
             }
             buyedCount = "已购群：" + groupCount + "个";
+        }
+    }
+
+    public class paystate
+    {
+        public int crowd_id, course_id;
+
+        public void UpdPayState()
+        {
+            DataTable unpayDt = Donate.getDonateByCrowdid(this.crowd_id, this.course_id, 1, 0);
+            if (unpayDt != null && unpayDt.Rows.Count > 0)
+            {
+                foreach (DataRow row in unpayDt.Rows)
+                {
+                    try
+                    {
+                        string payresult = Util.GetWebContent("http://weixin.luqinwenda.com/payment/payment_get_result.aspx?body=卢勤问答平台微课堂&productid=" + row["donate_id"].ToString() + "&amount=" + row["donate_price"].ToString(), "get", "", "text/html");
+                        if (payresult.Equals("PAID"))
+                        {
+                            int result = Donate.updPayState(int.Parse(row["donate_id"].ToString()));
+                            if (result > 0)
+                            {
+                                Donate.setTotal(int.Parse(row["donate_id"].ToString()));
+                            }
+                        }
+                    }
+                    catch { }
+                }
+            }
         }
     }
 

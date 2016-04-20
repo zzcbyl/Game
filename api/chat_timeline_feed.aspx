@@ -26,7 +26,7 @@
             string fatherJson = message.Json.Trim();
             
             string itemJson = "";
-            ChatTimeLine[] chatTimeLineArr = ChatTimeLine.GetRoomChatList(roomId, maxId, messageid, -1);
+            ChatTimeLine[] chatTimeLineArr = ChatTimeLine.GetRoomChatList(roomId, maxId, messageid, -1, "");
             if (chatTimeLineArr.Length > 0)
                 maxId = DateTime.Parse(chatTimeLineArr[chatTimeLineArr.Length - 1]._fields["update_date"].ToString());
             foreach (ChatTimeLine chatTimeLine in chatTimeLineArr)
