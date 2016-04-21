@@ -8,7 +8,7 @@
     public string appId = System.Configuration.ConfigurationManager.AppSettings["wxappid_dingyue"];
     
     public string token = "";
-    public string roomid = Util.LuqinwendaRoomId.ToString();
+    public string roomid = "0";
     public int userid = 0;    
     public string domainName = System.Configuration.ConfigurationManager.AppSettings["domain_name"].ToString();
     public int feedId = 0;
@@ -17,6 +17,12 @@
     {
         feedId = int.Parse(Util.GetSafeRequestValue(Request, "feedid", "0"));
         if (feedId == 0)
+        {
+            Response.Write("参数错误");
+            Response.End();
+        }
+        roomid = Util.GetSafeRequestValue(Request, "roomid", "0");
+        if (int.Parse(roomid) <= 0)
         {
             Response.Write("参数错误");
             Response.End();

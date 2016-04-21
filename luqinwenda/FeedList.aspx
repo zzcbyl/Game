@@ -2,12 +2,19 @@
 
 <script runat="server">
     public string token = "";
-    public string roomid = Util.LuqinwendaRoomId.ToString();
+    public string roomid = "0";
     public int userid = 0;
     public string domainName = System.Configuration.ConfigurationManager.AppSettings["domain_name"].ToString();
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        roomid = Util.GetSafeRequestValue(Request, "roomid", "0");
+        if (int.Parse(roomid) <= 0)
+        {
+            Response.Write("参数错误");
+            Response.End();
+            return;
+        }
+        
         token = Util.GetSafeRequestValue(Request, "token", "");
         userid = Users.CheckToken(token);
         if (userid <= 0)

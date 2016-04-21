@@ -17,11 +17,12 @@
         Users user = new Users(userId);
 
         UserChatRoomRights userChatRoomRight = new UserChatRoomRights(userId, roomId);
-        
-        if (userChatRoomRight.CanEnter)
+        ChatRoom chatRoom = new ChatRoom(roomId);
+
+        if (chatRoom._fields != null && userChatRoomRight.CanEnter)
         {
             string JsonStr = "";
-            DataTable dt_parent = ChatTimeLine.GetChatList_QA(roomId, maxDt, Util.LuqinwendaExpertList);
+            DataTable dt_parent = ChatTimeLine.GetChatList_QA(roomId, maxDt, chatRoom._fields["expertlist"].ToString());
             if (dt_parent.Rows.Count > 0)
                 maxDt = DateTime.Parse(dt_parent.Rows[dt_parent.Rows.Count - 1]["update_date"].ToString());
             foreach (DataRow row in dt_parent.Rows)

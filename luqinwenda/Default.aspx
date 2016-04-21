@@ -3,7 +3,7 @@
 
 <script runat="server">
     public string token = "";
-    public string roomid = Util.LuqinwendaRoomId.ToString();
+    public string roomid = "0";
     public ArrayList chatList = new ArrayList();
     public int userid = 0;
     public string liHtml = "";
@@ -14,6 +14,14 @@
     public DataTable dt_userinfo;
     protected void Page_Load(object sender, EventArgs e)
     {
+        roomid = Util.GetSafeRequestValue(Request, "roomid", "0");
+        if (int.Parse(roomid) <= 0)
+        {
+            Response.Write("参数错误");
+            Response.End();
+            return;
+        }
+        
         token = Util.GetSafeRequestValue(Request, "token", "");
         userid = Users.CheckToken(token);
         if (userid <= 0)
@@ -23,17 +31,27 @@
                 currentUrl = currentUrl.Replace("&token=" + token, "").Replace("?token=" + token, "");
             Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Server.UrlEncode(currentUrl), true);
         }
-        
-        System.Web.Script.Serialization.JavaScriptSerializer json = new System.Web.Script.Serialization.JavaScriptSerializer();
-        //判断权限
-        string roomRightStr = Util.GetWebContent("http://" + domainName + "/api/chat_room_rights.aspx?token=" + token + "&roomid=" + roomid, "get", "", "text/html");
-        Dictionary<string, object> rightdic = json.Deserialize<Dictionary<string, object>>(roomRightStr);
-        if (rightdic["status"].ToString() == "0")
+
+        ChatRoom chatRoom = new ChatRoom(int.Parse(roomid));
+        DataRow drow = chatRoom._fields;
+        if (drow == null)
         {
-            if (rightdic["can_enter"].ToString().Equals("1") && rightdic["can_publish_text"].ToString().Equals("1"))
-                canText = "1";
-            if (rightdic["can_enter"].ToString().Equals("1") && rightdic["can_publish_voice"].ToString().Equals("1"))
-                canVoice = "1";
+            Response.Write("参数错误");
+            Response.End();
+            return;
+        }
+
+        if (Convert.ToDateTime(drow["start_date"].ToString()) > DateTime.Now)
+        {
+            Response.Redirect("nostart.aspx?roomid=" + roomid);
+            return;
+        }
+
+        UserChatRoomRights userChatRoom = new UserChatRoomRights(userid, int.Parse(roomid));
+        if (!userChatRoom.CanEnter || !userChatRoom.CanPublishText)
+        {
+            Response.Redirect("wktConfirm.aspx?roomid=" + roomid);
+            return;
         }
 
     }

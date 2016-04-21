@@ -3,7 +3,7 @@
 
 <script runat="server">
     public string token = "";
-    public string roomid = Util.LuqinwendaRoomId.ToString();
+    public string roomid = "0";
     public ArrayList chatList = new ArrayList();
     public int userid = 0;
     public string liHtml = "";
@@ -14,6 +14,13 @@
     public DataTable dt_userinfo;
     protected void Page_Load(object sender, EventArgs e)
     {
+        roomid = Util.GetSafeRequestValue(Request, "roomid", "0");
+        if (int.Parse(roomid) <= 0)
+        {
+            Response.Write("参数错误");
+            Response.End();
+        }
+        
         token = Util.GetSafeRequestValue(Request, "token", "");
         userid = Users.CheckToken(token);
         if (userid <= 0)

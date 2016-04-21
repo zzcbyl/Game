@@ -41,7 +41,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <form id="form1" runat="server" method="post">
     <div class="mainPage">
         <img src="../images/main_head.jpg" width="100%" />
         <div style="border:3px solid #E9E9E9; border-radius:15px; margin:5px;">
@@ -55,6 +54,5 @@
             </div>
         </div>
     </div>
-    </form>
 </asp:Content>
 

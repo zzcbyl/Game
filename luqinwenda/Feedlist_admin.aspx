@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 
 <script runat="server">
-    int roomid = Util.LuqinwendaRoomId;
+    public int roomid = 0;
     public DataTable FeedListDt = new DataTable();
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -12,6 +12,12 @@
         {
             Response.End();
             return;
+        }
+        roomid = int.Parse(Util.GetSafeRequestValue(Request, "roomid", "0"));
+        if (roomid <= 0)
+        {
+            Response.Write("参数错误");
+            Response.End();
         }
         if (Request["hidAction"] != null && Request["hidID"] != "")
         {

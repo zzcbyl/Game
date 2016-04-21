@@ -18,12 +18,11 @@
         }
         Users user = new Users(userId);
         UserChatRoomRights userChatRoomRight = new UserChatRoomRights(userId, roomId);
+        ChatRoom chatRoom = new ChatRoom(roomId);
 
-        
-        
-        if (userChatRoomRight.CanEnter)
+        if (chatRoom._fields!=null && userChatRoomRight.CanEnter)
         {
-            ChatTimeLine[] chatTimeLineArr = ChatTimeLine.GetRoomChatList(roomId, maxId, parentId, state, Util.LuqinwendaExpertList);
+            ChatTimeLine[] chatTimeLineArr = ChatTimeLine.GetRoomChatList(roomId, maxId, parentId, state, chatRoom._fields["expertlist"].ToString());
             if (chatTimeLineArr.Length > 0)
                 maxId = DateTime.Parse(chatTimeLineArr[chatTimeLineArr.Length-1]._fields["update_date"].ToString());
             string itemJson = "";

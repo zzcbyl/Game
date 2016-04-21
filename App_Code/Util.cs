@@ -23,8 +23,8 @@ public class Util
     protected static string token = "";
     protected static DateTime tokenTime = DateTime.MinValue;
     public static string DomainName = System.Configuration.ConfigurationSettings.AppSettings["domain_name"].Trim();
-    public static int LuqinwendaRoomId = int.Parse(System.Configuration.ConfigurationSettings.AppSettings["Luqinwenda_Chat_RoomId"].Trim());
-    public static string LuqinwendaExpertList = System.Configuration.ConfigurationSettings.AppSettings["Luqinwenda_expert_Idlist"].Trim();
+    //public static int LuqinwendaRoomId = int.Parse(System.Configuration.ConfigurationSettings.AppSettings["Luqinwenda_Chat_RoomId"].Trim());
+    //public static string LuqinwendaExpertList = System.Configuration.ConfigurationSettings.AppSettings["Luqinwenda_expert_Idlist"].Trim();
 
 	public Util()
 	{

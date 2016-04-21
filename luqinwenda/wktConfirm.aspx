@@ -8,8 +8,17 @@
     public string UserHeadImg = "http://game.luqinwenda.com/images/noAvatar.jpg";
     public string NickName = "匿名";
     public DataRow drow = null;
+    public int roomId = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
+        roomId = int.Parse(Util.GetSafeRequestValue(Request, "roomid", "0"));
+        if (roomId <= 0)
+        {
+            Response.Write("参数错误");
+            Response.End();
+            return;
+        }
+        
         token = Util.GetSafeRequestValue(Request, "token", "");
         int userId = Users.CheckToken(token);
         if (userId <= 0)
@@ -19,6 +28,23 @@
                 currentUrl = currentUrl.Replace("&token=" + token, "").Replace("?token=" + token, "");
             Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Server.UrlEncode(currentUrl), true);
         }
+
+        ChatRoom chatRoom = new ChatRoom(roomId);
+        drow = chatRoom._fields;
+        if (drow == null)
+        {
+            Response.Write("参数错误");
+            Response.End();
+            return;
+        }
+
+        UserChatRoomRights userChatRoom = new UserChatRoomRights(userId, roomId);
+        if (userChatRoom.CanEnter && userChatRoom.CanPublishText)
+        {
+            this.Response.Redirect("Default.aspx?roomid=" + roomId);
+        }
+        
+        
         JavaScriptSerializer json = new JavaScriptSerializer();
         user = new Users(userId);
         try
@@ -31,19 +57,11 @@
         }
         catch { }
 
-        ChatRoom chatRoom = new ChatRoom(Util.LuqinwendaRoomId);
-        drow = chatRoom._fields;
-        if (drow == null)
-        {
-            Response.Write("参数错误");
-            Response.End();
-            return;
-        }
 
         if (Request.Form["hidPay"] != null && Request.Form["hidPay"].Equals("1"))
         {
             int price = int.Parse(chatRoom._fields["price"].ToString());
-            int ticketid = Donate.buyTicket(userId, Util.LuqinwendaRoomId, price, "购买进入 " + Util.LuqinwendaRoomId + " Room的票");
+            int ticketid = Donate.buyTicket(userId, roomId, price, "购买进入 " + roomId + " Room的票");
 
 
             string payurl = "http://weixin.luqinwenda.com/payment/payment.aspx?body=卢勤问答平台微课堂&detail=听课费&userid=" + userId + "&product_id=" + ticketid + "&total_fee=" + price.ToString()

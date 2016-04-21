@@ -179,7 +179,7 @@ function fillHeader() {
 function Redirect(m)
 {
     if (m == 1)
-        location.href = 'Default.aspx?token=' + token;
+        location.href = 'Default.aspx?token=' + token + '&roomid=' + roomid;
     else
-        location.href = 'QuestionList.aspx?token=' + token;
+        location.href = 'QuestionList.aspx?token=' + token + '&roomid=' + roomid;;
 }
