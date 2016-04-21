@@ -67,7 +67,7 @@
         </div>
 
         <div id="bottomDiv" style="height:60px; clear:both;"></div>
-        <div style="position:fixed; bottom:0; left:0; width:100%; background:#fff; border-top:1px solid #ccc; text-align:center; line-height:55px; z-index:100;">
+        <div style="position:fixed; bottom:0; left:0; width:100%; background:#fff; border-top:1px solid #ccc; text-align:center; line-height:55px; height:55px; z-index:100;">
             <div id="input_text" style="display:none;">
                 <div style="width:50px; float:left; text-align:center;"><a class="horn-change" onclick="changeInput();"></a></div>
                 <div style="width:auto; float:left;" ><input id="textContent" type="text" style="border:2px solid #CACACA; border-radius:5px; width:100%; height:30px; line-height:30px; padding:2px 5px;"  /></div>
@@ -75,8 +75,10 @@
             </div>
             <div id="input_voice">
                 <div style="width:50px; float:left; text-align:center;"><a class="horn-change" onclick="changeInput();"></a></div>
-                <input type="button" value="点击说话" id="startRecord" style="width:80%; height:40px;" />
-                <input type="button" value="停止说话" id="stopRecord" style="width:80%; height:40px; display:none;" />
+                <div style="width:80%; float:left; text-align:center;">
+                    <input type="button" value="点击说话" id="startRecord" style="width:100%; height:40px; line-height:40px; display:block; margin:7px 0;" /></div>
+                <div style="width:80%; float:left; text-align:center;">
+                    <input type="button" value="停止说话" id="stopRecord" style="width:100%; height:40px; line-height:40px; display:none; margin:7px 0" /></div>
             </div>
         </div>
     </div>
