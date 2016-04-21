@@ -10,7 +10,7 @@
     public string domainName = System.Configuration.ConfigurationManager.AppSettings["domain_name"].ToString();
     public string canText = "0";
     public string canVoice = "0";
-    public string expertlist = System.Configuration.ConfigurationManager.AppSettings["Luqinwenda_expert_Idlist"].ToString();
+    public string expertlist = "";
     public DataTable dt_userinfo;
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -40,6 +40,7 @@
             Response.End();
             return;
         }
+        expertlist = drow["expertlist"].ToString();
 
         if (Convert.ToDateTime(drow["start_date"].ToString()) > DateTime.Now)
         {
