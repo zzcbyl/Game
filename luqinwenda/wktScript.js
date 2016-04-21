@@ -2,7 +2,7 @@
 var ssset = 0;
 var stopindex = 1;
 var direction = "";
-var cookieName = "voiceReaded" + roomid;
+var cookieName = "voiceReaded" + QueryString('roomid');
 var winWidth = document.body.clientWidth;
 function changePlay(id, fx) {
     if ($('#a_jp_stop_' + id).css('display') == 'none') {
