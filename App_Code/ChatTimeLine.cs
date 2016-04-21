@@ -106,7 +106,14 @@ public class ChatTimeLine
         }
 
         string auditState = "0";
-        string expertlist = System.Configuration.ConfigurationManager.AppSettings["Luqinwenda_expert_Idlist"].ToString();
+        ChatRoom chatRoom = new ChatRoom(roomId);
+        DataRow drow = chatRoom._fields;
+        if (drow == null)
+        {
+            return 0;
+        }
+
+        string expertlist = drow["expertlist"].ToString();
         if (parentid != 0 || Array.IndexOf(expertlist.Split(','), userId.ToString()) >= 0)
         {
             auditState = "1";

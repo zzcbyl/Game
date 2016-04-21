@@ -10,16 +10,20 @@
     public string domainName = System.Configuration.ConfigurationManager.AppSettings["domain_name"].ToString();
     public string canText = "0";
     public string canVoice = "0";
-    public string expertlist = System.Configuration.ConfigurationManager.AppSettings["Luqinwenda_expert_Idlist"].ToString();
+    public string expertlist = "";
     public DataTable dt_userinfo;
     protected void Page_Load(object sender, EventArgs e)
     {
         roomid = Util.GetSafeRequestValue(Request, "roomid", "0");
-        if (int.Parse(roomid) <= 0)
+        ChatRoom chatRoom = new ChatRoom(int.Parse(roomid));
+        DataRow drow = chatRoom._fields;
+        if (drow == null)
         {
             Response.Write("参数错误");
             Response.End();
+            return;
         }
+        expertlist = drow["expertlist"].ToString();
         
         token = Util.GetSafeRequestValue(Request, "token", "");
         userid = Users.CheckToken(token);
@@ -31,16 +35,13 @@
             Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Server.UrlEncode(currentUrl), true);
         }
         
-        System.Web.Script.Serialization.JavaScriptSerializer json = new System.Web.Script.Serialization.JavaScriptSerializer();
+        
         //判断权限
-        string roomRightStr = Util.GetWebContent("http://" + domainName + "/api/chat_room_rights.aspx?token=" + token + "&roomid=" + roomid, "get", "", "text/html");
-        Dictionary<string, object> rightdic = json.Deserialize<Dictionary<string, object>>(roomRightStr);
-        if (rightdic["status"].ToString() == "0")
+        UserChatRoomRights userChatRoom = new UserChatRoomRights(userid, int.Parse(roomid));
+        if (!userChatRoom.CanEnter || !userChatRoom.CanPublishText)
         {
-            if (rightdic["can_enter"].ToString().Equals("1") && rightdic["can_publish_text"].ToString().Equals("1"))
-                canText = "1";
-            if (rightdic["can_enter"].ToString().Equals("1") && rightdic["can_publish_voice"].ToString().Equals("1"))
-                canVoice = "1";
+            Response.Redirect("wktConfirm.aspx?roomid=" + roomid);
+            return;
         }
     }
 </script>

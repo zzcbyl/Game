@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/luqinwenda/Master.master" %>
+<%@ Import Namespace="System.Data" %>
 
 <script runat="server">
     public string timeStamp = "";
@@ -12,7 +13,7 @@
     public int userid = 0;    
     public string domainName = System.Configuration.ConfigurationManager.AppSettings["domain_name"].ToString();
     public int feedId = 0;
-    public string expertlist = System.Configuration.ConfigurationManager.AppSettings["Luqinwenda_expert_Idlist"].ToString();
+    public string expertlist = "";
     protected void Page_Load(object sender, EventArgs e)
     {
         feedId = int.Parse(Util.GetSafeRequestValue(Request, "feedid", "0"));
@@ -22,11 +23,15 @@
             Response.End();
         }
         roomid = Util.GetSafeRequestValue(Request, "roomid", "0");
-        if (int.Parse(roomid) <= 0)
+        ChatRoom chatRoom = new ChatRoom(int.Parse(roomid));
+        DataRow drow = chatRoom._fields;
+        if (drow == null)
         {
             Response.Write("参数错误");
             Response.End();
+            return;
         }
+        expertlist = drow["expertlist"].ToString();
         
         token = Util.GetSafeRequestValue(Request, "token", "");
         userid = Users.CheckToken(token);
