@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/luqinwenda/Master.master" %>
+<%@ Import Namespace="System.Data" %>
 
 <script runat="server">
     public string token = "";
@@ -23,6 +24,20 @@
             if (token != "")
                 currentUrl = currentUrl.Replace("&token=" + token, "").Replace("?token=" + token, "");
             Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Server.UrlEncode(currentUrl), true);
+        }
+
+        ChatRoom chatRoom = new ChatRoom(int.Parse(roomid));
+        DataRow drow = chatRoom._fields;
+        if (drow == null)
+        {
+            Response.Write("参数错误");
+            Response.End();
+            return;
+        }
+        if (Array.IndexOf(drow["expertlist"].ToString().Split(','), userid.ToString()) < 0)
+        {
+            Response.Write("你不是专家");
+            Response.End();
         }
 
     }
