@@ -17,9 +17,9 @@ public class UserChatRoomRights
 
     public bool canPublishImage = false;
 
-    public DataRow _fieldsTemplate;
+    public DataRow _fieldsTemplate = null;
 
-    public DataRow _fieldsChatRoom;
+    public DataRow _fieldsChatRoom = null;
 
 	public UserChatRoomRights()
 	{
@@ -88,7 +88,7 @@ public class UserChatRoomRights
                                      {"can_enter_chat_room", "int", "1"}, 
                                      {"can_chat_text", "int", "1"}, 
                                      {"can_chat_voice", "int", "0" } };
-        int i = DBHelper.InsertData("user_rights_template", insertParameters, Util.ConnectionString);
+        int i = DBHelper.InsertData("user_chat_room_rights", insertParameters, Util.ConnectionString);
         return i;
     }
 
@@ -105,13 +105,13 @@ public class UserChatRoomRights
 
     public int UpdateUserChatRoomRights()
     {
-        string[,] updateParameters = { { "can_enter_chat_room", "int", _fieldsTemplate["can_enter_chat_room"].ToString() },
-                                     {"can_chat_text", "int", _fieldsTemplate["can_chat_text"].ToString()},
-                                     {"can_chat_voice", "int", _fieldsTemplate["can_chat_voice"].ToString()},
-                                     {"can_chat_image", "int", _fieldsTemplate["can_chat_image"].ToString()}};
-        string[,] keyParameters = { { "user_id", "int", _fieldsTemplate["user_id"].ToString().Trim() },
-                                  {"chat_room_id", "int", _fieldsTemplate["chat_room_id"].ToString().Trim()}};
-        int i = DBHelper.UpdateData("user_rights_template", updateParameters, keyParameters, Util.ConnectionString);
+        string[,] updateParameters = { { "can_enter_chat_room", "int", _fieldsChatRoom["can_enter_chat_room"].ToString() },
+                                     {"can_chat_text", "int", _fieldsChatRoom["can_chat_text"].ToString()},
+                                     {"can_chat_voice", "int", _fieldsChatRoom["can_chat_voice"].ToString()},
+                                     {"can_chat_image", "int", _fieldsChatRoom["can_chat_image"].ToString()}};
+        string[,] keyParameters = { { "user_id", "int", _fieldsChatRoom["user_id"].ToString().Trim() },
+                                  {"chat_room_id", "int", _fieldsChatRoom["chat_room_id"].ToString().Trim()}};
+        int i = DBHelper.UpdateData("user_chat_room_rights", updateParameters, keyParameters, Util.ConnectionString);
         return i;
     }
 
@@ -122,15 +122,10 @@ public class UserChatRoomRights
         {
             if (_fieldsTemplate != null)
             {
-                if (_fieldsChatRoom == null)
-                {
-                    canEnter = _fieldsTemplate["can_enter_chat_room"].ToString().Equals("0") ? false : true;
-                }
-                else
+                if (_fieldsChatRoom != null)
                 {
                     canEnter = _fieldsChatRoom["can_enter_chat_room"].ToString().Equals("0") ? false : true;
                 }
-                
             }
             return canEnter;
         }
@@ -142,11 +137,7 @@ public class UserChatRoomRights
         {
             if (_fieldsTemplate != null)
             {
-                if (_fieldsChatRoom == null)
-                {
-                    canPublishText = _fieldsTemplate["can_chat_text"].ToString().Equals("0") ? false : true;
-                }
-                else
+                if (_fieldsChatRoom != null)
                 {
                     canPublishText = _fieldsChatRoom["can_chat_text"].ToString().Equals("0") ? false : true;
                 }
@@ -162,11 +153,7 @@ public class UserChatRoomRights
         {
             if (_fieldsTemplate != null)
             {
-                if (_fieldsChatRoom == null)
-                {
-                    canPublishVoice = _fieldsTemplate["can_chat_voice"].ToString().Equals("0") ? false : true;
-                }
-                else
+                if (_fieldsChatRoom != null)
                 {
                     canPublishVoice = _fieldsChatRoom["can_chat_voice"].ToString().Equals("0") ? false : true;
                 }
@@ -182,11 +169,7 @@ public class UserChatRoomRights
         {
             if (_fieldsTemplate != null)
             {
-                if (_fieldsChatRoom == null)
-                {
-                    canPublishImage = _fieldsTemplate["can_chat_image"].ToString().Equals("0") ? false : true;
-                }
-                else
+                if (_fieldsChatRoom != null)
                 {
                     canPublishImage = _fieldsChatRoom["can_chat_image"].ToString().Equals("0") ? false : true;
                 }
