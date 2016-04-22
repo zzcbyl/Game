@@ -131,7 +131,7 @@
             $("#textContent").parent().css("width", (winWidth - 155).toString() + "px");
 
             fillFeed();
-
+            setDots();
         });
 
         

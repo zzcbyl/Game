@@ -122,6 +122,7 @@
             fillList_QA();
             scrollPageBottom();
             setInterval("fillList_QA()", 5000);
+            setDots();
         });
 
         function fillList_QA() {
