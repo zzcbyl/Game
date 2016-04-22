@@ -40,7 +40,7 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { l
 .text-li-right .right-content { float:right; margin-right:55px; }
 .text-li-right .right-content .text_jiantou { position:absolute; right:49px; top:-6px; }
 .text-li-right .right-content .text-content {  background:#B5EB7C; border-radius:3px; padding:8px 10px; line-height:20px; float:right;  color:#000; }
-.text-li .text-time, .text-li-right .text-time { color:#B2B2B2; text-align:center; font-size:12px; margin-top:2px; height:22px; line-height:22px;}
+.text-li .text-time, .text-li-right .text-time { color:#B2B2B2; text-align:center; font-size:12px; margin-top:2px; height:22px; line-height:22px; display:none;}
 
 .jt_right { background:url(/luqinwenda/images/jt_icon_right.png) no-repeat; width: 10px; height: 30px; right:49px; top:2px; position: absolute; z-index:99 }
 .jt_left { background:url(/luqinwenda/images/jt_icon_left.png); width: 6px; height: 20px; top:29px; position: absolute;}
