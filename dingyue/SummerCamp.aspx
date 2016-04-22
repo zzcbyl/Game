@@ -74,7 +74,7 @@
 
         var shareTitle = '卢勤问答暑期成长营'; //标题
         var shareImg = 'http://game.luqinwenda.com/dingyue/upload/summercamp-icon.jpg'; //图片
-        var shareContent = '2016年暑假，就是这么任性地过！踏出国门，“打开”美国科技大门，在高科技中预见未来的自己！跟随摄影大师，在户外探险中磨砺自己！跟卢勤、杨澜、敬一丹、小雨姐姐、鞠萍姐姐学习如何讲话！这个暑假，勇敢追梦，我能行！'; //简介
+        var shareContent = '2016年暑假夏令营全攻略，点开就能看！赶紧戳进来~'; //简介
         var shareLink = 'http://game.luqinwenda.com/dingyue/SummerCamp.aspx'; //链接
         $(document).ready(function () {
             wx.ready(function () {
