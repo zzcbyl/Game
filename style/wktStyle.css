@@ -1,4 +1,4 @@
-﻿body { font-size:14px; max-width:640px; margin:0 auto; background:#F5F5F5;}
+﻿body { font-size:150%; max-width:640px; margin:0 auto; background:#F5F5F5;}
 ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { list-style-type:none; padding:0;}
 .clear { clear:both;}
 .main-page { width:auto; min-height:500px; background:#fff; margin:10px 15px; border:5px solid #fff; border-radius:5px; }
@@ -23,6 +23,8 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { l
 
 .feed_file_list li { padding-left: 0px; padding:5px 10px; background:#e9f1ff; }
 .feed_file_list .expert-li { padding-left: 0px; padding:5px 10px; background:#fff; }
+.feed_file_list .spacing-li { height:5px; background:#fff; padding:0; }
+.feed_file_list .time-li { background:#fff; color:#B2B2B2; text-align:center; font-size:12px; padding:0; height:30px; line-height:30px;  }
 
 .text-li { position:relative; min-height:50px; width:95%;}
 .text-li .left-head { position:absolute; top:10px; left:5px; }
