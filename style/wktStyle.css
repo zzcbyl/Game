@@ -21,8 +21,8 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { l
 .jp-stop_right_3 { background: url(/luqinwenda/images/jplayerplay_right.png) no-repeat -0px 0; width: 18px; height: 19px;  }
 .jp-audio a { height:30px;}
 
-.feed_file_list li { padding-left: 0px; padding:5px 10px; background:#e9f1ff; }
-.feed_file_list .expert-li { padding-left: 0px; padding:5px 10px; background:#fff; }
+.feed_file_list li { padding-left: 0px; padding:5px; background:#e9f1ff; }
+.feed_file_list .expert-li { padding-left: 0px; padding:5px; background:#fff; }
 .feed_file_list .spacing-li { height:5px; background:#fff; padding:0; }
 .feed_file_list .time-li { background:#fff; color:#B2B2B2; text-align:center; font-size:12px; padding:0; height:30px; line-height:30px;  }
 
@@ -40,7 +40,7 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { l
 .text-li-right .left-head { position:absolute; top:0px; right:5px; }
 .text-li-right .left-head img { width:36px; border-radius:18px; }
 .text-li-right .right-content { float:right; margin-right:55px; }
-.text-li-right .right-content .text_jiantou { position:absolute; right:49px; top:-6px; }
+.text-li-right .right-content .text_jiantou { position:absolute; right:49px; top:-4px; }
 .text-li-right .right-content .text-content {  background:#B5EB7C; border-radius:3px; padding:8px 10px; line-height:20px; float:right;  color:#000; }
 .text-li .text-time, .text-li-right .text-time { color:#B2B2B2; text-align:center; font-size:12px; margin-top:2px; height:22px; line-height:22px; display:none;}
 
