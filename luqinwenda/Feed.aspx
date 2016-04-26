@@ -71,7 +71,7 @@
             <div id="input_text" style="display:none;">
                 <div style="width:50px; float:left; text-align:center;"><a class="horn-change" onclick="changeInput();"></a></div>
                 <div style="width:auto; float:left;" ><input id="textContent" type="text" style="border:2px solid #CACACA; border-radius:5px; width:100%; height:30px; line-height:30px; padding:2px 5px;"  /></div>
-                <div style="width:90px; float:right;"><input type="button" class="btn-feed-send" onclick="inputText(<%=feedId %>);" /></div>
+                <div style="width:90px; float:right;"><input type="button" class="btn-feed-send" onclick="inputText(<%=feedId %>,'fillAnswer');" /></div>
             </div>
             <div id="input_voice">
                 <div style="width:50px; float:left; text-align:center;"><a class="horn-change" onclick="changeInput();"></a></div>

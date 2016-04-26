@@ -149,21 +149,22 @@
                             if ($('.feed_file_list li').length == 0)
                                 $('.feed_file_list').html(inHtml);
                             else
-                                $('.feed_file_list li:last').after(inHtml);
+                                after_append(inHtml);
 
                             if (chatline.answerlist.length > 0) {
                                 var answerlist = "";
                                 for (var j = 0; j < chatline.answerlist.length; j++) {
                                     var answerchat = chatline.answerlist[j];
                                     var answerItem = fomatLi(answerchat);
-                                    answerlist += "<li>" + answerItem.replace("&lt;", "<").replace("&gt;", ">") + "</li>";
+                                    answerlist = "<li>" + answerItem.replace("&lt;", "<").replace("&gt;", ">") + "</li>";
+                                    after_append(answerlist);
                                 }
-                                answerlist += '<li class = "spacing-li"></li>';
-                                $('.feed_file_list li:last').after(answerlist);
+                                answerlist = '<li class = "spacing-li"></li>';
+                                after_append(answerlist);
                             }
 
                             if (i != 0 && i % 5 == 0)
-                                $('.feed_file_list li:last').after('<li class="time-li">' + strTohoursecond(chatline.create_date) + '</li>');
+                                after_append('<li class="time-li">' + strTohoursecond(chatline.create_date) + '</li>');
                         }
                     }
                 }

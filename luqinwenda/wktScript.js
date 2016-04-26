@@ -84,6 +84,11 @@ function scrollPage() {
     $wd.scrollTop($wd.scrollTop() + parseInt(movepx) + 10);
 }
 
+function after_append(content) {
+    $('.feed_file_list li:last').after(content);
+    scrollPage();
+}
+
 function inputText(parentid, callback) {
     if ($('#textContent').val().Trim() != "") {
         submitInput('text', encodeURI($('#textContent').val()), parentid, callback);
