@@ -68,8 +68,7 @@
         </div>
         <div class="header-total">当前人数<br /><span id="personCount">238</span></div>
         <div class="header-userlist">
-            <a style="background:url(http://wx.qlogo.cn/mmopen/M13tqMABLia0mbuQSR36GgqxLRqK0ExSLIj8cEVy2pMQYR7xVwxAg5Is6Y3SiaHP03iciaQZJW1PicHhC4122Va5DSw/0) no-repeat; background-size:40px;"></a>
-            <a style="background:url(http://wx.qlogo.cn/mmopen/M13tqMABLia0mbuQSR36GgqxLRqK0ExSLIj8cEVy2pMQYR7xVwxAg5Is6Y3SiaHP03iciaQZJW1PicHhC4122Va5DSw/0) no-repeat; background-size:40px;"></a>
+            
         </div>
         <div style="clear:both;"></div>
     </div>
