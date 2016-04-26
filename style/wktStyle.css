@@ -1,7 +1,7 @@
 ﻿body { font-size:150%; max-width:640px; margin:0 auto; background:#F5F5F5;}
 ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { list-style-type:none; padding:0;}
 .clear { clear:both;}
-.main-page { width:auto; background:#fff; margin:10px 15px; border:5px solid #fff; border-radius:5px; }
+.main-page { width:auto; background:#fff; margin:10px 8px; border:5px solid #fff; border-radius:5px; }
 .text-li-right .jp-audio, .jp-audio-stream, .jp-video { margin-left: 5px; border: none; background:#B5EB7C;  border-radius:4px;  width: 90px; height: 35px; line-height: 35px; padding:0 5px;}
 .text-li .jp-audio, .jp-audio-stream, .jp-video { margin-left: 5px; border: 1px solid #e0e0e0; background:#fff;  border-radius:4px;  width: 90px; height: 30px; line-height: 30px; padding:0 5px;}
 .jp-play { width: 100%; height: auto; display: block; padding-top: 8px;}
@@ -58,7 +58,7 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { l
 .horn-change { display:block; background:url(../luqinwenda/images/horn-icon.png) no-repeat; background-size:30px; height:30px; width:30px; margin:12px 0 0 10px; }
 .btn-feed-send { display:block; background:url(../luqinwenda/images/btn-send.png) no-repeat; background-size:70px 27px; height:27px; width:70px; margin:14px 10px 0 0; float:right; border:none; }
 
-.main-header { position:fixed; top:0px; left:0px; background:#fff; z-index:999; width:100%; padding:10px 0; border-bottom:1px solid #F5F5F5;}
+.main-header { position:fixed; top:0px; left:0px; background:#F2F6FE; z-index:999; width:100%; padding:10px 0; border-bottom:1px solid #F5F5F5;}
 .main-header .header-userlist { display:block; height:44px; overflow:hidden; }
 .main-header .header-userlist a { width:40px; height:40px; border:2px solid #413127; border-radius:20px; display:inline-block; margin-left:5px; }
 .main-header .header-loginuser { display:block; float:left; margin-left:15px; }
