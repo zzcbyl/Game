@@ -28,7 +28,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div style="max-width:640px; background:#FFFDEA; margin:0 auto;">
         <div style="height:300px; width:auto; background:#D04131; text-align:center;">
-            <a href="wktConfirm.aspx?roomid=<%=roomid %>"><img src="../images/wkt_head1.jpg" style="height:70%; margin-top:10%;"/></a>
+            <a href="wktConfirm.aspx?roomid=<%=roomid %>"><img src="../images/wkt_head1.jpg" style="height:220px; margin-top:40px;"/></a>
         </div>
         <div class="line_main" onclick="location.href='http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=405301163&idx=2&sn=ed872e7bb159b354769e1f33422483cc#rd';">
             <div class="line_left">
