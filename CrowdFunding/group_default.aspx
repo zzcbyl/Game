@@ -164,7 +164,8 @@
                 onclick="location.href='<%=currentCDt.Rows[0]["course_link"].ToString() %>';">
                 <div><img src="<%=currentCDt.Rows[0]["course_headimg"].ToString() %>" width="100%" /></div>
                 <div style="margin-top:5px;">主题：<%=currentCDt.Rows[0]["course_title"].ToString() %></div>
-                <div>主讲人：<%=currentCDt.Rows[0]["course_lecturer"].ToString() %>　　时间：<%=currentCDt.Rows[0]["course_time"].ToString() %></div>
+                <div>主讲人：<%=currentCDt.Rows[0]["course_lecturer"].ToString() %></div>
+                <div>时间：<%=currentCDt.Rows[0]["course_time"].ToString() %></div>
             </div>
             <% } %>
             <div style="padding:10px; margin:5px; line-height:22px;">
