@@ -129,6 +129,8 @@
                             else
                                 $('.feed_file_list li:last').after(inHtml);
 
+                            if (i != 0 && i % 5 == 0)
+                                $('.feed_file_list li:last').after('<li class="time-li">' + strTohoursecond(chatline.create_date) + '</li>');
                         }
                         scrollPage();
                     }
