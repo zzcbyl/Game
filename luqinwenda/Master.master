@@ -69,6 +69,9 @@
         });
         
         $(document).ready(function () {
+            var winHeight = document.body.clientHeight;
+            alert(winHeight);
+
             wx.ready(function () {
                 //分享到朋友圈
                 wx.onMenuShareTimeline({
