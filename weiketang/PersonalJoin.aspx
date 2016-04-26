@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" %>
+<%@ Import Namespace="System.Data" %>
 
 <!DOCTYPE html>
 
@@ -10,6 +11,7 @@
     public string ticket = "";
     public string shaParam = "";
     public string appId = System.Configuration.ConfigurationManager.AppSettings["wxappid_dingyue"];
+    public DataTable currentCDt = new DataTable();
     protected void Page_Load(object sender, EventArgs e)
     {
         try
@@ -37,6 +39,12 @@
             }
             catch { }
         }
+
+        DataTable CourseDt = Donate.getCourse(-1);
+        if (CourseDt != null && CourseDt.Rows.Count > 0)
+        {
+            currentCDt = CourseDt;
+        }
     }
 </script>
 
@@ -62,8 +70,8 @@
             <div style="text-align:left; margin-top:10px;">
                 <div style="text-align:center; font-weight:bold; ">
                     <h3 style="color:#CC3333;">【卢勤和她的朋友们微课堂】</h3>
-                    2016年4月28日<br />
-                    心灵的成长需要体验<br /><br />
+                    <%=currentCDt.Rows[0]["course_time"].ToString().Split('（')[0] %><br />
+                    <%=currentCDt.Rows[0]["course_title"].ToString() %><br /><br />
                 </div>
                 <span style="font-weight:bold; background:#ccc; display:inline-block; padding:5px; margin:3px 0;">个人申请进入听课群资格：</span><br />
                 <%--● 申请活动截止时间：2016年1月21日12:00，之后将不再接受申请；<br />--%>
@@ -89,20 +97,13 @@
             </div>
         </div>
         
+        <%=currentCDt.Rows[0]["course_lecturer_content"].ToString() %>
+
         <div style="text-align:left; line-height:30px; background:#fff; padding:10px; margin-top:10px;">
-            <p style="text-align:center;">
-               <img src="../images/luqin.jpg" width="90%" /></p>
-            <p><h3>卢勤老师</h3></p>
-            <p>　　中国少年儿童新闻出版总社首席教育专家,深受广大家长和小朋友喜爱的“知心姐姐”，中国家庭教育学会常务理事，中国关心下一代工作委员会专家委员会委员，曾担任中国少年儿童新闻出版总社总编辑。中央电视台、中国教育电视台、北京电视台、腾讯、搜狐等多家传媒名牌栏目的常邀嘉宾。</p>
-            <p>　　三十多年来,卢勤老师致力于对少年儿童及家长心理健康的研究。在长期主持《中国少年报》“知心姐姐”栏目过程中，积累了大量的一线家庭教育实践经验，是中国上亿家长及儿童最喜爱、最信任的权威教育专家，深受亿万家长和孩子的爱戴。</p>
-        </div>
-        <div style="text-align:left; line-height:30px; background:#fff; padding:10px; margin-top:10px;">
-            <p>　　大家肯定都看过《小马过河》的故事，小马之所以能过河是因为它有了自己亲身的体验。对于孩子也是这样，他能够顺利的去成长，去迎接困难，也必须要由他自己去体验生命当中接踵而来的每一个困境。</p>
-            <p>　　如今我们父母和孩子有很多矛盾，爸爸妈妈说话孩子不爱听，孩子说话爸爸妈妈听不懂。原因是什么？因为体验不同，经历不同。家长要放手，让孩子自己去经历、体验，即使孩子失败了，也会获得成长。</p>
-            <p>　　<b>4月28日，著名家庭教育专家卢勤老师将带来《心灵的成长需要体验》，告诉您，如何让孩子在体验中成长。</b></p>
-            <p><b>课程名称：</b>心灵的成长需要体验</p>
-            <p><b>开课时间：</b>4月28日（周四）20:00-21:00</p>
-            <p><b>课程形式：</b>卢勤和她的朋友们微课堂群（免费）<br />　　　　　合作转播群（付费）</p>
+            <%=currentCDt.Rows[0]["course_preface"].ToString() %>
+            <p><b>课程名称：</b><%=currentCDt.Rows[0]["course_title"].ToString() %></p>
+            <p><b>开课时间：</b><%=currentCDt.Rows[0]["course_time"].ToString() %></p>
+            <p><b>课程形式：</b><%=currentCDt.Rows[0]["course_cost_text"].ToString() %></p>
             <p><b>适合人群：</b>愿意为孩子创造良好家庭教育环境的家长、准家长、教育工作者。建议家长和孩子一起收听。</p>
         </div>
     </div>

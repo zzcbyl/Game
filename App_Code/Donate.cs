@@ -114,7 +114,11 @@ public class Donate
     public static DataTable getCourse(int courseId)
     {
         DataTable dt = null;
-        string sql = "select * from m_course where course_id=" + courseId;
+        string sql = "";
+        if (courseId > 0)
+            sql = "select * from m_course where course_id=" + courseId;
+        else
+            sql = "select top 1 * from m_course order by course_id desc";
         dt = DBHelper.GetDataTable(sql, Util.ConnectionStringMall);
         return dt;
     }
