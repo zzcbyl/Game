@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" ValidateRequest="false" %>
 <%@ Import Namespace="System.Data.SqlClient" %>
 <%@ Import Namespace="System.Data" %>
+<%@ Import Namespace="System.Net" %>
+<%@ Import Namespace="System.IO" %>
 <!DOCTYPE html>
 
 <script runat="server">
@@ -18,7 +20,15 @@
                 string Contents = Request.Form["hidContent"].ToString();
                 string Url = Request.Form["inputUrl"].ToString();
 
-                string imgName = DateTime.Now.ToString("yyyyMMddhhmmss");
+                string[] imgSrcArr = GetHtmlImageUrlList(Contents);
+                string[] newImgSrcArr = DownImageList(imgSrcArr);
+
+                for (int i = 0; i < imgSrcArr.Length; i++)
+                {
+                    Contents = Contents.Replace(imgSrcArr[i], newImgSrcArr[i]);
+                }
+                
+                string imgName = DateTime.Now.ToString("yyyyMMddHHmmss");
                 HttpPostedFile postedFile = this.FileUpload1.PostedFile;
                 PostFile(postedFile, imgName + ".jpg");
                 postedFile = this.FileUpload2.PostedFile;
@@ -51,6 +61,81 @@
                 Response.Redirect("admin_article.aspx?id=" + article_id);
             }
         }
+    }
+    
+    /// <summary>
+    /// 下载图片
+    /// </summary>
+    /// <param name="sourceImg"></param>
+    /// <returns></returns>
+    public string[] DownImageList(string[] sourceImg)
+    {
+        string[] newImgArr = new string[sourceImg.Length];
+        for (int i = 0; i < sourceImg.Length; i++)
+        {
+            string imgurl = sourceImg[i];
+
+            string extensionName = imgurl.IndexOf("wx_fmt=") > -1 ? imgurl.Substring(imgurl.IndexOf("wx_fmt=") + 7) : "jpg";
+            string imgName = "upload/" + DateTime.Now.ToString("yyyyMMddHHmmss") + "_" + i.ToString() + "." + extensionName;
+            string path = Server.MapPath(imgName);
+
+            WebRequest request = null;
+            WebResponse response = null;
+            Stream reader = null;
+            FileStream writer = null;
+            try
+            {
+                request = WebRequest.Create(imgurl);
+                response = request.GetResponse();
+                reader = response.GetResponseStream();
+                writer = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write);
+                byte[] buff = new byte[1024];
+                int c = 0; //实际读取的字节数
+                while ((c = reader.Read(buff, 0, buff.Length)) > 0)
+                {
+                    writer.Write(buff, 0, c);
+                }
+                writer.Close();
+                writer.Dispose();
+                reader.Close();
+                reader.Dispose();
+                response.Close();
+            }
+            catch { }
+            finally
+            {
+                writer.Close();
+                writer.Dispose();
+                reader.Close();
+                reader.Dispose();
+                response.Close();
+            }
+
+            newImgArr[i] = "http://" + Util.DomainName + "/dingyue/" + imgName;
+        }
+        
+        return newImgArr;
+    }
+
+    /// <summary> 
+    /// 取得HTML中所有图片的 URL。 
+    /// </summary> 
+    /// <param name="sHtmlText">HTML代码</param> 
+    /// <returns>图片的URL列表</returns> 
+    public string[] GetHtmlImageUrlList(string sHtmlText)
+    {
+        // 定义正则表达式用来匹配 img 标签 
+        Regex regImg = new Regex(@"<img\b[^<>]*?\bsrc[\s\t\r\n]*=[\s\t\r\n]*[""']?[\s\t\r\n]*(?<imgUrl>[^\s\t\r\n""'<>]*)[^<>]*?/?[\s\t\r\n]*>", RegexOptions.IgnoreCase);
+
+        // 搜索匹配的字符串 
+        MatchCollection matches = regImg.Matches(sHtmlText);
+        int i = 0;
+        string[] sUrlList = new string[matches.Count];
+
+        // 取得匹配项列表 
+        foreach (Match match in matches)
+            sUrlList[i++] = match.Groups["imgUrl"].Value;
+        return sUrlList;
     }
 
     private string PostFile(HttpPostedFile postedFile, string imgName)
@@ -139,7 +224,7 @@
                     <input type="hidden" id="hidVal" name="hidVal" value="1" />
                     <input type="hidden" id="hidContent" name="hidContent" />
                     <%--<button type="submit" class="btn btn-default">提交</button>--%>
-                    <input type="button" value="按钮" onclick="textClick();" />
+                    <input type="button" value="提交" onclick="textClick();" />
                 </div>
             </div>
         </div>
