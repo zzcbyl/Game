@@ -29,6 +29,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>卢勤问答暑期成长营</title>
     <script src="../script/jquery-1.3.2.min.js"></script>
+    <style type="text/css">
+        img { vertical-align:top; }
+    </style>
 </head>
 <body style="background:#00c0c1;">
     <form id="form1" runat="server">
