@@ -73,6 +73,7 @@
     </div>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
+        var feedid = '0';
         var userid = '<%=userid %>';
         var token = '<%=token %>';
         var roomid = '<%=roomid %>';
