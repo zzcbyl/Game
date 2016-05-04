@@ -8,7 +8,7 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { l
 .jplay_play { background: url(/luqinwenda/images/jplayerstop.png) no-repeat; width: 16px; height: 19px; display: block; margin-left:1px; }
 .jp-play:focus { background: none;}
 .jplay_play_right { background: url(/luqinwenda/images/jplayerstop_right.png) no-repeat; width: 16px; height: 19px; display: block; float:right; margin-right:1px; }
-.jp-stop {  width: 100%; height: auto; display: block; margin-left: 0; padding-top: 6px; margin-top: 0; }
+.jp-stop {  width: 100%; height: auto; display: block; margin-left: 0; padding-top: 8px; margin-top: 0; }
 .jplay_stop { display: block; margin-left: 0px;}
 .jplay_stop_right { display: block; margin-left: 0px; float:right;}
 .jp-stop:focus { background: none; margin-left: 0; }
