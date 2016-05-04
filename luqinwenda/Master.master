@@ -65,7 +65,16 @@
             signature: '<%=shaParam %>', // 必填，签名，见附录1
             jsApiList: [
                     'onMenuShareTimeline',
-                    'onMenuShareAppMessage']
+                    'onMenuShareAppMessage',
+                    'startRecord',
+                    'stopRecord',
+                    'onVoiceRecordEnd',
+                    'playVoice',
+                    'pauseVoice',
+                    'stopVoice',
+                    'onVoicePlayEnd',
+                    'uploadVoice',
+                    'downloadVoice']
         });
         
         $(document).ready(function () {
