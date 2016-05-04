@@ -62,7 +62,7 @@ wx.ready(function () {
                 //alert('上传语音成功，serverId 为' + res.serverId);
                 voice.serverId = res.serverId;
 
-                submitInput('voice', voice.serverId, feedid);
+                submitInput('voice', voice.serverId, feedid, callback);
             }
         });
     }

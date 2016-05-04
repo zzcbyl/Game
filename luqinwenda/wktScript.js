@@ -105,7 +105,8 @@ function submitInput(type, content, parentid, callback) {
         dataType: "json",
         success: function (data) {
             //fillAnswer();
-            eval(callback + "()");
+            if (callback && callback != '')
+                eval(callback + "()");
         }
     });
 }

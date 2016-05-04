@@ -82,6 +82,7 @@
         var expertlist = '<%=expertlist %>';
         var expertArr = expertlist.split(',');
         var maxdt = '';
+        var callback = 'fillList_QA';
         var textLeft = "<div class=\"text-li\"><div class=\"left-head\"><img src=\"{0}\" /></div>"
                 + "<div class=\"right-content\"><div class=\"text-nick\">{1}</div>"
                 + "<div class=\"text-content\">{2}</div>"
