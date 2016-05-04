@@ -45,6 +45,9 @@
         <div><img src="upload/camp_05.jpg" width="100%" /></div>
         <div><a href="http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506765618&idx=5&sn=c58b90ea74da22dbff472cc2832d4e8f&scene=0&previewkey=CaNeql4rjG8mbFEHXBc6BcwqSljwj2bfCUaCyDofEow%3D#wechat_redirect" style="display:block">
             <img src="upload/camp_06.jpg" width="100%" alt="“少年摄影家”秦岭户外训练营" /></a></div>
+        <div><img src="upload/camp_13.jpg" width="100%" /></div>
+        <div><a href="http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506765749&idx=1&sn=e3059515579d8e713f945c0e71f5d016#rd" style="display:block">
+            <img src="upload/camp_14.jpg" width="100%" alt="“热血少年”极限运动夏令营" /></a></div>
         <div><img src="upload/camp_07.jpg" width="100%" /></div>
         <div><a href="http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506765618&idx=6&sn=58572d0681f3c3cf64056ef6822d2adc&scene=0&previewkey=CaNeql4rjG8mbFEHXBc6BcwqSljwj2bfCUaCyDofEow%3D#wechat_redirect" style="display:block">
             <img src="upload/camp_08.jpg" width="100%" alt="“少年摄影家”云南大咖摄影旅行训练营" /></a></div>
