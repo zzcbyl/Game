@@ -92,7 +92,7 @@
         var domainName = '<%=domainName %>';
         var expertlist = '<%=expertlist %>';
         var maxId = '';
-        var callback = '';
+        var callback = 'fillAnswer';
         var textLeft = "<div class=\"text-li\"><div class=\"left-head\"><img src=\"{0}\" /></div>"
                 + "<div class=\"right-content\"><div class=\"text-nick\">{1}</div>"
                 + "<div class=\"text-content\">{2}</div>"
