@@ -52,8 +52,8 @@
         <div><a href="http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506765618&idx=6&sn=58572d0681f3c3cf64056ef6822d2adc&scene=0&previewkey=CaNeql4rjG8mbFEHXBc6BcwqSljwj2bfCUaCyDofEow%3D#wechat_redirect" style="display:block">
             <img src="upload/camp_06.jpg" width="100%" alt="“少年摄影家”云南大咖摄影旅行训练营" /></a></div>
         
-        <div><a href="http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506765618&idx=1&sn=285368af60e1fa1bbfa2182d00ca9e9e&scene=0&previewkey=CaNeql4rjG8mbFEHXBc6BcwqSljwj2bfCUaCyDofEow%3D#wechat_redirect" style="display:block">
-            <img src="upload/camp_07.jpg" width="100%" alt="“大开眼界”【美国创新科技体验营】遇见未来的自己！" /></a></div>
+        <%--<div><a href="http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506765618&idx=1&sn=285368af60e1fa1bbfa2182d00ca9e9e&scene=0&previewkey=CaNeql4rjG8mbFEHXBc6BcwqSljwj2bfCUaCyDofEow%3D#wechat_redirect" style="display:block">
+            <img src="upload/camp_07.jpg" width="100%" alt="“大开眼界”【美国创新科技体验营】遇见未来的自己！" /></a></div>--%>
         
         <div><a href="http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506765618&idx=7&sn=896a14921ece7e23a44195cc0b6a264c&scene=0&previewkey=CaNeql4rjG8mbFEHXBc6BcwqSljwj2bfCUaCyDofEow%3D#wechat_redirect" style="display:block">
             <img src="upload/camp_08.jpg" width="100%" alt="“少年探险家”北京松山户外拓展训练营" /></a></div>
