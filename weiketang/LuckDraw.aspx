@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 
 <script runat="server">
-    public string cName = "ActivityDraw7";
+    public string cName = "ActivityDraw8";
     public string ListStr = "";
     public string ListStr1 = "";
     public string ListStr2 = "";
@@ -13,7 +13,7 @@
     public int AwardType = 1;
     public string CouponCode = "";
     public int CouponAmount = 0;
-    public string actid = "7";
+    public string actid = "8";
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Request["openid"] == null || Request["id"] == null)
@@ -58,6 +58,10 @@
                     AwardType = 2;
                     if (AwardName == "发掘孩子的大脑潜能")
                         AwardName = "《发掘孩子的大脑潜能》一本";
+                    else if (AwardName == "朱林禾羽独家定制科学内衣（文胸）")
+                        AwardName = "朱林禾羽独家定制科学内衣（文胸）一件";
+                    else if (AwardName == "朱林禾羽独家定制科学内衣（内裤）")
+                        AwardName = "朱林禾羽独家定制科学内衣（内裤）一条";
                     else
                         AwardName = "卢勤老师所著新书《" + AwardName + "》一本";
                     if (cookie != null && cookie.Value == "1")
@@ -176,7 +180,7 @@
 <head runat="server">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>卢勤问答平台阅读卡</title>
+    <title>卢勤问答平台</title>
     <style type="text/css">
         .comment_people { background:#fff; margin-top:5px; padding:5px 0; }
         .comment_people p { margin:0;}
@@ -211,11 +215,11 @@
                 </div>
             </div>
         </div>
-        <div style="border-radius:5px; background:#fff; padding:1px 10px 10px; margin-top:10px;">
+        <%--<div style="border-radius:5px; background:#fff; padding:1px 10px 10px; margin-top:10px;">
             <p><a href="http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=405844141&idx=1&sn=fb85317b54adbd207fbb7a56ffd5b4eb#rd"><img src="../images/ying_speak.jpg" style="width:100%;" /></a></p>
             <p style="color:red; text-align:left; ">现在报名“少年演说家”潜能开发营”优惠300元</p>
             <p style="text-align:center;"><a id="btnSupport_ying" class="btnCss" style="display:inline-block; margin:0 auto; background:#FB6C69;" href="http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=405844141&idx=1&sn=fb85317b54adbd207fbb7a56ffd5b4eb#rd">去报名</a></p>
-        </div>
+        </div>--%>
         <div class="comment_people" style="border-radius:5px; background:#fff;">
             <h4>中奖用户</h4>
             <ul id="commentlist">
