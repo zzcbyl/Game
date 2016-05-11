@@ -59,7 +59,7 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { l
 .btn-feed-send { display:block; background:url(../luqinwenda/images/btn-send.png) no-repeat; background-size:70px 27px; height:27px; width:70px; margin:14px 10px 0 0; float:right; border:none; }
 
 .main-header { position:fixed; top:0px; left:0px; background:#F2F6FE; z-index:999; width:100%; padding:10px 0; border-bottom:1px solid #F5F5F5;}
-.main-header .header-userlist { display:block; height:44px; overflow:hidden; }
+.main-header .header-userlist { display:block; height:44px; overflow:hidden; margin-right:10px; }
 .main-header .header-userlist a { width:40px; height:40px; border:2px solid #413127; border-radius:20px; display:inline-block; margin-left:5px; }
 .main-header .header-loginuser { display:block; float:left; margin-left:15px; }
 .main-header .header-loginuser a {width:40px; height:40px; border:2px solid #413127; border-radius:20px; display:block; }
