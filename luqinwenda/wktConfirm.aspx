@@ -37,6 +37,10 @@
             Response.End();
             return;
         }
+        if (drow["price"].ToString() == "0")
+        {
+            this.Response.Redirect("Default.aspx?roomid=" + roomId);
+        }
 
         UserChatRoomRights userChatRoom = new UserChatRoomRights(userId, roomId);
         if (userChatRoom.CanEnter && userChatRoom.CanPublishText)
