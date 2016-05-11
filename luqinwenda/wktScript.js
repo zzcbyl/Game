@@ -22,6 +22,8 @@ function changePlay(id, fx) {
         $('#a_jp_stop_' + id).hide();
         clearInterval(ssset)
     }
+    if ($('#audio_bg'))
+        changAudioBg();
 }
 
 function playA() {
