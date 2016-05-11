@@ -37,12 +37,42 @@
             Response.End();
             return;
         }
+        UserChatRoomRights userChatRoom;
         if (drow["price"].ToString() == "0")
         {
-            this.Response.Redirect("Default.aspx?roomid=" + roomId);
+            int ticketid = Donate.buyTicket(userId, roomId, 0, "购买进入 " + roomId + " Room的票");
+            Donate.setBuyTicketState(ticketid);
+            DataTable ticketDt = Donate.getTicket(ticketid);
+            if (ticketDt != null && ticketDt.Rows.Count > 0)
+            {
+                if (ticketDt.Rows[0]["paystate"].ToString().Equals("1"))
+                {
+                    userChatRoom = UserChatRoomRights.GetUserRightTemplate(userId);
+                    if (userChatRoom._fieldsTemplate == null)
+                        UserChatRoomRights.CreateUserRightTemplate(int.Parse(ticketDt.Rows[0]["userid"].ToString()));
+                    else
+                    {
+                        userChatRoom._fieldsTemplate["can_enter_chat_room"] = "1";
+                        userChatRoom._fieldsTemplate["can_chat_text"] = "1";
+                        userChatRoom.UpdateUserRightTemplate();
+                    }
+
+                    userChatRoom = UserChatRoomRights.GetUserChatRights(int.Parse(ticketDt.Rows[0]["userid"].ToString()), int.Parse(ticketDt.Rows[0]["roomid"].ToString()));
+                    if (userChatRoom._fieldsChatRoom == null)
+                        UserChatRoomRights.CreateUserChatRights(int.Parse(ticketDt.Rows[0]["roomid"].ToString()), int.Parse(ticketDt.Rows[0]["userid"].ToString()));
+                    else
+                    {
+                        userChatRoom._fieldsChatRoom["can_enter_chat_room"] = "1";
+                        userChatRoom._fieldsChatRoom["can_chat_text"] = "1";
+                        userChatRoom.UpdateUserChatRoomRights();
+                    }
+
+                    this.Response.Redirect("Default.aspx?roomid=" + int.Parse(ticketDt.Rows[0]["roomid"].ToString()));
+                }
+            }
         }
 
-        UserChatRoomRights userChatRoom = new UserChatRoomRights(userId, roomId);
+        userChatRoom = new UserChatRoomRights(userId, roomId);
         if (userChatRoom.CanEnter && userChatRoom.CanPublishText)
         {
             this.Response.Redirect("Default.aspx?roomid=" + roomId);
