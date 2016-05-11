@@ -38,6 +38,13 @@
             return;
         }
         UserChatRoomRights userChatRoom;
+
+        userChatRoom = new UserChatRoomRights(userId, roomId);
+        if (userChatRoom.CanEnter && userChatRoom.CanPublishText)
+        {
+            this.Response.Redirect("Default.aspx?roomid=" + roomId);
+        }
+        
         if (drow["price"].ToString() == "0")
         {
             int ticketid = Donate.buyTicket(userId, roomId, 0, "购买进入 " + roomId + " Room的票");
@@ -70,12 +77,6 @@
                     this.Response.Redirect("Default.aspx?roomid=" + int.Parse(ticketDt.Rows[0]["roomid"].ToString()));
                 }
             }
-        }
-
-        userChatRoom = new UserChatRoomRights(userId, roomId);
-        if (userChatRoom.CanEnter && userChatRoom.CanPublishText)
-        {
-            this.Response.Redirect("Default.aspx?roomid=" + roomId);
         }
         
         
