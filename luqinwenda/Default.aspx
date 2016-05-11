@@ -78,7 +78,7 @@
             <div style="display:none;"><audio id="audio_1" controls="controls" autoplay="autoplay" src="<%=chatDrow["audio_url"].ToString() %>"></audio></div>
         </div>
     </div>
-    <div id="mydiv" class="main-page" style="margin-top:60px;">
+    <div id="mydiv" class="main-page" style="margin-top:160px;">
         <div>
             <ul id="feed_file_list" class="feed_file_list">
                 <div style="clear: both;"></div>
