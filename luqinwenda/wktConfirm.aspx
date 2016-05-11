@@ -37,9 +37,7 @@
             Response.End();
             return;
         }
-        UserChatRoomRights userChatRoom;
-
-        userChatRoom = new UserChatRoomRights(userId, roomId);
+        UserChatRoomRights userChatRoom = new UserChatRoomRights(userId, roomId);
         if (userChatRoom.CanEnter && userChatRoom.CanPublishText)
         {
             this.Response.Redirect("Default.aspx?roomid=" + roomId);
