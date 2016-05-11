@@ -49,7 +49,7 @@
             <div style="float:right; margin-right:20px; font-size:16px;">积分：<span style="color:#D69100"><%=user.Integral %></span></div>
         </div>
         <div style="background:#fff; line-height:25px; padding:8px 10px; font-size:14px; color:#808080;">
-            ● 积分可以兑换【卢勤微课堂】视频微课门票。<br />
+            ● 积分可以兑换【卢勤微课堂】微课门票。<br />
             ● 转发签到文章到朋友圈可得1积分；邀请朋友转发您的签到文章到朋友圈您可以再得到1积分。每位用户每天最多可以获得10积分。<br />
             ● 显示“已转”的签到文章再次分享到朋友圈将不会再增加积分。
         </div>
