@@ -67,7 +67,7 @@
     <div class="main-header" style="">
         <div class="header-loginuser">
         </div>
-        <div class="header-total">当前人数<br /><span id="personCount">238</span></div>
+        <div class="header-total">当前人数<br /><span id="personCount">-</span></div>
         <div class="header-userlist">
             
         </div>
