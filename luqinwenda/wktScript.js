@@ -122,14 +122,20 @@ function strTohoursecond(str) {
 
 
 function fomatLi(chatline) {
+    var nickName = chatline.nick;
+    var userAvatar = chatline.avatar;
     var liItem = "";
+    if (userAvatar == '')
+        userAvatar = '/images/noAvatar.jpg';
+    if (nickName == '')
+        nickName = '匿名';
     switch (chatline.message_type) {
         case "text":
             {
                 if ($.inArray(chatline.user_id.toString(), expertArr) >= 0)
-                    liItem = String.format(textRight, chatline.avatar, chatline.message_content, strTohoursecond(chatline.create_date));
+                    liItem = String.format(textRight, userAvatar, chatline.message_content, strTohoursecond(chatline.create_date));
                 else
-                    liItem = String.format(textLeft, chatline.avatar, chatline.nick, chatline.message_content, strTohoursecond(chatline.create_date), "", "");
+                    liItem = String.format(textLeft, userAvatar, nickName, chatline.message_content, strTohoursecond(chatline.create_date), "", "");
             }
             break;
         case "voice":
@@ -138,9 +144,9 @@ function fomatLi(chatline) {
                 if (vlen < 80)
                     vlen = 80;
                 if ($.inArray(chatline.user_id.toString(), expertArr) >= 0)
-                    liItem = String.format(voiceRight, chatline.avatar, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString(), chatline.voice_length, "width:" + vlen + "px", strTohoursecond(chatline.create_date));
+                    liItem = String.format(voiceRight, userAvatar, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString(), chatline.voice_length, "width:" + vlen + "px", strTohoursecond(chatline.create_date));
                 else
-                    liItem = String.format(voiceLeft, chatline.avatar, chatline.nick, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString(), chatline.voice_length, "width:" + vlen + "px", strTohoursecond(chatline.create_date));
+                    liItem = String.format(voiceLeft, userAvatar, nickName, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString(), chatline.voice_length, "width:" + vlen + "px", strTohoursecond(chatline.create_date));
 
                 voiceIndex = (parseInt(voiceIndex) + 1).toString();
             }
