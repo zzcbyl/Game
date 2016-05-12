@@ -215,7 +215,7 @@ public class UserChatRoomRights
 
     public static DataTable GetRoomUserList(int ChatRoomId)
     {
-        DataTable dt = DBHelper.GetDataTable(" select top 20 * from user_chat_room_rights where chat_room_id = " + ChatRoomId.ToString() + " order by create_date desc", Util.ConnectionString);
+        DataTable dt = DBHelper.GetDataTable(" select * from user_chat_room_rights where chat_room_id = " + ChatRoomId.ToString() + " order by create_date desc", Util.ConnectionString);
         return dt;
     }
 
