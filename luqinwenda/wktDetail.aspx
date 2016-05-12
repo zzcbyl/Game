@@ -45,7 +45,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div style="max-width:640px; background:#FFFDEA; margin:0 auto;">
         <div style="height:300px; width:auto; background:#D04131; text-align:center;">
-            <a href="wktConfirm.aspx?roomid=<%=roomid %>"><img src="../images/wkt_head1.jpg" style="height:220px; margin-top:40px;"/></a>
+            <a href="wktConfirm.aspx?roomid=<%=roomid %>"><img src="/dingyue/upload/wkt_head.gif" style="height:220px; margin-top:40px;"/></a>
         </div>
         <div class="line_main" onclick="clickCourse(this, '<%=currentCDt.Rows[0]["course_link"].ToString() %>');">
             <div class="line_left">
