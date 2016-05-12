@@ -1,4 +1,4 @@
-﻿<%@ Page Title="卢勤和她的朋友们微课堂" Language="C#" MasterPageFile="~/IntegralMall/Master.master" %>
+﻿<%@ Page Title="卢勤问答平台微课教室" Language="C#" MasterPageFile="~/IntegralMall/Master.master" %>
 <%@ Import Namespace="System.Data" %>
 <%@ Import Namespace="System.Web.Script.Serialization" %>
 

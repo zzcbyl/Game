@@ -1,4 +1,4 @@
-﻿<%@ Page Title="卢勤和她的朋友们微课堂" Language="C#" MasterPageFile="~/luqinwenda/Master.master" %>
+﻿<%@ Page Title="卢勤问答平台微课教室" Language="C#" MasterPageFile="~/luqinwenda/Master.master" %>
 <%@ Import Namespace="System.Data" %>
 <script runat="server">
     public int roomid = 0;
