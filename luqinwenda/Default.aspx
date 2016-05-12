@@ -73,7 +73,7 @@
         </div>
         <div style="clear:both;"></div>
 
-        <div style="height:200px; text-align:center; background:url(/dingyue/upload/fm_room_bg.jpg) no-repeat; background-size:auto 100%;" onclick="playAudio();">
+        <div style="height:200px; text-align:center; background:url(/dingyue/upload/fm_room_bg.jpg) no-repeat; background-size:100% auto;" onclick="playAudio();">
             <img id="audio_bg" style="height:100px; margin-top:50px;" src="/dingyue/upload/fm_room_bg.gif" />
             <div style="display:none;"><audio id="audio_1" controls="controls" autoplay="autoplay" src="<%=chatDrow["audio_url"].ToString() %>"></audio></div>
         </div>
