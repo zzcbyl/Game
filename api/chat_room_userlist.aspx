@@ -23,8 +23,10 @@
             Users user;
             DataTable dt = UserChatRoomRights.GetRoomUserList(roomId);
             string chatListJson = "";
+            int index = 0;
             foreach (DataRow drow in dt.Rows)
             {
+                index++;
                 string dJson = "";
                 foreach (DataColumn dcolumn in dt.Columns)
                 {
@@ -32,7 +34,7 @@
                 }
                 uid = int.Parse(drow["user_id"].ToString());
                 user = new Users(uid);
-                if (user._fields != null && user.ID > 0)
+                if ((index < 20 && user._fields != null && user.ID > 0) || (user.ID == userId))
                 {
                     string userAvatarJson = "";
                     try

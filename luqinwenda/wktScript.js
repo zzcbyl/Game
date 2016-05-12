@@ -173,7 +173,7 @@ function fillHeader() {
                 for (var i = 0; i < data.chatUserList.length; i++) {
                     var chatuser = data.chatUserList[i];
                     headImage = '/images/noAvatar.jpg';
-                    if (chatuser.userinfo.headimgurl)
+                    if (chatuser.userinfo && chatuser.userinfo.headimgurl)
                         headImage = chatuser.userinfo.headimgurl;
                     if (chatuser.user_id == userid)
                         currentUser = String.format(headA, headImage);
