@@ -47,25 +47,24 @@
         <div style="height:300px; width:auto; background:#D04131; text-align:center;">
             <a href="wktConfirm.aspx?roomid=<%=roomid %>"><img src="../images/wkt_head1.jpg" style="height:220px; margin-top:40px;"/></a>
         </div>
-        <div class="line_main" onclick="location.href='<%=currentCDt.Rows[0]["course_link"].ToString() %>';">
+        <div class="line_main" onclick="clickCourse(this, '<%=currentCDt.Rows[0]["course_link"].ToString() %>');">
             <div class="line_left">
                 <img src="../images/wkt_icon1.jpg" />
             </div>
             <div class="line_middle">
-                <div>主题：<%=currentCDt.Rows[0]["course_title"].ToString() %></div>
-                <div style="font-size:12px;"><%=currentCDt.Rows[0]["course_time"].ToString() %></div>
+                <div style="height:50px;">主题：<%=currentCDt.Rows[0]["course_title"].ToString() %></div>
             </div>
             <div class="line_right">
                 <img src="../images/wkt_icon6.jpg" />
             </div>
         </div>
-        <div class="line_main" onclick="location.href='<%=currentCDt.Rows[0]["course_lecturer_link"].ToString() %>';">
+        <div class="line_main" onclick="clickCourse(this, '<%=currentCDt.Rows[0]["course_lecturer_link"].ToString() %>');">
             <div class="line_left" style="background:#D66E93;">
                 <img src="../images/wkt_icon2.jpg" />
             </div>
             <div class="line_middle">
                 <div>主讲老师：<%=currentCDt.Rows[0]["course_lecturer"].ToString() %></div>
-                <div style="font-size:12px;"><%=currentCDt.Rows[0]["course_lecturer_summary"].ToString() %></div>
+                <div style="font-size:12px;"><%=currentCDt.Rows[0]["course_time"].ToString() %></div>
             </div>
             <div class="line_right">
                 <img src="../images/wkt_icon6.jpg" />
@@ -73,7 +72,7 @@
         </div>
         <div class="line_main" style="border-bottom:none; padding:10px 20px; height:auto; line-height:22px;">
             <div style="font-size:14px; font-weight:bold; padding:5px 0;">听课须知</div>
-            <div>1、点击最上方大图，进入【卢勤和她的朋友们微课堂】直播间；</div>
+            <div>1、点击最上方大图，进入【卢勤问答平台微课教室】直播间；</div>
             <div>2、卢勤微课直播间为付费课程，请支付所需课程费用（仅支持微信支付）；</div>
             <div>3、支付成功后，进入微课直播间。课程直播中禁言，如需提问，点击右下方【我的问题】开始提问，您的问题将显示在这里。如果专家已经回答您的提问，左下方【全部问题】中将会显示您的问题解答。</div>
         </div>
@@ -86,6 +85,12 @@
                 bw = 640;
             $('.line_middle').css('width', (bw - 130).toString() + "px");
         });
+
+        function clickCourse(obj, url)
+        {
+            $(obj).css('color', '#888');
+            location.href = url;
+        }
     </script>
 </asp:Content>
 

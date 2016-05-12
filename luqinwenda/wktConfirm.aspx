@@ -97,7 +97,7 @@
             int ticketid = Donate.buyTicket(userId, roomId, price, "购买进入 " + roomId + " Room的票");
 
 
-            string payurl = "http://weixin.luqinwenda.com/payment/payment.aspx?body=卢勤问答平台微课堂&detail=听课费&userid=" + userId + "&product_id=" + ticketid + "&total_fee=" + price.ToString()
+            string payurl = "http://weixin.luqinwenda.com/payment/payment.aspx?body=卢勤问答平台微课教室&detail=听课费&userid=" + userId + "&product_id=" + ticketid + "&total_fee=" + price.ToString()
                     + "&callback=" + Server.UrlEncode("http://game.luqinwenda.com/luqinwenda/paySuccess.aspx?product_id=" + ticketid);
             Response.Redirect(payurl);
         }
@@ -117,7 +117,7 @@
             <img src="../images/wkt_confirm_icon.png" style="width:40%;" />
         </div>
         <div style="text-align:left; width:70%; margin-left:15%; line-height:25px;">
-            <div>欢迎您进入【卢勤和她的朋友们微课堂】</div>
+            <div>欢迎您进入【卢勤问答平台微课教室】</div>
             <div>您需要支付：<%=float.Parse(drow["price"].ToString()) / 100 %>元</div>
             <div></div>
         </div>
