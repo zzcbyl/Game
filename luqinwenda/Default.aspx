@@ -73,8 +73,8 @@
         </div>
         <div style="clear:both;"></div>
 
-        <div style="height:100px; width:100%; text-align:center; background:#fff;" onclick="playAudio();">
-            <img id="audio_bg" style="height:100%;" src="/dingyue/upload/fm_room_bg.gif" />
+        <div style="height:200px; text-align:center; background:url(/dingyue/upload/fm_room_bg.jpg) no-repeat; background-size:auto 100%;" onclick="playAudio();">
+            <img id="audio_bg" style="height:100px; margin-top:50px;" src="/dingyue/upload/fm_room_bg.gif" />
             <div style="display:none;"><audio id="audio_1" controls="controls" autoplay="autoplay" src="<%=chatDrow["audio_url"].ToString() %>"></audio></div>
         </div>
     </div>
@@ -132,17 +132,19 @@
         });
 
         function playAudio() {
+            changAudioBg();
+            //alert(audio.paused);
             if (audio.paused) {
                 audio.play();
                 return;
             }
             audio.pause();
-            changAudioBg();
         }
 
         function changAudioBg() {
-            if (audio.paused) {
-                $('#audio_bg').attr('src', '/dingyue/upload/fm_room_bg_paused.jpg');
+            //alert(audio.paused);
+            if (!audio.paused) {
+                $('#audio_bg').attr('src', '/dingyue/upload/fm_room_bg_paused.png');
             }
             else {
                 $('#audio_bg').attr('src', '/dingyue/upload/fm_room_bg.gif');
