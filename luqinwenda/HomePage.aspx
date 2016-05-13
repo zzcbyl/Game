@@ -53,7 +53,7 @@
         UserChatRoomRights userChatRoom = new UserChatRoomRights(userid, int.Parse(roomid));
         if (!userChatRoom.CanEnter || !userChatRoom.CanPublishText)
         {
-            Response.Redirect("wktConfirm.aspx?roomid=" + roomid);
+            Response.Redirect("wktConfirm_Integral.aspx?roomid=" + roomid);
             return;
         }
 

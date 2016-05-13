@@ -45,7 +45,7 @@
         UserChatRoomRights userChatRoom = new UserChatRoomRights(userId, roomId);
         if (userChatRoom.CanEnter && userChatRoom.CanPublishText)
         {
-            this.Response.Redirect("Default.aspx?roomid=" + roomId);
+            this.Response.Redirect("HomePage.aspx?roomid=" + roomId);
         }
 
         if (drow["price"].ToString().Trim() == "0" && drow["integral"].ToString().Trim() == "0")
@@ -58,7 +58,7 @@
                 if (ticketDt.Rows[0]["paystate"].ToString().Equals("1"))
                 {
                     UserChatRoomRights.SetUserChatRoom(userId, roomId);
-                    this.Response.Redirect("Default.aspx?roomid=" + int.Parse(ticketDt.Rows[0]["roomid"].ToString()));
+                    this.Response.Redirect("HomePage.aspx?roomid=" + int.Parse(ticketDt.Rows[0]["roomid"].ToString()));
                 }
             }
         }
@@ -104,14 +104,14 @@
                     if (result > 0)
                     {
                         UserChatRoomRights.SetUserChatRoom(userId, roomId);
-                        this.Response.Redirect("Default.aspx?roomid=" + roomId);
+                        this.Response.Redirect("HomePage.aspx?roomid=" + roomId);
                     }
                 }
             }
             else
             {
                 UserChatRoomRights.SetUserChatRoom(userId, roomId);
-                this.Response.Redirect("Default.aspx?roomid=" + roomId);
+                this.Response.Redirect("HomePage.aspx?roomid=" + roomId);
             }
         }
     }
@@ -159,7 +159,7 @@
                 }
             }
             alert("您的积分不足，请先签到获取积分");
-            location.href = 'http://game.luqinwenda.com/dingyue/default.aspx';
+            //location.href = 'http://game.luqinwenda.com/dingyue/default.aspx';
         }
     </script>
 </asp:Content>
