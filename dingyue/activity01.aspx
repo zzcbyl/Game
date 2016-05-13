@@ -152,25 +152,6 @@
         var Fatheruid = 0;
         var articleid = '<%=articleid %>';
         $(document).ready(function () {
-            //if(ExitName == 0)
-            //    inputName();
-            increase();
-            if (QueryString("fuid") != null) {
-                Fatheruid = QueryString("fuid");
-            }
-
-            showZan();
-
-            //红点
-            var pointstr = getCookie("redPointList");
-            if (pointstr == null) {
-                pointstr = articleid;
-            }
-            else {
-                pointstr += (';' + articleid);
-            }
-            setCookie("redPointList", pointstr);
-
             wx.ready(function () {
                 //分享到朋友圈
                 wx.onMenuShareTimeline({
@@ -195,6 +176,23 @@
                     }
                 });
             });
+
+            increase();
+            if (QueryString("fuid") != null) {
+                Fatheruid = QueryString("fuid");
+            }
+
+            showZan();
+
+            //红点
+            var pointstr = getCookie("redPointList");
+            if (pointstr == null) {
+                pointstr = articleid;
+            }
+            else {
+                pointstr += (';' + articleid);
+            }
+            setCookie("redPointList", pointstr, 1000000);
         });
 
         //function inputName() {

@@ -219,4 +219,28 @@ public class UserChatRoomRights
         return dt;
     }
 
+
+    public static void SetUserChatRoom(int userId, int roomid)
+    {
+        UserChatRoomRights userChatRoom = UserChatRoomRights.GetUserRightTemplate(userId);
+        if (userChatRoom._fieldsTemplate == null)
+            UserChatRoomRights.CreateUserRightTemplate(userId);
+        else
+        {
+            userChatRoom._fieldsTemplate["can_enter_chat_room"] = "1";
+            userChatRoom._fieldsTemplate["can_chat_text"] = "1";
+            userChatRoom.UpdateUserRightTemplate();
+        }
+
+        userChatRoom = UserChatRoomRights.GetUserChatRights(userId, roomid);
+        if (userChatRoom._fieldsChatRoom == null)
+            UserChatRoomRights.CreateUserChatRights(roomid, userId);
+        else
+        {
+            userChatRoom._fieldsChatRoom["can_enter_chat_room"] = "1";
+            userChatRoom._fieldsChatRoom["can_chat_text"] = "1";
+            userChatRoom.UpdateUserChatRoomRights();
+        }
+    }
+
 }

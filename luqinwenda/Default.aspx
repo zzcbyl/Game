@@ -2,7 +2,7 @@
 <%@ Import Namespace="System.Data" %>
 
 <script runat="server">
-    public string token = "";
+    public string token = "e90477e2f0993c8cea841471d157caad237cfd776919dc0b28c5b51ee601b782f51f69fc";
     public string roomid = "0";
     public ArrayList chatList = new ArrayList();
     public int userid = 0;

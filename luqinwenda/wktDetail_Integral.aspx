@@ -1,4 +1,4 @@
-﻿<%@ Page Title="卢勤问答平台微课教室" Language="C#" MasterPageFile="~/luqinwenda/Master.master" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/luqinwenda/Master.master" %>
 <%@ Import Namespace="System.Data" %>
 <script runat="server">
     public int roomid = 0;
@@ -47,7 +47,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div style="max-width:640px; background:#FFFDEA; margin:0 auto;">
         <div style="width:auto; background:#D04131; text-align:center;">
-            <a href="wktConfirm.aspx?roomid=<%=roomid %>"><img src="/dingyue/upload/wkt_head.gif" style="width:100%;"/></a>
+            <a href="wktConfirm_Integral.aspx?roomid=<%=roomid %>"><img src="/dingyue/upload/wkt_head.gif" style="width:100%;"/></a>
         </div>
         <div class="line_main" onclick="clickCourse(this, '<%=currentCDt.Rows[0]["course_link"].ToString() %>');">
             <div class="line_left">
@@ -75,8 +75,8 @@
         <div class="line_main" style="border-bottom:none; padding:10px 20px; height:auto; line-height:22px;">
             <div style="font-size:14px; font-weight:bold; padding:5px 0;">听课须知</div>
             <div>1、点击最上方大图，进入【卢勤问答平台微课教室】直播间；</div>
-            <div>2、卢勤微课直播间为付费课程，请支付所需课程费用（仅支持微信支付）；</div>
-            <div>3、支付成功后，进入微课直播间。课程直播中禁言，如需提问，点击右下方【我的问题】开始提问，您的问题将显示在这里。如果专家已经回答您的提问，左下方【全部问题】中将会显示您的问题解答。</div>
+            <div>2、卢勤问答平台微课教室直播间为免费课程，只需花费课程积分即可；</div>
+            <div>3、点击确定扣除积分后，进入微课直播间。课程直播中如需提问，点击右下方【我的问题】开始提问，您的问题将显示在这里。如果专家已经回答您的提问，左下方【全部问题】中将会显示您的问题解答。</div>
         </div>
         <div style="height:100px;"></div>
     </div>
