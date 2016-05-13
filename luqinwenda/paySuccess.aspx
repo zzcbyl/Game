@@ -24,7 +24,7 @@
                 if (ticketDt.Rows[0]["paystate"].ToString().Equals("1"))
                 {
                     UserChatRoomRights.SetUserChatRoom(userId, int.Parse(ticketDt.Rows[0]["roomid"].ToString()));
-                    this.Response.Redirect("Default.aspx?roomid=" + int.Parse(ticketDt.Rows[0]["roomid"].ToString()));
+                    this.Response.Redirect("HomePage.aspx?roomid=" + int.Parse(ticketDt.Rows[0]["roomid"].ToString()));
                 }
             }
         }

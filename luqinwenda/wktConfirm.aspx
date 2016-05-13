@@ -40,7 +40,7 @@
         UserChatRoomRights userChatRoom = new UserChatRoomRights(userId, roomId);
         if (userChatRoom.CanEnter && userChatRoom.CanPublishText)
         {
-            this.Response.Redirect("Default.aspx?roomid=" + roomId);
+            this.Response.Redirect("HomePage.aspx?roomid=" + roomId);
         }
 
         if (drow["price"].ToString() == "0" && drow["integral"].ToString() == "0")
@@ -53,7 +53,7 @@
                 if (ticketDt.Rows[0]["paystate"].ToString().Equals("1"))
                 {
                     UserChatRoomRights.SetUserChatRoom(userId, roomId);
-                    this.Response.Redirect("Default.aspx?roomid=" + int.Parse(ticketDt.Rows[0]["roomid"].ToString()));
+                    this.Response.Redirect("HomePage.aspx?roomid=" + int.Parse(ticketDt.Rows[0]["roomid"].ToString()));
                 }
             }
         }
