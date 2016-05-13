@@ -142,7 +142,7 @@
         </div>
         <div style="text-align:center; margin:35px 0 80px;">
             <a class="btn" style="background:#E06F61; color:#fff;" href="javascript:submitPay();">确定</a>　　
-            <a class="btn" style="background:#E06F61; color:#fff;" href="location.href='wktDetail_Integral.aspx?roomid=<%=roomId %>';">取消</a>
+            <a class="btn" style="background:#E06F61; color:#fff;" href="wktDetail_Integral.aspx?roomid=<%=roomId %>">取消</a>
         </div>
     </div>
     <input type="hidden" id="hidPay" name="hidPay" value="" />
