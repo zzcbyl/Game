@@ -35,11 +35,11 @@
             <div style="margin-top:30px; text-align:center;">温馨提示</div>
             <div style="margin-top:15px; line-height:22px; margin-bottom:30px;">
                 该课程将于<%=DateTime.Parse(drow["start_date"].ToString()).ToString("yyyy年MM月dd日HH点") %>开始开播<br />
-                请提前半小时入场，感谢您对卢勤和她的朋友们微课堂的关注。
+                请提前半小时入场，感谢您对卢勤问答平台微课教室的关注。
             </div>
         </div>
         <div style="margin-top:20px; text-align:center;">
-            <a href="wktDetail.aspx?roomid=<%=roomid %>" class="btn btn-danger">返 回</a>
+            <a href="wktDetail_Integral.aspx?roomid=<%=roomid %>" class="btn btn-danger">返 回</a>
         </div>
     </div>
 </asp:Content>

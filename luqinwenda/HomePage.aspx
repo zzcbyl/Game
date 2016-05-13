@@ -88,8 +88,8 @@
         </div>
     </div>
     <div id="mydiv" class="main-page" style="margin-top:240px;">
-        <iframe></iframe>
-        <div id="bottomDiv" style="height: 40px; clear: both;"></div>
+        <iframe id="iframe_list" style="width:100%; height:500px; border:none;"></iframe>
+        <div id="bottomDiv" style="height: 1px; clear: both;"></div>
         <%--<div style="position: fixed; bottom: 45px; left: 0; width: 100%; text-align: center; line-height: 55px; z-index: 100;">
             <div id="input_text" style="width: auto; margin: 0 15px; background: #fff; ">
                 <div style="width: auto; float: left; margin-left: 10px;">
@@ -100,8 +100,8 @@
             </div>
         </div>--%>
         <div style="position: fixed; bottom: 0; left: 0; width: 100%; background: #71b4ff; text-align: center; line-height: 45px; z-index: 100; color: #fff; font-weight: bold; font-size: 12pt; letter-spacing: 0.05em;">
-            <div style="float: left; width: 50%; text-align: center; background: #0259bb;">全部问题</div>
-            <div style="float: right; width: 50%; text-align: center;" onclick="Redirect(0);">我的问题</div>
+            <div id="div_all" style="float: left; width: 50%; text-align: center; background: #0259bb;" onclick="Redirect(1);">全部问题</div>
+            <div id="div_my" style="float: right; width: 50%; text-align: center;" onclick="Redirect(0);">我的问题</div>
         </div>
     </div>
     <script type="text/javascript">
@@ -111,13 +111,15 @@
         var domainName = '<%=domainName %>';
         var audio;
         $(document).ready(function () {
+            var winHeight = $(window).height();
+            $('#iframe_list').css('height', (winHeight - 285).toString() + 'px');
+            $('#iframe_list').attr('src', 'All_list.aspx?roomid=' + roomid + '&token=' + token);
             audio = document.getElementById('audio_1');
             fillHeader();
         });
 
         function playAudio() {
             changAudioBg();
-            //alert(audio.paused);
             if (audio.paused) {
                 audio.play();
                 return;
@@ -126,12 +128,24 @@
         }
 
         function changAudioBg() {
-            //alert(audio.paused);
             if (!audio.paused) {
                 $('#audio_bg').attr('src', '/dingyue/upload/fm_room_bg_paused.png');
             }
             else {
                 $('#audio_bg').attr('src', '/dingyue/upload/fm_room_bg.gif');
+            }
+        }
+
+        function Redirect(m) {
+            if (m == 1) {
+                $('#div_all').css('background', '#0259bb');
+                $('#div_my').css('background', '');
+                $('#iframe_list').attr('src', 'All_list.aspx?roomid=' + roomid + '&token=' + token);
+            }
+            else {
+                $('#div_all').css('background', '');
+                $('#div_my').css('background', '#0259bb');
+                $('#iframe_list').attr('src', 'My_list.aspx?roomid=' + roomid + '&token=' + token);
             }
         }
 
