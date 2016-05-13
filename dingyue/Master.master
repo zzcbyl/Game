@@ -37,8 +37,6 @@
     </style>
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
-        var bh = document.body.offsetHeight;
-        var bw = document.body.offsetWidth;
         wx.config({
             debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
             appId: '<%=appId%>', // 必填，公众号的唯一标识
@@ -64,5 +62,8 @@
         <div style="width:200px; height:200px;  color:#000; position:absolute; top:40pt; margin-left:70pt; z-index:20; font-size:15pt; line-height:30pt; text-align:center;">点击右上角“┇”<br />分享到朋友圈</div>
     </div>
 </body>
-
+    <script type="text/javascript">
+        var bh = document.body.offsetHeight;
+        var bw = document.body.offsetWidth;
+    </script>
 </html>
