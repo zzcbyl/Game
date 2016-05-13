@@ -137,8 +137,8 @@
         </div>
         <div style="text-align:left; width:70%; margin-left:15%; line-height:25px; margin-top:10px;">
             <div>欢迎您进入【卢勤问答平台微课教室】</div>
-            <div>需要扣除您 <%=drow["integral"].ToString() %> 积分</div>
-            <div>您目前的积分余额是：<%=user.Integral %></div>
+            <div>需要扣除您 <span style="color:#D69100; font-weight:bold;"><%=drow["integral"].ToString() %></span> 积分</div>
+            <div>您目前的积分余额是：<span style="color:#D69100; font-weight:bold;"><%=user.Integral %></span></div>
         </div>
         <div style="text-align:center; margin:35px 0 20px;">
             <a class="btn btn-danger" href="javascript:submitPay();">确定</a>　　
