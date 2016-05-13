@@ -140,9 +140,12 @@
             <div>需要扣除您 <%=drow["integral"].ToString() %> 积分</div>
             <div>您目前的积分余额是：<%=user.Integral %></div>
         </div>
-        <div style="text-align:center; margin:35px 0 80px;">
-            <a class="btn" style="background:#E06F61; color:#fff;" href="javascript:submitPay();">确定</a>　　
-            <a class="btn" style="background:#E06F61; color:#fff;" href="wktDetail_Integral.aspx?roomid=<%=roomId %>">取消</a>
+        <div style="text-align:center; margin:35px 0 20px;">
+            <a class="btn btn-danger" href="javascript:submitPay();">确定</a>　　
+            <a class="btn btn-danger" href="wktDetail_Integral.aspx?roomid=<%=roomId %>">取消</a>
+        </div>
+        <div style="text-align:center; width:70%; line-height:25px; margin:10px 15%; padding-bottom:50px; ">
+            <a style="text-decoration:underline;" href="Integral_intro.aspx?roomid=<%=roomId %>&token=<%=token %>">如何获得积分？</a>
         </div>
     </div>
     <input type="hidden" id="hidPay" name="hidPay" value="" />
