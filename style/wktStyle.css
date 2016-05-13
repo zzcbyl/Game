@@ -1,7 +1,7 @@
 ﻿body { font-size:150%; max-width:640px; margin:0 auto; background:#F5F5F5;}
 ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { list-style-type:none; padding:0;}
 .clear { clear:both;}
-.main-page { width:auto; background:#fff; margin:10px 8px; border:5px solid #fff; border-radius:5px; }
+.main-page { width:auto; background:#fff; margin:10px 8px; border:2px solid #fff; border-radius:5px; }
 .text-li-right .jp-audio, .jp-audio-stream, .jp-video { margin-left: 5px; border: none; background:#B5EB7C;  border-radius:4px;  width: 90px; height: 35px; line-height: 35px; padding:0 5px;}
 .text-li .jp-audio, .jp-audio-stream, .jp-video { margin-left: 5px; border: 1px solid #e0e0e0; background:#fff;  border-radius:4px;  width: 90px; height: 30px; line-height: 30px; padding:0 5px;}
 .jp-play { width: 100%; height: auto; display: block; padding-top: 8px;}
