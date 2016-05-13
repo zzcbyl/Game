@@ -45,8 +45,8 @@
                 
         </ul>
     </div>
-    <div id="bottomDiv" style="height: 40px; clear: both;"></div>
-    <div style="position: fixed; bottom: 5px; left: 0; width: 100%; text-align: center; line-height: 55px; z-index: 100;">
+    <div id="bottomDiv" style="height: 55px; clear: both;"></div>
+    <div style="position: fixed; bottom: 0px; left: 0; width: 100%; text-align: center; line-height: 55px; z-index: 100;">
         <div id="input_text" style="width: auto; margin: 0; background: #fff; ">
             <div style="width: auto; float: left; margin-left: 10px;">
                 <input id="textContent" type="text" style="border: 2px solid #CACACA; border-radius: 5px; width: 100%; height: 30px; line-height: 30px; padding: 2px 5px;" /></div>
