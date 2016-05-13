@@ -3,7 +3,7 @@
 <%@ Import Namespace="System.Web.Script.Serialization" %>
 
 <script runat="server">
-    public string token = "e90477e2f0993c8cea841471d157caad237cfd776919dc0b28c5b51ee601b782f51f69fc";
+    public string token = "de0acf0f544eb478a8dfe60b3365d73d63de98a02f1cc0f79f908a28f13eacb2606f415a";
     public Users user = new Users();
     public string UserHeadImg = "http://game.luqinwenda.com/images/noAvatar.jpg";
     public string NickName = "匿名";
@@ -11,6 +11,7 @@
     public int roomId = 0;
     public int user_integral = 0;
     public int room_integral = 0;
+    public DataTable courseDt = new DataTable();
     protected void Page_Load(object sender, EventArgs e)
     {
         roomId = int.Parse(Util.GetSafeRequestValue(Request, "roomid", "0"));
@@ -82,6 +83,15 @@
         catch { }
         user_integral = int.Parse(user._fields["integral"].ToString());
 
+        int courseid = -1;
+        if (drow["courseid"].ToString().Trim() != "0")
+            courseid = int.Parse(drow["courseid"].ToString());
+        DataTable CourseDt = Donate.getCourse(courseid);
+        if (CourseDt != null && CourseDt.Rows.Count > 0)
+        {
+            courseDt = CourseDt;
+        }
+        
         if (Request.Form["hidPay"] != null && Request.Form["hidPay"].Equals("1"))
         {
             string type = "room";
@@ -117,10 +127,15 @@
             <div style="float:left; margin-left:10px; margin-top:2px;"><%=(NickName.Length > 5 ? NickName.Substring(0, 5) + "..." : NickName) %></div>
             <div style="float:right; margin-right:20px; font-size:16px;">积分：<span style="color:#D69100"><%=user.Integral %></span></div>
         </div>
-        <div style="margin:30px 0; text-align:center;">
+        <div style="margin:30px 0 15px; text-align:center;">
             <img src="../images/wkt_confirm_icon.png" style="width:40%;" />
         </div>
         <div style="text-align:left; width:70%; margin-left:15%; line-height:25px;">
+            <div><b>课程：</b><%=courseDt.Rows[0]["course_title"].ToString() %></div>
+            <div><b>时间：</b><%=courseDt.Rows[0]["course_time"].ToString() %></div>
+            <div><b>讲师：</b><%=courseDt.Rows[0]["course_lecturer"].ToString() %></div>
+        </div>
+        <div style="text-align:left; width:70%; margin-left:15%; line-height:25px; margin-top:10px;">
             <div>欢迎您进入【卢勤问答平台微课教室】</div>
             <div>需要扣除您 <%=drow["integral"].ToString() %> 积分</div>
             <div>您目前的积分余额是：<%=user.Integral %></div>
