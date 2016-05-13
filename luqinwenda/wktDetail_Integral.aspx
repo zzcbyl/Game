@@ -73,7 +73,7 @@
                 <img src="../images/wkt_icon6.jpg" />
             </div>
         </div>
-        <div class="line_main" style="border-bottom:none; padding:10px 20px; height:auto; line-height:22px;">
+        <div class="line_main" style="padding:10px 20px; height:auto; line-height:22px;">
             <div style="font-size:14px; font-weight:bold; padding:5px 0;">课程简介</div>
             <div>　　每个妈妈都希望和孩子亲密沟通，良好的亲子沟通是建立亲密亲子关系的基础，如何实现高质量的亲子沟通呢？</div>
         </div>
