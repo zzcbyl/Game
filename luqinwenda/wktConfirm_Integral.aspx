@@ -47,7 +47,7 @@
             this.Response.Redirect("Default.aspx?roomid=" + roomId);
         }
 
-        if (drow["price"].ToString() == "0" && drow["integral"].ToString() == "0")
+        if (drow["price"].ToString().Trim() == "0" && drow["integral"].ToString().Trim() == "0")
         {
             int ticketid = Donate.buyTicket(userId, roomId, 0, "购买进入 " + roomId + " Room的票");
             Donate.setBuyTicketState(ticketid);
@@ -61,7 +61,13 @@
                 }
             }
         }
-        
+
+        if (drow["integral"].ToString().Trim() == "0")
+        {
+            Response.Write("参数错误");
+            Response.End();
+            return;
+        }
         
         JavaScriptSerializer json = new JavaScriptSerializer();
         user = new Users(userId);

@@ -57,7 +57,13 @@
                 }
             }
         }
-        
+
+        if (drow["price"].ToString().Trim() == "0")
+        {
+            Response.Write("参数错误");
+            Response.End();
+            return;
+        }
         
         JavaScriptSerializer json = new JavaScriptSerializer();
         user = new Users(userId);
