@@ -94,7 +94,7 @@
             <div style="float:left; width:70%; line-height:50px; padding:0 10px; color:#b65138; font-weight:bold;">
                 <div style="float:left;">倒计时：</div><ul id="sp_time" class="time_ul"><li>-</li><li>-</li><li>-</li><li>-</li></ul>
             </div>
-            <div style="float:left; width:30%; background:#bd634c; text-align:center; height:50px; line-height:20px; padding:5px 0;">设置<br />提醒</div>
+            <%--<div style="float:left; width:30%; background:#bd634c; text-align:center; height:50px; line-height:20px; padding:5px 0;">设置<br />提醒</div>--%>
         </div>
         <div class="line_main" style="padding:10px 20px; height:auto; line-height:22px;">
             <div style="font-size:14px; font-weight:bold; padding:5px 0; color:#b65138;">课程简介</div>
