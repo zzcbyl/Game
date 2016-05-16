@@ -3,7 +3,7 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { l
 .clear { clear:both;}
 .main-page { width:auto; background:#e4dfcd; margin:10px 8px; border:2px solid #e4dfcd; border-radius:5px; }
 .text-li-right .jp-audio, .jp-audio-stream, .jp-video { margin-left: 5px; border: none; background:#71cb8d;  border-radius:4px;  width: 90px; height: 35px; line-height: 35px; padding:0 5px;}
-.text-li .jp-audio, .jp-audio-stream, .jp-video { margin-left: 5px; border: 1px solid #e0e0e0; background:#fff;  border-radius:4px;  width: 90px; height: 30px; line-height: 30px; padding:0 5px;}
+.text-li .jp-audio, .jp-audio-stream, .jp-video { margin-left: 5px; border: 1px solid #e0e0e0; background:#fff;  border-radius:4px;  width: 90px; height: 35px; line-height: 35px; padding:0 5px;}
 .jp-play { width: 100%; height: auto; display: block; padding-top: 8px;}
 .jplay_play { background: url(/luqinwenda/images/jplayerstop.png) no-repeat; width: 16px; height: 19px; display: block; margin-left:1px; }
 .jp-play:focus { background: none;}
@@ -45,7 +45,7 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { l
 .text-li .text-time, .text-li-right .text-time { color:#B2B2B2; text-align:center; font-size:12px; margin-top:2px; height:22px; line-height:22px; display:none;}
 
 .jt_right { background:url(/luqinwenda/images/jt_icon_right.png) no-repeat; width: 10px; height: 30px; right:45px; top:13px; position: absolute; z-index:99 }
-.jt_left { background:url(/luqinwenda/images/jt_icon_left.png); width: 6px; height: 20px; top:29px; position: absolute;}
+.jt_left { background:url(/luqinwenda/images/jt_icon_left.png); width: 8px; left:53px; height: 20px; top:33px; position: absolute;}
 .text-li-right .right-content .dots { float:left; line-height:32px; margin-top: 3px; margin-right:8px;}
 .text-li-right .right-content .voice-second { float:left; line-height:32px; margin-top: 5px; color:#b2b2b2; }
 .text-li .right-content .dots { float:left; line-height:32px; margin-right:8px;}

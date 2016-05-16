@@ -175,7 +175,7 @@ public class UserChatRoomRights
                 }
 
             }
-            return canPublishVoice;
+            return canPublishImage;
         }
     }
 
