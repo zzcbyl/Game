@@ -61,7 +61,7 @@
                </div>
                <div style="color:#b65138; font-weight:bold; text-align:center;">讲课时间</div>
             </div>
-            <div style="float:left; width:40%; height:100px; padding:5px 2%; line-height:30px;">
+            <div style="float:left; width:45%; height:100px; padding:5px 2%; line-height:30px;">
                <div style="height:60px; font-size:18px; overflow:hidden; text-align:center;"><%=currentCDt.Rows[0]["course_title"].ToString() %></div>
                <div style="color:#b65138; font-weight:bold; text-align:center;">讲课主题</div>
             </div>
