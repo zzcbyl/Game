@@ -27,11 +27,11 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { l
 .feed_file_list .time-li { background:#e4dfcd; color:#B2B2B2; text-align:center; font-size:12px; padding:0; height:30px; line-height:30px;  }
 
 .text-li { position:relative; min-height:50px; width:95%;}
-.text-li .left-head { position:absolute; top:10px; left:5px; }
+.text-li .left-head { position:absolute; top:0px; left:5px; }
 .text-li .left-head img { width:36px; height:36px; border-radius:4px; border: 1px solid #ccc; }
 .text-li .right-content { float:left; margin-left:55px; }
-.text-li .right-content .text-nick { line-height:22px; height:22px; font-size:12px; color:#B2B2B2; }
-.text-li .right-content .text_jiantou { position:absolute; left:48px; top:27px; }
+.text-li .right-content .text-nick { line-height:22px; height:22px; font-size:12px; color:#B2B2B2; display:none; }
+.text-li .right-content .text_jiantou { position:absolute; left:48px; top:5px; }
 .text-li .right-content .text-content { background:#fff; border-radius:3px; padding:8px 10px; line-height:20px; color:#000; border:1px solid #e0e0e0; letter-spacing:0.03em}
 .text-li .right-content .text-content_radio { line-height:22px; margin-top:5px;}
 .text-li .right-content .text-content_readed { color:#8F8F8F; }
