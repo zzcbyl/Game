@@ -127,9 +127,11 @@
                             var chatline = data.chat_time_line[i];
                             var liItem = fomatLi(chatline);
                             var expertlicss = "";
-                            if ($.inArray(chatline.user_id.toString(), expertArr) >= 0) {
+                            if (chatline.answerlist.length <= 0) {
                                 expertlicss = 'class = "expert-li"';
                             }
+                            else
+                                expertlicss = '';
                             inHtml = "<li " + expertlicss + ">" + liItem.replace("&lt;", "<").replace("&gt;", ">") + "</li>";
                             if ($('.feed_file_list li').length == 0)
                                 $('.feed_file_list').html(inHtml);
