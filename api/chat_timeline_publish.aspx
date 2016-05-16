@@ -70,7 +70,18 @@
                             chatTimeLine.SetVoiceSecond((int)duration);
                             
                         }
-                         
+
+                        if (type.Equals("image"))
+                        {
+                            string downloadJson = Util.GetWebContent("http://game.luqinwenda.com/api/down_load_images.aspx?mediaid=" + content.Trim(),
+                                "get", "", "html/text");
+
+                            string imageUrl = Util.GetSimpleJsonValueByKey(downloadJson, "images_url");
+
+                            ChatTimeLine chatTimeLine = new ChatTimeLine(newMessageId);
+                            chatTimeLine.SetImageUrl();
+
+                        }
                         
                         
                     }

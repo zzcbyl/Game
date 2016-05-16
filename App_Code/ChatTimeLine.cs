@@ -32,6 +32,13 @@ public class ChatTimeLine
         DBHelper.UpdateData("chat_list", updateParameters, keyParameters, Util.ConnectionString);
     }
 
+    public void SetImageUrl()
+    {
+        string[,] updateParameters = { {"message_content", "varchar", "http://game.luqinwenda.com/download/images/" + _fields["message_content"].ToString().Trim() + ".jpg"}};
+        string[,] keyParameters = { { "id", "int", _fields["id"].ToString().Trim() } };
+        DBHelper.UpdateData("chat_list", updateParameters, keyParameters, Util.ConnectionString);
+    }
+
     public string Json
     {
         get
