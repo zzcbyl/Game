@@ -66,7 +66,7 @@
             <div>显示“已转”的签到文章再次分享到朋友圈将不会再增加积分。</div>
         </div>
         <div style="margin-top:20px; text-align:center;">
-            <a href="wktConfirm_Integral.aspx?roomid=<%=roomId %>&token=<%=token %>" class="btn btn-danger">返 回</a>
+            <a href="wktIndexConfirm_Integral.aspx?roomid=<%=roomId %>&token=<%=token %>" class="btn btn-danger">返 回</a>
         </div>
     </div>
 </asp:Content>
