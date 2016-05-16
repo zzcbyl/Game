@@ -238,4 +238,41 @@ public class Util
         }
         return ticket;
     }
+
+
+
+    public static void DownloadMedia(string currentConvertMediaId, string filePath)
+    {
+        string token = Util.GetToken();
+        string amrUrl = "http://file.api.weixin.qq.com/cgi-bin/media/get?access_token=" + token.Trim() + "&media_id=" + currentConvertMediaId.Trim();
+        HttpWebRequest req = (HttpWebRequest)WebRequest.Create(amrUrl);
+        HttpWebResponse res = (HttpWebResponse)req.GetResponse();
+        Stream s = res.GetResponseStream();
+        byte[] byteArr = new byte[1024 * 1024 * 10];
+        int i = 0;
+        int b = s.ReadByte();
+        for (; b != -1; i++)
+        {
+            byteArr[i] = (byte)b;
+            b = s.ReadByte();
+        }
+        
+        FileStream fs;
+        if (!File.Exists(filePath))
+        {
+            fs = File.Create(filePath);
+        }
+        else
+        {
+            File.Delete(filePath);
+            fs = File.Create(filePath);
+        }
+        for (int j = 0; j < i; j++)
+        {
+            fs.WriteByte(byteArr[j]);
+        }
+        fs.Close();
+
+    }
+
 }
