@@ -128,11 +128,12 @@ function fomatLi(chatline) {
     if (userAvatar == '')
         userAvatar = '/images/noAvatar.jpg';
     if (nickName == '')
-        nickName = '匿名';
+        nickName = '家长';
     switch (chatline.message_type) {
         case "text":
             {
-                if ($.inArray(chatline.user_id.toString(), expertArr) >= 0)
+                //if ($.inArray(chatline.user_id.toString(), expertArr) >= 0)
+                if (chatline.user_id.toString() == userid.toString())
                     liItem = String.format(textRight, userAvatar, chatline.message_content, strTohoursecond(chatline.create_date));
                 else
                     liItem = String.format(textLeft, userAvatar, nickName, chatline.message_content, strTohoursecond(chatline.create_date), "", "");
@@ -143,7 +144,8 @@ function fomatLi(chatline) {
                 var vlen = parseInt(chatline.voice_length) * 3;
                 if (vlen < 80)
                     vlen = 80;
-                if ($.inArray(chatline.user_id.toString(), expertArr) >= 0)
+                //if ($.inArray(chatline.user_id.toString(), expertArr) >= 0)
+                if (chatline.user_id.toString() == userid.toString())
                     liItem = String.format(voiceRight, userAvatar, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString(), chatline.voice_length, "width:" + vlen + "px", strTohoursecond(chatline.create_date));
                 else
                     liItem = String.format(voiceLeft, userAvatar, nickName, chatline.message_content, voiceIndex, (parseInt(voiceIndex) + 1).toString(), chatline.voice_length, "width:" + vlen + "px", strTohoursecond(chatline.create_date));
@@ -197,3 +199,4 @@ function fillHeader() {
 //    else
 //        location.href = 'QuestionList.aspx?token=' + token + '&roomid=' + roomid;;
 //}
+

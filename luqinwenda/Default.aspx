@@ -44,11 +44,11 @@
         }
         expertlist = chatDrow["expertlist"].ToString();
 
-        if (Convert.ToDateTime(chatDrow["start_date"].ToString()) > DateTime.Now)
-        {
-            Response.Redirect("nostart.aspx?roomid=" + roomid);
-            return;
-        }
+        //if (Convert.ToDateTime(chatDrow["start_date"].ToString()) > DateTime.Now)
+        //{
+        //    Response.Redirect("nostart.aspx?roomid=" + roomid);
+        //    return;
+        //}
 
         UserChatRoomRights userChatRoom = new UserChatRoomRights(userid, int.Parse(roomid));
         if (!userChatRoom.CanEnter || !userChatRoom.CanPublishText)
@@ -74,26 +74,29 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="main-header" style="">
-        <div class="header-loginuser">
-        </div>
-        <div class="header-total">当前人数<br /><span id="personCount">-</span></div>
-        <div class="header-userlist">
-            
-        </div>
-        <div style="clear:both;"></div>
-
-        <div style="height:180px; text-align:center; background:url(/dingyue/upload/fm_room_bg<%=roomid %>.jpg) no-repeat; background-size:100% auto; background-position-y:center;" onclick="playAudio();">
-            <img id="audio_bg" style="height:100px; margin-top:50px;" src="/dingyue/upload/fm_room_bg.gif" />
+        <div style="height:150px; text-align:center; background:url(/dingyue/upload/fm_room_bg<%=roomid %>.jpg) no-repeat; background-size:100% auto; background-position-y:center;">
             <div style="display:none;"><audio id="audio_1" controls="controls" autoplay="autoplay" src="<%=chatDrow["audio_url"].ToString() %>"></audio></div>
         </div>
+        <div style="height:50px; position:relative; background:url(/luqinwenda/images/wkt_bottom_bg.jpg) no-repeat; background-size:100% 50px; background-position-y:center;"  onclick="playAudio();">
+            <a style="position:absolute; top:-20px; display:inline-block; width:100%; text-align:center;"><img id="btn_audio_control" src="images/wkt_paused.png" style="height:60px;" /></a>
+        </div>
     </div>
-    <div id="mydiv" class="main-page" style="margin-top:240px;">
+    <div id="mydiv" class="main-page" style="margin-top:200px;">
         <div>
             <ul id="feed_file_list" class="feed_file_list">
                 <div style="clear: both;"></div>
             </ul>
         </div>
-        <div id="bottomDiv" style="height: 40px; clear: both;"></div>
+        <div id="bottomDiv" style="height: 55px; clear: both;"></div>
+        <div style="position: fixed; bottom: 0px; left: 0; width: 100%; text-align: center; line-height: 55px; z-index: 100;">
+            <div id="input_text" style="width: auto; margin: 0; background: #ebe9e1; ">
+                <div style="width: auto; float: left; margin-left: 10px;">
+                    <input id="textContent" type="text" style="border: 2px solid #CACACA; border-radius: 15px; width: 100%; height: 30px; line-height: 30px; padding: 2px 5px;" /></div>
+                <div style="width: 70px; float: right;">
+                    <input type="button" class="btn-feed-send" onclick="inputText(0, 'fillList_Q');" /></div>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
         <%--<div style="position: fixed; bottom: 45px; left: 0; width: 100%; text-align: center; line-height: 55px; z-index: 100;">
             <div id="input_text" style="width: auto; margin: 0 15px; background: #fff; ">
                 <div style="width: auto; float: left; margin-left: 10px;">
@@ -103,10 +106,7 @@
                 <div style="clear: both;"></div>
             </div>
         </div>--%>
-        <div style="position: fixed; bottom: 0; left: 0; width: 100%; background: #71b4ff; text-align: center; line-height: 45px; z-index: 100; color: #fff; font-weight: bold; font-size: 12pt; letter-spacing: 0.05em;">
-            <div style="float: left; width: 50%; text-align: center; background: #0259bb;">全部问题</div>
-            <div style="float: right; width: 50%; text-align: center;" onclick="Redirect(0);">我的问题</div>
-        </div>
+        
     </div>
     <script type="text/javascript">
         var userid = '<%=userid %>';
@@ -132,8 +132,8 @@
         var audio;
         $(document).ready(function () {
             audio = document.getElementById('audio_1');
-            $("#textContent").parent().css("width", (winWidth- 150).toString() + "px");
-            fillHeader();
+            $("#textContent").parent().css("width", (winWidth- 100).toString() + "px");
+            
             fillList_QA();
             scrollPageBottom();
             setInterval("fillList_QA()", 5000);
@@ -153,10 +153,10 @@
         function changAudioBg() {
             //alert(audio.paused);
             if (!audio.paused) {
-                $('#audio_bg').attr('src', '/dingyue/upload/fm_room_bg_paused.png');
+                $('#btn_audio_control').attr('src', 'images/wkt_play.png');
             }
             else {
-                $('#audio_bg').attr('src', '/dingyue/upload/fm_room_bg.gif');
+                $('#btn_audio_control').attr('src', 'images/wkt_paused.png');
             }
         }
 
@@ -176,10 +176,12 @@
                             var chatline = data.chat_time_line[i];
                             var liItem = fomatLi(chatline);
                             var expertlicss = "";
-                            if ($.inArray(chatline.user_id.toString(), expertArr) >= 0)
-                            {
+                            //if ($.inArray(chatline.user_id.toString(), expertArr) < 0)
+                            if (chatline.answerlist.length <= 0) {
                                 expertlicss = 'class = "expert-li"';
                             }
+                            else
+                                expertlicss = '';
                             inHtml = "<li " + expertlicss + ">" + liItem.replace("&lt;", "<").replace("&gt;", ">") + "</li>";
                             if ($('.feed_file_list li').length == 0)
                                 $('.feed_file_list').html(inHtml);

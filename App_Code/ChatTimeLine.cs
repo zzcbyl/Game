@@ -105,7 +105,7 @@ public class ChatTimeLine
             }
         }
 
-        string auditState = "0";
+        string auditState = "1";
         ChatRoom chatRoom = new ChatRoom(roomId);
         DataRow drow = chatRoom._fields;
         if (drow == null)
@@ -113,11 +113,11 @@ public class ChatTimeLine
             return 0;
         }
 
-        string expertlist = drow["expertlist"].ToString();
-        if (parentid != 0 || Array.IndexOf(expertlist.Split(','), userId.ToString()) >= 0)
-        {
-            auditState = "1";
-        }
+        //string expertlist = drow["expertlist"].ToString();
+        //if (parentid != 0 || Array.IndexOf(expertlist.Split(','), userId.ToString()) >= 0)
+        //{
+        //    auditState = "1";
+        //}
 
         string[,] insertParameter = {{"chat_room_id", "int", roomId.ToString()},
                                     {"user_id", "int", userId.ToString()},
@@ -171,7 +171,7 @@ public class ChatTimeLine
     public static DataTable GetChatList_QA(int roomId, DateTime maxDt, string expertlist)
     {
         string sql = "select * from dbo.chat_list where chat_room_id=" + roomId + " and audit_state=1 "
-            + "and ((user_id in (" + expertlist + ") and parent_id=0) or son_count>0) "
+            + "and parent_id=0 "
             + "and update_date>'" + maxDt + "'  order by update_date";
 
         DataTable dt = DBHelper.GetDataTable(sql, Util.ConnectionString.Trim());
