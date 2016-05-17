@@ -153,6 +153,16 @@ function fomatLi(chatline) {
                 voiceIndex = (parseInt(voiceIndex) + 1).toString();
             }
             break;
+        case "image":
+            {
+                //if ($.inArray(chatline.user_id.toString(), expertArr) >= 0)
+                var content = '<img src="' + chatline.message_content + '" />';
+                if (chatline.user_id.toString() == userid.toString())
+                    liItem = String.format(textRight, userAvatar, content, strTohoursecond(chatline.create_date));
+                else
+                    liItem = String.format(textLeft, userAvatar, nickName, content, strTohoursecond(chatline.create_date), "", "");
+            }
+            break;
         default:
     }
     return liItem;

@@ -33,6 +33,7 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { l
 .text-li .right-content .text-nick { line-height:22px; height:22px; font-size:12px; color:#B2B2B2; display:none; }
 .text-li .right-content .text_jiantou { position:absolute; left:48px; top:5px; }
 .text-li .right-content .text-content { background:#fff; border-radius:3px; padding:8px 10px; line-height:20px; color:#000; border:1px solid #e0e0e0; letter-spacing:0.03em}
+.text-li .right-content .text-content img { width:100%; }
 .text-li .right-content .text-content_radio { line-height:22px; margin-top:5px;}
 .text-li .right-content .text-content_readed { color:#8F8F8F; }
 
@@ -42,6 +43,7 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { l
 .text-li-right .right-content { float:right; margin-right:55px; }
 .text-li-right .right-content .text_jiantou { position:absolute; right:49px; top:4px; }
 .text-li-right .right-content .text-content {  background:#71cb8d; border-radius:3px; padding:8px 10px; line-height:20px; float:right;  color:#fff; }
+.text-li-right .right-content .text-content img { width:100%; }
 .text-li .text-time, .text-li-right .text-time { color:#B2B2B2; text-align:center; font-size:12px; margin-top:2px; height:22px; line-height:22px; display:none;}
 
 .jt_right { background:url(/luqinwenda/images/jt_icon_right.png) no-repeat; width: 10px; height: 30px; right:45px; top:13px; position: absolute; z-index:99 }
