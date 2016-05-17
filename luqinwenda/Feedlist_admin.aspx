@@ -63,8 +63,14 @@
     </div>
     </form>
     <script type="text/javascript">
+
+        $(document).ready(function () {
+            setInterval(function(){location.href=document.URL.toString();},5000);
+        });
+
         function pass(id)
         {
+            
             $('#hidID').val(id.toString());
             $('#hidAction').val("pass");
             document.forms[0].submit();
