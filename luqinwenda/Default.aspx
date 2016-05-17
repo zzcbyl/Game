@@ -183,7 +183,7 @@
                             }
                             else
                                 expertlicss = '';
-                            inHtml = "<li " + expertlicss + ">" + liItem.replace("&lt;", "<").replace("&gt;", ">") + "</li>";
+                            inHtml = "<li id=\"li_" + chatline.id.toString() + "\" " + expertlicss + ">" + liItem.replace("&lt;", "<").replace("&gt;", ">") + "</li>";
                             if ($('.feed_file_list li').length == 0)
                                 $('.feed_file_list').html(inHtml);
                             else
@@ -205,8 +205,24 @@
                                 after_append('<li class="time-li">' + strTohoursecond(chatline.create_date) + '</li>');
                         }
                     }
+
+                    $.ajax({
+                        type: "GET",
+                        async: false,
+                        url: "http://" + domainName + "/api/chat_timeline_deleted_list.aspx",
+                        data: { roomid: roomid, token: token },
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.status == 0 && data.count > 0) {
+                                for (var i = 0; i < data.chat_time_line.length; i++) {
+                                    $('#li_' + data.chat_time_line.id).remove();
+                                }
+                            }
+                        }
+                    });
                 }
             });
+
         }
 
     </script>

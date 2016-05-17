@@ -134,9 +134,9 @@ function fomatLi(chatline) {
             {
                 //if ($.inArray(chatline.user_id.toString(), expertArr) >= 0)
                 if (chatline.user_id.toString() == userid.toString())
-                    liItem = String.format(textRight, userAvatar, chatline.message_content, strTohoursecond(chatline.create_date));
+                    liItem = String.format(textRight, userAvatar, chatline.message_content, strTohoursecond(chatline.create_date), chatline.user_id.toString());
                 else
-                    liItem = String.format(textLeft, userAvatar, nickName, chatline.message_content, strTohoursecond(chatline.create_date), "", "");
+                    liItem = String.format(textLeft, userAvatar, nickName, chatline.message_content, strTohoursecond(chatline.create_date), "", "", chatline.user_id.toString());
             }
             break;
         case "voice":

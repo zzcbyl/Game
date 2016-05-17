@@ -30,7 +30,7 @@
             ChatTimeLine.Audit_State(int.Parse(Request["hidID"].ToString()), auditstate);
         }
 
-        FeedListDt = ChatTimeLine.GetChatList_Admin_Audit(roomid, "text", 0);
+        FeedListDt = ChatTimeLine.GetChatList_Admin_Audit(roomid, "text", 1);
     }
 </script>
 
@@ -52,8 +52,8 @@
                  <%=row["message_content"].ToString() %>
             </div>
             <div style="width:30%; float:left; text-align:center">
-                <input type="button" value="通过" class="btn btn-success" onclick='pass(<%=row["id"].ToString() %>)' />　　
-                <input type="button" value="拒绝" class="btn btn-danger" onclick='refuse(<%=row["id"].ToString() %>)' />
+                <%--<input type="button" value="通过" class="btn btn-success" onclick='pass(<%=row["id"].ToString() %>)' />　　--%>
+                <input type="button" value="删除" class="btn btn-danger" onclick='refuse(<%=row["id"].ToString() %>)' />
             </div>
             <div style="clear:both;"></div>
         </div>

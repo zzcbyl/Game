@@ -218,7 +218,7 @@ public class ChatTimeLine
     {
         string sql = "select * from chat_list where chat_room_id = " + roomId;
         sql += " and parent_id = 0 and audit_state=" + audit_state + " and message_type='" + content_type + "'";
-        sql += "  order by [id]";
+        sql += "  order by [id] desc";
         DataTable dt = DBHelper.GetDataTable(sql, Util.ConnectionString.Trim());
         return dt;
     }

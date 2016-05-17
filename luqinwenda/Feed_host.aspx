@@ -132,7 +132,7 @@
                             }
                             else
                                 expertlicss = '';
-                            inHtml = "<li " + expertlicss + ">" + liItem.replace("&lt;", "<").replace("&gt;", ">") + "</li>";
+                            inHtml = "<li id=\"li_" + chatline.id.toString() + "\" " + expertlicss + ">" + liItem.replace("&lt;", "<").replace("&gt;", ">") + "</li>";
                             if ($('.feed_file_list li').length == 0)
                                 $('.feed_file_list').html(inHtml);
                             else
