@@ -109,6 +109,8 @@ function submitInput(type, content, parentid, callback) {
             //fillAnswer();
             if (callback && callback != '')
                 eval(callback + "()");
+            if ($("#textContent"))
+                $("#textContent").val("");
         }
     });
 }
