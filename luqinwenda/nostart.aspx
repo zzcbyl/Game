@@ -39,7 +39,7 @@
             </div>
         </div>
         <div style="margin-top:20px; text-align:center;">
-            <a href="wktDetail_Integral.aspx?roomid=<%=roomid %>" class="btn btn-danger">返 回</a>
+            <a href="wktIndex_Integral.aspx?roomid=<%=roomid %>" class="btn btn-danger">返 回</a>
         </div>
     </div>
 </asp:Content>

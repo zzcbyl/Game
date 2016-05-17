@@ -44,11 +44,11 @@
         }
         expertlist = chatDrow["expertlist"].ToString();
 
-        //if (Convert.ToDateTime(chatDrow["start_date"].ToString()) > DateTime.Now)
-        //{
-        //    Response.Redirect("nostart.aspx?roomid=" + roomid);
-        //    return;
-        //}
+        if (Convert.ToDateTime(chatDrow["start_date"].ToString()) > DateTime.Now)
+        {
+            Response.Redirect("nostart.aspx?roomid=" + roomid);
+            return;
+        }
 
         UserChatRoomRights userChatRoom = new UserChatRoomRights(userid, int.Parse(roomid));
         if (!userChatRoom.CanEnter || !userChatRoom.CanPublishText)
@@ -74,7 +74,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="main-header" style="">
-        <div style="height:150px; text-align:center; background:url(/dingyue/upload/fm_room_bg<%=roomid %>.jpg) no-repeat; background-size:100% auto; background-position-y:center;">
+        <div style="height:150px; text-align:center; ">
+            <div><img src="/dingyue/upload/fm_room_bg<%=roomid %>.jpg" style="width:100%;" /></div>
             <div style="display:none;"><audio id="audio_1" controls="controls" autoplay="autoplay" src="<%=chatDrow["audio_url"].ToString() %>"></audio></div>
         </div>
         <div style="height:50px; position:relative; background:url(/luqinwenda/images/wkt_bottom_bg.jpg) no-repeat; background-size:100% 50px; background-position-y:center;"  onclick="playAudio();">
