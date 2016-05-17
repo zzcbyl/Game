@@ -119,6 +119,7 @@ wx.ready(function () {
                 image.serverId = res.serverId; // 返回图片的服务器端ID
                 if (image.serverId != '')
                     submitInput('image', image.serverId, feedid, callback);
+                changeBlock();
             }
         });
     }
