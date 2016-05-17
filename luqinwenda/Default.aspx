@@ -215,7 +215,7 @@
                         success: function (data) {
                             if (data.status == 0 && data.count > 0) {
                                 for (var i = 0; i < data.chat_time_line.length; i++) {
-                                    $('#li_' + data.chat_time_line.id).remove();
+                                    $('#li_' + data.chat_time_line[i].id).remove();
                                 }
                             }
                         }
