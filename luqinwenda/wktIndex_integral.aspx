@@ -6,6 +6,7 @@
     public string token = "";
     public int userid = 0;
     public int isbaoming = 0;
+    public DataRow chatdrow = null;
     protected void Page_Load(object sender, EventArgs e)
     {
         roomid = int.Parse(Util.GetSafeRequestValue(Request, "roomid", "0"));
@@ -33,16 +34,16 @@
         }
 
         ChatRoom chatRoom = new ChatRoom(roomid);
-        DataRow drow = chatRoom._fields;
-        if (drow == null)
+        chatdrow = chatRoom._fields;
+        if (chatdrow == null)
         {
             Response.Write("参数错误");
             Response.End();
             return;
         }
         int courseid = -1;
-        if (drow["courseid"].ToString().Trim() != "0")
-            courseid = int.Parse(drow["courseid"].ToString());
+        if (chatdrow["courseid"].ToString().Trim() != "0")
+            courseid = int.Parse(chatdrow["courseid"].ToString());
         DataTable CourseDt = Donate.getCourse(courseid);
         if (CourseDt != null && CourseDt.Rows.Count > 0)
         {
@@ -158,15 +159,15 @@
         <div style="height:100px;"></div>
     </div>
     <script type="text/javascript">
+        var startTime = '<%=chatdrow["start_date"].ToString() %>';
         var timeID;
         $(document).ready(function () {
             var bw = document.body.clientWidth;
             if (bw > 640)
                 bw = 640;
             $('.line_middle').css('width', (bw - 130).toString() + "px");
-
-            timeID = window.setInterval(function () { ShowCountDown(2016, 5, 17, 20, 0, 0); }, 1000);
-
+            var sTime = new Date(Date.parse(startTime.replace(/-/g, "/")))
+            timeID = window.setInterval(function () { ShowCountDown(sTime.getFullYear(), sTime.getMonth() + 1, sTime.getDate(), sTime.getHours(), sTime.getMinutes(), 0); }, 1000);
         });
 
         function clickCourse(obj, url)
