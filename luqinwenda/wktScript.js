@@ -106,11 +106,11 @@ function submitInput(type, content, parentid, callback) {
         data: { type: type, token: token, roomid: roomid, content: content, parentid: parentid },
         dataType: "json",
         success: function (data) {
+            if ($("#textContent"))
+                $("#textContent").val("");
             //fillAnswer();
             if (callback && callback != '')
                 eval(callback + "()");
-            if ($("#textContent"))
-                $("#textContent").val("");
         }
     });
 }
