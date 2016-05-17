@@ -156,7 +156,7 @@ function fomatLi(chatline) {
         case "image":
             {
                 //if ($.inArray(chatline.user_id.toString(), expertArr) >= 0)
-                var content = '<img src="' + chatline.message_content + '" />';
+                var content = '<a id="chat_' + chatline.id + '" title="" href="' + chatline.message_content.replace('_thumb', '') + '"><img src="' + chatline.message_content + '" /></a><script type="text/javascript">$(document).ready(function() { $("#chat_' + chatline.id + '").imgbox({"speedIn": 0, "speedOut": 0, "alignment": "center", "overlayShow": true, "allowMultiple": false }); });</script>';
                 if (chatline.user_id.toString() == userid.toString())
                     liItem = String.format(textRight, userAvatar, content, strTohoursecond(chatline.create_date));
                 else

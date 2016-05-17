@@ -155,6 +155,7 @@
                                 after_append('<li class="time-li">' + strTohoursecond(chatline.create_date) + '</li>');
                                 //$('.feed_file_list li:last').after('<li class="time-li">' + strTohoursecond(chatline.create_date) + '</li>');
                         }
+
                     }
                 }
             });
