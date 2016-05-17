@@ -90,7 +90,7 @@
                <div style="color:#b65138; font-weight:bold; text-align:center;">讲课主题</div>
             </div>
         </div>
-        <div style="background:#e8775c; height:50px; color:#fff; ">
+        <div id="time_div" style="background:#e8775c; height:50px; color:#fff; ">
             <div style="float:left; width:70%; line-height:50px; padding:0 10px; color:#b65138; font-weight:bold;">
                 <div style="float:left;">倒计时：</div><ul id="sp_time" class="time_ul" style="border-radius:15px; width:163px;"><li>-</li><li>-</li><li>-</li><li style="border-right:none;">-</li></ul>
             </div>
@@ -158,13 +158,15 @@
         <div style="height:100px;"></div>
     </div>
     <script type="text/javascript">
+        var timeID;
         $(document).ready(function () {
             var bw = document.body.clientWidth;
             if (bw > 640)
                 bw = 640;
             $('.line_middle').css('width', (bw - 130).toString() + "px");
 
-            window.setInterval(function () { ShowCountDown(2016, 5, 17, 20, 0, 0); }, 1000);
+            timeID = window.setInterval(function () { ShowCountDown(2016, 5, 17, 20, 0, 0); }, 1000);
+
         });
 
         function clickCourse(obj, url)
@@ -183,6 +185,11 @@
             var now = new Date();
             var endDate = new Date(year, month - 1, day, s_hour, s_minute, s_second);
             var leftTime = endDate.getTime() - now.getTime();
+            if (leftTime < 0)
+            {
+                $('#time_div').hide();
+                window.clearInterval(timeID);
+            }
             var leftsecond = parseInt(leftTime / 1000);
             var day1 = Math.floor(leftsecond / (60 * 60 * 24));
             var hour = Math.floor((leftsecond - day1 * 24 * 60 * 60) / 3600);
