@@ -185,8 +185,7 @@
             var now = new Date();
             var endDate = new Date(year, month - 1, day, s_hour, s_minute, s_second);
             var leftTime = endDate.getTime() - now.getTime();
-            if (leftTime < 0)
-            {
+            if (leftTime < 0) {
                 $('#time_div').hide();
                 window.clearInterval(timeID);
             }

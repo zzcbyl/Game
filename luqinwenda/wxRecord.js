@@ -105,8 +105,8 @@ wx.ready(function () {
             sourceType: ['album'], // 可以指定来源是相册还是相机，默认二者都有
             success: function (res) {
                 image.localId = res.localIds[0]; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
-                
-                upImage();
+                if (image.localId != '')
+                    upImage();
             }
         });
     };
@@ -117,8 +117,8 @@ wx.ready(function () {
             isShowProgressTips: 1, // 默认为1，显示进度提示
             success: function (res) {
                 image.serverId = res.serverId; // 返回图片的服务器端ID
-                
-                submitInput('image', image.serverId, feedid, callback);
+                if (image.serverId != '')
+                    submitInput('image', image.serverId, feedid, callback);
             }
         });
     }
