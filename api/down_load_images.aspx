@@ -16,7 +16,7 @@
         {
             string filePath = currentLocalPath + @"\images\" + currentConvertMediaId + ".jpg";
             Util.DownloadMedia(currentConvertMediaId, filePath);
-            Util.MakeThumbnail(filePath, currentLocalPath + @"\images\" + currentConvertMediaId + "_thumb.jpg", 200, 200, "Cut");
+            Util.MakeThumbnail(filePath, currentLocalPath + @"\images\" + currentConvertMediaId + "_thumb.jpg", 200, 200, "H");
             Util.MakeThumbnail(filePath, currentLocalPath + @"\images\" + currentConvertMediaId + "_new.jpg", 1000, 1000, "W");
         }
         Response.Write("{\"status\": 0   ,  \"images_url\" : \"http://game.luqinwenda.com/download/images/" + currentConvertMediaId + ".jpg\"  }");
