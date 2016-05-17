@@ -68,7 +68,7 @@
     <div style="max-width:640px; background:#FFFDEA; margin:0 auto;">
         <%--<div style='width:auto; height:300px; background:#D04131; text-align:center; background:url(<%=currentCDt.Rows[0]["course_headimg"].ToString() %>) no-repeat; background-size:100% auto; background-position-y:center;'>--%>
         <div style="width:auto; background:#D04131; text-align:center;">
-            <a href="javascript:void(0);" onclick="jumpCourse();"><img src="/dingyue/upload/fm_room_bg<%=roomid %>.jpg" style="width:100%;"/></a>
+            <a href="javascript:void(0);" onclick="jumpCourse();"><img src="<%=chatdrow["audio_bg"].ToString() %>" style="width:100%;"/></a>
         </div>
         <div style="background:#e8775c; height:100px; border-bottom:1px solid #c5593e; color:#fff; overflow:hidden;" onclick="jumpCourse();">
             <div style="float:left; width:30%; height:100px; line-height:100px; text-align:center; vertical-align:middle; border-right:1px solid #c5593e;">
@@ -99,27 +99,13 @@
         </div>
         <div class="line_main" style="padding:10px 20px; height:auto; line-height:22px;">
             <div style="font-size:14px; font-weight:bold; padding:5px 0; color:#b65138;">课程简介</div>
-            <div>　　每个妈妈都希望和孩子亲密沟通，良好的亲子沟通是建立亲密亲子关系的基础，如何实现高质量的亲子沟通呢？</div>
+            <%=chatdrow["course_intro"].ToString() %>
             <%--<%=currentCDt.Rows[0]["course_preface"].ToString() %>--%>
         </div>
         <div class="line_main" style="padding:10px 20px; height:auto; line-height:22px;">
             <div style="font-size:14px; font-weight:bold; padding:5px 0; color:#b65138;">主讲介绍</div>
-            <div style="margin-top:5px; padding-bottom:10px; border-bottom: 1px solid #A89390;">
-                <div style="float:left; width:110px;">
-                    <div><img src="../images/xiaoyu.jpg" width="100px" /></div>
-                    <div style="text-align:center; margin-top:5px;">小雨姐姐</div>
-                </div>
-                <div style="margin-left:110px;">　　小雨姐姐是北京电台著名节目主持人，曾多次荣获亚广联、联合国儿童基金会等国际大奖、中国青少年社会教育银杏奖特别贡献奖、北京市劳模等100多项奖项。</div>
-                <div style="clear:both;"></div>
-            </div>
-            <div style="margin-top:15px;">
-                <div style="float:left; width:110px;">
-                    <div><img src="../images/luqin.jpg" width="100px" /></div>
-                    <div style="text-align:center; margin-top:5px;">卢勤老师</div>
-                </div>
-                <div style="margin-left:110px;">　　卢勤老师是团中央中国少年儿童新闻出版总社原总编辑、中国少年儿童新闻出版总社首席教育专家,深受广大家长和小朋友喜爱的“知心姐姐”，中国家庭教育学会家庭教育专业委员会副理事长、中国关心下一代工作委员会专家委员会委员、中国少先队工作学会副会长。曾获中国新闻工作者最高奖“韬奋新闻奖”。 中央电视台、中国教育电视台、北京电视台、腾讯、搜狐等多家传媒名牌栏目的常邀嘉宾。</div>
-                <div style="clear:both;"></div>
-            </div>
+            <%=chatdrow["lecturer_intro"].ToString() %>
+            
         </div>
 
 

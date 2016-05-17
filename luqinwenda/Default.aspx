@@ -75,7 +75,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="main-header" style="">
         <div style="height:170px; text-align:center; background:#EBE8E1; ">
-            <img src="/dingyue/upload/fm_room_bg<%=roomid %>.jpg" style="width:100%;" />
+            <img src="<%=chatDrow["audio_bg"].ToString() %>" style="width:100%;" />
             <div style="display:none;"><audio id="audio_1" controls="controls" autoplay="autoplay" src="<%=chatDrow["audio_url"].ToString() %>"></audio></div>
         </div>
         <div style="height:50px; position:relative; background:url(/luqinwenda/images/wkt_bottom_bg.jpg) no-repeat; background-size:100% 50px; background-position-y:center;"  onclick="playAudio();">
