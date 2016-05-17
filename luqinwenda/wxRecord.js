@@ -98,7 +98,6 @@ wx.ready(function () {
     });
 
     document.querySelector('#uploadImg').onclick = function () {
-        
         wx.chooseImage({
             count: 1, // 默认9
             sizeType: ['original'], // 可以指定是原图还是压缩图，默认二者都有
@@ -116,10 +115,10 @@ wx.ready(function () {
             localId: image.localId, // 需要上传的图片的本地ID，由chooseImage接口获得
             isShowProgressTips: 1, // 默认为1，显示进度提示
             success: function (res) {
+                changeBlock();
                 image.serverId = res.serverId; // 返回图片的服务器端ID
                 if (image.serverId != '')
                     submitInput('image', image.serverId, feedid, callback);
-                changeBlock();
             }
         });
     }
