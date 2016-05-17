@@ -44,6 +44,7 @@
     <link href="../style/jplayer.blue.monday.min.css" rel="stylesheet" />
     <link href="../style/bootstrap.min.css" rel="stylesheet" />
     <link href="../style/wktStyle.css" rel="stylesheet" />
+    
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
