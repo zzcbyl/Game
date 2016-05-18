@@ -56,7 +56,7 @@
     </form>
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
-        var shareTitle = "【卢勤问答平台微课教室】精彩课程，马上开始！"; //标题
+        var shareTitle = "【卢勤微课教室】精彩课程，马上开始！"; //标题
         var shareImg = "http://game.luqinwenda.com/upload/images/icon_wkt_course.jpg"; //图片
         var shareContent = '最权威的教育专家，超实用的育儿心经，零距离大咖交流，尽在这里！'; //简介
         var shareLink = 'http://game.luqinwenda.com/luqinwenda/wktIndex_Integral.aspx?roomid=<%=roomid %>'; //链接

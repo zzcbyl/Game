@@ -156,7 +156,7 @@
         var chat_shareContent = '<%=drow["shareContent"].ToString() %>';
         var chat_shareImage = '<%=drow["shareimage"].ToString() %>';
         $(document).ready(function () {
-            shareTitle = '<%=courseDt.Rows[0]["course_title"].ToString() %>';
+            shareTitle = '【卢勤微课教室】<%=courseDt.Rows[0]["course_title"].ToString() %>';
             if (chat_shareContent != '')
                 shareContent = chat_shareContent;
             if (chat_shareImage != '')
