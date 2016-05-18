@@ -76,17 +76,17 @@ function setDots() {
 }
 
 function scrollPageBottom() {
-    document.getElementById("bottomDiv").scrollIntoView(true);
-    //var movepx = $('#feed_file_list').css('height').replace("px", "");
-    //$wd = $('#mydiv');
-    //$wd.scrollTop($wd.scrollTop() + parseInt(movepx) + 1000);
+    //document.getElementById("bottomDiv").scrollIntoView(true);
+    var movepx = $('#feed_file_list').css('height').replace("px", "");
+    $wd = $('#mydiv');
+    $wd.scrollTop($wd.scrollTop() + parseInt(movepx) + 1000);
 }
 
 function scrollPage() {
-    document.getElementById("bottomDiv").scrollIntoView(true);
-    //var movepx = $('.feed_file_list li:last').css('height').replace("px", "");
-    //$wd = $(window);
-    //$wd.scrollTop($wd.scrollTop() + parseInt(movepx) + 10);
+    //document.getElementById("bottomDiv").scrollIntoView(true);
+    var movepx = $('.feed_file_list li:last').css('height').replace("px", "");
+    $wd = $('#mydiv');
+    $wd.scrollTop($wd.scrollTop() + parseInt(movepx) + 10);
 }
 
 function after_append(content) {
