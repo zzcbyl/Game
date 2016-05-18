@@ -48,7 +48,7 @@
                 <img src="images/may-1.jpg" />
             </div>
             <div class="m-block-content">
-                <img src="images/may-course-1.jpg" height="50px" />
+                <img src="images/may-course-1.jpg" />
             </div>
             <a class="m-block-right-icon"></a>
         </div>
@@ -57,7 +57,7 @@
                 <img src="images/may-2.jpg" />
             </div>
             <div class="m-block-content">
-                <img src="images/may-course-2.jpg" height="50px" />
+                <img src="images/may-course-2.jpg" />
             </div>
             <a class="m-block-right-icon"></a>
         </div>
@@ -66,7 +66,7 @@
                 <img src="images/may-3.jpg" />
             </div>
             <div class="m-block-content">
-                <img src="images/may-course-3.jpg" height="50px" />
+                <img src="images/may-course-3.jpg" />
             </div>
             <a class="m-block-right-icon"></a>
         </div>
@@ -75,7 +75,7 @@
                 <img src="images/may-4.jpg" />
             </div>
             <div class="m-block-content">
-                <img src="images/may-course-4.jpg" height="50px" />
+                <img src="images/may-course-4.jpg" />
             </div>
             <a class="m-block-right-icon"></a>
         </div>
@@ -84,7 +84,7 @@
                 <img src="images/may-5.jpg" />
             </div>
             <div class="m-block-content">
-                <img src="images/may-course-5.jpg" height="50px" />
+                <img src="images/may-course-5.jpg"/>
             </div>
             <a class="m-block-right-icon"></a>
         </div>
@@ -93,7 +93,7 @@
                 <img src="images/may-6.jpg" />
             </div>
             <div class="m-block-content">
-                <img src="images/may-course-6.jpg" height="50px" />
+                <img src="images/may-course-6.jpg" />
             </div>
             <a class="m-block-right-icon"></a>
         </div>
@@ -102,7 +102,7 @@
                 <img src="images/may-7.jpg" />
             </div>
             <div class="m-block-content">
-                <img src="images/may-course-7.jpg" height="50px" />
+                <img src="images/may-course-7.jpg" />
             </div>
             <a class="m-block-right-icon"></a>
         </div>
@@ -119,7 +119,7 @@
             $('.m-mouth-ul-content li').css({ "width": wh, "height": wh, "line-height": wh });
             $('.red-bg').css('background-size', wh + ' ' + wh);
             $('.green-bg').css('background-size', wh + ' ' + wh);
-            $('.m-block-content img').css('max-width', (winWidth - 20 - 61 - 50).toString() + "px");
+            $('.m-block-content img').css('max-width', (winWidth - 20 - 61 - 60).toString() + "px");
         });
 
         function jumpCourse(num) {
