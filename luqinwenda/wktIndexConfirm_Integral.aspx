@@ -42,11 +42,12 @@
             return;
         }
         room_integral = int.Parse(drow["integral"].ToString());
+        string rdm = ran.Next(1, 99999).ToString();
 
         UserChatRoomRights userChatRoom = new UserChatRoomRights(userId, roomId);
         if (userChatRoom.CanEnter && userChatRoom.CanPublishText)
         {
-            this.Response.Redirect("Default.aspx?roomid=" + roomId + "&token=" + token + "&rdm=" + ran.Next(1, 9999));
+            this.Response.Redirect("Default.aspx?roomid=" + roomId + "&token=" + token + "&rdm=" + rdm);
         }
 
         if (drow["price"].ToString().Trim() == "0" && drow["integral"].ToString().Trim() == "0")
@@ -59,7 +60,7 @@
                 if (ticketDt.Rows[0]["paystate"].ToString().Equals("1"))
                 {
                     UserChatRoomRights.SetUserChatRoom(userId, roomId);
-                    this.Response.Redirect("Default.aspx?roomid=" + int.Parse(ticketDt.Rows[0]["roomid"].ToString()) + "&token=" + token + "&rdm=" + ran.Next(1, 9999));
+                    this.Response.Redirect("Default.aspx?roomid=" + int.Parse(ticketDt.Rows[0]["roomid"].ToString()) + "&token=" + token + "&rdm=" + rdm);
                 }
             }
         }
@@ -105,14 +106,14 @@
                     if (result > 0)
                     {
                         UserChatRoomRights.SetUserChatRoom(userId, roomId);
-                        this.Response.Redirect("Default.aspx?roomid=" + roomId + "&token=" + token + "&rdm=" + ran.Next(1, 9999));
+                        this.Response.Redirect("Default.aspx?roomid=" + roomId + "&token=" + token + "&rdm=" + rdm);
                     }
                 }
             }
             else
             {
                 UserChatRoomRights.SetUserChatRoom(userId, roomId);
-                this.Response.Redirect("Default.aspx?roomid=" + roomId + "&token=" + token + "&rdm=" + ran.Next(1, 9999));
+                this.Response.Redirect("Default.aspx?roomid=" + roomId + "&token=" + token + "&rdm=" + rdm);
             }
         }
     }
