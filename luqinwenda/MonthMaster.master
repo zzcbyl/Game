@@ -35,7 +35,7 @@
         ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { list-style-type:none; padding:0; margin-bottom:0; }
         .clear { clear:both;}
         .m-mainpage { width:auto; background:none; margin:10px;}
-        .m-header { background:url(images/m-header-bg.jpg) repeat-x; height:65px; line-height:55px; width:100%; text-align:center; border-radius:5px; position:relative;}
+        .m-header { background:url(images/m-header-bg.jpg) repeat-x; height:65px; line-height:60px; width:100%; text-align:center; border-radius:5px; position:relative;}
         .m-header-left-icon { display:block; position:absolute; left:20px; top:14px; width:20px; height:32px; background:url(images/m-header-left.png) no-repeat;}
         .m-header-right-icon, .m-block-right-icon { display:block; position:absolute; right:20px; top:14px; width:20px; height:32px; background:url(images/m-header-right.png) no-repeat; }
         .m-mouth-ul { width:100%; background:url(images/calendar-head-bg.png) repeat-x; background-size:auto 35px; height:35px; line-height:35px;}

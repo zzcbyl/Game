@@ -12,6 +12,7 @@
     public int user_integral = 0;
     public int room_integral = 0;
     public DataTable courseDt = new DataTable();
+    public Random ran = new Random();
     protected void Page_Load(object sender, EventArgs e)
     {
         roomId = int.Parse(Util.GetSafeRequestValue(Request, "roomid", "0"));
@@ -45,7 +46,7 @@
         UserChatRoomRights userChatRoom = new UserChatRoomRights(userId, roomId);
         if (userChatRoom.CanEnter && userChatRoom.CanPublishText)
         {
-            this.Response.Redirect("Default.aspx?roomid=" + roomId + "&token=" + token);
+            this.Response.Redirect("Default.aspx?roomid=" + roomId + "&token=" + token + "&rdm=" + ran.Next(1, 9999));
         }
 
         if (drow["price"].ToString().Trim() == "0" && drow["integral"].ToString().Trim() == "0")
@@ -58,7 +59,7 @@
                 if (ticketDt.Rows[0]["paystate"].ToString().Equals("1"))
                 {
                     UserChatRoomRights.SetUserChatRoom(userId, roomId);
-                    this.Response.Redirect("Default.aspx?roomid=" + int.Parse(ticketDt.Rows[0]["roomid"].ToString()) + "&token=" + token);
+                    this.Response.Redirect("Default.aspx?roomid=" + int.Parse(ticketDt.Rows[0]["roomid"].ToString()) + "&token=" + token + "&rdm=" + ran.Next(1, 9999));
                 }
             }
         }
@@ -104,14 +105,14 @@
                     if (result > 0)
                     {
                         UserChatRoomRights.SetUserChatRoom(userId, roomId);
-                        this.Response.Redirect("Default.aspx?roomid=" + roomId + "&token=" + token);
+                        this.Response.Redirect("Default.aspx?roomid=" + roomId + "&token=" + token + "&rdm=" + ran.Next(1, 9999));
                     }
                 }
             }
             else
             {
                 UserChatRoomRights.SetUserChatRoom(userId, roomId);
-                this.Response.Redirect("Default.aspx?roomid=" + roomId + "&token=" + token);
+                this.Response.Redirect("Default.aspx?roomid=" + roomId + "&token=" + token + "&rdm=" + ran.Next(1, 9999));
             }
         }
     }

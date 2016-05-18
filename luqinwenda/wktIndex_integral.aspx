@@ -72,11 +72,14 @@
         </div>
         <div style="background:#e8775c; height:100px; border-bottom:1px solid #c5593e; color:#fff;" onclick="jumpCourse();">
             <div style="float:left; width:30%; height:100px; line-height:100px; text-align:center; vertical-align:middle; border-right:1px solid #c5593e; position:relative;">
+                <% if(currentCDt.Rows[0]["course_state"].ToString()=="0") { %>
+                <img src="images/index_sanjiao.jpg" style="width:60%;" />
+                <%} else { %>
                 <% if (isbaoming==0) { %>
                 <a style="position:absolute; z-index:99; left:5px; top:-10px;"><img src="images/wkt_index_bm.png" style="width:90%; margin-top:-10px;" /></a>
                 <% } else { %>
                 <a style="position:absolute; z-index:99; left:5px; top:-10px;"><img src="images/wkt_index_jr.png" style="width:90%; margin-top:-10px;" /></a>
-                <%} %>
+                <%} }%>
             </div>
             <div style="float:left; width:25%; height:100px; padding:5px 2%; border-right:1px solid #c5593e; line-height:30px;">
                <div style="height:60px; overflow:hidden; font-size:18px; font-family:SimHei; font-weight:bold; text-align:center; color:#fceadd;">
@@ -147,6 +150,7 @@
     <script type="text/javascript">
         var startTime = '<%=chatdrow["start_date"].ToString() %>';
         var timeID;
+        var isEnter = '<%=currentCDt.Rows[0]["course_state"].ToString() %>';
         var chat_shareContent = '<%=chatdrow["shareContent"].ToString() %>';
         var chat_shareImage = '<%=chatdrow["shareimage"].ToString() %>';
         $(document).ready(function () {
@@ -170,8 +174,9 @@
             location.href = url;
         }
 
-        function jumpCourse()
-        {
+        function jumpCourse() {
+            if (isEnter == '0')
+                return;
             location.href = 'wktIndexConfirm_Integral.aspx?roomid=<%=roomid %>&token=<%=token %>';
         }
 
