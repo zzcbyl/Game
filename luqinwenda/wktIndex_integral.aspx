@@ -70,25 +70,24 @@
         <div style="width:auto; background:#D04131; text-align:center;">
             <a href="javascript:void(0);" onclick="jumpCourse();"><img src="<%=chatdrow["audio_bg"].ToString() %>" style="width:100%;"/></a>
         </div>
-        <div style="background:#e8775c; height:100px; border-bottom:1px solid #c5593e; color:#fff; overflow:hidden;" onclick="jumpCourse();">
-            <div style="float:left; width:30%; height:100px; line-height:100px; text-align:center; vertical-align:middle; border-right:1px solid #c5593e;">
+        <div style="background:#e8775c; height:100px; border-bottom:1px solid #c5593e; color:#fff;" onclick="jumpCourse();">
+            <div style="float:left; width:30%; height:100px; line-height:100px; text-align:center; vertical-align:middle; border-right:1px solid #c5593e; position:relative;">
                 <% if (isbaoming==0) { %>
-                <img src="images/wkt_index_bm.png" style="height:80px; margin-top:10px;" />
+                <a style="position:absolute; z-index:99; left:5px; top:-10px;"><img src="images/wkt_index_bm.png" style="width:90%; margin-top:-10px;" /></a>
                 <% } else { %>
-                <span style="font-size:22px; font-weight:bold; color:#b65138;">已报名</span>
+                <a style="position:absolute; z-index:99; left:5px; top:-10px;"><img src="images/wkt_index_jr.png" style="width:90%; margin-top:-10px;" /></a>
                 <%} %>
             </div>
             <div style="float:left; width:25%; height:100px; padding:5px 2%; border-right:1px solid #c5593e; line-height:30px;">
-               <div style="height:60px; overflow:hidden; text-align:center;">
-                   <%=currentCDt.Rows[0]["course_time"].ToString().Substring(0, currentCDt.Rows[0]["course_time"].ToString().IndexOf('（')) %>
-                   <br />
-                   20:00
+               <div style="height:60px; overflow:hidden; font-size:18px; font-family:SimHei; font-weight:bold; text-align:center; color:#fceadd;">
+                   <div><%=currentCDt.Rows[0]["course_time"].ToString().Substring(0, currentCDt.Rows[0]["course_time"].ToString().IndexOf('（')).Trim() %></div>
+                   <div style="font-weight:normal; font-size:16px;">20:00</div>
                </div>
-               <div style="color:#b65138; font-weight:bold; text-align:center;">讲课时间</div>
+               <div style="color:#b65138; font-weight:bold; text-align:center; font-size:12px;">讲课时间</div>
             </div>
-            <div style="float:left; width:45%; height:100px; padding:5px 2%; line-height:30px;">
-               <div style="height:60px; font-size:18px; overflow:hidden; text-align:center;"><%=currentCDt.Rows[0]["course_title"].ToString() %></div>
-               <div style="color:#b65138; font-weight:bold; text-align:center;">讲课主题</div>
+            <div style="float:left; width:45%; height:100px; padding:5px 2%; line-height:30px; overflow:hidden;">
+               <div style="height:60px; font-size:18px; overflow:hidden; text-align:center; color:#fceadd; font-family:SimHei; font-weight:bold;"><%=currentCDt.Rows[0]["course_title"].ToString() %></div>
+               <div style="color:#b65138; font-weight:bold; text-align:center; font-size:12px;">讲课主题</div>
             </div>
         </div>
         <div id="time_div" style="background:#e8775c; height:50px; color:#fff; ">
@@ -99,6 +98,7 @@
         </div>
         <div class="line_main" style="padding:10px 20px; height:auto; line-height:22px;">
             <div style="font-size:14px; font-weight:bold; padding:5px 0; color:#b65138;">课程简介</div>
+            <span style="color:#b65138;">　　<%=currentCDt.Rows[0]["course_title"].ToString() %></span>
             <%=chatdrow["course_intro"].ToString() %>
             <%--<%=currentCDt.Rows[0]["course_preface"].ToString() %>--%>
         </div>

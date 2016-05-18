@@ -74,11 +74,7 @@
         {
             courseDt = CourseDt;
         }
-        
-        
     }
-    
-    
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
