@@ -4,6 +4,7 @@ var stopindex = 1;
 var direction = "";
 var cookieName = "voiceReaded" + QueryString('roomid');
 var winWidth = document.body.clientWidth;
+var winHeight = document.body.clientHeight;
 function changePlay(id, fx) {
     if ($('#a_jp_stop_' + id).css('display') == 'none') {
         stopindex = 1;
@@ -75,15 +76,17 @@ function setDots() {
 }
 
 function scrollPageBottom() {
-    var movepx = $('#mydiv').css('height').replace("px", "");
-    $wd = $(window);
-    $wd.scrollTop($wd.scrollTop() + parseInt(movepx));
+    document.getElementById("bottomDiv").scrollIntoView(true);
+    //var movepx = $('#feed_file_list').css('height').replace("px", "");
+    //$wd = $('#mydiv');
+    //$wd.scrollTop($wd.scrollTop() + parseInt(movepx) + 1000);
 }
 
 function scrollPage() {
-    var movepx = $('.feed_file_list li:last').css('height').replace("px", "");
-    $wd = $(window);
-    $wd.scrollTop($wd.scrollTop() + parseInt(movepx) + 10);
+    document.getElementById("bottomDiv").scrollIntoView(true);
+    //var movepx = $('.feed_file_list li:last').css('height').replace("px", "");
+    //$wd = $(window);
+    //$wd.scrollTop($wd.scrollTop() + parseInt(movepx) + 10);
 }
 
 function after_append(content) {

@@ -46,14 +46,14 @@
 
         if (Convert.ToDateTime(chatDrow["start_date"].ToString()) > DateTime.Now)
         {
-            Response.Redirect("nostart.aspx?roomid=" + roomid);
+            Response.Redirect("nostart.aspx?roomid=" + roomid + "&token=" + token);
             return;
         }
 
         UserChatRoomRights userChatRoom = new UserChatRoomRights(userid, int.Parse(roomid));
         if (!userChatRoom.CanEnter || !userChatRoom.CanPublishText)
         {
-            Response.Redirect("wktConfirm.aspx?roomid=" + roomid);
+            Response.Redirect("wktIndexConfirm_Integral.aspx?roomid=" + roomid + "&token=" + token);
             return;
         }
 
@@ -75,20 +75,20 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="main-header" style="">
         <div style="height:170px; text-align:center; background:#EBE8E1; ">
-            <img src="<%=chatDrow["audio_bg"].ToString() %>" style="width:100%;" />
+            <img src="<%=chatDrow["audio_bg"].ToString() %>" style="width:100%; height:170px;" />
             <div style="display:none;"><audio id="audio_1" controls="controls" autoplay="autoplay" src="<%=chatDrow["audio_url"].ToString() %>"></audio></div>
         </div>
         <div style="height:50px; position:relative; background:url(/luqinwenda/images/wkt_bottom_bg.jpg) no-repeat; background-size:100% 50px; background-position-y:center;"  onclick="playAudio();">
             <a style="position:absolute; top:-20px; display:inline-block; width:100%; text-align:center;"><img id="btn_audio_control" src="images/wkt_paused.png" style="height:60px;" /></a>
         </div>
     </div>
-    <div id="mydiv" class="main-page" style="margin-top:220px;">
+    <div id="mydiv" class="main-page" style="margin-top:220px; overflow-y:scroll;">
         <div>
             <ul id="feed_file_list" class="feed_file_list">
                 <div style="clear: both;"></div>
             </ul>
         </div>
-        <div id="bottomDiv" style="height: 55px; clear: both;"></div>
+        <div id="bottomDiv" style="height: 1px; clear: both;"></div>
         <div style="position: fixed; bottom: 0px; left: 0; width: 100%; text-align: center; line-height: 55px; z-index: 100;">
             <div id="input_text" style="width: auto; margin: 0; background: #ebe9e1; ">
                 <div style="width: auto; float: left; margin-left: 10px;">
@@ -135,10 +135,13 @@
             audio = document.getElementById('audio_1');
             $("#textContent").parent().css("width", (winWidth- 100).toString() + "px");
             
+            $('#mydiv').css("height", ($(window).height() - 275).toString() + "px");
+            
+
             fillList_QA();
-            scrollPageBottom();
             setInterval("fillList_QA()", 5000);
             setDots();
+            scrollPageBottom();
         });
 
         function playAudio() {

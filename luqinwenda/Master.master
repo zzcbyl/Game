@@ -86,7 +86,7 @@
         });
         
         $(document).ready(function () {
-            var winHeight = document.body.clientHeight;
+            
             //$('.main-page').css('min-height', (winHeight - 60) + 'px');
 
             wx.ready(function () {

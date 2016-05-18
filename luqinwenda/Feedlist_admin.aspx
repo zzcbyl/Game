@@ -65,7 +65,7 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
-            setInterval(function(){location.href=document.URL.toString();},5000);
+            setInterval(function(){location.href=document.URL.toString();},10000);
         });
 
         function pass(id)
