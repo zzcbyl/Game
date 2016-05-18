@@ -153,6 +153,15 @@
     <script type="text/javascript">
         var uintegral = parseInt('<%=user_integral %>');
         var integral = parseInt('<%=room_integral %>');
+        var chat_shareContent = '<%=drow["shareContent"].ToString() %>';
+        var chat_shareImage = '<%=drow["shareimage"].ToString() %>';
+        $(document).ready(function () {
+            shareTitle = '<%=courseDt.Rows[0]["course_title"].ToString() %>';
+            if (chat_shareContent != '')
+                shareContent = chat_shareContent;
+            if (chat_shareImage != '')
+                shareImg = chat_shareImage;
+        });
         function submitPay() {
             if (uintegral > 0) {
                 if (uintegral >= integral) {

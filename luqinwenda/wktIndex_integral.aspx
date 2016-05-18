@@ -147,7 +147,15 @@
     <script type="text/javascript">
         var startTime = '<%=chatdrow["start_date"].ToString() %>';
         var timeID;
+        var chat_shareContent = '<%=chatdrow["shareContent"].ToString() %>';
+        var chat_shareImage = '<%=chatdrow["shareimage"].ToString() %>';
         $(document).ready(function () {
+            shareTitle = '<%=currentCDt.Rows[0]["course_title"].ToString() %>';
+            if (chat_shareContent!='')
+                shareContent = chat_shareContent;
+            if (chat_shareImage != '')
+                shareImg = chat_shareImage;
+
             var bw = document.body.clientWidth;
             if (bw > 640)
                 bw = 640;
