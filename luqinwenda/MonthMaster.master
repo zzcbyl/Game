@@ -3,7 +3,23 @@
 <!DOCTYPE html>
 
 <script runat="server">
-
+    public string timeStamp = "";
+    public string nonceStr = "6lms1efs6eh2fj1dsdbr01ffsdfkssd9ba9f";
+    public string ticket = "";
+    public string shaParam = "";
+    public string appId = System.Configuration.ConfigurationManager.AppSettings["wxappid_dingyue"];
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        try
+        {
+            timeStamp = Util.GetTimeStamp();
+            ticket = Util.GetTicket();
+            string shaString = "jsapi_ticket=" + ticket.Trim() + "&noncestr=" + nonceStr.Trim()
+                + "&timestamp=" + timeStamp.Trim() + "&url=" + Request.Url.ToString().Trim();
+            shaParam = Util.GetSHA1(shaString);
+        }
+        catch (Exception ex) { }
+    }
 </script>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -27,10 +43,13 @@
         .m-mouth-ul-content { width:100%; font-size:120%; }
         .m-mouth-ul-content li { float:left; background:#fff; width: 14%; text-align:center; color:#000; font-weight:bold; height:35px; line-height:35px; border-bottom:1px solid #b1b0bc; border-right:1px solid #b1b0bc; }
         .m-mouth-ul-content .next-li-bg { color:#aeaeae; }
+        .m-mouth-ul-content .red-bg { background:url(images/m-calender-bg1.jpg); color:#fff; }
+        .m-mouth-ul-content .green-bg { background:url(images/m-calender-bg2.jpg); color:#fff; }
         .m-course-block-red, .m-course-block-green { background:#dd3332; width:100%; height:70px; border-radius:5px; margin-top:15px; color:#fff; position:relative; }
         .m-course-block-green { background:#00a69a; }
-        .m-block-left { float:left; width:80px; height:70px; line-height:70px; text-align:center; border-right:1px solid #b1b0bc; }
-        .m-block-content { margin-left:81px; line-height:25px; padding:10px 80px 10px 15px; }
+        .m-block-left { float:left; width:60px; height:70px; line-height:70px; text-align:center; border-right:1px solid #b1b0bc; }
+        .m-block-left img { width:75% }
+        .m-block-content { margin-left:61px; line-height:25px; padding:10px 80px 10px 10px; }
         .m-block-right-icon { top: 19px;}
     </style>
 
@@ -45,5 +64,53 @@
         </asp:ContentPlaceHolder>
     </div>
     </form>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript">
+        var shareTitle = ""; //标题
+        var shareImg = "http://game.luqinwenda.com/dingyue/upload/icon_wkt_jiaoshi.jpg"; //图片
+        var shareContent = '最权威的教育专家，超实用的育儿心经，零距离大咖交流，尽在这里！'; //简介
+        var shareLink = 'http://game.luqinwenda.com/luqinwenda/wkt-May.aspx'; //链接
+        wx.config({
+            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: '<%=appId%>', // 必填，公众号的唯一标识
+            timestamp: '<%=timeStamp%>', // 必填，生成签名的时间戳
+            nonceStr: '<%=nonceStr%>', // 必填，生成签名的随机串
+            signature: '<%=shaParam %>', // 必填，签名，见附录1
+            jsApiList: [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage']
+        });
+        
+        $(document).ready(function () {
+            
+            //$('.main-page').css('min-height', (winHeight - 60) + 'px');
+
+            wx.ready(function () {
+                //分享到朋友圈
+                wx.onMenuShareTimeline({
+                    title: shareTitle, // 分享标题
+                    link: shareLink, // 分享链接
+                    imgUrl: shareImg, // 分享图标
+                    success: function () {
+                        // 用户确认分享后执行的回调函数
+                        
+                    }
+                });
+
+                //分享给朋友
+                wx.onMenuShareAppMessage({
+                    title: shareTitle, // 分享标题
+                    desc: shareContent, // 分享描述
+                    link: shareLink, // 分享链接
+                    imgUrl: shareImg, // 分享图标
+                    success: function () {
+                        // 用户确认分享后执行的回调函数
+
+                    }
+                });
+            });
+
+        });
+    </script>
 </body>
 </html>
