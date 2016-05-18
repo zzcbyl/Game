@@ -37,8 +37,8 @@
                     <li <%=Array.IndexOf(redDay, i) >= 0 ? "class=\"red-bg\" onclick=\"jumpCourse1(" + i + ");\"" : Array.IndexOf(greenDay, i) >= 0 ? "class=\"green-bg\" onclick=\"jumpCourse1(" + i + ");\"" : "" %>><%=i.ToString() %></li>
                 <% } %>
                 
-                <% for (int i = 1; i <= 11; i++) { %>
-                    <li class="next-li-bg"><%=i.ToString() %></li>
+                <% for (int i = 1; i <= 4; i++) { %>
+                    <li class="next-li-bg"><%=i < 7 ? i.ToString() : "" %></li>
                 <% } %>
             </ul>
             <div class="clear"></div>
