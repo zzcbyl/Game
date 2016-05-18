@@ -14,6 +14,8 @@
     public DataTable dt_userinfo;
     public DataRow chatDrow = null;
     public DataTable courseDt = new DataTable();
+    public Random ran = new Random();
+    public string audioUrl = "";
     protected void Page_Load(object sender, EventArgs e)
     {
         roomid = Util.GetSafeRequestValue(Request, "roomid", "0");
@@ -42,6 +44,13 @@
             Response.End();
             return;
         }
+
+        audioUrl = chatDrow["audio_url"].ToString();
+        if (audioUrl.IndexOf(Util.DomainName) >= 0)
+        {
+            audioUrl += "?rdm=" + ran.Next(1, 99999);
+        }
+        
         expertlist = chatDrow["expertlist"].ToString();
 
         if (Convert.ToDateTime(chatDrow["start_date"].ToString()) > DateTime.Now)
@@ -65,6 +74,8 @@
         {
             courseDt = CourseDt;
         }
+        
+        
     }
     
     
@@ -76,7 +87,7 @@
     <div class="main-header" style="">
         <div style="height:170px; text-align:center; background:#EBE8E1; ">
             <img src="<%=chatDrow["audio_bg"].ToString() %>" style="width:100%; height:170px;" />
-            <div style="display:none;"><audio id="audio_1" controls="controls" autoplay="autoplay" src="<%=chatDrow["audio_url"].ToString() %>"></audio></div>
+            <div style="display:none;"><audio id="audio_1" controls="controls" autoplay="autoplay" src="<%=audioUrl %>"></audio></div>
         </div>
         <div style="height:50px; position:relative; background:url(/luqinwenda/images/wkt_bottom_bg.jpg) no-repeat; background-size:100% 50px; background-position-y:center;"  onclick="playAudio();">
             <a style="position:absolute; top:-20px; display:inline-block; width:100%; text-align:center;"><img id="btn_audio_control" src="images/wkt_paused.png" style="height:60px;" /></a>
