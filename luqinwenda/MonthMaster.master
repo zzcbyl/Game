@@ -1,0 +1,49 @@
+﻿<%@ Master Language="C#" %>
+
+<!DOCTYPE html>
+
+<script runat="server">
+
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <title>卢勤问答平台微课教室</title>
+    <script src="../script/jquery-1.3.2.min.js"></script>
+    <script src="../script/common.js"></script>
+    <link href="../style/bootstrap.min.css" rel="stylesheet" />
+    <style type="text/css">
+        body { font-size:150%; max-width:640px; margin:0 auto; background:#21212e;}
+        ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { list-style-type:none; padding:0; margin-bottom:0; }
+        .clear { clear:both;}
+        .m-mainpage { width:auto; background:none; margin:10px;}
+        .m-header { background:url(images/m-header-bg.jpg) repeat-x; height:65px; line-height:55px; width:100%; text-align:center; border-radius:5px; position:relative;}
+        .m-header-left-icon { display:block; position:absolute; left:20px; top:14px; width:20px; height:32px; background:url(images/m-header-left.png) no-repeat;}
+        .m-header-right-icon, .m-block-right-icon { display:block; position:absolute; right:20px; top:14px; width:20px; height:32px; background:url(images/m-header-right.png) no-repeat; }
+        .m-mouth-ul { width:100%; background:url(images/calendar-head-bg.png) repeat-x; background-size:auto 35px; height:35px; line-height:35px;}
+        .m-mouth-ul li { float:left; width: 14%; text-align:center; color:#fff; font-weight:bold;}
+        .m-mouth-ul-content { width:100%; font-size:120%; }
+        .m-mouth-ul-content li { float:left; background:#fff; width: 14%; text-align:center; color:#000; font-weight:bold; height:35px; line-height:35px; border-bottom:1px solid #b1b0bc; border-right:1px solid #b1b0bc; }
+        .m-mouth-ul-content .next-li-bg { color:#aeaeae; }
+        .m-course-block-red, .m-course-block-green { background:#dd3332; width:100%; height:70px; border-radius:5px; margin-top:15px; color:#fff; position:relative; }
+        .m-course-block-green { background:#00a69a; }
+        .m-block-left { float:left; width:80px; height:70px; line-height:70px; text-align:center; border-right:1px solid #b1b0bc; }
+        .m-block-content { margin-left:81px; line-height:25px; padding:10px 80px 10px 15px; }
+        .m-block-right-icon { top: 19px;}
+    </style>
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
