@@ -97,15 +97,7 @@
             </ul>
         </div>
         <div id="bottomDiv" style="height: 1px; clear: both;"></div>
-        <div style="position: fixed; bottom: 0px; left: 0; width: 100%; text-align: center; line-height: 55px; z-index: 100;">
-            <div id="input_text" style="width: auto; margin: 0; background: #ebe9e1; ">
-                <div style="width: auto; float: left; margin-left: 10px;">
-                    <input id="textContent" type="text" style="border: 2px solid #CACACA; border-radius: 15px; width: 100%; height: 30px; line-height: 30px; padding: 2px 5px;" /></div>
-                <div style="width: 70px; float: right;">
-                    <input type="button" class="btn-feed-send" onclick="inputText(0, 'fillList_Q');" /></div>
-                <div style="clear: both;"></div>
-            </div>
-        </div>
+        
         <%--<div style="position: fixed; bottom: 45px; left: 0; width: 100%; text-align: center; line-height: 55px; z-index: 100;">
             <div id="input_text" style="width: auto; margin: 0 15px; background: #fff; ">
                 <div style="width: auto; float: left; margin-left: 10px;">
@@ -115,7 +107,15 @@
                 <div style="clear: both;"></div>
             </div>
         </div>--%>
-        
+    </div>
+    <div style="position: fixed; bottom: 0px; left: 0; width: 100%; text-align: center; line-height: 55px; z-index: 100;">
+        <div id="input_text" style="width: auto; margin: 0; background: #ebe9e1; ">
+            <div style="width: auto; float: left; margin-left: 10px;">
+                <input id="textContent" type="text" style="border: 2px solid #CACACA; border-radius: 15px; width: 100%; height: 30px; line-height: 30px; padding: 2px 5px;" /></div>
+            <div style="width: 70px; float: right;">
+                <input type="button" class="btn-feed-send" onclick="inputText(0, 'fillList_Q');" /></div>
+            <div style="clear: both;"></div>
+        </div>
     </div>
     <script type="text/javascript">
         var userid = '<%=userid %>';
