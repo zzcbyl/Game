@@ -79,7 +79,7 @@ function scrollPageBottom() {
     //document.getElementById("bottomDiv").scrollIntoView(true);
     var movepx = $('#feed_file_list').css('height').replace("px", "");
     $wd = $('#mydiv');
-    $wd.scrollTop($wd.scrollTop() + parseInt(movepx) + 1000);
+    $wd.scrollTop($wd.scrollTop() + parseInt(movepx));
 }
 
 function scrollPage() {

@@ -85,8 +85,9 @@
             <img src="<%=chatDrow["audio_bg"].ToString() %>" style="width:100%; height:170px;" />
             <div style="display:none;"><audio id="audio_1" controls="controls" autoplay="autoplay" src="<%=audioUrl %>"></audio></div>
         </div>
-        <div style="height:50px; position:relative; background:url(/luqinwenda/images/wkt_bottom_bg.jpg) no-repeat; background-size:100% 50px; background-position-y:center;"  onclick="playAudio();">
-            <a style="position:absolute; top:-20px; display:inline-block; width:100%; text-align:center;"><img id="btn_audio_control" src="images/wkt_paused.png" style="height:60px;" /></a>
+        <div style="height:50px; position:relative; background:url(/luqinwenda/images/wkt_bottom_bg.jpg) no-repeat; background-size:100% 50px; background-position-y:center;">
+            <a style="position:absolute; top:-20px; display:inline-block; width:100%; text-align:center;"><img id="btn_audio_control" src="images/wkt_paused.png" style="height:60px; display:none;" /></a>
+            <a id="audio_loading" style="display:inline-block; width:100%; text-align:center;  top:0px; position:absolute;"><img src="/upload/images/loading.gif" style="width:40px; height:40px;" /></a>
         </div>
     </div>
     <div id="mydiv" class="main-page" style="margin-top:220px; overflow-y:scroll;">
@@ -148,6 +149,7 @@
                 shareImg = chat_shareImage;
 
             audio = document.getElementById('audio_1');
+            playCotrol();
             $("#textContent").parent().css("width", (winWidth- 100).toString() + "px");
             
             $('#mydiv').css("height", ($(window).height() - 275).toString() + "px");
@@ -159,24 +161,33 @@
             scrollPageBottom();
         });
 
-        function playAudio() {
-            changAudioBg();
-            //alert(audio.paused);
-            if (audio.paused) {
-                audio.play();
-                return;
-            }
-            audio.pause();
-        }
+        function playCotrol() {
+            audio.addEventListener("loadeddata", //歌曲一经完整的加载完毕( 也可以写成上面提到的那些事件类型)
+                function () {
+                    $('#audio_loading').hide();
+                    $('#btn_audio_control').show();
+                    audio.play();
+                    $('#audio_loading').parent().bind('click', function () {
+                        if (audio.paused) {
+                            audio.play();
+                        }
+                        else {
+                            audio.pause();
+                        }
+                    });
+                }, false);
 
-        function changAudioBg() {
-            //alert(audio.paused);
-            if (!audio.paused) {
-                $('#btn_audio_control').attr('src', 'images/wkt_play.png');
-            }
-            else {
-                $('#btn_audio_control').attr('src', 'images/wkt_paused.png');
-            }
+            audio.addEventListener("pause",
+                function () { //监听暂停
+                    $('#btn_audio_control').attr('src', 'images/wkt_play.png');
+                }, false);
+            audio.addEventListener("play",
+                function () { //监听暂停
+                    $('#btn_audio_control').attr('src', 'images/wkt_paused.png');
+                }, false);
+            audio.addEventListener("ended", function () {
+                
+            }, false)
         }
 
         function fillList_QA() {
