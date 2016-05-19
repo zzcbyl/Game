@@ -90,7 +90,7 @@
             <a id="audio_loading" style="display:inline-block; width:100%; text-align:center;  top:0px; position:absolute;"><img src="/upload/images/loading.gif" style="width:40px; height:40px;" /></a>
         </div>
     </div>
-    <div id="mydiv" class="main-page" style="margin-top:220px; overflow-y:scroll;">
+    <div id="mydiv" class="main-page" style="margin-top:220px; overflow-y:scroll; -webkit-overflow-scrolling: touch;">
         <div>
             <ul id="feed_file_list" class="feed_file_list">
                 <div style="clear: both;"></div>
