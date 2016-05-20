@@ -86,7 +86,7 @@
         #facebox table td { height:25px; line-height:25px;}
         .qqFace {margin-top:4px;background:#fff;padding:2px;border:1px #dfe6f6 solid;}
         .qqFace ul { width:100%; }
-        .qqFace li { float:left; height:25px; line-height:25px; }
+        .qqFace li { float:left; height:25px; line-height:25px; margin:2px; }
         #textContent img { margin-top:-5px; width:auto;}
     </style>
 </asp:Content>

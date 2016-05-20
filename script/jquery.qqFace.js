@@ -24,8 +24,8 @@
 				strFace = '<div id="'+id+'" style="display:none; padding:5px;;" class="qqFace"><ul>';
 				for(var i=1; i<=75; i++){
 				    //labFace = '['+tip+i+']';
-				    labFace = encodeURI('<img src="' + path + i + '.png" border="0" style="width:auto;" />');
-				    strFace += '<li><img src="' + path + i + '.png" onclick="$(\'#' + option.assign + '\').setCaret();$(\'#' + option.assign + '\').insertAtCaret(\'' + labFace + '\');" /></li>';
+				    labFace = encodeURI('<img src="' + path + i + '.png" border="0" style="width:25px;" />');
+				    strFace += '<li><img src="' + path + i + '.png" style="width:25px;" onclick="$(\'#' + option.assign + '\').setCaret();$(\'#' + option.assign + '\').insertAtCaret(\'' + labFace + '\');" /></li>';
 				}
 				strFace += '</ul><div class="clear"></div></div>';
 			}
