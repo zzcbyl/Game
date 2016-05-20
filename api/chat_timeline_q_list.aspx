@@ -30,7 +30,7 @@
                 string json = "";
                 foreach (DataColumn c in dt_parent.Columns)
                 {
-                    json = json + ",\"" + c.Caption.Trim() + "\" : \"" + row[c.ColumnName].ToString().Trim() + "\" ";
+                    json = json + ",\"" + c.Caption.Trim() + "\" : \"" + row[c.ColumnName].ToString().Trim().Replace("\"", "\\\"") + "\" ";
                 }
                 if (json.StartsWith(","))
                     json = json.Remove(0, 1);

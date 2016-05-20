@@ -78,6 +78,17 @@
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <script src="../script/jquery.qqFace.js"></script>
+    <style type="text/css">
+        span.emotion{width:42px; height:20px; background:url(face/face_icon.gif) no-repeat 2px 2px; padding-left:20px; cursor:pointer}
+        span.emotion:hover{background-position:2px -28px}
+        #facebox { background:#fff;}
+        #facebox table td { height:25px; line-height:25px;}
+        .qqFace {margin-top:4px;background:#fff;padding:2px;border:1px #dfe6f6 solid;}
+        .qqFace ul { width:100%; }
+        .qqFace li { float:left; height:25px; line-height:25px; }
+        #textContent img { margin-top:-5px; width:auto;}
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="main-header" style="">
@@ -111,9 +122,12 @@
     <div style="position: fixed; bottom: 0px; left: 0; width: 100%; text-align: center; line-height: 55px; z-index: 100;">
         <div id="input_text" style="width: auto; margin: 0; background: #ebe9e1; ">
             <div style="width: auto; float: left; margin-left: 10px;">
-                <input id="textContent" type="text" style="border: 2px solid #CACACA; border-radius: 15px; width: 100%; height: 30px; line-height: 30px; padding: 2px 5px;" /></div>
+                <%--<input id="textContent" type="text" style="border: 2px solid #CACACA; border-radius: 15px; width: 100%; height: 30px; line-height: 30px; padding: 2px 5px;" />--%>
+                <div id="textContent" contenteditable="true" style="text-align:left; margin-top:10px; background:#fff; border: 2px solid #CACACA; border-radius: 15px; width: 100%; line-height: 27px; padding: 0px 5px;"></div>
+            </div>
+            <div style="width: 30px; float: left;"><span class="emotion"></span></div>
             <div style="width: 70px; float: right;">
-                <input type="button" class="btn-feed-send" onclick="inputText(0, 'fillList_Q');" /></div>
+                <input type="button" class="btn-feed-send" onclick="inputText(0, 'fillList_QA');" /></div>
             <div style="clear: both;"></div>
         </div>
     </div>
@@ -148,9 +162,20 @@
             if (chat_shareImage != '')
                 shareImg = chat_shareImage;
 
+            $('.emotion').qqFace({
+                id: 'facebox', //表情盒子的ID
+                assign: 'textContent', //给那个控件赋值
+                path: 'face/'	//表情存放的路径
+            });
+
+            $(".sub_btn").click(function () {
+                var str = $("#saytext").val();
+                $("#show").html(replace_em(str));
+            });
+
             audio = document.getElementById('audio_1');
             playCotrol();
-            $("#textContent").parent().css("width", (winWidth- 100).toString() + "px");
+            $("#textContent").parent().css("width", (winWidth- 120).toString() + "px");
             
             $('#mydiv').css("height", ($(window).height() - 275).toString() + "px");
             
@@ -158,8 +183,9 @@
             fillList_QA();
             setInterval("fillList_QA()", 5000);
             setDots();
-            scrollPageBottom();
         });
+
+
 
         function playCotrol() {
             audio.addEventListener("loadeddata", //歌曲一经完整的加载完毕( 也可以写成上面提到的那些事件类型)
@@ -249,6 +275,7 @@
                             }
                         }
                     });
+                    scrollPageBottom();
                 }
             });
 

@@ -48,7 +48,7 @@ public class ChatTimeLine
                 string json = "";
                 foreach (DataColumn c in _fields.Table.Columns)
                 {
-                    json = json + ",\"" + c.Caption.Trim() + "\" : \"" + _fields[c].ToString().Trim() + "\" ";
+                    json = json + ",\"" + c.Caption.Trim() + "\" : \"" + _fields[c].ToString().Trim().Replace("\"", "\\\"") + "\" ";
                 }
                 if (json.StartsWith(","))
                     json = json.Remove(0, 1);

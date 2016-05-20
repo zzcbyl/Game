@@ -30,7 +30,7 @@
                 string json = "";
                 foreach (DataColumn c in dt_parent.Columns)
                 {
-                    json = json + ",\"" + c.Caption.Trim() + "\" : \"" + row[c.ColumnName].ToString().Trim() + "\" ";
+                    json = json + ",\"" + c.Caption.Trim() + "\" : \"" + row[c.ColumnName].ToString().Trim().Replace("\"", "\\\"") + "\" ";
                     if (c.Caption.Trim() == "parent_id" && row[c].ToString() == "0")
                     {
                         string chatListJson = "";
@@ -40,7 +40,7 @@
                             string dJson = "";
                             foreach (DataColumn dc in dt_parent.Columns)
                             {
-                                dJson = dJson + ",\"" + dc.Caption.Trim() + "\" : \"" + drow[dc.ColumnName].ToString().Trim() + "\" ";
+                                dJson = dJson + ",\"" + dc.Caption.Trim() + "\" : \"" + drow[dc.ColumnName].ToString().Trim().Replace("\"", "\\\"") + "\" ";
                             }
                             if (dJson.StartsWith(","))
                                 dJson = dJson.Remove(0, 1);

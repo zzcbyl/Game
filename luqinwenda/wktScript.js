@@ -95,9 +95,9 @@ function after_append(content) {
 }
 
 function inputText(parentid, callback) {
-    if ($('#textContent').val().Trim() != "") {
-        submitInput('text', encodeURI($('#textContent').val()), parentid, callback);
-        $('#textContent').val("");
+    if ($('#textContent').html().Trim() != "") {
+        submitInput('text', encodeURIComponent($('#textContent').html()), parentid, callback);
+        $('#textContent').html("");
     }
 }
 
@@ -110,7 +110,7 @@ function submitInput(type, content, parentid, callback) {
         dataType: "json",
         success: function (data) {
             if ($("#textContent"))
-                $("#textContent").val("");
+                $("#textContent").html("");
             //fillAnswer();
             if (callback && callback != '')
                 eval(callback + "()");
@@ -125,6 +125,14 @@ function strTohoursecond(str) {
     return timeArr[0] + ":" + timeArr[1];
 }
 
+//查看结果
+function replace_em(str) {
+    //str = str.replace(/\</g, '&lt;');
+    //str = str.replace(/\>/g, '&gt;');
+    //str = str.replace(/\n/g, '<br/>');
+    //str = str.replace(/\[em_([0-9]*)\]/g, '<img src="face/$1.png" border="0" style="width:auto;" />');
+    return str;
+}
 
 function fomatLi(chatline) {
     var nickName = chatline.nick;
