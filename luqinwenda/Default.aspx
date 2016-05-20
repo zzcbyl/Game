@@ -80,8 +80,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script src="../script/jquery.qqFace.js"></script>
     <style type="text/css">
-        span.emotion{width:42px; height:20px; background:url(face/face_icon.gif) no-repeat 2px 2px; padding-left:20px; cursor:pointer}
-        span.emotion:hover{background-position:2px -28px}
+        span.emotion{width:42px; height:25px; background:url(face/face_icon.png) no-repeat; background-size:25px 25px; padding-left:20px; cursor:pointer; display:inline-block; margin:12px 0 0 8px;}
         #facebox { background:#fff;}
         #facebox table td { height:25px; line-height:25px;}
         .qqFace {margin-top:4px;background:#fff;padding:2px;border:1px #dfe6f6 solid;}
@@ -125,7 +124,7 @@
                 <%--<input id="textContent" type="text" style="border: 2px solid #CACACA; border-radius: 15px; width: 100%; height: 30px; line-height: 30px; padding: 2px 5px;" />--%>
                 <div id="textContent" contenteditable="true" style="text-align:left; margin-top:10px; background:#fff; border: 2px solid #CACACA; border-radius: 15px; width: 100%; line-height: 27px; padding: 0px 5px;"></div>
             </div>
-            <div style="width: 30px; float: left;"><span class="emotion"></span></div>
+            <div style="width: 30px; float: left; height:50px;"><span class="emotion"></span></div>
             <div style="width: 70px; float: right;">
                 <input type="button" class="btn-feed-send" onclick="inputText(0, 'fillList_QA');" /></div>
             <div style="clear: both;"></div>
