@@ -87,7 +87,7 @@
         .qqFace {margin-top:4px;background:#fff;padding:2px;border:1px #dfe6f6 solid;}
         .qqFace ul { width:100%; }
         .qqFace li { float:left; height:25px; line-height:25px; margin:2px; }
-        #textContent img { margin-top:-5px; width:auto;}
+        #textContent img { margin-top:-3px; width:auto;}
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
