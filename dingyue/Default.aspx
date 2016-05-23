@@ -45,8 +45,8 @@
     <div style="max-width:740px; margin:0 auto; background:#F9F5E9; min-height:500px;">
         <div style="height:80px; width:100%; background:#e8775c; font-family:SimHei; color:#fceadd;">
             <div style="float:left; width:50%; height:80px; line-height:80px; border:none; border-right:1px solid #c85c41;">
-                <div style="float:left; border-radius:4px; width:40px; height:40px; margin:20px 0 0 30px; background:url(<%=UserHeadImg %>) no-repeat; background-size:40px 40px;"></div>
-                <div style="margin-left:80px; margin-top:2px; font-size:16px;"><%=(NickName.Length > 5 ? NickName.Substring(0, 5) + "..." : NickName) %></div>
+                <div style="float:left; border-radius:4px; width:40px; height:40px; margin:20px 0 0 20px; background:url(<%=UserHeadImg %>) no-repeat; background-size:40px 40px;"></div>
+                <div style="margin-left:70px; height:80px; overflow:hidden; font-size:16px;"><%=(NickName.Length > 5 ? NickName.Substring(0, 5) + "..." : NickName) %></div>
             </div>
             <div style="float:right; width:49%;">
                 <div style="text-align:center; font-size:40px; line-height:40px; font-weight:bold; margin-top:12px; letter-spacing:0.05em;"><%=user.Integral %></div>
