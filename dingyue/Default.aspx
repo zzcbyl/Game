@@ -62,6 +62,8 @@
             ● 转发签到文章到朋友圈可得1积分；邀请朋友转发您的签到文章到朋友圈您可以再得到1积分。每位用户每天最多可以获得10积分。<br />
             ● 显示“已转”的签到文章再次分享到朋友圈将不会再增加积分。
         </div>
+        <%--<div style="border-top:1px solid #e8775c; text-align:center; color:#fff;">
+            <span style="background:#e8775c; display:inline-block;padding:2px 10px;">签到文章</span></div>--%>
         <div id="article-List">
             <%--<div style="margin:5px; border:1px solid #DBDBDB;">
                 <div style="height:35px; line-height:35px; font-family:黑体; font-size:14px; color:#666; font-weight:bold; border:1px solid #fff; padding:0 10px; background:#D9D9D9;">
@@ -159,8 +161,8 @@
                         var articleHtml = "";
                         maxdate = data.maxdate;
                         for (var i = 0; i < data.article_list.length; i++) {
-                            articleHtml += '<div style="margin:5px; border:1px solid #DBDBDB;">' +
-                                        '<div style="height:35px; line-height:35px; font-family:黑体; font-size:14px; color:#666; font-weight:bold; border:1px solid #fff; padding:0 10px; background:#D9D9D9;">' +
+                            articleHtml += '<div style="margin:5px; border:1px solid #e8775c;">' +
+                                        '<div style="height:35px; line-height:35px; font-family:黑体; font-size:14px; color:#fff; font-weight:bold; border:1px solid #e8775c; padding:0 10px; background:#e8775c;">' +
                                         data.article_list[i].article_date +
                                         '</div>' +
                                         '<div style="background:#fff; font-size:14px; line-height:22px;">';
