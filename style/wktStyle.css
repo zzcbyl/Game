@@ -1,30 +1,30 @@
-﻿body { font-size:150%; max-width:640px; margin:0 auto; background:#e4dfcd;}
+﻿body { font-size:150%; max-width:640px; margin:0 auto; background:#FFFDEA;}
 ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { list-style-type:none; padding:0;}
 .clear { clear:both;}
 .main-page { width:auto; background:#e4dfcd; margin:10px 8px; border:2px solid #e4dfcd; border-radius:5px; }
-.text-li-right .jp-audio, .jp-audio-stream, .jp-video { margin-left: 5px; border: none; background:#71cb8d;  border-radius:4px;  width: 90px; height: 35px; line-height: 35px; padding:0 5px;}
-.text-li .jp-audio, .jp-audio-stream, .jp-video { margin-left: 5px; border: 1px solid #e0e0e0; background:#fff;  border-radius:4px;  width: 90px; height: 35px; line-height: 35px; padding:0 5px;}
+.text-li-right .jp-audio, .jp-audio-stream, .jp-video { margin-left: 5px; border: none; background:#71cb8d; border-radius:4px; width: 90px; height: 35px; line-height: 35px; padding:0 5px;}
+.text-li .jp-audio, .jp-audio-stream, .jp-video { margin-left: 5px; border: 1px solid #e0e0e0; background:#fff; border-radius:4px; width: 90px; height: 35px; line-height: 35px; padding:0 5px;}
 .jp-play { width: 100%; height: auto; display: block; padding-top: 8px;}
 .jplay_play { background: url(/luqinwenda/images/jplayerstop.png) no-repeat; width: 16px; height: 19px; display: block; margin-left:1px; }
 .jp-play:focus { background: none;}
 .jplay_play_right { background: url(/luqinwenda/images/jplayerstop_right.png) no-repeat; width: 16px; height: 19px; display: block; float:right; margin-right:1px; }
-.jp-stop {  width: 100%; height: auto; display: block; margin-left: 0; padding-top: 8px; margin-top: 0; }
+.jp-stop { width: 100%; height: auto; display: block; margin-left: 0; padding-top: 8px; margin-top: 0; }
 .jplay_stop { display: block; margin-left: 0px;}
 .jplay_stop_right { display: block; margin-left: 0px; float:right;}
 .jp-stop:focus { background: none; margin-left: 0; }
 .feed_file_list { border: none; margin: 0;}
-.jp-stop_1 { background: url(/luqinwenda/images/jplayerplay.png) no-repeat 0 0; width: 16px; height: 19px;  }
-.jp-stop_2 { background: url(/luqinwenda/images/jplayerplay.png) no-repeat -18px 0; width: 16px; height: 19px;  }
-.jp-stop_3 { background: url(/luqinwenda/images/jplayerplay.png) no-repeat -39px 0; width: 18px; height: 19px;  }
-.jp-stop_right_1 { background: url(/luqinwenda/images/jplayerplay_right.png) no-repeat -41px 0; width: 16px; height: 19px;  }
-.jp-stop_right_2 { background: url(/luqinwenda/images/jplayerplay_right.png) no-repeat -23px 0; width: 16px; height: 19px;  }
-.jp-stop_right_3 { background: url(/luqinwenda/images/jplayerplay_right.png) no-repeat -0px 0; width: 18px; height: 19px;  }
+.jp-stop_1 { background: url(/luqinwenda/images/jplayerplay.png) no-repeat 0 0; width: 16px; height: 19px; }
+.jp-stop_2 { background: url(/luqinwenda/images/jplayerplay.png) no-repeat -18px 0; width: 16px; height: 19px; }
+.jp-stop_3 { background: url(/luqinwenda/images/jplayerplay.png) no-repeat -39px 0; width: 18px; height: 19px; }
+.jp-stop_right_1 { background: url(/luqinwenda/images/jplayerplay_right.png) no-repeat -41px 0; width: 16px; height: 19px; }
+.jp-stop_right_2 { background: url(/luqinwenda/images/jplayerplay_right.png) no-repeat -23px 0; width: 16px; height: 19px; }
+.jp-stop_right_3 { background: url(/luqinwenda/images/jplayerplay_right.png) no-repeat -0px 0; width: 18px; height: 19px; }
 .jp-audio a { height:30px;}
 
 .feed_file_list li { padding-left: 0px; padding:5px; background:#f5f1e7; }
 .feed_file_list .expert-li { padding-left: 0px; padding:5px; background:#e4dfcd; }
 .feed_file_list .spacing-li { height:5px; background:#e4dfcd; padding:0; }
-.feed_file_list .time-li { background:#e4dfcd; color:#B2B2B2; text-align:center; font-size:12px; padding:0; height:30px; line-height:30px;  }
+.feed_file_list .time-li { background:#e4dfcd; color:#B2B2B2; text-align:center; font-size:12px; padding:0; height:30px; line-height:30px; }
 
 .text-li { position:relative; min-height:50px; width:95%;}
 .text-li .left-head { position:absolute; top:0px; left:5px; }
@@ -42,7 +42,7 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { l
 .text-li-right .left-head img { width:36px; border-radius:4px; border: 1px solid #ccc;}
 .text-li-right .right-content { float:right; margin-right:55px; }
 .text-li-right .right-content .text_jiantou { position:absolute; right:49px; top:4px; }
-.text-li-right .right-content .text-content {  background:#71cb8d; border-radius:3px; padding:8px 10px; line-height:20px; float:right;  color:#fff; }
+.text-li-right .right-content .text-content { background:#71cb8d; border-radius:3px; padding:8px 10px; line-height:20px; float:right; color:#fff; }
 .text-li-right .right-content .text-content img { width:100%; }
 .text-li .text-time, .text-li-right .text-time { color:#B2B2B2; text-align:center; font-size:12px; margin-top:2px; height:22px; line-height:22px; display:none;}
 
@@ -71,134 +71,30 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { l
 .time_ul { list-style:none; background:#b65138; float:left; height:30px; margin-top:10px; }
 .time_ul li { float:left; color:#e8775c; border-right:1px solid #e8775c; height:30px; line-height:30px; padding:0 3px; width:40px; text-align:center;}
 
+#imgbox-loading { position: absolute; top: 0; left: 0; background: url('../luqinwenda/images/imgbox-spinner.gif') center center no-repeat; cursor: pointer; display: none; z-index: 90; } 
+#imgbox-loading div { background: #FFF; width: 100%; height : 100%; } 
+#imgbox-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: none; z-index: 80; } 
+.imgbox-wrap { position: absolute; top: 0; left: 0; background: #FFF; display: none; z-index: 90; } 
+.imgbox-img { padding: 0; margin: 0; border: none; width: 100%; height: 100%; vertical-align: top; } 
+.imgbox-close { position: absolute; top: -15px; right: -15px; height: 30px; width: 30px; background: url('imgbox-close.png') top left no-repeat; cursor: pointer; outline: none; } 
+.imgbox-title { padding-top: 10px; font-size: 11px; text-align: center; font-family: Arial; color: #333; display: none; } 
+.imgbox-bg-wrap { position: absolute; padding: 0; margin: 0; display: none; } 
+.imgbox-bg { position: absolute; width: 20px; height: 20px; } 
+.imgbox-bg-n { left: 0; top: -20px; width: 100%; background: url(../luqinwenda/images/imgbox-bg-n.png) repeat-x; } 
+.imgbox-bg-ne { right: -20px; top: -20px; background: url(../luqinwenda/images/imgbox-bg-ne.png) no-repeat; } 
+.imgbox-bg-e { right: -20px; top: 0; height: 100%; background: url(../luqinwenda/images/imgbox-bg-e.png) repeat-y; } 
+.imgbox-bg-se { right: -20px; bottom: -20px; background: url(../luqinwenda/images/imgbox-bg-se.png) no-repeat; } 
+.imgbox-bg-s { left: 0; bottom: -20px; width: 100%; background: url(../luqinwenda/images/imgbox-bg-s.png) repeat-x; } 
+.imgbox-bg-sw { left: -20px; bottom: -20px; background: url(../luqinwenda/images/imgbox-bg-sw.png) no-repeat; } 
+.imgbox-bg-w { left: -20px; top: 0; height: 100%; background: url(../luqinwenda/images/imgbox-bg-w.png) repeat-y; } 
+.imgbox-bg-nw { left: -20px; top: -20px; background: url(../luqinwenda/images/imgbox-bg-nw.png) no-repeat; }
 
+.content-main { max-width:640px; background:#FFFDEA; margin:0 auto;}
 
-#imgbox-loading {
-	position: absolute;
-	top: 0;
-	left: 0;
-	background: url('../luqinwenda/images/imgbox-spinner.gif') center center no-repeat;
-	cursor: pointer;
-	display: none;
-	z-index: 90;
-}
-
-#imgbox-loading div {
-	background: #FFF;
-	width: 100%;
-	height : 100%;
-}
-
-#imgbox-overlay {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: #000;
-	display: none;
-	z-index: 80;
-}
-
-.imgbox-wrap {
-	position: absolute;
-	top: 0;
-	left: 0;
-	background: #FFF;
-	display: none;
-	z-index: 90;
-}
-
-.imgbox-img {
-	padding: 0;
-	margin: 0;
-	border: none;
-	width: 100%;
-	height: 100%;
-	vertical-align: top;
-}
-
-.imgbox-close {
-	position: absolute;
-	top: -15px;
-	right: -15px;
-	height: 30px;
-	width: 30px;
-	background: url('imgbox-close.png') top left no-repeat;
-	cursor: pointer;
-	outline: none;
-}
-
-.imgbox-title {
-	padding-top: 10px;
-	font-size: 11px;
-	text-align: center;
-	font-family: Arial;
-	color: #333;
-	display: none;
-}
-
-.imgbox-bg-wrap {
-	position: absolute;
-	padding: 0;
-	margin: 0;
-	display: none;
-}
-
-.imgbox-bg {
-	position: absolute;
-	width: 20px;
-	height: 20px;
-}
-
-.imgbox-bg-n {
-	left: 0;
-	top: -20px;
-	width: 100%;
-	background: url(../luqinwenda/images/imgbox-bg-n.png) repeat-x;
-}
-
-.imgbox-bg-ne {
-	right: -20px;
-	top: -20px;
-	background: url(../luqinwenda/images/imgbox-bg-ne.png) no-repeat;
-}
-
-.imgbox-bg-e {
-	right: -20px;
-	top: 0;
-	height: 100%;
-	background: url(../luqinwenda/images/imgbox-bg-e.png) repeat-y;
-}
-
-.imgbox-bg-se {
-	right: -20px;
-	bottom: -20px;
-	background: url(../luqinwenda/images/imgbox-bg-se.png) no-repeat;
-}
-
-.imgbox-bg-s {
-	left: 0;
-	bottom: -20px;
-	width: 100%;
-	background: url(../luqinwenda/images/imgbox-bg-s.png) repeat-x;
-}
-
-.imgbox-bg-sw {
-	left: -20px;
-	bottom: -20px;
-	background: url(../luqinwenda/images/imgbox-bg-sw.png) no-repeat;
-}
-
-.imgbox-bg-w {
-	left: -20px;
-	top: 0;
-	height: 100%;
-	background: url(../luqinwenda/images/imgbox-bg-w.png) repeat-y;
-}
-
-.imgbox-bg-nw {
-	left: -20px;
-	top: -20px;
-	background: url(../luqinwenda/images/imgbox-bg-nw.png) no-repeat;
-}
+.content-header { height:80px; width:100%; background:#e8775c; font-family:SimHei; color:#fceadd; }
+.content-header-left { float:left; width:50%; height:80px; line-height:80px; border:none; border-right:1px solid #c85c41; }
+.content-header-left #headimg { float:left; border-radius:4px; width:40px; height:40px; margin:20px 0 0 20px; }
+.content-header-left #nickname { margin-left:70px; height:80px; overflow:hidden; font-size:16px;}
+.content-header-right { float:right; width:49%;}
+.content-header-right #integralnum { text-align:center; font-size:40px; line-height:40px; font-weight:bold; margin-top:12px; letter-spacing:0.05em;}
+.content-header-right #integraltext { text-align:center; color:#c85c41; font-size:14px;}

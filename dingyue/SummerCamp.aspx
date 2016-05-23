@@ -31,32 +31,75 @@
     <script src="../script/jquery-1.3.2.min.js"></script>
     <style type="text/css">
         img { vertical-align:top; }
+        .camp-main { max-width:640px; margin:0 auto; padding-bottom:60px; }
+        .camp-main div { position:relative;}
+        .camp-main .entry-count { color:#fff; position:absolute; right:6%; top:25%; font-size:130%; font-weight:bold; font-family:微软雅黑; width:23%; text-align:center; z-index:99; }
+        .camp-main .entry-full { display:block; position:absolute; right:5%; top:10%; width:11%; height:100%; z-index:100; background:url(images/entry-full.png) no-repeat; background-size:contain;}
+        .camp-main .entry-discount { display:block; position:absolute; right:30%; top:-18%; width:11%; height:100%; z-index:100; background:url(images/entry-discount.png) no-repeat; background-size:contain; }
+        .camp-nav-bg { height:8px; background:url(upload/camp-ul-bg.jpg) repeat-y; background-size:contain; display:block; }
     </style>
 </head>
-<body style="background:#00c0c1;">
+<body style="background:#f9f5e9; margin:0;">
     <form id="form1" runat="server">
-    <div style="max-width:640px; margin:0 auto; padding-bottom:60px;">
-        <div><img src="upload/camp_01.jpg" width="100%" /></div>
-        <div><a href="http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506765618&idx=4&sn=eadba19b65ffcf9a463d4fdcbcbf800d&scene=0&previewkey=CaNeql4rjG8mbFEHXBc6BcwqSljwj2bfCUaCyDofEow%3D#wechat_redirect" style="display:block">
-            <img src="upload/camp_02.jpg" width="100%" alt="“放飞梦想我能行” 2016年北京精品夏令营" /></a></div>
-        
-        <div><a href="http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506765618&idx=3&sn=ad49e07b28a2e912c5c79d103c73cae1&scene=0&previewkey=CaNeql4rjG8mbFEHXBc6BcwqSljwj2bfCUaCyDofEow%3D#wechat_redirect" style="display:block">
-            <img src="upload/camp_03.jpg" width="100%" alt="“少年演说家”潜能开发营" /></a></div>
-        
-        <div><a href="http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506765618&idx=5&sn=c58b90ea74da22dbff472cc2832d4e8f&scene=0&previewkey=CaNeql4rjG8mbFEHXBc6BcwqSljwj2bfCUaCyDofEow%3D#wechat_redirect" style="display:block">
-            <img src="upload/camp_04.jpg" width="100%" alt="“少年摄影家”秦岭户外训练营" /></a></div>
-        
-        <div><a href="http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506765749&idx=1&sn=e3059515579d8e713f945c0e71f5d016#rd" style="display:block">
-            <img src="upload/camp_05.jpg" width="100%" alt="“热血少年”极限运动夏令营" /></a></div>
-        
-        <div><a href="http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506765618&idx=6&sn=58572d0681f3c3cf64056ef6822d2adc&scene=0&previewkey=CaNeql4rjG8mbFEHXBc6BcwqSljwj2bfCUaCyDofEow%3D#wechat_redirect" style="display:block">
-            <img src="upload/camp_06.jpg" width="100%" alt="“少年摄影家”云南大咖摄影旅行训练营" /></a></div>
-        
-        <%--<div><a href="http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506765618&idx=1&sn=285368af60e1fa1bbfa2182d00ca9e9e&scene=0&previewkey=CaNeql4rjG8mbFEHXBc6BcwqSljwj2bfCUaCyDofEow%3D#wechat_redirect" style="display:block">
-            <img src="upload/camp_07.jpg" width="100%" alt="“大开眼界”【美国创新科技体验营】遇见未来的自己！" /></a></div>--%>
-        
-        <div><a href="http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506765618&idx=7&sn=896a14921ece7e23a44195cc0b6a264c&scene=0&previewkey=CaNeql4rjG8mbFEHXBc6BcwqSljwj2bfCUaCyDofEow%3D#wechat_redirect" style="display:block">
-            <img src="upload/camp_08.jpg" width="100%" alt="“少年探险家”北京松山户外拓展训练营" /></a></div>
+    <div class="camp-main">
+        <div style="height:100px; width:100%; background:#E9775C; text-align:center;vertical-align:middle;">
+            <img src="images/summercamp-title.png" style="width:90%; margin-top:35px;"/>
+        </div>
+        <div><img src="upload/camp-ul-header.jpg" width="100%" /></div>
+        <a class="camp-nav-bg"></a>
+        <div>
+            <img src="upload/camp-ul-li01.jpg" width="100%" />
+            <a class="entry-count">30/30</a>
+            <a class="entry-full"></a>
+        </div>
+        <a class="camp-nav-bg"></a>
+        <div onclick="jumpCamp(2);">
+            <img src="upload/camp-ul-li03.jpg" width="100%" />
+            <a class="entry-count">12/100</a>
+            <a class="entry-discount"></a>
+        </div>
+        <a class="camp-nav-bg"></a>
+        <div><img src="upload/camp-ul-li05.jpg" width="100%" />
+            <a class="entry-count">30/30</a>
+            <a class="entry-full"></a>
+        </div>
+        <a class="camp-nav-bg"></a>
+        <div onclick="jumpCamp(4);">
+            <img src="upload/camp-ul-li07.jpg" width="100%" />
+            <a class="entry-count">25/100</a>
+        </div>
+        <a class="camp-nav-bg"></a>
+        <div onclick="jumpCamp(5);">
+            <img src="upload/camp-ul-li09.jpg" width="100%" />
+            <a class="entry-count">8/30</a>
+            <a class="entry-discount"></a>
+        </div>
+        <a class="camp-nav-bg"></a>
+        <div onclick="jumpCamp(6);">
+            <img src="upload/camp-ul-li11.jpg" width="100%" />
+            <a class="entry-count">3/30</a>
+            <a class="entry-discount"></a>
+        </div>
+        <a class="camp-nav-bg"></a>
+        <div><img src="upload/camp-ul-li13.jpg" width="100%" />
+            <a class="entry-count">50/50</a>
+            <a class="entry-full"></a>
+        </div>
+        <a class="camp-nav-bg"></a>
+        <div onclick="jumpCamp(8);">
+            <img src="upload/camp-ul-li15.jpg" width="100%" />
+            <a class="entry-count">15/50</a>
+            <a class="entry-discount"></a>
+        </div>
+        <a class="camp-nav-bg"></a>
+        <div onclick="jumpCamp(9);">
+            <img src="upload/camp-ul-li17.jpg" width="100%" />
+            <a class="entry-count">3/50</a>
+            <a class="entry-discount"></a>
+        </div>
+        <div>
+            <img src="upload/camp-ul-li18.jpg" width="100%" />
+        </div>
     </div>
     </form>
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
@@ -102,6 +145,30 @@
                 });
             });
         });
+
+        function jumpCamp(n) {
+            if (n == 1) {
+                
+            }
+            else if (n == 2) {
+                location.href = 'http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506765618&idx=4&sn=eadba19b65ffcf9a463d4fdcbcbf800d&scene=0&previewkey=CaNeql4rjG8mbFEHXBc6BcwqSljwj2bfCUaCyDofEow%3D#wechat_redirect';
+            } else if (n == 3) {
+
+            } else if (n == 4) {
+                location.href = 'http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506765618&idx=3&sn=ad49e07b28a2e912c5c79d103c73cae1&scene=0&previewkey=CaNeql4rjG8mbFEHXBc6BcwqSljwj2bfCUaCyDofEow%3D#wechat_redirect';
+            } else if (n == 5) {
+                location.href = 'http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506765618&idx=5&sn=c58b90ea74da22dbff472cc2832d4e8f&scene=0&previewkey=CaNeql4rjG8mbFEHXBc6BcwqSljwj2bfCUaCyDofEow%3D#wechat_redirect';
+            } else if (n == 6) {
+                location.href = 'http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506765749&idx=1&sn=e3059515579d8e713f945c0e71f5d016#rd';
+            } else if (n == 7) {
+
+            } else if (n == 8) {
+                location.href = 'http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506765618&idx=6&sn=58572d0681f3c3cf64056ef6822d2adc&scene=0&previewkey=CaNeql4rjG8mbFEHXBc6BcwqSljwj2bfCUaCyDofEow%3D#wechat_redirect';
+            } else if (n == 9) {
+                location.href = 'http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506765618&idx=7&sn=896a14921ece7e23a44195cc0b6a264c&scene=0&previewkey=CaNeql4rjG8mbFEHXBc6BcwqSljwj2bfCUaCyDofEow%3D#wechat_redirect';
+            }
+
+        }
     </script>
 
 </body>
