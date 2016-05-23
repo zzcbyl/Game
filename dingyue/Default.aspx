@@ -42,13 +42,22 @@
     <link href="common/wx_dingyue.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div style="max-width:740px; margin:0 auto; background:#efefef; min-height:500px;">
-        <div style="height:50px; width:100%; background:#C22B2B; font-family:宋体; color:#fff; font-size:14px; line-height:50px; font-weight:bold; letter-spacing:0.1em">
-            <div style="float:left; width:40px; height:40px; margin:6px 0 0 10px; background:url(<%=UserHeadImg %>) no-repeat; background-size:40px 40px;"><img src="images/headbg.png" width="40px" /></div>
-            <div style="float:left; margin-left:10px; margin-top:2px;"><%=(NickName.Length > 5 ? NickName.Substring(0, 5) + "..." : NickName) %></div>
-            <div style="float:right; margin-right:20px; font-size:16px;">积分：<span style="color:#D69100"><%=user.Integral %></span></div>
+    <div style="max-width:740px; margin:0 auto; background:#F9F5E9; min-height:500px;">
+        <div style="height:80px; width:100%; background:#e8775c; font-family:SimHei; color:#fceadd;">
+            <div style="float:left; width:50%; height:80px; line-height:80px; border:none; border-right:1px solid #c85c41;">
+                <div style="float:left; border-radius:4px; width:40px; height:40px; margin:20px 0 0 30px; background:url(<%=UserHeadImg %>) no-repeat; background-size:40px 40px;"></div>
+                <div style="margin-left:80px; margin-top:2px; font-size:16px;"><%=(NickName.Length > 5 ? NickName.Substring(0, 5) + "..." : NickName) %></div>
+            </div>
+            <div style="float:right; width:49%;">
+                <div style="text-align:center; font-size:40px; line-height:40px; font-weight:bold; margin-top:12px; letter-spacing:0.05em;"><%=user.Integral %></div>
+                <div style="text-align:center; color:#c85c41; font-size:14px;">积分余额</div>
+            </div>
         </div>
-        <div style="background:#fff; line-height:25px; padding:8px 10px; font-size:14px; color:#808080;">
+        <div style="height:55px; line-height:50px; font-weight:bold; text-align:center; font-family:SimHei; color:#6f6b61; background:url(images/head_nav_bg.jpg) repeat-x; background-size:auto 55px;">
+            获得积分
+        </div>
+        <div style="line-height:25px; padding:8px 10px; font-size:14px; color:#808080;">
+            <div style="color:#e8775c;">获得积分说明：</div>
             ● 积分可以兑换【卢勤微课堂】微课门票。<br />
             ● 转发签到文章到朋友圈可得1积分；邀请朋友转发您的签到文章到朋友圈您可以再得到1积分。每位用户每天最多可以获得10积分。<br />
             ● 显示“已转”的签到文章再次分享到朋友圈将不会再增加积分。
