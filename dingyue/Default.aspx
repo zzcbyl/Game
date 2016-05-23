@@ -54,16 +54,18 @@
             </div>
         </div>
         <div style="height:55px; line-height:50px; font-weight:bold; text-align:center; font-family:SimHei; color:#6f6b61; background:url(images/head_nav_bg.jpg) repeat-x; background-size:auto 55px;">
-            获得积分
+            如何获得积分
         </div>
         <div style="line-height:25px; padding:8px 10px; font-size:14px; color:#808080;">
-            <div style="color:#e8775c;">获得积分说明：</div>
             ● 积分可以兑换【卢勤微课堂】微课门票。<br />
             ● 转发签到文章到朋友圈可得1积分；邀请朋友转发您的签到文章到朋友圈您可以再得到1积分。每位用户每天最多可以获得10积分。<br />
             ● 显示“已转”的签到文章再次分享到朋友圈将不会再增加积分。
         </div>
         <%--<div style="border-top:1px solid #e8775c; text-align:center; color:#fff;">
             <span style="background:#e8775c; display:inline-block;padding:2px 10px;">签到文章</span></div>--%>
+        <div style="height:25px; line-height:25px; font-weight:bold; text-align:center; font-family:SimHei; color:#6f6b61;">
+            转发下列文章可获得积分
+        </div>
         <div id="article-List">
             <%--<div style="margin:5px; border:1px solid #DBDBDB;">
                 <div style="height:35px; line-height:35px; font-family:黑体; font-size:14px; color:#666; font-weight:bold; border:1px solid #fff; padding:0 10px; background:#D9D9D9;">
