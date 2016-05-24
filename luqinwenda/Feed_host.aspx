@@ -59,7 +59,8 @@
         <div style="position:fixed; bottom:0; left:0; width:100%; background:#fff; border-top:1px solid #ccc; text-align:center; line-height:55px; z-index:100;">
             <a id="switchInput" onclick="changeInput();" style="position:absolute; top:2px; left:5px; line-height:45px; "><img src="images/af9.png" width="30px" /></a>
             <div id="input_text" style="display:none; margin:0 50px;">
-                <div style="width:auto; float:left;" ><input id="textContent" type="text" style="border:2px solid #CACACA; border-radius:5px; width:100%; height:30px; line-height:30px; padding:2px 5px;"  /></div>
+                <div style="width:auto; float:left;" ><div id="textContent" contenteditable="true" style="text-align:left; margin:10px 0 13px; background:#fff; border: 2px solid #CACACA; border-radius: 15px; width: 100%; line-height: 27px; padding: 0px 5px;"></div></div>
+                <%--<input id="textContent" type="text" style="border:2px solid #CACACA; border-radius:5px; width:100%; height:30px; line-height:30px; padding:2px 5px;"  />--%>
                 <div style="width:90px; float:right;"><input type="button" class="btn-feed-send" onclick="inputText(0, 'fillList_QA');" /></div>
             </div>
             <div id="input_voice" style=" margin:0 50px;">

@@ -5,9 +5,6 @@
 
 <script runat="server">
     public string token = "";
-    public Users user = new Users();
-    public string UserHeadImg = "http://game.luqinwenda.com/images/noAvatar.jpg";
-    public string NickName = "匿名";
     public string FirstDate = DateTime.Now.AddDays(1).ToString("yyyy-MM-dd");
     public int userId = 0;
     public int roomId = 0;
@@ -32,23 +29,9 @@
                 currentUrl = currentUrl.Replace("&token=" + token, "").Replace("?token=" + token, "");
             Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Server.UrlEncode(currentUrl), true);
         }
-        JavaScriptSerializer json = new JavaScriptSerializer();
 
-        user = new Users(userId);
-        try
-        {
-            Dictionary<string, object> dicUser = json.Deserialize<Dictionary<string, object>>(user.GetUserAvatarJson());
-            if (dicUser.Keys.Contains("nickname"))
-                NickName = dicUser["nickname"].ToString();
-            if (dicUser.Keys.Contains("headimgurl"))
-                UserHeadImg = dicUser["headimgurl"].ToString();
-        }
-        catch { }
-
-        this.UserHeadControl1.UserHeadImg = UserHeadImg;
-        this.UserHeadControl1.NickName = NickName;
-        this.UserHeadControl1.UserIntegral = user.Integral.ToString();
         this.UserHeadControl1.Token = token;
+        this.UserHeadControl1.UserId = userId;
 
         string rdm = new Random().Next(1, 99999).ToString();
         UserChatRoomRights userChatRoom = new UserChatRoomRights(userId, roomId);
@@ -73,8 +56,6 @@
         {
             currentCDt = CourseDt;
         }
-        
-        
     }
 </script>
 
@@ -93,33 +74,37 @@
         </div>
         <div class="content-paymethod">
             <div class="content-paymethod-left">
-                <div class="pm-method-content paying">
+                <div class="pm-method-content paying" value="integral">
                     <a><img src="images/pay-integral.png"  style="width:100%;" /></a>
                     <span>积分兑换</span>
-                    <div>10<span>积分</span></div>
+                    <div><%=chatdrow["integral"].ToString() %><span>积分</span></div>
                     <a class="selected"></a>
                 </div>
             </div>
             <div class="content-paymethod-right">
-                <div class="pm-method-content">
+                <div class="pm-method-content" value="money">
                     <a><img src="images/pay-money.png"  style="width:100%;" /></a>
                     <span>现金支付</span>
-                    <div>10<span>元</span></div>
+                    <div><%=float.Parse(chatdrow["price"].ToString())/100 %><span>元</span></div>
                     <a class="selected"></a>
                 </div>
             </div>
+            <div class="clear"></div>
         </div>
-        <div style="margin-top:10px; width:100%; clear:both; font-size:85%; line-height:18px;">
+        <div style="margin-top:10px; width:100%; font-size:85%; line-height:18px;">
             <div style="width:60%; text-align:center; padding:0 10px;">
                 <a style="display:block; color:#6cb2f9; text-decoration:underline;" href="/dingyue/default.aspx?token=<%=token %>">如何获得积分？</a>
                 <a style="display:block; color:#6cb2f9;">分享每日签到文章可获得积分</a>
             </div>
         </div>
         <div style="text-align:center; margin-top:20px; position:relative; height:45px;">
-            <a style="z-index:10; position:absolute; left:20%; top:0; display:block; width:60%;"><img src="images/btn-pay.png" style="width:100%;" /></a>
+            <a style="z-index:10; position:absolute; left:20%; top:0; display:block; width:60%;" href="javascript:void(0);" onclick="jumpStep();"><img src="images/btn-pay.png" style="width:100%;" /></a>
             <div style="background:#e8775c; width:100%; height:1px; left:0; top:22px; position:absolute; z-index:0;"></div>
         </div>
-
+        <div style="padding:20px; line-height:20px; font-size:85%; ">
+            <div>1. 当天课程结束后，次日即可收听回顾。通过课表重复收听课程，无需再次报名。</div>
+            <div>2. 未能及时收听当日课程，也可通过课表收听课程回顾</div>
+        </div>
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -130,6 +115,10 @@
                 $(this).addClass('paying');
             });
         });
+
+        function jumpStep() {
+            location.href = 'wktPayStep.aspx?roomid=<%=roomId %>&token=<%=token %>&paymethod=' + $('.paying').eq(0).attr('value');
+        }
 
     </script>
 </asp:Content>

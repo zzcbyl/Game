@@ -1,13 +1,27 @@
 ﻿<%@ Control Language="C#" ClassName="UserHeadControl" %>
+<%@ Import Namespace="System.Web.Script.Serialization" %>
 
 <script runat="server">
-    public string NickName = "";
-    public string UserHeadImg = "";
-    public string UserIntegral = "";
+    private string NickName = "";
+    private string UserHeadImg = "";
+    private int UserIntegral = 0;
     public string Token = "";
+    public int UserId = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
+        JavaScriptSerializer json = new JavaScriptSerializer();
 
+        Users user = new Users(UserId);
+        UserIntegral = user.Integral;
+        try
+        {
+            Dictionary<string, object> dicUser = json.Deserialize<Dictionary<string, object>>(user.GetUserAvatarJson());
+            if (dicUser.Keys.Contains("nickname"))
+                NickName = dicUser["nickname"].ToString();
+            if (dicUser.Keys.Contains("headimgurl"))
+                UserHeadImg = dicUser["headimgurl"].ToString();
+        }
+        catch { }
     }
 </script>
 
