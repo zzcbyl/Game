@@ -57,6 +57,25 @@
 
                     if (errorMessage.Trim().Equals(""))
                     {
+                        ChatRoom chatRoom = new ChatRoom(roomId);
+
+                        content = Server.UrlDecode(content);
+                        
+                        string urlcheck = @"((http|ftp|https)://)(([a-zA-Z0-9\._-]+\.[a-zA-Z]{2,6})|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,4})*(/[a-zA-Z0-9\&%_\./-~-]*)?";
+                        Regex reg = new Regex(urlcheck);
+                        MatchCollection mc =  reg.Matches(content);
+                        for (int j = 0; j < mc.Count; j++)
+                        {
+                            if (Array.IndexOf(chatRoom._fields["expertlist"].ToString().Split(','), userId.ToString()) >= 0)
+                            {
+                                content = content.Replace(mc[j].Value, "<a href=\"" + mc[j].Value + "\">【点击购买】</a>");
+                            }
+                            else
+                            {
+                                content = content.Replace(mc[j].Value, "");
+                            }
+                        }
+                        
                         newMessageId = ChatTimeLine.PublishMessage(roomId, userId, type, Server.UrlDecode(content), parentid);
                         
                         if (type.Equals("voice"))

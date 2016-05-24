@@ -48,14 +48,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div id="mydiv"  class="main-page">
+    <div id="mydiv"  class="main-page" style="overflow-y:scroll; -webkit-overflow-scrolling: touch;">
         <div>
             <ul id="feed_file_list" class="feed_file_list">
                 
             </ul>
         </div>
 
-        <div id="bottomDiv" style="height:60px; clear:both;"></div>
+        <div id="bottomDiv" style="height:0px; clear:both;"></div>
         <div style="position:fixed; bottom:0; left:0; width:100%; background:#fff; border-top:1px solid #ccc; text-align:center; line-height:55px; z-index:100;">
             <a id="switchInput" onclick="changeInput();" style="position:absolute; top:2px; left:5px; line-height:45px; "><img src="images/af9.png" width="30px" /></a>
             <div id="input_text" style="display:none; margin:0 50px;">
@@ -105,6 +105,7 @@
         
         $(document).ready(function () {
             $("#textContent").parent().css("width", (winWidth - 200).toString() + "px");
+            $('#mydiv').css("height", ($(window).height() - 60).toString() + "px");
             fillList_QA();
             setInterval("fillList_QA()", 5000);
             setDots();
