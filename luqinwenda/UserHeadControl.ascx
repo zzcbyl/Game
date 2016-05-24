@@ -19,4 +19,16 @@
         <div id="integralnum"><%=UserIntegral %></div>
         <div id="integraltext">积分余额</div>
     </div>
+    <div class="content-header-right-link">
+        获<br />得<br />积<br />分<br />
+    </div>
 </div>
+<div class="content-header-nav">
+    微 课 门 票 兑 换
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.content-header-right').css('width', (parseInt($(document.body).width()) / 2 - 56).toString() + 'px');
+    });
+</script>
+

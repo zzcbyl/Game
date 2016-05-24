@@ -81,7 +81,8 @@
             <a class="entry-discount"></a>
         </div>
         <a class="camp-nav-bg"></a>
-        <div><img src="upload/camp-ul-li13.jpg" width="100%" />
+        <div onclick="jumpCamp(7);">
+            <img src="upload/camp-ul-li13.jpg" width="100%" />
             <a class="entry-count">50/50</a>
             <a class="entry-full"></a>
         </div>
@@ -161,7 +162,7 @@
             } else if (n == 6) {
                 location.href = 'http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506765749&idx=1&sn=e3059515579d8e713f945c0e71f5d016#rd';
             } else if (n == 7) {
-
+                location.href = 'http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=2654249317&idx=3&sn=0746623aaece6ef6bafe2ce99396bbcd&scene=21#wechat_redirect';
             } else if (n == 8) {
                 location.href = 'http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506765618&idx=6&sn=58572d0681f3c3cf64056ef6822d2adc&scene=0&previewkey=CaNeql4rjG8mbFEHXBc6BcwqSljwj2bfCUaCyDofEow%3D#wechat_redirect';
             } else if (n == 9) {
