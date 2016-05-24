@@ -48,6 +48,7 @@
         this.UserHeadControl1.UserHeadImg = UserHeadImg;
         this.UserHeadControl1.NickName = NickName;
         this.UserHeadControl1.UserIntegral = user.Integral.ToString();
+        this.UserHeadControl1.Token = token;
 
         string rdm = new Random().Next(1, 99999).ToString();
         UserChatRoomRights userChatRoom = new UserChatRoomRights(userId, roomId);
@@ -87,6 +88,49 @@
             <div><span class="course-title">时间：</span><%=currentCDt.Rows[0]["course_time"].ToString().Trim() %></div>
             <div><span class="course-title">主讲：</span><%=currentCDt.Rows[0]["course_lecturer"].ToString() %></div>
         </div>
+        <div class="content-paytitle">
+            <span>支付方式选择</span>
+        </div>
+        <div class="content-paymethod">
+            <div class="content-paymethod-left">
+                <div class="pm-method-content paying">
+                    <a><img src="images/pay-integral.png"  style="width:100%;" /></a>
+                    <span>积分兑换</span>
+                    <div>10<span>积分</span></div>
+                    <a class="selected"></a>
+                </div>
+            </div>
+            <div class="content-paymethod-right">
+                <div class="pm-method-content">
+                    <a><img src="images/pay-money.png"  style="width:100%;" /></a>
+                    <span>现金支付</span>
+                    <div>10<span>元</span></div>
+                    <a class="selected"></a>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top:10px; width:100%; clear:both; font-size:85%; line-height:18px;">
+            <div style="width:60%; text-align:center; padding:0 10px;">
+                <a style="display:block; color:#6cb2f9; text-decoration:underline;" href="/dingyue/default.aspx?token=<%=token %>">如何获得积分？</a>
+                <a style="display:block; color:#6cb2f9;">分享每日签到文章可获得积分</a>
+            </div>
+        </div>
+        <div style="text-align:center; margin-top:20px; position:relative; height:45px;">
+            <a style="z-index:10; position:absolute; left:20%; top:0; display:block; width:60%;"><img src="images/btn-pay.png" style="width:100%;" /></a>
+            <div style="background:#e8775c; width:100%; height:1px; left:0; top:22px; position:absolute; z-index:0;"></div>
+        </div>
+
     </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.pm-method-content').click(function () {
+                $('.pm-method-content').each(function () {
+                    $(this).removeClass('paying');
+                });
+                $(this).addClass('paying');
+            });
+        });
+
+    </script>
 </asp:Content>
 

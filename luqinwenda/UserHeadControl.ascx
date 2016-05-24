@@ -4,6 +4,7 @@
     public string NickName = "";
     public string UserHeadImg = "";
     public string UserIntegral = "";
+    public string Token = "";
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -20,7 +21,7 @@
         <div id="integraltext">积分余额</div>
     </div>
     <div class="content-header-right-link">
-        获<br />得<br />积<br />分<br />
+        <a style="color:#fff;" href="/dingyue/default.aspx?token=<%=Token %>">获<br />得<br />积<br />分<br /></a>
     </div>
 </div>
 <div class="content-header-nav">
