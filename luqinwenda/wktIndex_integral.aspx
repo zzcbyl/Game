@@ -94,7 +94,7 @@
             </div>
         </div>
         <div id="time_div" style="background:#e8775c; height:50px; color:#fff; ">
-            <div style="float:left; width:70%; line-height:50px; padding:0 10px; color:#b65138; font-weight:bold;">
+            <div style="float:left; width:70%; line-height:50px; padding:0 10px; color:#b65138; font-weight:bold; margin: 0 15%;">
                 <div style="float:left;">倒计时：</div><ul id="sp_time" class="time_ul" style="border-radius:15px; width:163px;"><li>-</li><li>-</li><li>-</li><li style="border-right:none;">-</li></ul>
             </div>
             <%--<div style="float:left; width:30%; background:#bd634c; text-align:center; height:50px; line-height:20px; padding:5px 0;">设置<br />提醒</div>--%>
