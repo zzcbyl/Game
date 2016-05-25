@@ -116,8 +116,8 @@
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
-            shareTitle = "【卢勤问答平台微课教室】5月精彩微课表！"; //标题
-            shareLink = 'http://game.luqinwenda.com/luqinwenda/wkt-May.aspx'; //链接
+            shareTitle = "【卢勤问答平台微课教室】6月精彩微课表！"; //标题
+            shareLink = 'http://game.luqinwenda.com/luqinwenda/wkt-June.aspx'; //链接
 
             var winWidth = $(window).width();
             //alert(winWidth);
