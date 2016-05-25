@@ -117,6 +117,6 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { l
 
 .content-paymethod .paying { border:2px solid #c85c41;}
 .content-paymethod .paying a.selected { position:absolute; left:0; bottom:0; width:35px; height:35px; background:url(/luqinwenda/images/payed-method.png) no-repeat; background-size:contain; display:block;}
-.btn-action-pay { display:block; width:50%; background:url(/luqinwenda/images/btn-pay.png) no-repeat; background-size:contain; line-height:35px; color:#fff; font-weight:bold; margin:0 auto;}
-.btn-action-payed { display:block; width:50%; background:url(/luqinwenda/images/btn-payed.png) no-repeat; background-size:contain; line-height:35px; color:#fff; font-weight:bold; margin:0 auto;}
+.btn-action-pay { display:block; width:70%; background:url(/luqinwenda/images/btn-pay.png) no-repeat; background-size:contain; line-height:48px; color:#fff; font-weight:bold; margin:0 auto; font-size:120%;}
+.btn-action-payed { display:block; width:70%; background:url(/luqinwenda/images/btn-payed.png) no-repeat; background-size:contain; line-height:52px; color:#fff; font-weight:bold; margin:0 auto; font-size:120%;}
 .btn-action-pay:focus, .btn-action-pay:hover, .btn-action-payed:focus, .btn-action-payed:hover { color:#3e3e3e; text-decoration:none; }

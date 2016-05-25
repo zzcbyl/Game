@@ -98,8 +98,8 @@
             </div>
         </div>
         <div style="text-align:center; margin-top:20px; position:relative; height:35px;">
-            <a style="z-index:10; position:absolute; left:25%; top:0;" class="btn-action-pay" href="javascript:void(0);" onclick="jumpStep();">确认提交支付</a>
-            <div style="background:#e8775c; width:100%; height:1px; left:0; top:17px; position:absolute; z-index:0;"></div>
+            <a style="z-index:10; position:absolute; left:15%; top:0;" class="btn-action-pay" href="javascript:void(0);" onclick="jumpStep();">确认提交支付</a>
+            <div style="background:#e8775c; width:100%; height:1px; left:0; top:23px; position:absolute; z-index:0;"></div>
         </div>
         <div style="padding:20px; line-height:20px; font-size:85%; ">
             <div>1. 当天课程结束后，次日即可收听回顾。通过课表重复收听课程，无需再次报名。</div>
