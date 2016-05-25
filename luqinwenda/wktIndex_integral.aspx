@@ -177,7 +177,7 @@
         function jumpCourse() {
             if (isEnter == '0')
                 return;
-            location.href = 'wktIndexConfirm_Integral.aspx?roomid=<%=roomid %>&token=<%=token %>';
+            location.href = 'wktPay.aspx?roomid=<%=roomid %>&token=<%=token %>';
         }
 
 
