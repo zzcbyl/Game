@@ -92,7 +92,7 @@
             <div class="clear"></div>
         </div>
         <div style="margin-top:10px; width:100%; font-size:85%; line-height:18px;">
-            <div style="width:60%; text-align:center; padding:0 10px;">
+            <div style="width:100%; text-align:center; padding:0 10px;">
                 <a style="display:block; color:#6cb2f9; text-decoration:underline;" href="/dingyue/default.aspx?token=<%=token %>">如何获得积分？</a>
                 <a style="display:block; color:#6cb2f9;">分享每日签到文章可获得积分</a>
             </div>
