@@ -37,7 +37,7 @@
         UserChatRoomRights userChatRoom = new UserChatRoomRights(userId, roomId);
         if (userChatRoom.CanEnter)
         {
-            //this.Response.Redirect("Default.aspx?roomid=" + roomId + "&token=" + token + "&rdm=" + rdm);
+            this.Response.Redirect("Default.aspx?roomid=" + roomId + "&token=" + token + "&rdm=" + rdm);
         }
 
         ChatRoom chatRoom = new ChatRoom(roomId);
@@ -73,22 +73,22 @@
             <span>支付方式选择</span>
         </div>
         <div class="content-paymethod">
-            <div class="content-paymethod-left">
-                <div class="pm-method-content paying" value="integral">
+            <div class="content-paymethod-left" style="width:100%;">
+                <div class="pm-method-content paying" value="integral" style="width:35%;">
                     <a><img src="images/pay-integral.png"  style="width:100%;" /></a>
                     <span>积分兑换</span>
                     <div><%=chatdrow["integral"].ToString() %><span>积分</span></div>
                     <a class="selected"></a>
                 </div>
             </div>
-            <div class="content-paymethod-right">
+            <%--<div class="content-paymethod-right">
                 <div class="pm-method-content" value="money">
                     <a><img src="images/pay-money.png"  style="width:100%;" /></a>
                     <span>现金支付</span>
                     <div><%=float.Parse(chatdrow["price"].ToString())/100 %><span>元</span></div>
                     <a class="selected"></a>
                 </div>
-            </div>
+            </div>--%>
             <div class="clear"></div>
         </div>
         <div style="margin-top:10px; width:100%; font-size:85%; line-height:18px;">

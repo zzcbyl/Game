@@ -35,7 +35,6 @@
                 <% for (DateTime i = Convert.ToDateTime("2016-5-29"); i <= Convert.ToDateTime("2016-7-2"); i=i.AddDays(1))
                    {
                        string className = "";
-                       int currentMonth = 6;
                        if (i.Month != 6)
                            className = "class=\"next-li-bg\"";
                        if (Array.IndexOf(redDay, i.ToString("yyyy-MM-dd")) >= 0)
@@ -45,8 +44,6 @@
                        %>
                     <li <%=className %>><%=i.Day.ToString() %></li>
                 <%} %>
-
-                <%--<li <%=Array.IndexOf(redDay, i.Day) >= 0 ? "class=\"red-bg\" onclick=\"jumpCourse1(" + i.Day + ");\"" : Array.IndexOf(greenDay, i.Day) >= 0 ? "class=\"green-bg\" onclick=\"jumpCourse1(" + i.Day + ");\"" : "" %>><%=i.Day.ToString() %></li>--%>
             </ul>
             <div class="clear"></div>
         </div>

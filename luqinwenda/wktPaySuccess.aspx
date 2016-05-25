@@ -36,7 +36,7 @@
         UserChatRoomRights userChatRoom = new UserChatRoomRights(userId, roomId);
         if (userChatRoom.CanEnter)
         {
-            //this.Response.Redirect("Default.aspx?roomid=" + roomId + "&token=" + token + "&rdm=" + rdm);
+            this.Response.Redirect("Default.aspx?roomid=" + roomId + "&token=" + token + "&rdm=" + rdm);
         }
 
         ChatRoom chatRoom = new ChatRoom(roomId);
@@ -65,7 +65,7 @@
                 if (ticketDt.Rows[0]["paystate"].ToString().Equals("1"))
                 {
                     UserChatRoomRights.SetUserChatRoom(userId, int.Parse(ticketDt.Rows[0]["roomid"].ToString()));
-                    this.Response.Redirect("wktIndex_integral.aspx?roomid=" + roomId + "&token=" + token);
+                    //this.Response.Redirect("wktIndex_integral.aspx?roomid=" + roomId + "&token=" + token);
                 }
             }
         }
