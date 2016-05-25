@@ -32,13 +32,6 @@
         this.UserHeadControl1.Token = token;
         this.UserHeadControl1.UserId = userId;
 
-        string rdm = new Random().Next(1, 99999).ToString();
-        UserChatRoomRights userChatRoom = new UserChatRoomRights(userId, roomId);
-        if (userChatRoom.CanEnter)
-        {
-            this.Response.Redirect("Default.aspx?roomid=" + roomId + "&token=" + token + "&rdm=" + rdm);
-        }
-
         ChatRoom chatRoom = new ChatRoom(roomId);
         chatdrow = chatRoom._fields;
         if (chatdrow == null)
