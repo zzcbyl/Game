@@ -68,7 +68,8 @@
                         {
                             if (Array.IndexOf(chatRoom._fields["expertlist"].ToString().Split(','), userId.ToString()) >= 0)
                             {
-                                content = content.Replace(mc[j].Value, "<a href=\"" + mc[j].Value + "\">【点击购买】</a>");
+                                content = content.Replace(mc[j].Value, "");
+                                content = "<a href=\"" + mc[j].Value + "\">【" + content + "】</a>";
                             }
                             else
                             {
