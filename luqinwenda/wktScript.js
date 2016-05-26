@@ -96,7 +96,7 @@ function after_append(content) {
 
 function inputText(parentid, callback) {
     if ($('#textContent').html().Trim() != "") {
-        submitInput('text', encodeURIComponent($('#textContent').html()), parentid, callback);
+        submitInput('text', encodeURIComponent(delHtmlTag($('#textContent').html())), parentid, callback);
         $('#textContent').html("");
     }
 }
