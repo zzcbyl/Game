@@ -2,8 +2,8 @@
 <%@ Import Namespace="System.Web.Script.Serialization" %>
 
 <script runat="server">
-    private string NickName = "";
-    private string UserHeadImg = "";
+    private string NickName = "匿名";
+    private string UserHeadImg = "http://game.luqinwenda.com/images/noAvatar.jpg";
     private int UserIntegral = 0;
     public string Token = "";
     public int UserId = 0;
