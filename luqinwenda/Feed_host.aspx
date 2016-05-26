@@ -54,28 +54,27 @@
                 
             </ul>
         </div>
-
         <div id="bottomDiv" style="height:0px; clear:both;"></div>
-        <div style="position:fixed; bottom:0; left:0; width:100%; background:#fff; border-top:1px solid #ccc; text-align:center; line-height:55px; z-index:100;">
-            <a id="switchInput" onclick="changeInput();" style="position:absolute; top:2px; left:5px; line-height:45px; "><img src="images/af9.png" width="30px" /></a>
-            <div id="input_text" style="display:none; margin:0 50px;">
-                <div style="width:auto; float:left;" ><div id="textContent" contenteditable="true" style="text-align:left; margin:10px 0 13px; background:#fff; border: 2px solid #CACACA; border-radius: 15px; width: 100%; line-height: 27px; padding: 0px 5px;"></div></div>
-                <%--<input id="textContent" type="text" style="border:2px solid #CACACA; border-radius:5px; width:100%; height:30px; line-height:30px; padding:2px 5px;"  />--%>
-                <div style="width:90px; float:right;"><input type="button" class="btn-feed-send" onclick="inputText(0, 'fillList_QA');" /></div>
-            </div>
-            <div id="input_voice" style=" margin:0 50px;">
-                <div style="width:100%; float:left; text-align:center;">
-                    <input type="button" value="点击说话" id="startRecord" style="width:100%; height:40px; line-height:40px; display:block; margin:7px 0;" /></div>
-                <div style="width:100%; float:left; text-align:center;">
-                    <input type="button" value="停止说话" id="stopRecord" style="width:100%; height:40px; line-height:40px; display:none; margin:7px 0" /></div>
-            </div>
-            <div style="position:absolute; top:2px; right:5px; line-height:50px;">
-                <a onclick="changeBlock();"><img src="images/a6b.png" width="30px" /></a>
-            </div>
-            <div id="openblock" style="margin-top:60px; display:none; text-align:center; padding-bottom:10px;">
-                <a id="uploadImg" style="display:block; width:55px; height:55px; border:1px solid #ccc; margin:0 auto; border-radius:3px;">
-                    <img src="images/pi.9.png" style="width:45px; height:45px; margin:5px;" /></a>
-            </div>
+    </div>
+    <div style="position:fixed; bottom:0; left:0; width:100%; background:#fff; border-top:1px solid #ccc; text-align:center; line-height:55px; z-index:100;">
+        <a id="switchInput" onclick="changeInput();" style="position:absolute; top:2px; left:5px; line-height:45px; "><img src="images/af9.png" width="30px" /></a>
+        <div id="input_text" style="display:none; margin:0 50px;">
+            <div style="width:auto; float:left;" ><div id="textContent" contenteditable="true" style="text-align:left; margin:10px 0 13px; background:#fff; border: 2px solid #CACACA; border-radius: 15px; width: 100%; line-height: 27px; padding: 0px 5px;"></div></div>
+            <%--<input id="textContent" type="text" style="border:2px solid #CACACA; border-radius:5px; width:100%; height:30px; line-height:30px; padding:2px 5px;"  />--%>
+            <div style="width:90px; float:right;"><input type="button" class="btn-feed-send" onclick="inputText(0, 'fillList_QA');" /></div>
+        </div>
+        <div id="input_voice" style=" margin:0 50px;">
+            <div style="width:100%; float:left; text-align:center;">
+                <input type="button" value="点击说话" id="startRecord" style="width:100%; height:40px; line-height:40px; display:block; margin:7px 0;" /></div>
+            <div style="width:100%; float:left; text-align:center;">
+                <input type="button" value="停止说话" id="stopRecord" style="width:100%; height:40px; line-height:40px; display:none; margin:7px 0" /></div>
+        </div>
+        <div style="position:absolute; top:2px; right:5px; line-height:50px;">
+            <a onclick="changeBlock();"><img src="images/a6b.png" width="30px" /></a>
+        </div>
+        <div id="openblock" style="margin-top:60px; display:none; text-align:center; padding-bottom:10px;">
+            <a id="uploadImg" style="display:block; width:55px; height:55px; border:1px solid #ccc; margin:0 auto; border-radius:3px;">
+                <img src="images/pi.9.png" style="width:45px; height:45px; margin:5px;" /></a>
         </div>
     </div>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
