@@ -56,7 +56,7 @@
         <div onclick="jumpCamp(2);">
             <img src="upload/camp-ul-li03.jpg" width="100%" />
             <a class="entry-count">25/100</a>
-            <a class="entry-discount"></a>
+            <%--<a class="entry-discount"></a>--%>
         </div>
         <a class="camp-nav-bg"></a>
         <div><img src="upload/camp-ul-li05.jpg" width="100%" />
