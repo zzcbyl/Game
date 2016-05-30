@@ -64,7 +64,7 @@
         </div>
         <div style="line-height:25px; padding:8px 10px; font-size:14px; color:#808080;">
             <div style="color:#e8775c;">如何获得积分？</div>
-            ● 积分可以兑换【卢勤微课堂】微课门票。<br />
+            ● 积分可以兑换<span style="color:#e8775c;">【卢勤微课堂】微课门票。</span><br />
             ● 转发签到文章到朋友圈可得1积分；邀请朋友转发您的签到文章到朋友圈您可以再得到1积分。每位用户每天最多可以获得10积分。<br />
             ● 显示“已转”的签到文章再次分享到朋友圈将不会再增加积分。
         </div>
@@ -75,8 +75,9 @@
         </div>
         <div id="article-List">
             <%--<div style="margin:5px; border:1px solid #DBDBDB;">
-                <div style="height:35px; line-height:35px; font-family:黑体; font-size:14px; color:#666; font-weight:bold; border:1px solid #fff; padding:0 10px; background:#D9D9D9;">
+                <div style="height:35px; line-height:35px; font-family:黑体; font-size:14px; color:#fff; font-weight:bold; border:1px solid #e8775c; padding:0 10px; background:#e8775c; position:relative; ">
                     03月21日
+                    <a style="position:absolute; right:10px; top:0px;"><img src="images/integral_double.png" style="width:40px;" /></a>
                 </div>
                 <div style="background:#fff; font-size:14px; line-height:22px;">
                     <div style="border-top:1px solid #f3f3f3; height:50px; padding:5px 10px;  position:relative;" onclick="jumpUrl(43);">
@@ -99,7 +100,8 @@
                         <div style="clear:both;"></div>
                     </div>
                 </div>
-            </div>--%>
+            </div>
+            --%>
         </div>
     </div>
     <script type="text/javascript">
@@ -159,6 +161,7 @@
         var maxdate = '<%=FirstDate %>';
         var pagesize = 10;
         function fillArticleList() {
+            var currentdt = parseInt(new Date().getTime() / 1000);
             $.ajax({
                 type: "GET",
                 async: false,
@@ -170,9 +173,16 @@
                         var articleHtml = "";
                         maxdate = data.maxdate;
                         for (var i = 0; i < data.article_list.length; i++) {
+                            var doubleIcon = '';
+                            if (currentdt >= (parseInt(new Date("2016-5-31").getTime() / 1000)) && currentdt < (parseInt(new Date("2016-6-6").getTime() / 1000))) {
+                                var articledt = new Date('2016/' + data.article_list[i].article_date.replace('月', '/').replace('日', ''));
+                                if ((parseInt(articledt.getTime()) / 1000) >= (parseInt(new Date("2016-5-31").getTime() / 1000)) && (parseInt(articledt.getTime()) / 1000) < (parseInt(new Date("2016-6-6").getTime() / 1000))) {
+                                    doubleIcon = '<a style="position:absolute; right:10px; top:0px;"><img src="images/integral_double.png" style="width:40px;" /></a>';
+                                }
+                            }
                             articleHtml += '<div style="margin:5px; border:1px solid #e8775c;">' +
-                                        '<div style="height:35px; line-height:35px; font-family:黑体; font-size:14px; color:#fff; font-weight:bold; border:1px solid #e8775c; padding:0 10px; background:#e8775c;">' +
-                                        data.article_list[i].article_date +
+                                        '<div style="height:35px; line-height:35px; font-family:黑体; font-size:14px; color:#fff; font-weight:bold; border:1px solid #e8775c; padding:0 10px; background:#e8775c; position:relative;">' +
+                                        data.article_list[i].article_date + doubleIcon +
                                         '</div>' +
                                         '<div style="background:#fff; font-size:14px; line-height:22px;">';
 
