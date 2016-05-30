@@ -174,9 +174,9 @@
                         maxdate = data.maxdate;
                         for (var i = 0; i < data.article_list.length; i++) {
                             var doubleIcon = '';
-                            if (currentdt >= (parseInt(new Date("2016-5-31").getTime() / 1000)) && currentdt < (parseInt(new Date("2016-6-6").getTime() / 1000))) {
+                            if (currentdt >= (parseInt(new Date("2016-5-31").getTime() / 1000)) && currentdt < (parseInt(new Date("2016-6-7").getTime() / 1000))) {
                                 var articledt = new Date('2016/' + data.article_list[i].article_date.replace('月', '/').replace('日', ''));
-                                if ((parseInt(articledt.getTime()) / 1000) >= (parseInt(new Date("2016-5-31").getTime() / 1000)) && (parseInt(articledt.getTime()) / 1000) < (parseInt(new Date("2016-6-6").getTime() / 1000))) {
+                                if ((parseInt(articledt.getTime()) / 1000) >= (parseInt(new Date("2016-5-31").getTime() / 1000)) && (parseInt(articledt.getTime()) / 1000) < (parseInt(new Date("2016-6-7").getTime() / 1000))) {
                                     doubleIcon = '<a style="position:absolute; right:10px; top:0px;"><img src="images/integral_double.png" style="width:40px;" /></a>';
                                 }
                             }
