@@ -20,6 +20,7 @@
                 Users user = new Users(fatherid);
                 if (user._fields != null)
                 {
+                    integralVal = 1;
                     ModifyIntegral(fatherid, integralVal, "用户 " + userId + " 转发文章 " + articleid, type, articleid, userId);
                 }
 

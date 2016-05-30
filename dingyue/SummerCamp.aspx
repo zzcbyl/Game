@@ -55,7 +55,7 @@
         <a class="camp-nav-bg"></a>
         <div onclick="jumpCamp(2);">
             <img src="upload/camp-ul-li03.jpg" width="100%" />
-            <a class="entry-count">25/100</a>
+            <a class="entry-count">29/100</a>
             <%--<a class="entry-discount"></a>--%>
         </div>
         <a class="camp-nav-bg"></a>
@@ -66,18 +66,18 @@
         <a class="camp-nav-bg"></a>
         <div onclick="jumpCamp(4);">
             <img src="upload/camp-ul-li07.jpg" width="100%" />
-            <a class="entry-count">39/100</a>
+            <a class="entry-count">47/100</a>
         </div>
         <a class="camp-nav-bg"></a>
         <div onclick="jumpCamp(5);">
             <img src="upload/camp-ul-li09.jpg" width="100%" />
-            <a class="entry-count">14/30</a>
+            <a class="entry-count">16/30</a>
             <a class="entry-discount"></a>
         </div>
         <a class="camp-nav-bg"></a>
         <div onclick="jumpCamp(6);">
             <img src="upload/camp-ul-li11.jpg" width="100%" />
-            <a class="entry-count">13/30</a>
+            <a class="entry-count">16/30</a>
             <a class="entry-discount"></a>
         </div>
         <a class="camp-nav-bg"></a>
@@ -89,13 +89,13 @@
         <a class="camp-nav-bg"></a>
         <div onclick="jumpCamp(8);">
             <img src="upload/camp-ul-li15.jpg" width="100%" />
-            <a class="entry-count">22/50</a>
+            <a class="entry-count">30/50</a>
             <a class="entry-discount"></a>
         </div>
         <a class="camp-nav-bg"></a>
         <div onclick="jumpCamp(9);">
             <img src="upload/camp-ul-li17.jpg" width="100%" />
-            <a class="entry-count">12/50</a>
+            <a class="entry-count">15/50</a>
             <a class="entry-discount"></a>
         </div>
         <div>
@@ -129,7 +129,7 @@
                     imgUrl: shareImg, // 分享图标
                     success: function () {
                         // 用户确认分享后执行的回调函数
-                        
+
                     }
                 });
 
@@ -149,7 +149,7 @@
 
         function jumpCamp(n) {
             if (n == 1) {
-                
+
             }
             else if (n == 2) {
                 location.href = 'http://mp.weixin.qq.com/s?__biz=MzA3MTM1OTIwNg==&mid=506765618&idx=4&sn=eadba19b65ffcf9a463d4fdcbcbf800d&scene=0&previewkey=CaNeql4rjG8mbFEHXBc6BcwqSljwj2bfCUaCyDofEow%3D#wechat_redirect';
