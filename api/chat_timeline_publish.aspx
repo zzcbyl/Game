@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" %>
 <%@ Import Namespace="NAudio.Wave" %>
+<%@ Import Namespace="System.Data" %>
 <script runat="server">
 
     protected void Page_Load(object sender, EventArgs e)
@@ -55,10 +56,16 @@
                             break;
                     }
 
-                    if (errorMessage.Trim().Equals(""))
+                    ChatRoom chatRoom = new ChatRoom(roomId);
+                    DataRow drow = chatRoom._fields;
+                    if (drow == null)
                     {
-                        ChatRoom chatRoom = new ChatRoom(roomId);
+                        errorMessage = "Room is not found";
+                    }
+                    string expertlist = drow["expertlist"].ToString();
 
+                    if (errorMessage.Trim().Equals("") || Array.IndexOf(expertlist.Split(','), userId.ToString()) >= 0)
+                    {
                         content = Server.UrlDecode(content);
                         
                         string urlcheck = @"((http|ftp|https)://)(([a-zA-Z0-9\._-]+\.[a-zA-Z]{2,6})|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,4})*(/[a-zA-Z0-9\&%_\./-~-]*)?";
