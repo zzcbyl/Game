@@ -47,35 +47,35 @@
         </div>
         <div><img src="upload/camp-ul-header.jpg" width="100%" /></div>
         <a class="camp-nav-bg"></a>
-        <div>
+        <%--<div>
             <img src="upload/camp-ul-li01.jpg" width="100%" />
             <a class="entry-count">30/30</a>
             <a class="entry-full"></a>
         </div>
-        <a class="camp-nav-bg"></a>
+        <a class="camp-nav-bg"></a>--%>
         <div onclick="jumpCamp(2);">
             <img src="upload/camp-ul-li03.jpg" width="100%" />
-            <a class="entry-count">29/100</a>
+            <a class="entry-count">30/100</a>
             <%--<a class="entry-discount"></a>--%>
         </div>
         <a class="camp-nav-bg"></a>
-        <div><img src="upload/camp-ul-li05.jpg" width="100%" />
+        <%--<div><img src="upload/camp-ul-li05.jpg" width="100%" />
             <a class="entry-count">30/30</a>
             <a class="entry-full"></a>
         </div>
-        <a class="camp-nav-bg"></a>
+        <a class="camp-nav-bg"></a>--%>
         <div onclick="jumpCamp(4);">
             <img src="upload/camp-ul-li07.jpg" width="100%" />
-            <a class="entry-count">47/100</a>
+            <a class="entry-count">51/100</a>
         </div>
         <a class="camp-nav-bg"></a>
         <div onclick="jumpCamp(5);">
             <img src="upload/camp-ul-li09.jpg" width="100%" />
-            <a class="entry-count">16/30</a>
-            <a class="entry-discount"></a>
+            <a class="entry-count">17/30</a>
+            <%--<a class="entry-discount"></a>--%>
         </div>
         <a class="camp-nav-bg"></a>
-        <div onclick="jumpCamp(6);">
+        <%--<div onclick="jumpCamp(6);">
             <img src="upload/camp-ul-li11.jpg" width="100%" />
             <a class="entry-count">16/30</a>
             <a class="entry-discount"></a>
@@ -92,11 +92,11 @@
             <a class="entry-count">30/50</a>
             <a class="entry-discount"></a>
         </div>
-        <a class="camp-nav-bg"></a>
+        <a class="camp-nav-bg"></a>--%>
         <div onclick="jumpCamp(9);">
             <img src="upload/camp-ul-li17.jpg" width="100%" />
-            <a class="entry-count">15/50</a>
-            <a class="entry-discount"></a>
+            <a class="entry-count">17/50</a>
+            <%--<a class="entry-discount"></a>--%>
         </div>
         <div>
             <img src="upload/camp-ul-li18.jpg" width="100%" />
