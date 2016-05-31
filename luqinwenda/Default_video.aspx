@@ -18,6 +18,8 @@
     public string audioUrl = "";
     protected void Page_Load(object sender, EventArgs e)
     {
+        Response.Write(Request.UserAgent);
+        
         roomid = Util.GetSafeRequestValue(Request, "roomid", "0");
         if (int.Parse(roomid) <= 0)
         {
@@ -87,10 +89,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="main-header" style="">
         <div style="height:210px; text-align:center; background:#EBE8E1; ">
+            <iframe src="video18.aspx" style="width:100%; height:210px;"></iframe>
             <%--<img src="<%=chatDrow["audio_bg"].ToString() %>" style="width:100%; height:170px;" />--%>
-            <video src="<%=audioUrl %>" 
+            <%--<video src="<%=audioUrl %>" 
                 poster="<%=chatDrow["audio_bg"].ToString() %>" autoplay="autoplay" controls="controls"
-                style="height:210px; width:350px" width="350px" height="210px" webkit-playsinline></video>
+                style="height:210px; width:350px" width="350px" height="210px" webkit-playsinline></video>--%>
             <%--<div style="display:none;"><audio id="audio_1" controls="controls" autoplay="autoplay" src="<%=audioUrl %>"></audio></div>--%>
         </div>
         
