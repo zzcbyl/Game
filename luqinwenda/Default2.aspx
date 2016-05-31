@@ -13,7 +13,7 @@
     public string expertlist = "";
     public DataTable dt_userinfo;
     public DataRow chatDrow = null;
-    public DataTable courseDt = new DataTable();
+    //public DataTable courseDt = new DataTable();
     public Random ran = new Random();
     public string audioUrl = "";
     protected void Page_Load(object sender, EventArgs e)
@@ -50,23 +50,25 @@
         {
             audioUrl += "?rdm=" + ran.Next(1, 99999);
         }
+
+        UserChatRoomRights.SetUserChatRoom(userid, int.Parse(roomid));
         
-        expertlist = chatDrow["expertlist"].ToString();
+        //expertlist = chatDrow["expertlist"].ToString();
 
-        if (Convert.ToDateTime(chatDrow["start_date"].ToString()) > DateTime.Now)
-        {
-            Response.Redirect("nostart.aspx?roomid=" + roomid + "&token=" + token);
-            return;
-        }
+        //if (Convert.ToDateTime(chatDrow["start_date"].ToString()) > DateTime.Now)
+        //{
+        //    Response.Redirect("nostart.aspx?roomid=" + roomid + "&token=" + token);
+        //    return;
+        //}
 
-        int courseid = -1;
-        if (chatDrow["courseid"].ToString().Trim() != "0")
-            courseid = int.Parse(chatDrow["courseid"].ToString());
-        DataTable CourseDt = Donate.getCourse(courseid);
-        if (CourseDt != null && CourseDt.Rows.Count > 0)
-        {
-            courseDt = CourseDt;
-        }
+        //int courseid = -1;
+        //if (chatDrow["courseid"].ToString().Trim() != "0")
+        //    courseid = int.Parse(chatDrow["courseid"].ToString());
+        //DataTable CourseDt = Donate.getCourse(courseid);
+        //if (CourseDt != null && CourseDt.Rows.Count > 0)
+        //{
+        //    courseDt = CourseDt;
+        //}
     }
 </script>
 
@@ -84,11 +86,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="main-header" style="">
-        <div style="height:170px; text-align:center; background:#EBE8E1; ">
+        <div style="height:210px; text-align:center; background:#EBE8E1; ">
             <%--<img src="<%=chatDrow["audio_bg"].ToString() %>" style="width:100%; height:170px;" />--%>
-            <video src="http://111.202.85.149/vcloud1029.tc.qq.com/1029_12d154c8fbe94b43b741144feb0aa01d.f0.mp4?vkey=816CA2E35176C3EEA6E048AF324FED082503D017F3C55A8E7A6E87ABDEF49BCEEAF0318FC9658ABC&amp;sha=366b4e041766397bd6a37402d7eb7bf7430a6a48&amp;ocid=123456&amp;fromtag=1508" 
-                poster="http://shp.qpic.cn/mvfpic/0/a214fb10998d4d55974d5d12f6f4e6fa/0?j=nMl9ssowtibVicL9mOnkynEPSYraWSRbiaG4nYucCZEHY5sHicmSypEwgrIzDTIeHwf7PrPs4StBjPzJCmcSDiaToQGxAL2efSRibZJj3a6cEHHJt3AQgZqbrNnA"
-                 x-webkit-airplay="true" webkit-playsinline="true" style="height:170px;" ></video>
+            <video src="<%=audioUrl %>" 
+                poster="<%=chatDrow["audio_bg"].ToString() %>"
+                 x-webkit-airplay="true" webkit-playsinline="true" style="height:210px;" ></video>
             <%--<div style="display:none;"><audio id="audio_1" controls="controls" autoplay="autoplay" src="<%=audioUrl %>"></audio></div>--%>
         </div>
         
@@ -148,7 +150,7 @@
         var chat_shareContent = '<%=chatDrow["shareContent"].ToString() %>';
         var chat_shareImage = '<%=chatDrow["shareimage"].ToString() %>';
         $(document).ready(function () {
-            shareTitle = '【卢勤微课教室】<%=courseDt.Rows[0]["course_title"].ToString() %>';
+            shareTitle = '【卢勤微课教室】';
             if (chat_shareContent != '')
                 shareContent = chat_shareContent;
             if (chat_shareImage != '')
@@ -165,8 +167,8 @@
                 $("#show").html(replace_em(str));
             });
 
-            audio = document.getElementById('audio_1');
-            playCotrol();
+            //audio = document.getElementById('audio_1');
+            //playCotrol();
             $("#textContent").parent().css("width", (winWidth- 120).toString() + "px");
             
             $('#mydiv').css("height", ($(window).height() - 275).toString() + "px");
