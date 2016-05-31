@@ -90,7 +90,7 @@
             <%--<img src="<%=chatDrow["audio_bg"].ToString() %>" style="width:100%; height:170px;" />--%>
             <video src="<%=audioUrl %>" 
                 poster="<%=chatDrow["audio_bg"].ToString() %>" autoplay="autoplay" controls="controls"
-                 x-webkit-airplay="false" webkit-playsinline="false" style="height:210px; width:100%" webkit-playsinline></video>
+                style="height:210px; width:350px" width="350px" height="210px" webkit-playsinline></video>
             <%--<div style="display:none;"><audio id="audio_1" controls="controls" autoplay="autoplay" src="<%=audioUrl %>"></audio></div>--%>
         </div>
         
