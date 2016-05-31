@@ -60,7 +60,7 @@
         }
 
         UserChatRoomRights userChatRoom = new UserChatRoomRights(userid, int.Parse(roomid));
-        if (!userChatRoom.CanEnter || !userChatRoom.CanPublishText)
+        if (!userChatRoom.CanEnter)
         {
             Response.Redirect("wktIndexConfirm_Integral.aspx?roomid=" + roomid + "&token=" + token);
             return;

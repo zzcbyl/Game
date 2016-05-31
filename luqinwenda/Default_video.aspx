@@ -18,7 +18,6 @@
     public string audioUrl = "";
     protected void Page_Load(object sender, EventArgs e)
     {
-        Response.Write(Request.UserAgent);
         roomid = Util.GetSafeRequestValue(Request, "roomid", "0");
         if (int.Parse(roomid) <= 0)
         {
@@ -89,8 +88,7 @@
     <div class="main-header" style="">
         <div style="height:210px; text-align:center; background:#EBE8E1; ">
             <%--<img src="<%=chatDrow["audio_bg"].ToString() %>" style="width:100%; height:170px;" />--%>
-            <video
-                poster="<%=chatDrow["audio_bg"].ToString() %>" autoplay="autoplay"
+            <video poster="<%=chatDrow["audio_bg"].ToString() %>" autoplay="autoplay"
                  x-webkit-airplay="true" webkit-playsinline="true" width="350px" height="210px" webkit-playsinline>
                 <source src="<%=audioUrl %>" type="video/mp4" />
             </video>
