@@ -15,12 +15,13 @@
             if (dt != null && dt.Rows.Count > 0)
             {
                 int integralVal = int.Parse(dt.Rows[0]["article_integral"].ToString());
+                if (fatherid != 0)
+                    integralVal = 1;
                 ModifyIntegral(userId, integralVal, "分享文章 " + articleid, type, articleid, 0);
-                
+
                 Users user = new Users(fatherid);
                 if (user._fields != null)
                 {
-                    integralVal = 1;
                     ModifyIntegral(fatherid, integralVal, "用户 " + userId + " 转发文章 " + articleid, type, articleid, userId);
                 }
 
