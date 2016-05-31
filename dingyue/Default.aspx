@@ -222,10 +222,8 @@
         }
 
         function jumpUrl(id) {
-            location.href = "activity01.aspx?articleid=" + id;
+            location.href = "activity01.aspx?articleid=" + id + "&token=<%=token %>";
         }
-
-
 
         //获取滚动条当前的位置 
         function getScrollTop() {
