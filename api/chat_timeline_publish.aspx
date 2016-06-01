@@ -84,7 +84,7 @@
                             }
                         }
                         
-                        newMessageId = ChatTimeLine.PublishMessage(roomId, userId, type, Server.UrlDecode(content), parentid);
+                        newMessageId = ChatTimeLine.PublishMessage(roomId, userId, type, content, parentid);
                         
                         if (type.Equals("voice"))
                         {
