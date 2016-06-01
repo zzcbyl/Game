@@ -155,7 +155,7 @@
         var chat_shareContent = '<%=chatDrow["shareContent"].ToString() %>';
         var chat_shareImage = '<%=chatDrow["shareimage"].ToString() %>';
         $(document).ready(function () {
-            shareTitle = '【卢勤微课教室】<%=courseDt.Rows[0]["course_title"].ToString() %>';
+            shareTitle = '【卢勤微课教室】<%=(courseDt.Rows.Count > 0 ? courseDt.Rows[0]["course_title"].ToString() : "") %>';
             if (chat_shareContent != '')
                 shareContent = chat_shareContent;
             if (chat_shareImage != '')
@@ -177,7 +177,6 @@
             $("#textContent").parent().css("width", (winWidth- 120).toString() + "px");
             
             $('#mydiv').css("height", ($(window).height() - 275).toString() + "px");
-            
 
             fillList_QA();
             setInterval("fillList_QA()", 5000);
