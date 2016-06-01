@@ -157,8 +157,6 @@
             if (chat_shareImage != '')
                 shareImg = chat_shareImage;
 
-            webView.allowsInlineMediaPlayback = YES;
-
             $('.emotion').qqFace({
                 id: 'facebox', //表情盒子的ID
                 assign: 'textContent', //给那个控件赋值
