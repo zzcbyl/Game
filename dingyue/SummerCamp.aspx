@@ -55,7 +55,7 @@
         <a class="camp-nav-bg"></a>--%>
         <div onclick="jumpCamp(2);">
             <img src="upload/camp-ul-li03.jpg" width="100%" />
-            <a class="entry-count">30/100</a>
+            <a class="entry-count">34/100</a>
             <%--<a class="entry-discount"></a>--%>
         </div>
         <a class="camp-nav-bg"></a>
@@ -66,12 +66,12 @@
         <a class="camp-nav-bg"></a>--%>
         <div onclick="jumpCamp(4);">
             <img src="upload/camp-ul-li07.jpg" width="100%" />
-            <a class="entry-count">51/100</a>
+            <a class="entry-count">54/100</a>
         </div>
         <a class="camp-nav-bg"></a>
         <div onclick="jumpCamp(5);">
             <img src="upload/camp-ul-li09.jpg" width="100%" />
-            <a class="entry-count">17/30</a>
+            <a class="entry-count">18/30</a>
             <%--<a class="entry-discount"></a>--%>
         </div>
         <a class="camp-nav-bg"></a>
@@ -95,7 +95,7 @@
         <a class="camp-nav-bg"></a>--%>
         <div onclick="jumpCamp(9);">
             <img src="upload/camp-ul-li17.jpg" width="100%" />
-            <a class="entry-count">17/50</a>
+            <a class="entry-count">19/50</a>
             <%--<a class="entry-discount"></a>--%>
         </div>
         <div>
