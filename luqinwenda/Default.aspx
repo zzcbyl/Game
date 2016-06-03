@@ -62,7 +62,7 @@
         UserChatRoomRights userChatRoom = new UserChatRoomRights(userid, int.Parse(roomid));
         if (!userChatRoom.CanEnter)
         {
-            Response.Redirect("wktIndexConfirm_Integral.aspx?roomid=" + roomid + "&token=" + token);
+            Response.Redirect("wktPay.aspx?roomid=" + roomid + "&token=" + token);
             return;
         }
 
@@ -95,12 +95,26 @@
             <img src="<%=chatDrow["audio_bg"].ToString() %>" style="width:100%; height:170px;" />
             <div style="display:none;"><audio id="audio_1" controls="controls" autoplay="autoplay" src="<%=audioUrl %>"></audio></div>
         </div>
-        <div style="height:50px; position:relative; background:url(/luqinwenda/images/wkt_bottom_bg.jpg) no-repeat; background-size:100% 50px; background-position-y:center;">
-            <a style="position:absolute; top:-20px; display:inline-block; width:100%; text-align:center;"><img id="btn_audio_control" src="images/wkt_paused.png" style="height:60px; display:none;" /></a>
-            <a id="audio_loading" style="display:inline-block; width:100%; text-align:center;  top:0px; position:absolute;"><img src="/upload/images/loading.gif" style="width:40px; height:40px;" /></a>
+        <div style="height:60px; position:relative; background:url(/luqinwenda/images/wkt_bottom_bg.jpg) no-repeat; background-size:100% 60px; background-position-y:center;">
+            <% if(audioUrl.IndexOf("game.luqinwenda.com1")>=0) { %>
+                <div style="margin:0 30px; display:none;" id="btn_audio_control">
+                    <a style="display:inline-block; width:15%; margin-top:8px; text-align:center;" id="audio_control">
+                        <img id="btn_audio_icon" src="images/wkt_played.png" style="height:35px;" /></a>
+                    <div style="width:80%; display:inline-block; position:relative;">
+                        <a id="progress_block" style="display:block; height:10px; border:2px solid #74705f; background:#bab49a; border-radius:5px; width:100%;"></a>
+                        <a id="progress_bg" style="position:absolute; height:8px; border:1px solid #74705f;  display:block; top:1px; left:0px; width:1px; background:url(images/wkt_progress_bg.jpg) repeat-x; border-radius:5px; "></a>
+                        <a id="progress_icon" style="display:block; width:20px; height:20px; background:url(images/wkt_audio_icon.png) no-repeat; background-size:contain; position:absolute; top:-5px; left:-10px;"></a>
+                    </div>
+                </div>    
+            <% } else { %>
+                <div style="display:none;" id="btn_audio_control">
+                    <a id="audio_control" style="position:absolute; top:-15px; display:inline-block; width:100%; text-align:center;"><img id="btn_audio_icon" src="images/wkt_paused.png" style="height:60px;" /></a>
+                </div>
+            <% } %>
+            <a id="audio_loading" style="display:inline-block; width:100%; text-align:center; top:5px; position:absolute;"><img src="/upload/images/loading.gif" style="width:40px; height:40px;" /></a>
         </div>
     </div>
-    <div id="mydiv" class="main-page" style="margin-top:220px; overflow-y:scroll; -webkit-overflow-scrolling: touch;">
+    <div id="mydiv" class="main-page" style="margin-top:235px; overflow-y:scroll; -webkit-overflow-scrolling: touch;">
         <div>
             <ul id="feed_file_list" class="feed_file_list">
                 <div style="clear: both;"></div>
@@ -167,31 +181,24 @@
                 path: 'face/'	//表情存放的路径
             });
 
-            $(".sub_btn").click(function () {
-                var str = $("#saytext").val();
-                $("#show").html(replace_em(str));
-            });
-
             audio = document.getElementById('audio_1');
             playCotrol();
             $("#textContent").parent().css("width", (winWidth- 120).toString() + "px");
-            
-            $('#mydiv').css("height", ($(window).height() - 275).toString() + "px");
+            $('#mydiv').css("height", ($(window).height() - 290).toString() + "px");
 
-            fillList_QA();
-            setInterval("fillList_QA()", 5000);
+            fillList_QA(1);
+            setInterval("fillList_QA(0)", 5000);
             setDots();
         });
 
-
-
         function playCotrol() {
+            var updInterval;
             audio.addEventListener("loadeddata", //歌曲一经完整的加载完毕( 也可以写成上面提到的那些事件类型)
                 function () {
                     $('#audio_loading').hide();
                     $('#btn_audio_control').show();
                     audio.play();
-                    $('#audio_loading').parent().bind('click', function () {
+                    $('#audio_control').click(function () {
                         if (audio.paused) {
                             audio.play();
                         }
@@ -199,22 +206,44 @@
                             audio.pause();
                         }
                     });
+                    if ($('#progress_bg').html() != null)
+                        updInterval = setInterval('_updateProgress()', 500);
                 }, false);
 
             audio.addEventListener("pause",
                 function () { //监听暂停
-                    $('#btn_audio_control').attr('src', 'images/wkt_play.png');
+                    if ($('#progress_bg').html() != null)
+                        $('#btn_audio_icon').attr('src', 'images/wkt_paused1.png');
+                    else
+                        $('#btn_audio_icon').attr('src', 'images/wkt_play.png');
                 }, false);
             audio.addEventListener("play",
-                function () { //监听暂停
-                    $('#btn_audio_control').attr('src', 'images/wkt_paused.png');
+                function () { //监听播放
+                    if ($('#progress_bg').html()!=null)
+                        $('#btn_audio_icon').attr('src', 'images/wkt_played.png');
+                    else
+                        $('#btn_audio_icon').attr('src', 'images/wkt_paused.png');
                 }, false);
             audio.addEventListener("ended", function () {
-                
+                if ($('#progress_bg').html() != null)
+                    $('#btn_audio_icon').attr('src', 'images/wkt_paused1.png');
+                else
+                    $('#btn_audio_icon').attr('src', 'images/wkt_play.png');
+                if (updInterval)
+                    clearInterval(updInterval);
             }, false)
         }
 
-        function fillList_QA() {
+        function _updateProgress() {
+            var duraTime = audio.duration;
+            var curTime = audio.currentTime;
+            var scale = curTime / duraTime;
+            var progressW = (winWidth - 60) * 0.8 - 4;
+            $('#progress_bg').css('width', (progressW * scale).toString() + 'px');
+            $('#progress_icon').css('left', (progressW * scale - 10).toString() + 'px');
+        }
+
+        function fillList_QA(o) {
             $.ajax({
                 type: "GET",
                 async: false,
@@ -257,6 +286,8 @@
                             if (i != 0 && i % 5 == 0)
                                 after_append('<li class="time-li">' + strTohoursecond(chatline.create_date) + '</li>');
                         }
+                        if (o == 0)
+                            scrollPage();
                     }
 
                     $.ajax({
@@ -273,7 +304,9 @@
                             }
                         }
                     });
-                    scrollPageBottom();
+
+                    if (0 == 1)
+                        scrollPageBottom();
                 }
             });
 
