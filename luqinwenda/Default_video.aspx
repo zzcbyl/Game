@@ -83,6 +83,8 @@
         .qqFace li { float:left; height:25px; line-height:25px; margin:2px; }
         #textContent img { margin-top:-3px; width:auto;}
     </style>
+    <script src="../script/suda.js"></script>
+    <script src="../script/touch-0.2.13.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="main-header" style="">
