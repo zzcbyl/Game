@@ -114,7 +114,7 @@
             <a id="audio_loading" style="display:inline-block; width:100%; text-align:center; top:5px; position:absolute;"><img src="/upload/images/loading.gif" style="width:40px; height:40px;" /></a>
         </div>
     </div>
-    <div id="mydiv" class="main-page" style="margin-top:235px; overflow-y:scroll; -webkit-overflow-scrolling: touch;">
+    <div id="mydiv" class="main-page" style="margin-top:225px; overflow-y:scroll; -webkit-overflow-scrolling: touch;">
         <div>
             <ul id="feed_file_list" class="feed_file_list">
                 <div style="clear: both;"></div>
@@ -184,7 +184,7 @@
             audio = document.getElementById('audio_1');
             playCotrol();
             $("#textContent").parent().css("width", (winWidth- 120).toString() + "px");
-            $('#mydiv').css("height", ($(window).height() - 290).toString() + "px");
+            $('#mydiv').css("height", ($(window).height() - 260).toString() + "px");
 
             fillList_QA(1);
             setInterval("fillList_QA(0)", 5000);

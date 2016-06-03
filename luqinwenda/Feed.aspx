@@ -99,11 +99,9 @@
        
         $(document).ready(function () {
             $("#textContent").parent().css("width", (winWidth - 155).toString() + "px");
-
             fillFeed();
             setDots();
         });
-
         
         function fillFeed() {
             $.ajax({

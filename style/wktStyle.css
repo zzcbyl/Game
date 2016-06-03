@@ -1,7 +1,7 @@
 ﻿body { font-size:150%; max-width:640px; margin:0 auto; background:#FFFDEA;}
 ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { list-style-type:none; padding:0;}
 .clear { clear:both;}
-.main-page { width:auto; background:#e4dfcd; margin:10px 8px; border:2px solid #e4dfcd; border-radius:5px; }
+.main-page { width:auto; background:#e4dfcd; padding:10px 8px; border:2px solid #e4dfcd; border-radius:5px; }
 .text-li-right .jp-audio, .jp-audio-stream, .jp-video { margin-left: 5px; border: none; background:#71cb8d; border-radius:4px; width: 90px; height: 35px; line-height: 35px; padding:0 5px;}
 .text-li .jp-audio, .jp-audio-stream, .jp-video { margin-left: 5px; border: 1px solid #e0e0e0; background:#fff; border-radius:4px; width: 90px; height: 35px; line-height: 35px; padding:0 5px;}
 .jp-play { width: 100%; height: auto; display: block; padding-top: 8px;}
@@ -21,12 +21,12 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { l
 .jp-stop_right_3 { background: url(/luqinwenda/images/jplayerplay_right.png) no-repeat -0px 0; width: 18px; height: 19px; }
 .jp-audio a { height:30px;}
 
-.feed_file_list li { padding-left: 0px; padding:5px; background:#f5f1e7; }
-.feed_file_list .expert-li { padding-left: 0px; padding:5px; background:#e4dfcd; }
+.feed_file_list li { padding-left: 0px; padding:10px; background:#f5f1e7; }
+.feed_file_list .expert-li { padding-left: 0px; padding:10px; background:#e4dfcd; }
 .feed_file_list .spacing-li { height:5px; background:#e4dfcd; padding:0; }
 .feed_file_list .time-li { background:#e4dfcd; color:#B2B2B2; text-align:center; font-size:12px; padding:0; height:30px; line-height:30px; }
 
-.text-li { position:relative; min-height:50px; width:95%;}
+.text-li { position:relative; min-height:38px; width:95%;}
 .text-li .left-head { position:absolute; top:0px; left:5px; }
 .text-li .left-head img { width:36px; height:36px; border-radius:4px; border: 1px solid #ccc; }
 .text-li .right-content { float:left; margin-left:55px; }
@@ -37,7 +37,7 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { l
 .text-li .right-content .text-content_radio { line-height:22px; margin-top:5px;}
 .text-li .right-content .text-content_readed { color:#8F8F8F; }
 
-.text-li-right { position:relative; min-height:50px; width:95%; float:right; margin:5px 0;}
+.text-li-right { position:relative; min-height:38px; width:95%; float:right; margin:5px 0;}
 .text-li-right .left-head { position:absolute; top:0px; right:5px; }
 .text-li-right .left-head img { width:36px; border-radius:4px; border: 1px solid #ccc;}
 .text-li-right .right-content { float:right; margin-right:55px; }
