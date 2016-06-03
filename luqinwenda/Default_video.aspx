@@ -86,25 +86,23 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="main-header" style="">
-    <%--<div style="height:210px; text-align:center; background:#EBE8E1; ">
+        <%--<div style="height:210px; text-align:center; background:#EBE8E1; ">
             <video poster="<%=chatDrow["audio_bg"].ToString() %>" autoplay="autoplay" controls="controls"
                  x-webkit-airplay="true" webkit-playsinline="true" width="350px" height="210px" >
                 <source src="<%=audioUrl %>" type="video/mp4" />
             </video>
         </div>--%>
-
-        <div class="video_wrap">   
+        <div class="video_wrap" style="height:210px;">   
 	        <div class="video_inner">
 	   	        <video src="<%=audioUrl %>" controls="controls" id="h5-player" class="video" node-type="mp4" node-id="1034:4a6509cbec79e43929ec444514610864"></video>
     	        <!-- 封面图片 -->
-		        <div class="poster_wrap" style="height: 375px;"><img src="<%=chatDrow["audio_bg"].ToString() %>" alt="" class="poster" style="height: 375px; width: auto;"></div>
+		        <div class="poster_wrap" style="height: 375px;"><img src="<%=chatDrow["audio_bg"].ToString() %>" alt="" class="poster" style="height: 210px; width: auto;"></div>
 	            <!-- 封面图片 -->
 	            <!-- 播放按钮 -->
 	            <div class="play_icon"></div>
 	            <!-- 播放按钮 -->
 	        </div>    
         </div>
-        
     </div>
     <div id="mydiv" class="main-page" style="margin-top:220px; overflow-y:scroll; -webkit-overflow-scrolling: touch;">
         <div>
@@ -231,7 +229,7 @@
             var clientW = document.body.clientWidth;
             var posterH = poster.height;
             var posterW = poster.width;
-            posterWrap.style.height = clientW + 'px';
+            posterWrap.style.height = '210px';
             if (posterH > posterW) {
                 poster.style.width = clientW + 'px';
                 poster.style.height = 'auto';
