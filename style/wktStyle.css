@@ -120,3 +120,55 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { l
 .btn-action-pay { display:block; width:70%; background:url(/luqinwenda/images/btn-pay.png) no-repeat; background-size:contain; line-height:48px; color:#fff; font-weight:bold; margin:0 auto; font-size:120%;}
 .btn-action-payed { display:block; width:70%; background:url(/luqinwenda/images/btn-payed.png) no-repeat; background-size:contain; line-height:52px; color:#fff; font-weight:bold; margin:0 auto; font-size:120%;}
 .btn-action-pay:focus, .btn-action-pay:hover, .btn-action-payed:focus, .btn-action-payed:hover { color:#3e3e3e; text-decoration:none; }
+
+
+
+.video:-webkit-full-screen {
+	width:100%;
+	height:100%;
+}
+.video_wrap {
+	position:relative;
+	display:block;
+	margin-top:10px;
+}
+.video_wrap .video {
+	position:absolute;
+	height:1px;
+	width:1px;
+	top:50%;
+	left:50%;
+	-webkit-transform:translate3d(-50%,-50%,0);
+	z-index:5;
+	display:none;
+}
+.video_wrap .ios5video {
+	height:320px;
+	width:320px;
+}
+.video_wrap .poster_wrap {
+	position:relative;
+	width:100%;
+	z-index:10;
+	height:320px;
+	overflow:hidden;
+}
+.video_wrap .poster {
+	position:absolute;
+	width:100%;
+	top:50%;
+	left:50%;
+	-webkit-transform:translate3d(-50%,-50%,0);
+}
+.video_wrap .play_icon {
+	position:absolute;
+	display:block;
+	height:60px;
+	width:60px;
+	top:50%;
+	left:50%;
+	-webkit-transform:translate3d(-50%,-50%,0);
+	background-image:url(/luqinwenda/images/timeline_play_icon.png);
+	background-size:100%;
+	z-index:100;
+}

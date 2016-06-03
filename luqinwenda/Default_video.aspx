@@ -86,13 +86,23 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="main-header" style="">
-        <div style="height:210px; text-align:center; background:#EBE8E1; ">
-            <%--<img src="<%=chatDrow["audio_bg"].ToString() %>" style="width:100%; height:170px;" />--%>
+    <%--<div style="height:210px; text-align:center; background:#EBE8E1; ">
             <video poster="<%=chatDrow["audio_bg"].ToString() %>" autoplay="autoplay" controls="controls"
                  x-webkit-airplay="true" webkit-playsinline="true" width="350px" height="210px" >
                 <source src="<%=audioUrl %>" type="video/mp4" />
             </video>
-            <%--<div style="display:none;"><audio id="audio_1" controls="controls" autoplay="autoplay" src="<%=audioUrl %>"></audio></div>--%>
+        </div>--%>
+
+        <div class="video_wrap">   
+	        <div class="video_inner">
+	   	        <video src="<%=audioUrl %>" controls="controls" id="h5-player" class="video" node-type="mp4" node-id="1034:4a6509cbec79e43929ec444514610864"></video>
+    	        <!-- 封面图片 -->
+		        <div class="poster_wrap" style="height: 375px;"><img src="<%=chatDrow["audio_bg"].ToString() %>" alt="" class="poster" style="height: 375px; width: auto;"></div>
+	            <!-- 封面图片 -->
+	            <!-- 播放按钮 -->
+	            <div class="play_icon"></div>
+	            <!-- 播放按钮 -->
+	        </div>    
         </div>
         
     </div>
@@ -163,17 +173,31 @@
                 path: 'face/'	//表情存放的路径
             });
 
-            $(".sub_btn").click(function () {
-                var str = $("#saytext").val();
-                $("#show").html(replace_em(str));
-            });
 
-            //audio = document.getElementById('audio_1');
-            //playCotrol();
+            var video = document.getElementById('h5-player') || document.getElementById('ios5_player');
+            if (typeof video !== "undefined") {
+                var paused = false;
+                video.addEventListener('pause', function () {
+                    if (paused == false) {
+                        paused = true;
+                    }
+                    if (video.ended) {
+                        paused = false;
+                    }
+                }, false);
+                video.addEventListener('ended', function () {
+                    paused = false;
+                }, false);
+                video.addEventListener('play', function () {
+                    if (paused == false) {
+                        window.SUDA && window.SUDA.uaTrack && window.SUDA.uaTrack('video_landing_page', 'play_button');
+                    }
+                }, false);
+            }
+
+
             $("#textContent").parent().css("width", (winWidth- 120).toString() + "px");
-            
             $('#mydiv').css("height", ($(window).height() - 275).toString() + "px");
-            
 
             fillList_QA();
             setInterval("fillList_QA()", 5000);
@@ -181,35 +205,90 @@
         });
 
 
-
-        function playCotrol() {
-            audio.addEventListener("loadeddata", //歌曲一经完整的加载完毕( 也可以写成上面提到的那些事件类型)
-                function () {
-                    $('#audio_loading').hide();
-                    $('#btn_audio_control').show();
-                    audio.play();
-                    $('#audio_loading').parent().bind('click', function () {
-                        if (audio.paused) {
-                            audio.play();
-                        }
-                        else {
-                            audio.pause();
-                        }
-                    });
-                }, false);
-
-            audio.addEventListener("pause",
-                function () { //监听暂停
-                    $('#btn_audio_control').attr('src', 'images/wkt_play.png');
-                }, false);
-            audio.addEventListener("play",
-                function () { //监听暂停
-                    $('#btn_audio_control').attr('src', 'images/wkt_paused.png');
-                }, false);
-            audio.addEventListener("ended", function () {
-                
-            }, false)
+        var videoWrap = document.getElementsByClassName('video_wrap')[0];
+        var video = document.getElementsByClassName('video')[0];
+        var poster = document.getElementsByClassName('poster')[0];
+        var posterURL = poster.src;
+        var posterWrap = document.getElementsByClassName('poster_wrap')[0];
+        var videoURL = video.getAttribute('node-id');
+        function ios5style() {
+            var ua = window.navigator.userAgent;
+            var ios5 = /iPhone OS 5/g;
+            var ipad = /iPad/g;
+            if (ios5.test(ua) || ipad.test(ua)) {
+                posterWrap.style.display = 'none';
+                document.getElementsByClassName('play_icon')[0].style.display = 'none';
+                var clientW = document.body.clientWidth;
+                video.setAttribute('class', 'ios5video');
+                video.setAttribute("id", "ios5_player");
+                video.setAttribute('poster', posterURL);
+                video.style.height = clientW + 'px';
+                video.style.width = clientW + 'px';
+            }
         }
+        ios5style();
+        function styleInit() {
+            var clientW = document.body.clientWidth;
+            var posterH = poster.height;
+            var posterW = poster.width;
+            posterWrap.style.height = clientW + 'px';
+            if (posterH > posterW) {
+                poster.style.width = clientW + 'px';
+                poster.style.height = 'auto';
+            }
+            else if (posterH < posterW) {
+                poster.style.height = clientW + 'px';
+                poster.style.width = 'auto';
+            }
+        }
+        poster.onload = function () {
+            styleInit();
+        }
+        window.onresize = function () {
+            styleInit();
+            var clientW = document.body.clientWidth;
+            var ua = window.navigator.userAgent;
+            var ios5 = /iPhone OS 5/g;
+            var ipad = /iPad/g;
+            if (ios5.test(ua) || ipad.test(ua)) {
+                video.style.height = clientW + 'px';
+                video.style.width = clientW + 'px';
+            }
+        }
+
+        touch.on(videoWrap, 'tap', function (ev) {
+            if (window.navigator.platform !== 'iPhone' && window.navigator.platform !== 'iPad') {
+                var ua = window.navigator.userAgent;
+                var android4_4 = /Android [4-9]\.[4-9]/g;
+                if (video.getAttribute('node-type') !== 'mp4') {
+                    alert('该视频不能播放');
+                    return false;
+                } else if (android4_4.test(ua)) {
+                    video.style.display = 'block';
+                    video.webkitRequestFullScreen();
+                    video.play();
+                    setTimeout(function () {
+                        video.onwebkitfullscreenchange = function () {
+                            if (!video.paused) {
+                                video.pause();
+                            }
+                        }
+                    }, 1000);
+                } else {
+                    window.location.href = '<%=audioUrl %>';
+                    return false;
+                }
+            } else {
+                video.style.display = 'block';
+                video.play();
+                if (video.paused) {
+                    video.play();
+                }
+                return false;
+            }
+        });
+
+
 
         function fillList_QA() {
             $.ajax({
