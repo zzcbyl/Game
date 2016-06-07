@@ -295,7 +295,7 @@
             var dragPaddingLeft = $('#progress_icon').css('left').replace('px', '');
             var change = dragPaddingLeft.replace("px", "");
             var cTime = (parseInt(change) / $('#progress_icon').parent().width()) * audio.duration;//30是拖动圆圈的长度，减掉是为了让歌曲结束的时候不会跑到window以外
-            audio.currentTime = parseInt(cTime);
+            audio.currentTime = cTime;
         }
 
         function fillList_QA(o) {
