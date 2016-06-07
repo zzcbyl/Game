@@ -245,7 +245,7 @@
             var duraTime = audio.duration;
             var curTime = audio.currentTime;
             var scale = curTime / duraTime;
-            var progressW = (winWidth - 60) * 0.8 - 4;
+            var progressW = $('#progress_icon').parent().width();
             $('#progress_bg').css('width', (progressW * scale).toString() + 'px');
             $('#progress_icon').css('left', (progressW * scale - 10).toString() + 'px');
         }
