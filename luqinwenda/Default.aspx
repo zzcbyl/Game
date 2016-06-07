@@ -96,7 +96,7 @@
             <div style="display:none;"><audio id="audio_1" controls="controls" autoplay="autoplay" src="<%=audioUrl %>"></audio></div>
         </div>
         <div style="height:60px; position:relative; background:url(/luqinwenda/images/wkt_bottom_bg.jpg) no-repeat; background-size:100% 60px; background-position-y:center;">
-            <% if(audioUrl.IndexOf("game.luqinwenda.com1")>=0) { %>
+            <% if(audioUrl.IndexOf("game.luqinwenda.com") >= 0) { %>
                 <div style="margin:0 30px; display:none;" id="btn_audio_control">
                     <a style="display:inline-block; width:15%; margin-top:8px; text-align:center;" id="audio_control">
                         <img id="btn_audio_icon" src="images/wkt_played.png" style="height:35px;" /></a>
@@ -104,7 +104,9 @@
                         <a id="progress_block" style="display:block; height:10px; border:2px solid #74705f; background:#bab49a; border-radius:5px; width:100%;"></a>
                         <a id="progress_bg" style="position:absolute; height:8px; border:1px solid #74705f;  display:block; top:1px; left:0px; width:1px; background:url(images/wkt_progress_bg.jpg) repeat-x; border-radius:5px; "></a>
                         <a id="progress_icon" style="display:block; width:20px; height:20px; background:url(images/wkt_audio_icon.png) no-repeat; background-size:contain; position:absolute; top:-5px; left:-10px;"></a>
+
                     </div>
+                    <%--<a style="display:inline-block; width:10%;" id="audio_time"></a>--%>
                 </div>    
             <% } else { %>
                 <div style="display:none;" id="btn_audio_control">
@@ -197,7 +199,8 @@
                 function () {
                     $('#audio_loading').hide();
                     $('#btn_audio_control').show();
-                    audio.play();
+                    //audio.play();
+                    addListenTouch();
                     $('#audio_control').click(function () {
                         if (audio.paused) {
                             audio.play();
@@ -207,7 +210,11 @@
                         }
                     });
                     if ($('#progress_bg').html() != null)
-                        updInterval = setInterval('_updateProgress()', 500);
+                        updInterval = setInterval(function () {
+                            _updateProgress();
+                            //$('#audio_time').html(timeChange(audio.currentTime) + "/" + timeChange(audio.duration));
+                        }, 1000);
+                        //setTimeout('_updateProgress()', 500);
                 }, false);
 
             audio.addEventListener("pause",
@@ -241,6 +248,54 @@
             var progressW = (winWidth - 60) * 0.8 - 4;
             $('#progress_bg').css('width', (progressW * scale).toString() + 'px');
             $('#progress_icon').css('left', (progressW * scale - 10).toString() + 'px');
+        }
+
+        function timeChange(time) {//默认获取的时间是时间戳改成我们常见的时间格式
+            //分钟
+            var minute = time / 60;
+            var minutes = parseInt(minute);
+            if (minutes < 10) {
+                minutes = "0" + minutes;
+            }
+            //秒
+            var second = time % 60;
+            seconds = parseInt(second);
+            if (seconds < 10) {
+                seconds = "0" + seconds;
+            }
+            return "" + minutes + "" + ":" + "" + seconds + "";
+        }
+
+
+        var startX, x, aboveX = 0; //触摸时的坐标 //滑动的距离  //设一个全局变量记录上一次内部块滑动的位置 
+
+        //1拖动监听touch事件
+        function addListenTouch() {
+            document.getElementById("progress_icon").addEventListener("touchstart", touchStart, false);
+            document.getElementById("progress_icon").addEventListener("touchmove", touchMove, false);
+            document.getElementById("progress_icon").addEventListener("touchend", touchEnd, false);
+        }
+        //touchstart,touchmove,touchend事件函数
+        function touchStart(e) {
+            e.preventDefault();
+            var touch = e.touches[0];
+            startX = touch.pageX;
+        }
+        function touchMove(e) { //滑动          
+            e.preventDefault();
+            var touch = e.touches[0];
+            x = touch.pageX - startX; //滑动的距离
+            $('#progress_bg').css('width', (aboveX + x).toString() + 'px');
+            $('#progress_icon').css('left', (aboveX + x - 10).toString() + 'px');
+        }
+        function touchEnd(e) { //手指离开屏幕
+            e.preventDefault();
+            aboveX = parseInt($('#progress_icon').css('left').replace('px', ''));
+            var touch = e.touches[0];
+            var dragPaddingLeft = $('#progress_icon').css('left').replace('px', '');
+            var change = dragPaddingLeft.replace("px", "");
+            var cTime = (parseInt(change) / $('#progress_icon').parent().width()) * audio.duration;//30是拖动圆圈的长度，减掉是为了让歌曲结束的时候不会跑到window以外
+            audio.currentTime = parseInt(cTime);
         }
 
         function fillList_QA(o) {
