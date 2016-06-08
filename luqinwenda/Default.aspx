@@ -199,7 +199,7 @@
                 function () {
                     $('#audio_loading').hide();
                     $('#btn_audio_control').show();
-                    //audio.play();
+                    audio.play();
                     addListenTouch();
                     $('#audio_control').click(function () {
                         if (audio.paused) {
