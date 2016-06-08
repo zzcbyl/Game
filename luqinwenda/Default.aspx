@@ -210,10 +210,10 @@
                         }
                     });
                     if ($('#progress_bg').html() != null)
-                        $('#audio_time').html(timeChange(audio.currentTime) + "/" + timeChange(audio.duration));
+                        
                         updInterval = setInterval(function () {
                             _updateProgress();
-                            $('#audio_time').html(timeChange(audio.currentTime) + "/" + timeChange(audio.duration));
+                            $('#audio_time').html(timeChange(audio.currentTime) + "/" + timeChange(parseInt(audio.duration) - 1));
                         }, 1000);
                         //setTimeout('_updateProgress()', 500);
                 }, false);
