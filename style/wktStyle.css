@@ -112,7 +112,7 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { l
 .pm-method-content { width:70%; padding:20px; text-align:center; margin:0 auto; position:relative; border:2px solid #FFFDEA;}
 .pm-method-content a { display:block; }
 .pm-method-content span { display:block; line-height:30px; font-size:120%; font-weight:bold; }
-.pm-method-content div { font-size:300%; line-height:40px; font-weight:bold; width: 110%;}
+.pm-method-content div { font-size:250%; line-height:40px; font-weight:bold; width: 110%;}
 .pm-method-content div span { font-size:30%; font-weight:normal; display:inline-block; }
 
 .content-paymethod .paying { border:2px solid #c85c41;}
