@@ -97,16 +97,16 @@
         </div>
         <div style="height:60px; position:relative; background:url(/luqinwenda/images/wkt_bottom_bg.jpg) no-repeat; background-size:100% 60px; background-position-y:center;">
             <% if(audioUrl.IndexOf("game.luqinwenda.com") >= 0) { %>
-                <div style="margin:0 30px; display:none;" id="btn_audio_control">
-                    <a style="display:inline-block; width:15%; margin-top:8px; text-align:center;" id="audio_control">
+                <div style="margin:0 15px; display:none;" id="btn_audio_control">
+                    <a style="display:inline-block; width:10%; margin-top:8px; text-align:center;" id="audio_control">
                         <img id="btn_audio_icon" src="images/wkt_played.png" style="height:35px;" /></a>
-                    <div style="width:80%; display:inline-block; position:relative;">
+                    <div style="width:70%; display:inline-block; position:relative;">
                         <a id="progress_block" style="display:block; height:10px; border:2px solid #74705f; background:#bab49a; border-radius:5px; width:100%;"></a>
                         <a id="progress_bg" style="position:absolute; height:8px; border:1px solid #74705f;  display:block; top:1px; left:1px; width:1px; background:url(images/wkt_progress_bg.jpg) repeat-x; border-radius:5px; "></a>
                         <a id="progress_icon" style="display:block; width:20px; height:20px; background:url(images/wkt_audio_icon.png) no-repeat; background-size:contain; position:absolute; top:-5px; left:-10px;"></a>
 
                     </div>
-                    <%--<a style="display:inline-block; width:10%;" id="audio_time"></a>--%>
+                    <a style="display:inline-block; width:auto; margin-left:10px;" id="audio_time"></a>
                 </div>    
             <% } else { %>
                 <div style="display:none;" id="btn_audio_control">
@@ -210,9 +210,10 @@
                         }
                     });
                     if ($('#progress_bg').html() != null)
+                        $('#audio_time').html(timeChange(audio.currentTime) + " / " + timeChange(audio.duration));
                         updInterval = setInterval(function () {
                             _updateProgress();
-                            //$('#audio_time').html(timeChange(audio.currentTime) + "/" + timeChange(audio.duration));
+                            $('#audio_time').html(timeChange(audio.currentTime) + " / " + timeChange(audio.duration));
                         }, 1000);
                         //setTimeout('_updateProgress()', 500);
                 }, false);
