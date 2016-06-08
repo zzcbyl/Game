@@ -102,7 +102,7 @@
                         <img id="btn_audio_icon" src="images/wkt_played.png" style="height:35px;" /></a>
                     <div style="width:80%; display:inline-block; position:relative;">
                         <a id="progress_block" style="display:block; height:10px; border:2px solid #74705f; background:#bab49a; border-radius:5px; width:100%;"></a>
-                        <a id="progress_bg" style="position:absolute; height:8px; border:1px solid #74705f;  display:block; top:1px; left:0px; width:1px; background:url(images/wkt_progress_bg.jpg) repeat-x; border-radius:5px; "></a>
+                        <a id="progress_bg" style="position:absolute; height:8px; border:1px solid #74705f;  display:block; top:1px; left:1px; width:1px; background:url(images/wkt_progress_bg.jpg) repeat-x; border-radius:5px; "></a>
                         <a id="progress_icon" style="display:block; width:20px; height:20px; background:url(images/wkt_audio_icon.png) no-repeat; background-size:contain; position:absolute; top:-5px; left:-10px;"></a>
 
                     </div>
@@ -246,8 +246,10 @@
             var curTime = audio.currentTime;
             var scale = curTime / duraTime;
             var progressW = $('#progress_icon').parent().width();
-            $('#progress_bg').css('width', (progressW * scale).toString() + 'px');
-            $('#progress_icon').css('left', (progressW * scale - 10).toString() + 'px');
+            if ((progressW * scale) < progressW)
+                progressW = progressW * scale;
+            $('#progress_bg').css('width', (progressW).toString() + 'px');
+            $('#progress_icon').css('left', (progressW - 10).toString() + 'px');
         }
 
         function timeChange(time) {//默认获取的时间是时间戳改成我们常见的时间格式
@@ -265,7 +267,6 @@
             }
             return "" + minutes + "" + ":" + "" + seconds + "";
         }
-
 
         var startX, x, aboveX = 0; //触摸时的坐标 //滑动的距离  //设一个全局变量记录上一次内部块滑动的位置 
 
@@ -285,8 +286,11 @@
             e.preventDefault();
             var touch = e.touches[0];
             x = touch.pageX - startX; //滑动的距离
-            $('#progress_bg').css('width', (aboveX + x).toString() + 'px');
-            $('#progress_icon').css('left', (aboveX + x - 10).toString() + 'px');
+            var moveX = aboveX + x;
+            if ((aboveX + x) > $('#progress_icon').parent().width())
+                moveX = $('#progress_icon').parent().width();
+            $('#progress_bg').css('width', (moveX).toString() + 'px');
+            $('#progress_icon').css('left', (moveX - 10).toString() + 'px');
         }
         function touchEnd(e) { //手指离开屏幕
             e.preventDefault();
