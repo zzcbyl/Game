@@ -27,12 +27,6 @@
             Response.Redirect("http://weixin.luqinwenda.com/authorize_final.aspx?callback=" + Server.UrlEncode(currentUrl), true);
         }
 
-        UserChatRoomRights userChatRoom = new UserChatRoomRights(userid, roomid);
-        if (userChatRoom.CanEnter && userChatRoom.CanPublishText)
-        {
-            isbaoming = 1;
-        }
-
         ChatRoom chatRoom = new ChatRoom(roomid);
         chatdrow = chatRoom._fields;
         if (chatdrow == null)
@@ -41,6 +35,32 @@
             Response.End();
             return;
         }
+
+        UserChatRoomRights userChatRoom = new UserChatRoomRights(userid, roomid);
+        if (userChatRoom.CanEnter && userChatRoom.CanPublishText)
+        {
+            isbaoming = 1;
+        }
+        else
+        {
+            DataTable ticketDT = Donate.getTicketByUserid(userid, roomid, -1);
+            if (ticketDT != null && ticketDT.Rows.Count > 0 && ticketDT.Rows[0]["paystate"].ToString() == "0")
+            {
+                try
+                {
+                    string payresult = Util.GetWebContent("http://weixin.luqinwenda.com/payment/payment_get_result.aspx?body=卢勤问答平台微课教室&productid="
+                        + ticketDT.Rows[0]["ticketid"].ToString() + "&amount=" + ticketDT.Rows[0]["price"].ToString(), "get", "", "text/html");
+                    if (payresult.Equals("PAID"))
+                    {
+                        Donate.setBuyTicketState(int.Parse(ticketDT.Rows[0]["ticketid"].ToString()));
+                        UserChatRoomRights.SetUserChatRoom(userid, roomid);
+                        isbaoming = 1;
+                    }
+                }
+                catch { }
+            }
+        }
+        
         int courseid = -1;
         if (chatdrow["courseid"].ToString().Trim() != "0")
             courseid = int.Parse(chatdrow["courseid"].ToString());

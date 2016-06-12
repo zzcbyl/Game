@@ -190,4 +190,16 @@ public class Donate
         string sql = " update ticket_room set paystate = 1, paysuccesstime = '" + DateTime.Now.ToString() + "' where ticketid = " + ticketid + " and paystate = 0";
         return DBHelper.ExecteNonQuery(Util.ConnectionString, CommandType.Text, sql, null);
     }
+
+    public static DataTable getTicketByUserid(int userid, int roomid, int paystate)
+    {
+        string sql = " select * from ticket_room where userid = " + userid + " and roomid=" + roomid;
+        if (paystate >= 0)
+        {
+            sql += " and paystate=" + paystate;
+        }
+        sql += " order by createtime desc";
+        return DBHelper.GetDataTable(sql, Util.ConnectionString);
+    }
+
 }
