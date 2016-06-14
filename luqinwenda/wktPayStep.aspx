@@ -91,6 +91,10 @@
                             this.Response.Redirect("wktPaySuccess.aspx?roomid=" + roomId + "&token=" + token + "&rdm=" + rdm);
                         }
                     }
+                    else
+                    {
+                        this.Response.Redirect("wktPayfail.aspx?roomid=" + roomId + "&token=" + token);
+                    }
                 }
                 else
                 {
