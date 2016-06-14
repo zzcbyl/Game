@@ -72,7 +72,7 @@
     <uc1:UserHeadControl ID="UserHeadControl1" runat="server"  />
     <div class="content-couser-block">
         <p><span class="course-title">兑换成功！</span></p>
-        <p><span class="course-title">恭喜您获得“<%=currentCDt.Rows[0]["course_title"].ToString() %>”！</span></p>
+        <p><span class="course-title">恭喜您获得“<%=currentCDt.Rows[0]["course_title"].ToString() %>”门票！</span></p>
         <p><span class="course-title">请在开课之前30分钟进入微课教室。</span></p>
         <p><span class="course-title">如错过本次课程，您可以在课程结束后的第二天收听重播。收听重播课程无需重复兑换门票。</span></p>
     </div>
