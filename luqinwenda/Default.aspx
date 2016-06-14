@@ -273,9 +273,11 @@
 
         //1拖动监听touch事件
         function addListenTouch() {
-            document.getElementById("progress_icon").addEventListener("touchstart", touchStart, false);
-            document.getElementById("progress_icon").addEventListener("touchmove", touchMove, false);
-            document.getElementById("progress_icon").addEventListener("touchend", touchEnd, false);
+            if (document.getElementById("progress_icon")) {
+                document.getElementById("progress_icon").addEventListener("touchstart", touchStart, false);
+                document.getElementById("progress_icon").addEventListener("touchmove", touchMove, false);
+                document.getElementById("progress_icon").addEventListener("touchend", touchEnd, false);
+            }
         }
         //touchstart,touchmove,touchend事件函数
         function touchStart(e) {
