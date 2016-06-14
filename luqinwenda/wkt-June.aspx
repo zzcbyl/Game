@@ -3,7 +3,7 @@
 <script runat="server">
     public string token = "";
     public int userid = 0;
-    public string[] redDay = { "2016-05-31", "2016-06-29", "2016-06-30", "2016-07-01" };
+    public string[] redDay = { "2016-05-31", "2016-06-29", "2016-06-30", "2016-07-01", "2016-06-28" };
     public string[] greenDay = { "2016-06-14", "2016-06-16", "2016-06-21" };
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -83,6 +83,15 @@
             </div>
             <a class="m-block-right-icon"></a>
         </div>
+        <div class="m-course-block-red" onclick="jumpCourse(20);">
+            <div class="m-block-left">
+                <img src="images/june-8.jpg" />
+            </div>
+            <div class="m-block-content">
+                <img src="images/june-course-8.jpg"/>
+            </div>
+            <a class="m-block-right-icon"></a>
+        </div>
         <div class="m-course-block-red" onclick="jumpCourse(15);">
             <div class="m-block-left">
                 <img src="images/june-5.jpg" />
@@ -130,8 +139,8 @@
             location.href = '/luqinwenda/wktIndex_integral.aspx?roomid=' + num + '&token=<%=token %>';
         }
         
-        var dayArr = ['2016-05-31', '2016-06-14', '2016-06-16', '2016-06-21', '2016-06-29', '2016-06-30', '2016-07-01'];
-        var roomArr = [11, 12, 13, 14, 15, 16, 17];
+        var dayArr = ['2016-05-31', '2016-06-14', '2016-06-16', '2016-06-21', '2016-06-29', '2016-06-30', '2016-07-01', '2016-06-28'];
+        var roomArr = [11, 12, 13, 14, 15, 16, 17, 20];
         function jumpCourse1(num) {
             jumpCourse(roomArr[dayArr.indexOf(num)]);
         }
