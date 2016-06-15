@@ -93,7 +93,10 @@
     <div class="main-header" style="">
         <div style="height:170px; text-align:center; background:#EBE8E1; ">
             <img src="<%=chatDrow["audio_bg"].ToString() %>" style="width:100%; height:170px;" />
-            <div style="display:none;"><audio id="audio_1" controls="controls" src="<%=audioUrl %>"></audio></div>
+            <div style="display:none;">
+                <audio id="audio_1" controls="controls">
+                    <source src="<%=audioUrl %>" type="audio/mp3" />
+                </audio></div>
         </div>
         <div style="height:60px; position:relative; background:url(/luqinwenda/images/wkt_bottom_bg.jpg) no-repeat; background-size:100% 60px; background-position-y:center;">
             <% if(audioUrl.IndexOf("game.luqinwenda.com") >= 0) { %>
@@ -110,7 +113,7 @@
                 </div>    
             <% } else { %>
                 <div style="display:none;" id="btn_audio_control">
-                    <a id="audio_control" style="position:absolute; top:-15px; display:inline-block; width:100%; text-align:center;"><img id="btn_audio_icon" src="images/wkt_play.png" style="height:60px;" /></a>
+                    <a id="audio_control" style="position:absolute; top:-15px; display:inline-block; width:100%; text-align:center;"><img id="btn_audio_icon" src="images/wkt_play.gif" style="height:60px;" /></a>
                 </div>
             <% } %>
             <a id="audio_loading" style="display:inline-block; width:100%; text-align:center; top:5px; position:absolute;"><img src="/upload/images/loading.gif" style="width:40px; height:40px;" /></a>
@@ -185,6 +188,7 @@
 
             audio = document.getElementById('audio_1');
             playCotrol();
+
             $("#textContent").parent().css("width", (winWidth- 120).toString() + "px");
             $('#mydiv').css("height", ($(window).height() - 260).toString() + "px");
 
@@ -195,27 +199,27 @@
 
         function playCotrol() {
             var updInterval;
-            audio.addEventListener("loadeddata", //歌曲一经完整的加载完毕( 也可以写成上面提到的那些事件类型)
+            $('#audio_loading').hide();
+            $('#btn_audio_control').show();
+            $('#audio_control').click(function () {
+                if (audio.paused) {
+                    audio.play();
+                }
+                else {
+                    audio.pause();
+                }
+
+                if ($('#progress_bg').html() != null) {
+                    updInterval = setInterval(function () {
+                        _updateProgress();
+                        $('#audio_time').html(timeChange(audio.currentTime) + "/" + timeChange(audio.duration));
+                    }, 1000);
+                }
+            });
+
+            audio.addEventListener("loadeddata",
                 function () {
-                    $('#audio_loading').hide();
-                    $('#btn_audio_control').show();
-                    //audio.pause();
                     addListenTouch();
-                    $('#audio_control').click(function () {
-                        if (audio.paused) {
-                            audio.play();
-                        }
-                        else {
-                            audio.pause();
-                        }
-                    });
-                    if ($('#progress_bg').html() != null)
-                        
-                        updInterval = setInterval(function () {
-                            _updateProgress();
-                            $('#audio_time').html(timeChange(audio.currentTime) + "/" + timeChange(audio.duration));
-                        }, 1000);
-                        //setTimeout('_updateProgress()', 500);
                 }, false);
 
             audio.addEventListener("pause",
@@ -223,11 +227,11 @@
                     if ($('#progress_bg').html() != null)
                         $('#btn_audio_icon').attr('src', 'images/wkt_paused1.png');
                     else
-                        $('#btn_audio_icon').attr('src', 'images/wkt_play.png');
+                        $('#btn_audio_icon').attr('src', 'images/wkt_play.gif');
                 }, false);
             audio.addEventListener("play",
                 function () { //监听播放
-                    if ($('#progress_bg').html()!=null)
+                    if ($('#progress_bg').html() != null)
                         $('#btn_audio_icon').attr('src', 'images/wkt_played.png');
                     else
                         $('#btn_audio_icon').attr('src', 'images/wkt_paused.png');
@@ -236,10 +240,10 @@
                 if ($('#progress_bg').html() != null)
                     $('#btn_audio_icon').attr('src', 'images/wkt_paused1.png');
                 else
-                    $('#btn_audio_icon').attr('src', 'images/wkt_play.png');
+                    $('#btn_audio_icon').attr('src', 'images/wkt_play.gif');
                 if (updInterval)
                     clearInterval(updInterval);
-            }, false)
+            }, false);
         }
 
         function _updateProgress() {
