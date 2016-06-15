@@ -87,6 +87,9 @@
         
         $(document).ready(function () {
             
+            if (!navigator.userAgent.match(/(iPhone|iPod|Android|ios|iPad)/i)) {
+                location.href = 'error404.aspx';
+            }
             //$('.main-page').css('min-height', (winHeight - 60) + 'px');
 
             wx.ready(function () {
