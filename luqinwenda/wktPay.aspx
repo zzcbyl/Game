@@ -48,6 +48,22 @@
             Response.End();
             return;
         }
+
+        if (chatdrow["price"].ToString().Trim() == "0" && chatdrow["integral"].ToString().Trim() == "0")
+        {
+            int ticketid = Donate.buyTicket(userId, roomId, 0, "购买进入 " + roomId + " Room的票");
+            Donate.setBuyTicketState(ticketid);
+            DataTable ticketDt = Donate.getTicket(ticketid);
+            if (ticketDt != null && ticketDt.Rows.Count > 0)
+            {
+                if (ticketDt.Rows[0]["paystate"].ToString().Equals("1"))
+                {
+                    UserChatRoomRights.SetUserChatRoom(userId, roomId);
+                    this.Response.Redirect("Default.aspx?roomid=" + int.Parse(ticketDt.Rows[0]["roomid"].ToString()) + "&token=" + token + "&rdm=" + rdm);
+                }
+            }
+        }
+        
         int courseid = -1;
         if (chatdrow["courseid"].ToString().Trim() != "0")
             courseid = int.Parse(chatdrow["courseid"].ToString());
