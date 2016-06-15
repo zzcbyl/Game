@@ -93,13 +93,13 @@
     <div class="main-header" style="">
         <div style="height:170px; text-align:center; background:#EBE8E1; ">
             <img src="<%=chatDrow["audio_bg"].ToString() %>" style="width:100%; height:170px;" />
-            <div style="display:none;"><audio id="audio_1" controls="controls" autoplay="autoplay" src="<%=audioUrl %>"></audio></div>
+            <div style="display:none;"><audio id="audio_1" controls="controls" src="<%=audioUrl %>"></audio></div>
         </div>
         <div style="height:60px; position:relative; background:url(/luqinwenda/images/wkt_bottom_bg.jpg) no-repeat; background-size:100% 60px; background-position-y:center;">
-            <% if(audioUrl.IndexOf("game.luqinwenda.com") >= 0) { %>
+            <% if(audioUrl.IndexOf("game.luqinwenda.com1") >= 0) { %>
                 <div style="margin:0; display:none;" id="btn_audio_control">
                     <a style="display:inline-block; width:18%; margin-top:8px; text-align:center;" id="audio_control">
-                        <img id="btn_audio_icon" src="images/wkt_played.png" style="height:35px;" /></a>
+                        <img id="btn_audio_icon" src="images/wkt_paused1.png" style="height:35px;" /></a>
                     <div style="width:50%; display:inline-block; position:relative;">
                         <a id="progress_block" style="display:block; height:10px; border:2px solid #74705f; background:#bab49a; border-radius:5px; width:100%;"></a>
                         <a id="progress_bg" style="position:absolute; height:8px; border:1px solid #74705f;  display:block; top:1px; left:1px; width:1px; background:url(images/wkt_progress_bg.jpg) repeat-x; border-radius:5px; "></a>
@@ -110,7 +110,7 @@
                 </div>    
             <% } else { %>
                 <div style="display:none;" id="btn_audio_control">
-                    <a id="audio_control" style="position:absolute; top:-15px; display:inline-block; width:100%; text-align:center;"><img id="btn_audio_icon" src="images/wkt_paused.png" style="height:60px;" /></a>
+                    <a id="audio_control" style="position:absolute; top:-15px; display:inline-block; width:100%; text-align:center;"><img id="btn_audio_icon" src="images/wkt_play.png" style="height:60px;" /></a>
                 </div>
             <% } %>
             <a id="audio_loading" style="display:inline-block; width:100%; text-align:center; top:5px; position:absolute;"><img src="/upload/images/loading.gif" style="width:40px; height:40px;" /></a>
@@ -199,7 +199,7 @@
                 function () {
                     $('#audio_loading').hide();
                     $('#btn_audio_control').show();
-                    audio.play();
+                    //audio.pause();
                     addListenTouch();
                     $('#audio_control').click(function () {
                         if (audio.paused) {
