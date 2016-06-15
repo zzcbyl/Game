@@ -96,7 +96,7 @@
             <div style="display:none;"><audio id="audio_1" controls="controls" src="<%=audioUrl %>"></audio></div>
         </div>
         <div style="height:60px; position:relative; background:url(/luqinwenda/images/wkt_bottom_bg.jpg) no-repeat; background-size:100% 60px; background-position-y:center;">
-            <% if(audioUrl.IndexOf("game.luqinwenda.com1") >= 0) { %>
+            <% if(audioUrl.IndexOf("game.luqinwenda.com") >= 0) { %>
                 <div style="margin:0; display:none;" id="btn_audio_control">
                     <a style="display:inline-block; width:18%; margin-top:8px; text-align:center;" id="audio_control">
                         <img id="btn_audio_icon" src="images/wkt_paused1.png" style="height:35px;" /></a>
