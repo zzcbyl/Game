@@ -234,7 +234,7 @@ function recordUserAgent(uid, roomid) {
         url: "recordUserAgent.ashx",
         data: { userid: uid, roomid: roomid, useragent: navigator.userAgent.toString() },
         success: function (data) {
-            setCookie('userAgent', '1', 60 * 10);
+            setCookie('userAgent', '1', 60 * 5);
         }
     });
 }
