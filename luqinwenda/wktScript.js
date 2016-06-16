@@ -231,7 +231,6 @@ function recordUserAgent(uid, roomid) {
         return;
     $.ajax({
         type: "POST",
-        async: false,
         url: "recordUserAgent.ashx",
         data: { userid: uid, roomid: roomid, useragent: navigator.userAgent.toString() },
         success: function (data) {
