@@ -174,6 +174,9 @@
         var chat_shareContent = '<%=chatdrow["shareContent"].ToString() %>';
         var chat_shareImage = '<%=chatdrow["shareimage"].ToString() %>';
         $(document).ready(function () {
+            if (!navigator.userAgent.match(/(iPhone|iPod|Android|ios|iPad)/i)) {
+                location.href = 'error404.aspx';
+            }
             shareTitle = '【卢勤微课教室】<%=currentCDt.Rows[0]["course_title"].ToString() %>';
             if (chat_shareContent!='')
                 shareContent = chat_shareContent;
