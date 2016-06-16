@@ -222,19 +222,3 @@ function fillHeader() {
 //    else
 //        location.href = 'QuestionList.aspx?token=' + token + '&roomid=' + roomid;;
 //}
-
-function recordUserAgent(uid, roomid) {
-    if (!navigator.userAgent.match(/(iPhone|iPod|Android|ios|iPad)/i)) {
-        return;
-    }
-    if (getCookie('userAgent') != null)
-        return;
-    $.ajax({
-        type: "POST",
-        url: "recordUserAgent.ashx",
-        data: { userid: uid, roomid: roomid, useragent: navigator.userAgent.toString() },
-        success: function (data) {
-            setCookie('userAgent', '1', 60 * 5);
-        }
-    });
-}
