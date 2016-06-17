@@ -22,7 +22,7 @@
         if (chatRoom._fields != null && userChatRoomRight.CanEnter)
         {
             string JsonStr = "";
-            DataTable dt_parent = ChatTimeLine.GetChatList_QA(roomId, maxDt, chatRoom._fields["expertlist"].ToString());
+            DataTable dt_parent = ChatTimeLine.GetChatList_QA(roomId, maxDt, chatRoom._fields["expertlist"].ToString(), userId);
             if (dt_parent.Rows.Count > 0)
                 maxDt = DateTime.Parse(dt_parent.Rows[dt_parent.Rows.Count - 1]["update_date"].ToString());
             foreach (DataRow row in dt_parent.Rows)

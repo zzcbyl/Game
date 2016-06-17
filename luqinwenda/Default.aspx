@@ -141,7 +141,7 @@
         <div id="input_text" style="width: auto; margin: 0; background: #ebe9e1; ">
             <div style="width: auto; float: left; margin-left: 10px;">
                 <%--<input id="textContent" type="text" style="border: 2px solid #CACACA; border-radius: 15px; width: 100%; height: 30px; line-height: 30px; padding: 2px 5px;" />--%>
-                <div id="textContent" contenteditable="true" style="text-align:left; margin-top:10px; background:#fff; border: 2px solid #CACACA; border-radius: 15px; width: 100%; line-height: 27px; padding: 0px 5px;"></div>
+                <div id="textContent" contenteditable="true" style="text-align:left; margin-top:10px; background:#fff; border: 2px solid #CACACA; border-radius: 15px; width: 100%; line-height: 27px; min-height: 27px; padding: 0px 5px;"></div>
             </div>
             <div style="width: 30px; float: left; height:50px;"><span class="emotion"></span></div>
             <div style="width: 70px; float: right;">
@@ -175,7 +175,7 @@
         var chat_shareImage = '<%=chatDrow["shareimage"].ToString() %>';
         $(document).ready(function () {
             if (!navigator.userAgent.match(/(iPhone|iPod|Android|ios|iPad)/i)) {
-                location.href = 'error404.aspx';
+                //location.href = 'error404.aspx';
             }
             recordUserAgent('<%=userid %>', '<%=roomid %>');
             shareTitle = '【卢勤微课教室】<%=(courseDt.Rows.Count > 0 ? courseDt.Rows[0]["course_title"].ToString() : "") %>';

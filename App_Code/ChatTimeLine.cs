@@ -120,6 +120,24 @@ public class ChatTimeLine
             return 0;
         }
 
+        int Shielding = 0; 
+        string expertlist = drow["expertlist"].ToString();
+        string[] FilterWordArr = { "间断", "听不见", "听不到", "听不清", "听不了", "断了", "退出", "没有声音", "没声", "时断时续", "时有时无", "不清楚", "声音小", "不能听", "不清晰", "听不成", "进不去", "无法进入", "不能听", "断了", "没反应", "没法听", "掉线" };
+        if (type == "text" && Array.IndexOf(expertlist.Split(','), userId.ToString()) < 0)
+        {
+            string defineContent = content;
+            for (int i = 0; i < FilterWordArr.Length; i++)
+            {
+                defineContent = defineContent.Replace(FilterWordArr[i], "******");
+                if (defineContent.IndexOf("******") > -1)
+                {
+                    Shielding = 1;
+                    auditState = "0";
+                    break;
+                }
+            }
+        }
+
         //string expertlist = drow["expertlist"].ToString();
         //if (parentid != 0 || Array.IndexOf(expertlist.Split(','), userId.ToString()) >= 0)
         //{
@@ -149,6 +167,12 @@ public class ChatTimeLine
             DataTable dt = DBHelper.GetDataTable(" select max([id]) from chat_list ", Util.ConnectionString);
             if (dt.Rows.Count > 0)
                 maxId = int.Parse(dt.Rows[0][0].ToString());
+            //自动回复
+            if (Shielding == 1)
+            {
+                PublishMessage(roomId, 11147, "text", "各位家长好！今晚是新版卢勤问答微课堂的测试版。没有声音的家长，请点击上面的三角播放按钮；如果不行请退出再重新进入教室；如果仍没有声音，请重启手机再进入；如果声音小，请将媒体声音调大些；如果仍无法正常收听，明天在公众号菜单栏【预告回顾】中可以收听语音回顾。我们会逐步改进新功能，希望大家多提意见，谢谢大家！", maxId);
+            }
+
             dt.Dispose();
         }
         return maxId;
@@ -175,11 +199,11 @@ public class ChatTimeLine
         return dt;
     }
 
-    public static DataTable GetChatList_QA(int roomId, DateTime maxDt, string expertlist)
+    public static DataTable GetChatList_QA(int roomId, DateTime maxDt, string expertlist, int userid)
     {
-        string sql = "select * from dbo.chat_list where chat_room_id=" + roomId + " and audit_state=1 "
+        string sql = "select * from dbo.chat_list where chat_room_id=" + roomId
             + "and parent_id=0 "
-            + "and update_date>'" + maxDt + "'  order by update_date";
+            + "and update_date>'" + maxDt + "' and (audit_state=1 or (audit_state=0 and user_id=" + userid + ")) order by update_date";
 
         DataTable dt = DBHelper.GetDataTable(sql, Util.ConnectionString.Trim());
         return dt;
