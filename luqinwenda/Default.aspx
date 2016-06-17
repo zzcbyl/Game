@@ -343,15 +343,9 @@
 
                             if (chatline.answerlist.length > 0) {
                                 if (!o) {
-                                    $.ajax({
-                                        type: "GET",
-                                        //async: false,
-                                        url: "delayHandler.ashx",
-                                        data: {},
-                                        success: function (data) {
-                                            fillAnswer(chatline);
-                                        }
-                                    });
+                                    setTimeout(function () {
+                                        fillAnswer(chatline);
+                                    }, 6000);
                                 }
                                 else {
                                     fillAnswer(chatline);
