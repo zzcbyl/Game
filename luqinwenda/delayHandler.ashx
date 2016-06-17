@@ -7,7 +7,7 @@ public class delayHandler : IHttpHandler {
     
     public void ProcessRequest (HttpContext context) {
         context.Response.ContentType = "text/plain";
-        System.Threading.Thread.Sleep(3000);
+        System.Threading.Thread.Sleep(5000);
         context.Response.Write("1");
     }
  
