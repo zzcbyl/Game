@@ -149,6 +149,7 @@
             <div style="clear: both;"></div>
         </div>
     </div>
+    <div id="divHidden" style="display:none;"></div>
     <script type="text/javascript">
         var userid = '<%=userid %>';
         var token = '<%=token %>';
@@ -316,7 +317,6 @@
         function fillList_QA(o) {
             $.ajax({
                 type: "GET",
-                async: false,
                 url: "http://" + domainName + "/api/chat_timeline_qa_list.aspx",
                 data: { roomid: roomid, token: token, maxdt: maxdt },
                 dataType: "json",
@@ -342,15 +342,20 @@
                                 after_append(inHtml);
 
                             if (chatline.answerlist.length > 0) {
-                                var answerlist = "";
-                                for (var j = 0; j < chatline.answerlist.length; j++) {
-                                    var answerchat = chatline.answerlist[j];
-                                    var answerItem = fomatLi(answerchat);
-                                    answerlist = "<li>" + answerItem.replace("&lt;", "<").replace("&gt;", ">") + "</li>";
-                                    after_append(answerlist);
+                                if (!o) {
+                                    $.ajax({
+                                        type: "GET",
+                                        //async: false,
+                                        url: "delayHandler.ashx",
+                                        data: {},
+                                        success: function (data) {
+                                            fillAnswer(chatline);
+                                        }
+                                    });
                                 }
-                                answerlist = '<li class = "spacing-li"></li>';
-                                after_append(answerlist);
+                                else {
+                                    fillAnswer(chatline);
+                                }
                             }
 
                             if (i != 0 && i % 5 == 0)
@@ -382,6 +387,17 @@
 
         }
 
+        function fillAnswer(chatline) {
+            var answerlist = "";
+            for (var j = 0; j < chatline.answerlist.length; j++) {
+                var answerchat = chatline.answerlist[j];
+                var answerItem = fomatLi(answerchat);
+                answerlist = "<li>" + answerItem.replace("&lt;", "<").replace("&gt;", ">") + "</li>";
+                after_append(answerlist);
+            }
+            answerlist = '<li class = "spacing-li"></li>';
+            after_append(answerlist);
+        }
 
         function recordUserAgent(uid, roomid) {
             if (!navigator.userAgent.match(/(iPhone|iPod|Android|ios|iPad)/i)) {
