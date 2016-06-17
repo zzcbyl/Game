@@ -21,7 +21,7 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { l
 .jp-stop_right_3 { background: url(/luqinwenda/images/jplayerplay_right.png) no-repeat -0px 0; width: 18px; height: 19px; }
 .jp-audio a { height:30px;}
 
-.feed_file_list li { padding-left: 0px; padding:10px 5px; /*background:#f5f1e7;*/ }
+.feed_file_list li { padding-left: 0px; padding:10px 5px; }
 .feed_file_list .expert-li { padding-left: 0px; padding:10px 5px; background:#e4dfcd; }
 .feed_file_list .spacing-li { height:5px; background:#e4dfcd; padding:0; }
 .feed_file_list .time-li { background:#e4dfcd; color:#B2B2B2; text-align:center; font-size:12px; padding:0; height:30px; line-height:30px; }
