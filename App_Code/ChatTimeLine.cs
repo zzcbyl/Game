@@ -122,7 +122,7 @@ public class ChatTimeLine
 
         int Shielding = 0; 
         string expertlist = drow["expertlist"].ToString();
-        string[] FilterWordArr = { "间断", "听不见", "听不到", "听不清", "听不了", "断了", "退出", "没有声音", "没声", "时断时续", "时有时无", "不清楚", "声音小", "不能听", "不清晰", "听不成", "进不去", "无法进入", "不能听", "断了", "没反应", "没法听", "掉线" };
+        string[] FilterWordArr = { "间断", "听不见", "听不到", "听不清", "听不了", "断了", "退出", "没有声音", "没声", "没音", "时断时续", "时有时无", "不清楚", "声音小", "声音太小", "不能听", "不清晰", "听不成", "进不去", "无法进入", "不能听", "断了", "没反应", "没法听", "掉线" };
         if (type == "text" && Array.IndexOf(expertlist.Split(','), userId.ToString()) < 0)
         {
             string defineContent = content;
