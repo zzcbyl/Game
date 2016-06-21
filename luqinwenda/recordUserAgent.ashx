@@ -10,8 +10,9 @@ public class recordUserAgent : IHttpHandler {
         string userid = context.Request["userid"].ToString();
         string roomid = context.Request["roomid"].ToString();
         string useragent = context.Request["useragent"].ToString();
+        string userip = context.Request.UserHostAddress;
 
-        string sql = "insert into m_userAgent(userId,roomId,userAgent) values (" + userid + "," + roomid + ",'" + useragent + "')";
+        string sql = "insert into m_userAgent(userId,roomId,userAgent,userIp) values (" + userid + "," + roomid + ",'" + useragent + "','" + userip + "')";
         DBHelper.ExecteNonQuery(Util.ConnectionStringMall, System.Data.CommandType.Text, sql);
     }
  
