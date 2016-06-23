@@ -37,43 +37,43 @@ public class Drawing
 
     public static int NewDrawing(string opneId, int actId)
     {
-        int numZhangda = 0;
-        int numFannao = 0;
+        int numBra = 0;
+        int numPant = 0;
 
-        DataTable dt = DBHelper.GetDataTable(" select * from random_awards where award = '长大不容易' and act_id = " + numZhangda.ToString().Trim(), Util.ConnectionString);
-        numZhangda = dt.Rows.Count;
+        DataTable dt = DBHelper.GetDataTable(" select * from random_awards where award = '朱林禾羽独家定制科学内衣（文胸）' and act_id = " + actId.ToString().Trim(), Util.ConnectionString);
+        numBra = dt.Rows.Count;
         dt.Dispose();
 
-        dt = DBHelper.GetDataTable(" select * from random_awards where award = '和烦恼说再见' and act_id = " + numZhangda.ToString().Trim(), Util.ConnectionString);
-        numFannao = dt.Rows.Count;
+        dt = DBHelper.GetDataTable(" select * from random_awards where award = '朱林禾羽独家定制科学内衣（内裤）' and act_id = " + actId.ToString().Trim(), Util.ConnectionString);
+        numPant = dt.Rows.Count;
         dt.Dispose();
 
         int seed = (new Random()).Next(0, 100);
 
         string award = "";
 
-        if (seed == 1 && numZhangda < 5)
+        if (seed == 1 && numBra < 5)
         {
-            award = "长大不容易";
+            award = "朱林禾羽独家定制科学内衣（文胸）";
         }
         else
         {
-            if (seed == 51 && numFannao < 30)
+            if (seed == 51 && numPant < 12)
             {
-                award = "和烦恼说再见";
+                award = "朱林禾羽独家定制科学内衣（内裤）";
             }
             else
             {
                 if (seed < 51)
                 {
-                    Coupon coupon = Coupon.AddCoupon(500);
-                    award = "5元优惠券:" + coupon._fields["code"].ToString().Trim();
+                    Coupon coupon = Coupon.AddCoupon(1000);
+                    award = "10元优惠券:" + coupon._fields["code"].ToString().Trim();
 
                 }
                 else
                 {
-                    Coupon coupon = Coupon.AddCoupon(200);
-                    award = "2元优惠券:" + coupon._fields["code"].ToString().Trim();
+                    Coupon coupon = Coupon.AddCoupon(500);
+                    award = "5元优惠券:" + coupon._fields["code"].ToString().Trim();
                 }
             }
         }
