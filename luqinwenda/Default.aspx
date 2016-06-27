@@ -99,7 +99,7 @@
                 </audio></div>
         </div>
         <div style="height:60px; position:relative; background:url(/luqinwenda/images/wkt_bottom_bg.jpg) no-repeat; background-size:100% 60px; background-position-y:center;">
-            <% if(audioUrl.IndexOf("game.luqinwenda.com") >= 0) { %>
+            <% if(audioUrl.IndexOf("Manifest") < 0) { %>
                 <div style="margin:0; display:none;" id="btn_audio_control">
                     <a style="display:inline-block; width:18%; margin-top:8px; text-align:center;" id="audio_control">
                         <img id="btn_audio_icon" src="images/wkt_paused1.png" style="height:35px;" /></a>
@@ -407,6 +407,23 @@
                     setCookie('userAgent', '1', 60 * 5);
                 }
             });
+        }
+
+        if (roomid == 15 || roomid == 16 || roomid == 17) {
+
+            var broadcast_start_date = new Date(2016, 5, 27, 15, 0, 0, 0);
+            var current_time = new Date();
+            var seek_time = (current_time - broadcast_start_date) / 1000;
+            alert(seek_time);
+            var audio_player_1 = document.getElementById("audio_1");
+            audio_player_1.onplay = function () {
+                if (seek_time < 0) {
+                    audio_player_1.pause();
+                }
+                else {
+                    audio_player_1.currentTime = seek_time;
+                }
+            }
         }
 
 
