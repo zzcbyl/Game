@@ -83,7 +83,7 @@
             </div>
             <a class="m-block-right-icon"></a>
         </div>
-        <div class="m-course-block-red" onclick="jumpCourse(20);">
+        <div class="m-course-block-red" onclick="jumpCourse(15);">
             <div class="m-block-left">
                 <img src="images/june-8.jpg" />
             </div>
@@ -92,7 +92,7 @@
             </div>
             <a class="m-block-right-icon"></a>
         </div>
-        <div class="m-course-block-red" onclick="jumpCourse(15);">
+        <div class="m-course-block-red" onclick="jumpCourse(20);">
             <div class="m-block-left">
                 <img src="images/june-5.jpg" />
             </div>
@@ -140,7 +140,7 @@
         }
         
         var dayArr = ['2016-05-31', '2016-06-14', '2016-06-16', '2016-06-21', '2016-06-29', '2016-06-30', '2016-07-01', '2016-06-28'];
-        var roomArr = [11, 12, 13, 14, 15, 16, 17, 20];
+        var roomArr = [11, 12, 13, 14, 20, 16, 17, 15];
         function jumpCourse1(num) {
             jumpCourse(roomArr[dayArr.indexOf(num)]);
         }
