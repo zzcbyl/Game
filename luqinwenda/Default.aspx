@@ -411,10 +411,9 @@
 
         if (roomid == 15 || roomid == 16 || roomid == 17) {
 
-            var broadcast_start_date = new Date(2016, 5, 27, 15, 0, 0, 0);
+            var broadcast_start_date = new Date(2016, 5, 29, 20, 0, 0, 0);
             var current_time = new Date();
-            var seek_time = (current_time - broadcast_start_date) / 1000;
-            alert(seek_time);
+            var seek_time = (current_time - broadcast_start_date) / 1000;          
             var audio_player_1 = document.getElementById("audio_1");
             audio_player_1.onplay = function () {
                 if (seek_time < 0) {
@@ -424,6 +423,7 @@
                     audio_player_1.currentTime = seek_time;
                 }
             }
+
         }
 
 
