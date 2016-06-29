@@ -423,11 +423,14 @@
             var seek_time = (current_time - broadcast_start_date) / 1000;          
             var audio_player_1 = document.getElementById("audio_1");
             audio_player_1.onplay = function () {
+		
                 if (seek_time < 0) {
                     audio_player_1.pause();
                 }
                 else {
+		    if(seek_time < 4000) {
                     audio_player_1.currentTime = seek_time;
+		}
                 }
             }
 
