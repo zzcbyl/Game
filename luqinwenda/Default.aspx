@@ -16,6 +16,9 @@
     public DataTable courseDt = new DataTable();
     public Random ran = new Random();
     public string audioUrl = "";
+
+    public DateTime chatStartDate;
+    
     protected void Page_Load(object sender, EventArgs e)
     {
         roomid = Util.GetSafeRequestValue(Request, "roomid", "0");
@@ -38,6 +41,8 @@
 
         ChatRoom chatRoom = new ChatRoom(int.Parse(roomid));
         chatDrow = chatRoom._fields;
+        chatStartDate = DateTime.Parse(chatDrow["start_date"].ToString());
+        
         if (chatDrow == null)
         {
             Response.Write("参数错误");
@@ -409,9 +414,11 @@
             });
         }
 
-        if (roomid == 15 || roomid == 16 || roomid == 17) {
+        if (roomid == 20 || roomid == 16 || roomid == 17) {
 
-            var broadcast_start_date = new Date(2016, 5, 29, 20, 0, 0, 0);
+            var broadcast_start_date = new Date(<%=chatStartDate.Year.ToString()%>, <% =(chatStartDate.Month-1).ToString() %>, 
+                <% =chatStartDate.Day.ToString() %>, <%=chatStartDate.Hour.ToString()%>, <% =chatStartDate.Minute.ToString()%>, 
+                <% =chatStartDate.Second.ToString() %>, <%=chatStartDate.Millisecond.ToString()%>);
             var current_time = new Date();
             var seek_time = (current_time - broadcast_start_date) / 1000;          
             var audio_player_1 = document.getElementById("audio_1");
