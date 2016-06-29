@@ -60,7 +60,7 @@
         }
 
         UserChatRoomRights userChatRoom = new UserChatRoomRights(userid, int.Parse(roomid));
-        if (!userChatRoom.CanEnter)
+        if (!userChatRoom.CanEnter && Request["canfree"] == null )
         {
             Response.Redirect("wktPay.aspx?roomid=" + roomid + "&token=" + token);
             return;
