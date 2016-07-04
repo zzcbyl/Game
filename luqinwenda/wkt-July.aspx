@@ -3,8 +3,8 @@
 <script runat="server">
     public string token = "";
     public int userid = 0;
-    public string[] redDay = { "2016-05-31", "2016-06-29", "2016-06-30", "2016-07-01", "2016-06-28" };
-    public string[] greenDay = { "2016-06-14", "2016-06-16", "2016-06-21" };
+    public string[] redDay = { "2016-07-05", "2016-07-12", "2016-07-19", "2016-07-26" };
+    public string[] greenDay = { "2016-07-28" };
     protected void Page_Load(object sender, EventArgs e)
     {
         token = Util.GetSafeRequestValue(Request, "token", "");
@@ -25,17 +25,17 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="m-mainpage">
         <div class="m-header">
-            <img src="images/m-header-title6.png" style="width:60%;" />
-            <a href="wkt-May.aspx?token=<%=token %>" class="m-header-left-icon"></a>
-            <a href="wkt-July.aspx?token=<%=token %>" class="m-header-right-icon"></a>
+            <img src="images/m-header-title7.png" style="width:60%;" />
+            <a href="wkt-June.aspx?token=<%=token %>" class="m-header-left-icon"></a>
+            <%--<a class="m-header-right-icon"></a>--%>
         </div>
         <div style="margin-top:-5px; position:relative;">
             <ul class="m-mouth-ul"><li>周日</li><li>周一</li><li>周二</li><li>周三</li><li>周四</li><li>周五</li><li>周六</li></ul>
             <ul class="m-mouth-ul-content">
-                <% for (DateTime i = Convert.ToDateTime("2016-5-29"); i <= Convert.ToDateTime("2016-7-2"); i=i.AddDays(1))
+                <% for (DateTime i = Convert.ToDateTime("2016-6-26"); i <= Convert.ToDateTime("2016-8-6"); i=i.AddDays(1))
                    {
                        string className = "";
-                       if (i.Month != 6)
+                       if (i.Month != 7)
                            className = "class=\"next-li-bg\"";
                        if (Array.IndexOf(redDay, i.ToString("yyyy-MM-dd")) >= 0)
                            className = "class=\"red-bg\" onclick=\"jumpCourse1('" + i.ToString("yyyy-MM-dd") + "');\"";
@@ -47,78 +47,52 @@
             </ul>
             <div class="clear"></div>
         </div>
-        <div class="m-course-block-red" onclick="jumpCourse(11);">
+        <div class="m-course-block-red" onclick="jumpCourse(22);">
             <div class="m-block-left">
-                <img src="images/june-1.jpg" />
+                <img src="images/july-1.jpg" />
             </div>
             <div class="m-block-content">
-                <img src="images/june-course-1.jpg" />
+                <img src="images/july-course-1.jpg" />
             </div>
             <a class="m-block-right-icon"></a>
         </div>
-        <div class="m-course-block-green" onclick="jumpCourse(12);">
+        <div class="m-course-block-red" onclick="jumpCourse(23);">
             <div class="m-block-left">
-                <img src="images/june-2.jpg" />
+                <img src="images/july-2.jpg" />
             </div>
             <div class="m-block-content">
-                <img src="images/june-course-2.jpg" />
+                <img src="images/july-course-2.jpg" />
             </div>
             <a class="m-block-right-icon"></a>
         </div>
-        <div class="m-course-block-green" onclick="jumpCourse(13);">
+        <div class="m-course-block-red" onclick="jumpCourse(24);">
             <div class="m-block-left">
-                <img src="images/june-3.jpg" />
+                <img src="images/july-3.jpg" />
             </div>
             <div class="m-block-content">
-                <img src="images/june-course-3.jpg" />
+                <img src="images/july-course-3.jpg" />
             </div>
             <a class="m-block-right-icon"></a>
         </div>
-        <div class="m-course-block-green" onclick="jumpCourse(14);">
+        <div class="m-course-block-red" onclick="jumpCourse(25);">
             <div class="m-block-left">
-                <img src="images/june-4.jpg" />
+                <img src="images/july-4.jpg" />
             </div>
             <div class="m-block-content">
-                <img src="images/june-course-4.jpg" />
+                <img src="images/july-course-4.jpg" />
             </div>
             <a class="m-block-right-icon"></a>
         </div>
-        <div class="m-course-block-red" onclick="jumpCourse(15);">
+        <div class="m-course-block-green" onclick="jumpCourse(26);">
             <div class="m-block-left">
-                <img src="images/june-8.jpg" />
+                <img src="images/july-5.jpg" />
             </div>
             <div class="m-block-content">
-                <img src="images/june-course-8.jpg"/>
+                <img src="images/july-course-5.jpg"/>
             </div>
             <a class="m-block-right-icon"></a>
         </div>
-        <div class="m-course-block-red" onclick="jumpCourse(20);">
-            <div class="m-block-left">
-                <img src="images/june-5.jpg" />
-            </div>
-            <div class="m-block-content">
-                <img src="images/june-course-5.jpg"/>
-            </div>
-            <a class="m-block-right-icon"></a>
-        </div>
-        <div class="m-course-block-red" onclick="jumpCourse(16);">
-            <div class="m-block-left">
-                <img src="images/june-6.jpg" />
-            </div>
-            <div class="m-block-content">
-                <img src="images/june-course-6.jpg" />
-            </div>
-            <a class="m-block-right-icon"></a>
-        </div>
-        <div class="m-course-block-red" onclick="jumpCourse(17);">
-            <div class="m-block-left">
-                <img src="images/june-7.jpg" />
-            </div>
-            <div class="m-block-content">
-                <img src="images/june-course-7.jpg" />
-            </div>
-            <a class="m-block-right-icon"></a>
-        </div>
+
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -139,8 +113,8 @@
             location.href = '/luqinwenda/wktIndex_integral.aspx?roomid=' + num + '&token=<%=token %>';
         }
         
-        var dayArr = ['2016-05-31', '2016-06-14', '2016-06-16', '2016-06-21', '2016-06-29', '2016-06-30', '2016-07-01', '2016-06-28'];
-        var roomArr = [11, 12, 13, 14, 20, 16, 17, 15];
+        var dayArr = ["2016-07-05", "2016-07-12", "2016-07-19", "2016-07-26", "2016-07-28"];
+        var roomArr = [22, 23, 24, 25, 26];
         function jumpCourse1(num) {
             jumpCourse(roomArr[dayArr.indexOf(num)]);
         }
