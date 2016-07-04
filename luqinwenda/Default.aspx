@@ -60,7 +60,7 @@
         
         expertlist = chatDrow["expertlist"].ToString();
 
-        if (Convert.ToDateTime(chatDrow["start_date"].ToString()).AddMinutes(-10) > DateTime.Now)
+        if (Convert.ToDateTime(chatDrow["start_date"].ToString()) > DateTime.Now)
         {
             Response.Redirect("nostart.aspx?roomid=" + roomid + "&token=" + token);
             return;
