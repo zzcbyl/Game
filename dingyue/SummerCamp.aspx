@@ -33,7 +33,7 @@
         img { vertical-align:top; }
         .camp-main { max-width:640px; margin:0 auto; padding-bottom:60px; }
         .camp-main div { position:relative;}
-        .camp-main .entry-count { color:#fff; position:absolute; right:6%; top:25%; font-size:130%; font-weight:bold; font-family:微软雅黑; width:23%; text-align:center; z-index:99; }
+        .camp-main .entry-count { color:#fff; position:absolute; right:6%; top:30%; font-size:130%; font-weight:bold; font-family:微软雅黑; width:23%; text-align:center; z-index:99; }
         .camp-main .entry-full { display:block; position:absolute; right:5%; top:10%; width:11%; height:100%; z-index:100; background:url(images/entry-full.png) no-repeat; background-size:contain;}
         .camp-main .entry-discount { display:block; position:absolute; right:30%; top:-18%; width:11%; height:100%; z-index:100; background:url(images/entry-discount.png) no-repeat; background-size:contain; }
         .camp-nav-bg { height:8px; background:url(upload/camp-ul-bg.jpg) repeat-y; background-size:contain; display:block; }
@@ -52,23 +52,22 @@
             <a class="entry-count">30/30</a>
             <a class="entry-full"></a>
         </div>
-        <a class="camp-nav-bg"></a>--%>
+        <a class="camp-nav-bg"></a>
         <div onclick="jumpCamp(2);">
             <img src="upload/camp-ul-li03.jpg" width="100%" />
             <a class="entry-count">49/100</a>
-            <%--<a class="entry-discount"></a>--%>
         </div>
         <a class="camp-nav-bg"></a>
-        <%--<div><img src="upload/camp-ul-li05.jpg" width="100%" />
+        <div><img src="upload/camp-ul-li05.jpg" width="100%" />
             <a class="entry-count">30/30</a>
             <a class="entry-full"></a>
         </div>
-        <a class="camp-nav-bg"></a>--%>
+        <a class="camp-nav-bg"></a>
         <div onclick="jumpCamp(4);">
             <img src="upload/camp-ul-li07.jpg" width="100%" />
             <a class="entry-count">68/100</a>
         </div>
-        <a class="camp-nav-bg"></a>
+        <a class="camp-nav-bg"></a>--%>
         <div onclick="jumpCamp(5);">
             <img src="upload/camp-ul-li09.jpg" width="100%" />
             <a class="entry-count">23/30</a>
