@@ -11,8 +11,9 @@ public class recordUserAgent : IHttpHandler {
         string roomid = context.Request["roomid"].ToString();
         string useragent = context.Request["useragent"].ToString();
         string userip = context.Request.UserHostAddress;
+        string audiolog = context.Request["audiolog"].ToString();
 
-        string sql = "insert into m_userAgent(userId,roomId,userAgent,userIp) values (" + userid + "," + roomid + ",'" + useragent + "','" + userip + "')";
+        string sql = "insert into m_userAgent(userId,roomId,userAgent,userIp,audiolog) values (" + userid + "," + roomid + ",'" + useragent + "','" + userip + "','" + audiolog + "')";
         DBHelper.ExecteNonQuery(Util.ConnectionStringMall, System.Data.CommandType.Text, sql);
     }
  

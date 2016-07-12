@@ -186,7 +186,7 @@
             if (!navigator.userAgent.match(/(iPhone|iPod|Android|ios|iPad)/i)) {
                 location.href = 'error404.aspx';
             }
-            recordUserAgent('<%=userid %>', '<%=roomid %>');
+            uploadLog();
             shareTitle = '【卢勤微课教室】<%=(courseDt.Rows.Count > 0 ? courseDt.Rows[0]["course_title"].ToString() : "") %>';
             if (chat_shareContent != '')
                 shareContent = chat_shareContent;
@@ -212,6 +212,7 @@
 
         function playCotrol() {
             var updInterval;
+            
             $('#audio_loading').hide();
             $('#btn_audio_control').show();
             $('#audio_control').click(function () {
@@ -233,6 +234,7 @@
             audio.addEventListener("loadeddata",
                 function () {
                     addListenTouch();
+                    addLog('loadeddata');
                 }, false);
 
             audio.addEventListener("pause",
@@ -250,6 +252,7 @@
                         $('#btn_audio_icon').attr('src', 'images/wkt_paused.png');
                 }, false);
             audio.addEventListener("ended", function () {
+                addLog('ended');
                 if ($('#progress_bg').html() != null)
                     $('#btn_audio_icon').attr('src', 'images/wkt_paused1.png');
                 else
@@ -257,6 +260,74 @@
                 if (updInterval)
                     clearInterval(updInterval);
             }, false);
+
+            audio.addEventListener("canplay", function () {
+                addLog('canplay');
+            }, false);
+            audio.addEventListener("emptied", function () {
+                addLog('emptied');
+            }, false);
+            audio.addEventListener("error", function () {
+                addLog('error' + audio.error.code);
+            }, false);
+            audio.addEventListener("loadstart", function () {
+                addLog('loadstart');
+            }, false);
+            //audio.addEventListener("progress", function () {
+            //    addLog('progress');
+            //}, false);
+            audio.addEventListener("readystatechange", function () {
+                addLog('readystatechange');
+            }, false);
+            audio.addEventListener("stalled", function () {
+                addLog('stalled');
+            }, false);
+            //audio.addEventListener("suspend", function () {
+            //    addLog('suspend');
+            //}, false);
+            //audio.addEventListener("timeupdate", function () {
+            //    addLog('timeupdate');
+            //}, false);
+        }
+        var storage = window.localStorage;
+        function addLog(state)
+        {   
+            storage.setItem("logstr", (storage.getItem("logstr") != null ? storage.getItem("logstr") : "") + new Date().toString() + "：" + state + " | ");
+            uploadLog()
+        }
+        
+        function uploadLog()
+        {
+            if (!navigator.userAgent.match(/(iPhone|iPod|Android|ios|iPad)/i)) {
+                return;
+            }
+            if(storage.getItem("logtime") != null && parseInt(storage.getItem("logtime")) > 0)
+            {
+                if(parseInt(storage.getItem("logtime")) < new Date(
+                    new Date().getFullYear(), new Date().getMonth(), new Date().getDate(),
+                    new Date().getHours(), new Date().getMinutes()-1, new Date().getSeconds()).getTime())
+                {
+                    //上传
+                    if(storage.getItem("logstr") != null && storage.getItem("logstr").toString().Trim() != '')
+                    {
+                        $.ajax({
+                            type: "POST",
+                            url: "recordUserAgent.ashx",
+                            data: { userid: '<%=userid %>', roomid: '<%=roomid %>', useragent: navigator.userAgent.toString(), 
+                                audiolog: storage.getItem("logstr") },
+                            success: function (data) {
+                            
+                            }
+                        });
+                    }
+                    storage.removeItem("logtime");
+                    storage.removeItem("logstr");
+                }
+            }
+            else
+            {
+                storage.setItem("logtime", new Date().getTime().toString());
+            }
         }
 
         function _updateProgress() {
@@ -401,21 +472,21 @@
             after_append(answerlist);
         }
 
-        function recordUserAgent(uid, roomid) {
-            if (!navigator.userAgent.match(/(iPhone|iPod|Android|ios|iPad)/i)) {
-                return;
-            }
-            if (getCookie('userAgent') != null)
-                return;
-            $.ajax({
-                type: "POST",
-                url: "recordUserAgent.ashx",
-                data: { userid: uid, roomid: roomid, useragent: navigator.userAgent.toString() },
-                success: function (data) {
-                    setCookie('userAgent', '1', 60 * 5);
-                }
-            });
-        }
+        //function recordUserAgent(uid, roomid) {
+        //    if (!navigator.userAgent.match(/(iPhone|iPod|Android|ios|iPad)/i)) {
+        //        return;
+        //    }
+        //    if (getCookie('userAgent') != null)
+        //        return;
+        //    $.ajax({
+        //        type: "POST",
+        //        url: "recordUserAgent.ashx",
+        //        data: { userid: uid, roomid: roomid, useragent: navigator.userAgent.toString() },
+        //        success: function (data) {
+        //            setCookie('userAgent', '1', 60 * 5);
+        //        }
+        //    });
+        //}
 
         
         if (audioUrl.indexOf("Manifest") == -1 && new Date().getTime() < new Date(<%=chatEndDate.Year.ToString()%>, <%=(chatEndDate.Month-1).ToString() %>, 
