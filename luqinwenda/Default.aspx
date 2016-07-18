@@ -218,9 +218,11 @@
             $('#audio_control').click(function () {
                 if (audio.paused) {
                     audio.play();
+                    addLog('play');
                 }
                 else {
                     audio.pause();
+                    addLog('pause');
                 }
 
                 if ($('#progress_bg').html() != null) {
@@ -239,6 +241,7 @@
 
             audio.addEventListener("pause",
                 function () { //监听暂停
+                    addLog('pause');
                     if ($('#progress_bg').html() != null)
                         $('#btn_audio_icon').attr('src', 'images/wkt_paused1.png');
                     else
@@ -246,6 +249,7 @@
                 }, false);
             audio.addEventListener("play",
                 function () { //监听播放
+                    addLog('play');
                     if ($('#progress_bg').html() != null)
                         $('#btn_audio_icon').attr('src', 'images/wkt_played.png');
                     else
