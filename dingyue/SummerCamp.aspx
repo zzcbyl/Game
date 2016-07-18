@@ -68,12 +68,12 @@
             <a class="entry-count">68/100</a>
         </div>
         <a class="camp-nav-bg"></a>--%>
-        <div onclick="jumpCamp(5);">
+        <%--<div onclick="jumpCamp(5);">
             <img src="upload/camp-ul-li09.jpg" width="100%" />
             <a class="entry-count">23/30</a>
-            <%--<a class="entry-discount"></a>--%>
+            <a class="entry-discount"></a>
         </div>
-        <a class="camp-nav-bg"></a>
+        <a class="camp-nav-bg"></a>--%>
         <%--<div onclick="jumpCamp(6);">
             <img src="upload/camp-ul-li11.jpg" width="100%" />
             <a class="entry-count">16/30</a>
