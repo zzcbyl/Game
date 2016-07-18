@@ -296,7 +296,8 @@
         var storage = window.localStorage;
         function addLog(state)
         {   
-            storage.setItem("logstr", (storage.getItem("logstr") != null ? storage.getItem("logstr") : "") + new Date().toString() + "：" + state + " | ");
+            storage.setItem("logstr", (storage.getItem("logstr") != null ? storage.getItem("logstr") : "") 
+                + new Date(new Date().getFullYear(), new Date().getMonth()+1, new Date().getDate(),new Date().getHours(), new Date().getMinutes(), new Date().getSeconds()).toString() + "：" + state + " | ");
             uploadLog()
         }
         
