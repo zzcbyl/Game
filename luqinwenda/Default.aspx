@@ -218,11 +218,11 @@
             $('#audio_control').click(function () {
                 if (audio.paused) {
                     audio.play();
-                    addLog('play');
+                    //addLog('play');
                 }
                 else {
                     audio.pause();
-                    addLog('pause');
+                    //addLog('pause');
                 }
 
                 if ($('#progress_bg').html() != null) {
