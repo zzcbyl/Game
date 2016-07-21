@@ -331,7 +331,7 @@
             {
                 if(parseInt(storage.getItem("logtime")) < new Date(
                     new Date().getFullYear(), new Date().getMonth(), new Date().getDate(),
-                    new Date().getHours(), new Date().getMinutes()-1, new Date().getSeconds()).getTime())
+                    new Date().getHours(), new Date().getMinutes()-10, new Date().getSeconds()).getTime())
                 {
                     //上传
                     if(storage.getItem("logstr") != null && storage.getItem("logstr").toString().Trim() != '')
