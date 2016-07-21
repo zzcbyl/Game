@@ -213,25 +213,26 @@
         function playCotrol() {
             var updInterval;
             
-            $('#audio_loading').hide();
-            $('#btn_audio_control').show();
-            $('#audio_control').click(function () {
-                if (audio.paused) {
-                    audio.play();
-                    //addLog('play');
-                }
-                else {
-                    audio.pause();
-                    //addLog('pause');
-                }
-
-                if ($('#progress_bg').html() != null) {
-                    updInterval = setInterval(function () {
-                        _updateProgress();
-                        $('#audio_time').html(timeChange(audio.currentTime) + "/" + timeChange(audio.duration));
-                    }, 1000);
-                }
-            });
+            if (navigator.userAgent.match(/(iPhone|iPod|ios|iPad)/i)) {
+                $('#audio_loading').hide();
+                $('#btn_audio_control').show();
+                $('#audio_control').click(function () {
+                    if (audio.paused) {
+                        audio.play();
+                        //addLog('play');
+                    }
+                    else {
+                        audio.pause();
+                        //addLog('pause');
+                    }
+                    if ($('#progress_bg').html() != null) {
+                        updInterval = setInterval(function () {
+                            _updateProgress();
+                            $('#audio_time').html(timeChange(audio.currentTime) + "/" + timeChange(audio.duration));
+                        }, 1000);
+                    }
+                });
+            }
 
             audio.addEventListener("loadeddata",
                 function () {
@@ -267,6 +268,26 @@
 
             audio.addEventListener("canplay", function () {
                 addLog('canplay');
+                if (navigator.userAgent.match(/(Android)/i)) {
+                    $('#audio_loading').hide();
+                    $('#btn_audio_control').show();
+                    $('#audio_control').click(function () {
+                        if (audio.paused) {
+                            audio.play();
+                            //addLog('play');
+                        }
+                        else {
+                            audio.pause();
+                            //addLog('pause');
+                        }
+                        if ($('#progress_bg').html() != null) {
+                            updInterval = setInterval(function () {
+                                _updateProgress();
+                                $('#audio_time').html(timeChange(audio.currentTime) + "/" + timeChange(audio.duration));
+                            }, 1000);
+                        }
+                    });
+                }
             }, false);
             audio.addEventListener("emptied", function () {
                 addLog('emptied');
@@ -310,7 +331,7 @@
             {
                 if(parseInt(storage.getItem("logtime")) < new Date(
                     new Date().getFullYear(), new Date().getMonth(), new Date().getDate(),
-                    new Date().getHours(), new Date().getMinutes()-10, new Date().getSeconds()).getTime())
+                    new Date().getHours(), new Date().getMinutes()-1, new Date().getSeconds()).getTime())
                 {
                     //上传
                     if(storage.getItem("logstr") != null && storage.getItem("logstr").toString().Trim() != '')
