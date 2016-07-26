@@ -186,6 +186,7 @@
             if (!navigator.userAgent.match(/(iPhone|iPod|Android|ios|iPad)/i)) {
                 location.href = 'error404.aspx';
             }
+
             uploadLog();
             shareTitle = '【卢勤微课教室】<%=(courseDt.Rows.Count > 0 ? courseDt.Rows[0]["course_title"].ToString() : "") %>';
             if (chat_shareContent != '')
@@ -212,7 +213,6 @@
 
         function playCotrol() {
             var updInterval;
-            
             if (navigator.userAgent.match(/(iPhone|iPod|ios|iPad)/i)) {
                 $('#audio_loading').hide();
                 $('#btn_audio_control').show();
@@ -306,6 +306,9 @@
             }, false);
             audio.addEventListener("stalled", function () {
                 addLog('stalled');
+                if (navigator.userAgent.match(/(Android)/i) && getLogNum('stalled') > 2) {
+                    location.href = document.URL.toString();
+                }
             }, false);
             //audio.addEventListener("suspend", function () {
             //    addLog('suspend');
@@ -321,28 +324,41 @@
                 + new Date(new Date().getFullYear(), new Date().getMonth()+1, new Date().getDate(),new Date().getHours(), new Date().getMinutes(), new Date().getSeconds()).toString() + "：" + state + " | ");
             uploadLog()
         }
+
+        function getLogNum(state) {
+            var num = 0;
+            var logStr = storage.getItem("logstr");
+            if (logStr != null && logStr.toString().trim() != '') {
+                var logArr = logStr.toString().split('|');
+                for (var i = 0; i < logArr.length; i++) {
+                    var dtState = logArr[i].trim().split('：');
+                    if (dtState.length >= 2 && dtState[1].trim() == state) {
+                        num++;
+                    }
+                }
+            }
+            return num;
+        }
         
-        function uploadLog()
-        {
+        function uploadLog() {
             if (!navigator.userAgent.match(/(iPhone|iPod|Android|ios|iPad)/i)) {
                 return;
             }
-            if(storage.getItem("logtime") != null && parseInt(storage.getItem("logtime")) > 0)
-            {
-                if(parseInt(storage.getItem("logtime")) < new Date(
+            if (storage.getItem("logtime") != null && parseInt(storage.getItem("logtime")) > 0) {
+                if (parseInt(storage.getItem("logtime")) < new Date(
                     new Date().getFullYear(), new Date().getMonth(), new Date().getDate(),
-                    new Date().getHours(), new Date().getMinutes()-10, new Date().getSeconds()).getTime())
-                {
+                    new Date().getHours(), new Date().getMinutes() - 1, new Date().getSeconds()).getTime()) {
                     //上传
-                    if(storage.getItem("logstr") != null && storage.getItem("logstr").toString().Trim() != '')
-                    {
+                    if (storage.getItem("logstr") != null && storage.getItem("logstr").toString().Trim() != '') {
                         $.ajax({
                             type: "POST",
                             url: "recordUserAgent.ashx",
-                            data: { userid: '<%=userid %>', roomid: '<%=roomid %>', useragent: navigator.userAgent.toString(), 
-                                audiolog: storage.getItem("logstr") },
+                            data: {
+                                userid: '<%=userid %>', roomid: '<%=roomid %>', useragent: navigator.userAgent.toString(),
+                                audiolog: storage.getItem("logstr")
+                            },
                             success: function (data) {
-                            
+
                             }
                         });
                     }
@@ -350,8 +366,7 @@
                     storage.removeItem("logstr");
                 }
             }
-            else
-            {
+            else {
                 storage.setItem("logtime", new Date().getTime().toString());
             }
         }
@@ -514,7 +529,7 @@
         //    });
         //}
 
-        
+       
         if (audioUrl.indexOf("Manifest") == -1 && new Date().getTime() < new Date(<%=chatEndDate.Year.ToString()%>, <%=(chatEndDate.Month-1).ToString() %>, 
             <%=chatEndDate.Day.ToString() %>, <%=chatEndDate.Hour.ToString()%>, <% =chatEndDate.Minute.ToString()%>, 
             <%=chatEndDate.Second.ToString() %>, <%=chatEndDate.Millisecond.ToString()%>).getTime()) {
