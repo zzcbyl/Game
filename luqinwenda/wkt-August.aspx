@@ -26,7 +26,7 @@
     <div class="m-mainpage">
         <div class="m-header">
             <img src="images/m-header-title8.png" style="width:60%;" />
-            <a href="wkt-June.aspx?token=<%=token %>" class="m-header-left-icon"></a>
+            <a href="wkt-July.aspx?token=<%=token %>" class="m-header-left-icon"></a>
             <%--<a class="m-header-right-icon"></a>--%>
         </div>
         <div style="margin-top:-5px; position:relative;">
