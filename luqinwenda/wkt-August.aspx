@@ -4,8 +4,7 @@
     public string token = "";
     public int userid = 0;
     public string[] redDay = { "2016-08-02", "2016-08-23", "2016-08-30" };
-    //public string[] greenDay = { "2016-08-09", "2016-08-16" };
-    public string[] greenDay = { "2016-08-16" };
+    public string[] greenDay = { "2016-08-09", "2016-08-16" };
     protected void Page_Load(object sender, EventArgs e)
     {
         token = Util.GetSafeRequestValue(Request, "token", "");
@@ -57,7 +56,7 @@
             </div>
             <a class="m-block-right-icon"></a>
         </div>
-        <%--<div class="m-course-block-green" onclick="jumpCourse(28);">
+        <div class="m-course-block-green" onclick="jumpCourse(28);">
             <div class="m-block-left">
                 <img src="images/august-2.jpg" />
             </div>
@@ -65,7 +64,7 @@
                 <img src="images/august-course-2.jpg" />
             </div>
             <a class="m-block-right-icon"></a>
-        </div>--%>
+        </div>
         <div class="m-course-block-green" onclick="jumpCourse(29);">
             <div class="m-block-left">
                 <img src="images/august-3.jpg" />
@@ -114,8 +113,7 @@
             location.href = '/luqinwenda/wktIndex_integral.aspx?roomid=' + num + '&token=<%=token %>';
         }
         
-        //var dayArr = ["2016-08-02", "2016-08-09", "2016-08-16", "2016-08-23", "2016-08-30"];
-        var dayArr = ["2016-08-02", "2016-08-16", "2016-08-23", "2016-08-30"];
+        var dayArr = ["2016-08-02", "2016-08-09", "2016-08-16", "2016-08-23", "2016-08-30"];
         var roomArr = [27, 28, 29, 30, 31];
         function jumpCourse1(num) {
             jumpCourse(roomArr[dayArr.indexOf(num)]);
