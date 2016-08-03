@@ -3,8 +3,8 @@
 <script runat="server">
     public string token = "";
     public int userid = 0;
-    public string[] redDay = { "2016-08-02", "2016-08-23", "2016-08-30" };
-    public string[] greenDay = { "2016-08-09", "2016-08-16" };
+    public string[] redDay = { "2016-08-02", "2016-08-09", "2016-08-23", "2016-08-30" };
+    public string[] greenDay = {  "2016-08-16" };
     protected void Page_Load(object sender, EventArgs e)
     {
         token = Util.GetSafeRequestValue(Request, "token", "");
@@ -56,7 +56,7 @@
             </div>
             <a class="m-block-right-icon"></a>
         </div>
-        <div class="m-course-block-green" onclick="jumpCourse(28);">
+        <div class="m-course-block-red" onclick="jumpCourse(28);">
             <div class="m-block-left">
                 <img src="images/august-2.jpg" />
             </div>
