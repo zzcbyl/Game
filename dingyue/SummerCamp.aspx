@@ -91,15 +91,15 @@
             <a class="entry-count">30/50</a>
             <a class="entry-discount"></a>
         </div>
-        <a class="camp-nav-bg"></a>--%>
+        <a class="camp-nav-bg"></a>
         <div onclick="jumpCamp(9);">
             <img src="upload/camp-ul-li17.jpg" width="100%" />
             <a class="entry-count">26/50</a>
-            <%--<a class="entry-discount"></a>--%>
+            <a class="entry-discount"></a>
         </div>
         <div>
             <img src="upload/camp-ul-li18.jpg" width="100%" />
-        </div>
+        </div>--%>
     </div>
     </form>
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
