@@ -204,7 +204,7 @@
             //alert(audio.currentSrc);
             //alert(getCookie("audioUrl_" + roomid));
             if(audioUrl.indexOf("Manifest") >= 0  && getCookie("audioUrl_" + roomid)) {
-                audio.src = audio.src.replace('weiketang.streaming.mediaservices.chinacloudapi.cn', 'cdnlive.luqinwenda.com');
+                audio.src = audio.src.replace('cdnlive.luqinwenda.com', 'weiketang.streaming.mediaservices.chinacloudapi.cn');
             }
             //alert(audio.currentSrc);
             playCotrol();
