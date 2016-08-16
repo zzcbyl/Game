@@ -101,8 +101,8 @@
         <div style="height:170px; text-align:center; background:#EBE8E1; ">
             <img src="<%=chatDrow["audio_bg"].ToString() %>" style="width:100%; height:170px;" />
             <div style="display:none;">
-                <audio id="audio_1" controls="controls" preload="auto">
-                    <source src="<%=audioUrl %>" type="audio/mp3" />
+                <audio id="audio_1" controls="controls" preload="auto" src="<%=audioUrl %>">
+                    
                 </audio></div>
         </div>
         <div style="height:60px; position:relative; background:url(/luqinwenda/images/wkt_bottom_bg.jpg) no-repeat; background-size:100% 60px; background-position-y:center;">
