@@ -201,6 +201,12 @@
             });
 
             audio = document.getElementById('audio_1');
+            //alert(audio.currentSrc);
+            //alert(getCookie("audioUrl_" + roomid));
+            if(audioUrl.indexOf("Manifest") >= 0  && getCookie("audioUrl_" + roomid)) {
+                audio.src = audio.src.replace('weiketang.streaming.mediaservices.chinacloudapi.cn', 'cdnlive.luqinwenda.com');
+            }
+            //alert(audio.currentSrc);
             playCotrol();
 
             $("#textContent").parent().css("width", (winWidth- 120).toString() + "px");

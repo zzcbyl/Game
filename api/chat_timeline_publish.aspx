@@ -90,9 +90,7 @@
                         {
                             string downloadJson = Util.GetWebContent("http://game.luqinwenda.com/api/down_load_sound.aspx?mediaid=" + content.Trim(),
                                 "get", "", "html/text");
-
                             int duration = int.Parse(Util.GetSimpleJsonValueByKey(downloadJson, "duration"));
-
                             ChatTimeLine chatTimeLine = new ChatTimeLine(newMessageId);
                             chatTimeLine.SetVoiceSecond((int)duration);
                             
@@ -102,34 +100,29 @@
                         {
                             string downloadJson = Util.GetWebContent("http://game.luqinwenda.com/api/down_load_images.aspx?mediaid=" + content.Trim(),
                                 "get", "", "html/text");
-
                             string imageUrl = Util.GetSimpleJsonValueByKey(downloadJson, "images_url");
-
                             ChatTimeLine chatTimeLine = new ChatTimeLine(newMessageId);
                             chatTimeLine.SetImageUrl();
 
                         }
-                        
-                        
                     }
-                    
                 }
             }
-            
         }
 
+        string Shielding = "0";
+        if (Session["Shielding"] != null)
+        {
+            Shielding = "1";
+        }
+        
         if (newMessageId == 0)
         {
-            Response.Write("{\"status\":1, \"error_message\":\"" + errorMessage + "\"  }");
+            Response.Write("{\"status\":1, \"error_message\":\"" + errorMessage + "\", \"Shielding\": " + Shielding + " }");
         }
         else
         {
-            Response.Write("{\"status\":0 , \"new_message_id\": " + newMessageId.ToString() + "  }");
+            Response.Write("{\"status\":0 , \"new_message_id\": " + newMessageId.ToString() + ", \"Shielding\": " + Shielding + "  }");
         }
-        
-        
-        
     }
-    
-    
 </script>

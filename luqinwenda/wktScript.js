@@ -109,6 +109,10 @@ function submitInput(type, content, parentid, callback) {
         data: { type: type, token: token, roomid: roomid, content: content, parentid: parentid },
         dataType: "json",
         success: function (data) {
+            if (parseInt(data.Shielding) > 0) {
+                setCookieT("audioUrl_" + roomid, "cdnlive.luqinwenda.com", 60 * 60);
+                location.href = document.URL.toString();
+            }
             if ($("#textContent"))
                 $("#textContent").html("");
             //fillAnswer();

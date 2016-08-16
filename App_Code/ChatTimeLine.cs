@@ -174,6 +174,14 @@ public class ChatTimeLine
                 if (dtCount == null || dtCount.Rows.Count == 0
                     || (dtCount.Rows.Count > 0 && (int.Parse(dtCount.Rows[0][0].ToString()) - 1) % 5 == 0))
                     PublishMessage(roomId, 11147, "text", "各位家长好！今晚是新版卢勤问答微课堂的测试版。没有声音的家长，请点击上面的三角播放按钮；如果不行请退出再重新进入教室；如果仍没有声音，请重启手机再进入；如果声音小，请将媒体声音调大些；如果仍无法正常收听，明天在公众号菜单栏【预告回顾】中可以收听语音回顾。我们会逐步改进新功能，希望大家多提意见，谢谢大家！", maxId);
+                if (chatRoom._fields != null && DateTime.Parse(chatRoom._fields["start_date"].ToString()) <= DateTime.Now
+                        && DateTime.Parse(chatRoom._fields["end_date"].ToString()) >= DateTime.Now)
+                    HttpContext.Current.Session["Shielding"] = "1";
+            }
+            else
+            {
+                if (HttpContext.Current.Session["Shielding"] != null)
+                    HttpContext.Current.Session["Shielding"] = null;
             }
 
             dt.Dispose();
