@@ -26,7 +26,7 @@
     <div class="m-mainpage">
         <div class="m-header">
             <img src="images/m-header-title9.png" style="width:60%;" />
-            <a href="wkt-May.aspx?token=<%=token %>" class="m-header-left-icon"></a>
+            <a href="wkt-August.aspx?token=<%=token %>" class="m-header-left-icon"></a>
             <%--<a class="m-header-right-icon"></a>--%>
         </div>
         <div style="margin-top:-5px; position:relative;">
@@ -47,75 +47,21 @@
             </ul>
             <div class="clear"></div>
         </div>
-        <div class="m-course-block-red" onclick="jumpCourse(11);">
+        <div class="m-course-block-red" onclick="jumpCourse(33);">
             <div class="m-block-left">
-                <img src="images/june-1.jpg" />
+                <img src="images/sep-1.png" />
             </div>
             <div class="m-block-content">
-                <img src="images/june-course-1.jpg" />
+                <img src="images/sep-course-1.png" />
             </div>
             <a class="m-block-right-icon"></a>
         </div>
-        <div class="m-course-block-green" onclick="jumpCourse(12);">
+        <div class="m-course-block-green" onclick="jumpCourse(34);">
             <div class="m-block-left">
-                <img src="images/june-2.jpg" />
+                <img src="images/sep-2.png" />
             </div>
             <div class="m-block-content">
-                <img src="images/june-course-2.jpg" />
-            </div>
-            <a class="m-block-right-icon"></a>
-        </div>
-        <div class="m-course-block-green" onclick="jumpCourse(13);">
-            <div class="m-block-left">
-                <img src="images/june-3.jpg" />
-            </div>
-            <div class="m-block-content">
-                <img src="images/june-course-3.jpg" />
-            </div>
-            <a class="m-block-right-icon"></a>
-        </div>
-        <div class="m-course-block-green" onclick="jumpCourse(14);">
-            <div class="m-block-left">
-                <img src="images/june-4.jpg" />
-            </div>
-            <div class="m-block-content">
-                <img src="images/june-course-4.jpg" />
-            </div>
-            <a class="m-block-right-icon"></a>
-        </div>
-        <div class="m-course-block-red" onclick="jumpCourse(15);">
-            <div class="m-block-left">
-                <img src="images/june-8.jpg" />
-            </div>
-            <div class="m-block-content">
-                <img src="images/june-course-8.jpg"/>
-            </div>
-            <a class="m-block-right-icon"></a>
-        </div>
-        <div class="m-course-block-red" onclick="jumpCourse(20);">
-            <div class="m-block-left">
-                <img src="images/june-5.jpg" />
-            </div>
-            <div class="m-block-content">
-                <img src="images/june-course-5.jpg"/>
-            </div>
-            <a class="m-block-right-icon"></a>
-        </div>
-        <div class="m-course-block-red" onclick="jumpCourse(16);">
-            <div class="m-block-left">
-                <img src="images/june-6.jpg" />
-            </div>
-            <div class="m-block-content">
-                <img src="images/june-course-6.jpg" />
-            </div>
-            <a class="m-block-right-icon"></a>
-        </div>
-        <div class="m-course-block-red" onclick="jumpCourse(17);">
-            <div class="m-block-left">
-                <img src="images/june-7.jpg" />
-            </div>
-            <div class="m-block-content">
-                <img src="images/june-course-7.jpg" />
+                <img src="images/sep-course-2.png" />
             </div>
             <a class="m-block-right-icon"></a>
         </div>
