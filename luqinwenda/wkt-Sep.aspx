@@ -3,8 +3,8 @@
 <script runat="server">
     public string token = "";
     public int userid = 0;
-    public string[] redDay = { "2016-09-01" };
-    public string[] greenDay = { "2016-09-06" };
+    public string[] redDay = { "2016-09-01", "2016-09-06" };
+    public string[] greenDay = {};
     protected void Page_Load(object sender, EventArgs e)
     {
         token = Util.GetSafeRequestValue(Request, "token", "");
@@ -25,7 +25,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="m-mainpage">
         <div class="m-header">
-            <img src="images/m-header-title6.png" style="width:60%;" />
+            <img src="images/m-header-title9.png" style="width:60%;" />
             <a href="wkt-May.aspx?token=<%=token %>" class="m-header-left-icon"></a>
             <%--<a class="m-header-right-icon"></a>--%>
         </div>
