@@ -56,7 +56,7 @@
             </div>
             <a class="m-block-right-icon"></a>
         </div>
-        <div class="m-course-block-green" onclick="jumpCourse(34);">
+        <div class="m-course-block-red" onclick="jumpCourse(34);">
             <div class="m-block-left">
                 <img src="images/sep-2.png" />
             </div>
