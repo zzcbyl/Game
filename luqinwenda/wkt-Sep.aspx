@@ -4,7 +4,7 @@
     public string token = "";
     public int userid = 0;
     public string[] redDay = { "2016-09-01", "2016-09-06" };
-    public string[] greenDay = {"2016-9-13", "2016-9-22" };
+    public string[] greenDay = {"2016-09-13", "2016-09-22" };
     protected void Page_Load(object sender, EventArgs e)
     {
         token = Util.GetSafeRequestValue(Request, "token", "");
