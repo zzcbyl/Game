@@ -13,13 +13,18 @@
     protected void Page_Load(object sender, EventArgs e)
     {
 
+        //Course.AddNew("http://a.com/b.jpg", "test", "cj", "cjbalabala", DateTime.Parse("2016-9-28"));
+        Weike.AddNewClassroom(23, DateTime.Parse("2016-9-28 20:00"), DateTime.Parse("2016-9-28 21:00"), "asdfasdf", "cjbalabala", "http://a.com/b.jpg");
+        
+
+        /*
         System.Diagnostics.Process process = new System.Diagnostics.Process();
         process.StartInfo.FileName = "ipconfig.exe";
         process.StartInfo.Arguments = "-all";
         process.StartInfo.UseShellExecute = false;
         process.StartInfo.RedirectStandardOutput = true;
         process.Start();
-
+        
         // Synchronously read the standard output of the spawned process. 
         StreamReader reader = process.StandardOutput;
         string output = reader.ReadToEnd();
@@ -29,7 +34,7 @@
 
         process.WaitForExit();
         process.Close();
-        
+        */
         /*
         using (FileStream fs = File.OpenRead(path))
         {

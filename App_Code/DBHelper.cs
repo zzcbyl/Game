@@ -18,6 +18,24 @@ public class DBHelper
 		//
 	}
 
+    public static int GetMaxValue(string tableName, string fieldName, string connectionString)
+    {
+        int maxId = 0;
+        SqlConnection conn = new SqlConnection(connectionString);
+        SqlCommand cmd = new SqlCommand("  select max( " + fieldName.Trim() + " ) from " + tableName.Trim(), conn);
+        conn.Open();
+        SqlDataReader dr = cmd.ExecuteReader();
+        if (dr.Read())
+        {
+            maxId = dr.GetInt32(0);
+        }
+        dr.Close();
+        conn.Close();
+        cmd.Dispose();
+        conn.Dispose();
+        return maxId;
+    }
+
     public static KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] ConvertStringArryToKeyValuePairArray(string[,] parameters)
     {
         KeyValuePair<string, KeyValuePair<SqlDbType, object>>[] parametersKeyValuePairArr
