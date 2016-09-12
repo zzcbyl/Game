@@ -27,7 +27,7 @@
         <div class="m-header">
             <img src="images/m-header-title8.png" style="width:60%;" />
             <a href="wkt-July.aspx?token=<%=token %>" class="m-header-left-icon"></a>
-            <%--<a class="m-header-right-icon"></a>--%>
+            <a href="wkt-Sep.aspx?token=<%=token %>" class="m-header-right-icon"></a>
         </div>
         <div style="margin-top:-5px; position:relative;">
             <ul class="m-mouth-ul"><li>周日</li><li>周一</li><li>周二</li><li>周三</li><li>周四</li><li>周五</li><li>周六</li></ul>
