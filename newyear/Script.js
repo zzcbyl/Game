@@ -103,7 +103,7 @@ function helpYou() {
         //        });
         //    }
         //}
-        $('#giftText').html('长按二维码，关注“卢勤问答平台”，回复礼盒号码，帮TA拆礼盒');
+        $('#giftText').html('长按二维码，关注“悦长大家庭教育专家问答平台”，回复礼盒号码，帮TA拆礼盒');
         $('#giftCode').attr('src', codeArr[0]);
         $('.modal-header').show();
         $('.modal-footer').hide();
@@ -129,7 +129,7 @@ function showAward() {
 function getMyGift() {
     $('#giftCode').show();
     $('.modal-header').show();
-    $('#giftText').html('长按指纹识别二维码，关注“卢勤问答平台”，点击下方菜单“商城”-“礼盒”领取属于你的新年礼盒');
+    $('#giftText').html('长按指纹识别二维码，关注“悦长大家庭教育专家问答平台”，点击下方菜单“商城”-“礼盒”领取属于你的新年礼盒');
     $('#giftCode').attr('src', "http://game.luqinwenda.com/images/dyh_code1.jpg");
     $('.modal-footer').hide();
     $('#myModal').modal('show');

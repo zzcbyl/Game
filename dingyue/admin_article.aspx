@@ -165,7 +165,7 @@
 </head>
 <body>
     <form id="form1" method="post" runat="server">
-        <div style="height: 60px; background: #C22B2B; line-height: 60px; font-size: 28px; letter-spacing: 0.2em; color: #fff; text-align: center; font-weight: bold;">卢勤问答平台</div>
+        <div style="height: 60px; background: #C22B2B; line-height: 60px; font-size: 28px; letter-spacing: 0.2em; color: #fff; text-align: center; font-weight: bold;">悦长大问答平台</div>
         <div class="form-horizontal" style="width: 1000px; margin: 0px auto; background: #efefef; min-height: 800px; padding: 20px;">
             <div class="form-group">
                 <label for="inputTitle" class="col-sm-2 control-label">标题</label>

@@ -27,7 +27,7 @@
 <head runat="server">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>卢勤问答暑期成长营</title>
+    <title>悦长大暑期成长营</title>
     <script src="../script/jquery-1.3.2.min.js"></script>
     <style type="text/css">
         img { vertical-align:top; }
@@ -115,7 +115,7 @@
                     'onMenuShareAppMessage']
         });
 
-        var shareTitle = '卢勤问答暑期成长营'; //标题
+        var shareTitle = '悦长大暑期成长营'; //标题
         var shareImg = 'http://game.luqinwenda.com/dingyue/upload/summercamp-icon.jpg'; //图片
         var shareContent = '2016年暑假夏令营全攻略，点开就能看！赶紧戳进来~'; //简介
         var shareLink = 'http://game.luqinwenda.com/dingyue/SummerCamp.aspx'; //链接

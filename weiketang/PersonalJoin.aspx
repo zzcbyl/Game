@@ -77,12 +77,12 @@
                 <%--● 申请活动截止时间：2016年1月21日12:00，之后将不再接受申请；<br />--%>
                 　　● 仅限500个席位，满额之后将不再接受申请。<br />
                 <span style="font-weight:bold; background:#ccc; display:inline-block; padding:5px; margin:3px 0;">个人申请进入听课群细则：</span><br />
-                　　1. 报名在线讲座，请先关注卢勤问答平台微信公众号（ID：luqinwendapingtai）；<br />
+                　　1. 报名在线讲座，请先关注悦长大家庭教育专家问答平台微信公众号（ID：luqinwendapingtai）；<br />
                     <div style="text-align:center;"><img src="../images/dyh_code_min.jpg" width="40%" /></div>
-                　　2. 在卢勤问答平台微信公众号中回复关键词：微课，领取属于自己的邀请码；<br />
+                　　2. 在悦长大家庭教育专家问答平台微信公众号中回复关键词：微课，领取属于自己的邀请码；<br />
                 　　3. 将含有邀请码的支持页面转发到100人以上的微信群或者您的朋友圈，邀请朋友，在公众号中回复您的邀请码（<b><%=code %></b>），为您投上一票支持；<br />
-                　　4. 当您的支持票数超过10票后，将支持票数截图给卢勤问答平台小助手，然后由小助手安排您入群，额满后将不再拉人入群。<br />
-                　　卢勤问答平台小助手微信（luqinwenda001）。<br />
+                　　4. 当您的支持票数超过10票后，将支持票数截图给悦长大家庭教育专家问答平台小助手，然后由小助手安排您入群，额满后将不再拉人入群。<br />
+                　　悦长大家庭教育专家问答平台小助手微信（luqinwenda001）。<br />
                     <div style="text-align:center;"><img src="../images/xiaozhushou.jpg" width="40%" /></div>
             </div>
             <div style="margin-top:10px;">邀请码：<span style="font-family:微软雅黑; font-size:14pt; font-weight:bold;"><%=code %></span></div>
@@ -93,7 +93,7 @@
             </div>
             <div style="margin-top:20px; text-align:left;">
                 <div><b style="color:red;">加群必知：</b></div>
-                <div>　　已加入卢勤问答平台微课直播群（卢勤和她的朋友们微课堂群）的朋友不用再重复申请入群，可以继续收听。</div>
+                <div>　　已加入悦长大家庭教育专家问答平台微课直播群（卢勤和她的朋友们微课堂群）的朋友不用再重复申请入群，可以继续收听。</div>
             </div>
         </div>
         
@@ -110,7 +110,7 @@
     <div id="showShare" style="display:none;" onclick="javascript:document.getElementById('showShare').style.display='none';">
         <div class="bgDiv" style="width:100%; height:100%; background:#ccc; color:#000; position:absolute; top:-10px; left:0px; text-align:center; filter:alpha(opacity=90); -moz-opacity:0.9;-khtml-opacity: 0.9; opacity: 0.9;  z-index:9;"></div>
         <div class="promptDiv" style="font-size:12pt; width:80%; top:20pt; left:10%; background:#fff;">
-            <div style="line-height:20px; text-align:left; padding:10px;">长按指纹识别二维码，关注“卢勤问答平台”，回复邀请码进行支持</div>
+            <div style="line-height:20px; text-align:left; padding:10px;">长按指纹识别二维码，关注“悦长大家庭教育专家问答平台”，回复邀请码进行支持</div>
             <img src="../images/dyh_code1.jpg" style="width:100%; " />
         </div>
     </div>

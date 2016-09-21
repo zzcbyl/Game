@@ -46,8 +46,8 @@
                     int cAmount = Convert.ToInt32(AwardArr[0].Substring(0, AwardArr[0].IndexOf("元")));
                     CouponAmount = cAmount * 100;
                     CouponCode = AwardArr[1];
-                    AwardName = cAmount + "元卢勤问答平台书城代金券";
-                    //AwardName = AwardArr[0].Substring(0, 1) + "元卢勤问答平台书城代金券";
+                    AwardName = cAmount + "元悦长大家庭教育专家问答平台书城代金券";
+                    //AwardName = AwardArr[0].Substring(0, 1) + "元悦长大家庭教育专家问答平台书城代金券";
                     if (cookie != null && cookie.Value == "1")
                     {
                         this.Response.Redirect("Coupon_draw.aspx?amount=" + CouponAmount + "&code=" + CouponCode);
@@ -180,7 +180,7 @@
 <head runat="server">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>卢勤问答平台</title>
+    <title>悦长大家庭教育专家问答平台</title>
     <style type="text/css">
         .comment_people { background:#fff; margin-top:5px; padding:5px 0; }
         .comment_people p { margin:0;}
@@ -198,7 +198,7 @@
 <body style="background: #EFD193; background-image:url(/images/bg_draw.jpg); background-repeat:no-repeat; background-position:center;">
     <div style="max-width: 640px; margin: 0 auto; font-size:11pt; line-height: 22px;">
         <%--<div style="height:100px; line-height:100px; color:#fff; text-align:center; font-weight:bold; font-family:黑体; font-size:26pt; background:#ff7c79; border-radius:5px;">
-            卢勤问答平台阅读卡
+            悦长大家庭教育专家问答平台阅读卡
         </div>--%>
         <img src="../images/draw_banner.jpg" width="100%" />
         <div style="border-radius:5px; background:#fff;">

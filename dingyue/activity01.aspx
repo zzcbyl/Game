@@ -110,7 +110,7 @@
                     <h2 id="activity-name" class="rich_media_title"><%=title %></h2>
                     <div class="rich_media_meta_list">
                         <em class="rich_media_meta rich_media_meta_text" id="post-date"><%=dt %></em>
-                        <a id="post-user" href="<%=originalurl %>" class="rich_media_meta rich_media_meta_link rich_media_meta_nickname">卢勤问答平台</a>
+                        <a id="post-user" href="<%=originalurl %>" class="rich_media_meta rich_media_meta_link rich_media_meta_nickname">悦长大问答平台</a>
                     </div>
                     <div id="js_content" class="rich_media_content ">
 

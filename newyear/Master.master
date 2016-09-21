@@ -28,7 +28,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>卢勤问答平台新年大礼盒</title>
+    <title>悦长大家庭教育专家问答平台新年大礼盒</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
     <script src="../script/jquery-2.1.1.min.js"></script>
     <script src="../script/bootstrap.min.js"></script>
@@ -63,7 +63,7 @@
         
     </asp:ContentPlaceHolder>
     <script type="text/javascript">
-        var shareTitle = "卢勤问答平台新年大礼盒"; //标题
+        var shareTitle = "悦长大家庭教育专家问答平台新年大礼盒"; //标题
         var shareImg = "http://game.luqinwenda.com/newyear/images/ny_share_icon.jpg"; //图片
         var shareContent = '我想要新年礼盒，请大家帮帮我！'; //简介
         var shareLink = 'http://game.luqinwenda.com/newyear/default.aspx'; //链接

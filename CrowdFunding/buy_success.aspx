@@ -155,7 +155,7 @@
                     <div>购买群数：<%=countStr %></div>
                     <div>购买时间：<%=buyedTime %></div>
                     <div style="text-indent:30px;">
-                        感谢您的支持！请将本页面截图作为购买凭证，发送给卢勤问答平台旭老师（ID:xulaoshi0224）,安排听课事宜。
+                        感谢您的支持！请将本页面截图作为购买凭证，发送给悦长大家庭教育专家问答平台旭老师（ID:xulaoshi0224）,安排听课事宜。
                     </div>
                     <div style="text-align:center; margin-top:10px;">
                         <img src="../images/xulaoshi.jpg" width="80%" />

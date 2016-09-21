@@ -1,4 +1,4 @@
-﻿<%@ Page Title="卢勤微课堂" Language="C#" MasterPageFile="~/CrowdFunding/Master.master" %>
+﻿<%@ Page Title="悦长大微课堂" Language="C#" MasterPageFile="~/CrowdFunding/Master.master" %>
 <%@ Import Namespace="System.Data" %>
 <%@ Import Namespace="System.Web.Script.Serialization" %>
 <%@ Import Namespace="System.Threading" %>

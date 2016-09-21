@@ -141,7 +141,7 @@
             <h4 class="modal-title" id="myModalLabel">　</h4>
           </div>
           <div class="modal-body">
-            <div id="giftText" style="line-height:20px; text-align:left; padding:10px;">长按指纹识别二维码，关注“卢勤问答平台”，帮TA拆礼盒</div>
+            <div id="giftText" style="line-height:20px; text-align:left; padding:10px;">长按指纹识别二维码，关注“悦长大家庭教育专家问答平台”，帮TA拆礼盒</div>
             <img id="giftCode" src="../images/dyh_code1.jpg" style="width:100%; " />
           </div>
           <div class="modal-footer">

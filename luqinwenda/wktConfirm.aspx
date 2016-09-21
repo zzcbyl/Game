@@ -1,4 +1,4 @@
-﻿<%@ Page Title="卢勤问答平台微课教室" Language="C#" MasterPageFile="~/IntegralMall/Master.master" %>
+﻿<%@ Page Title="悦长大家庭教育专家问答平台微课教室" Language="C#" MasterPageFile="~/IntegralMall/Master.master" %>
 <%@ Import Namespace="System.Data" %>
 <%@ Import Namespace="System.Web.Script.Serialization" %>
 
@@ -104,7 +104,7 @@
             <img src="../images/wkt_confirm_icon.png" style="width:40%;" />
         </div>
         <div style="text-align:left; width:70%; margin-left:15%; line-height:25px;">
-            <div>欢迎您进入【卢勤问答平台微课教室】</div>
+            <div>欢迎您进入【悦长大家庭教育专家问答平台微课教室】</div>
             <div>您需要支付：<%=float.Parse(drow["price"].ToString()) / 100 %>元</div>
             <div></div>
         </div>

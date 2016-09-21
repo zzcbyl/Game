@@ -1,4 +1,4 @@
-﻿<%@ Page Title="卢勤和她的朋友们视频微课堂" Language="C#" MasterPageFile="~/IntegralMall/Master.master" %>
+﻿<%@ Page Title="悦长大视频微课堂" Language="C#" MasterPageFile="~/IntegralMall/Master.master" %>
 <%@ Import Namespace="System.Data" %>
 <%@ Import Namespace="System.Web.Script.Serialization" %>
 
@@ -81,7 +81,7 @@
             <img src="../images/wkt_confirm_icon.png" style="width:40%;" />
         </div>
         <div style="text-align:left; width:70%; margin-left:15%; line-height:25px;">
-            <div>欢迎您进入【卢勤视频微课堂】</div>
+            <div>欢迎您进入【悦长大视频微课堂】</div>
             <div>观看直播视频微课将扣除 <%=article_integral %> 积分</div>
             <div>您目前的积分余额是：<%=user.Integral %></div>
         </div>

@@ -62,7 +62,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
-    <title>卢勤问答平台</title>
+    <title>悦长大家庭教育专家问答平台</title>
     <style type="text/css">
         .rel { position:relative; }
         .add_list_p { padding:5px 20px 5px 10px; text-indent:0px; margin:0; }
@@ -80,7 +80,7 @@
         <div style="max-width: 640px; margin: 0 auto;">    
             <img src="../images/draw_banner.jpg" width="100%" />
             <div style="margin-top: 5px; text-indent: 20px; line-height: 28px; background: #fff; padding: 10px;">
-                恭喜您，获得<span id="bookName"></span>，请您仔细填写邮寄地址，活动结束后由卢勤问答平台统一发出。
+                恭喜您，获得<span id="bookName"></span>，请您仔细填写邮寄地址，活动结束后由悦长大家庭教育专家问答平台统一发出。
             </div>
             <div style="margin-top: 5px; text-indent: 20px; line-height: 28px; background: #fff; padding: 10px 0 30px;">
                 <p class="add_list_p rel">

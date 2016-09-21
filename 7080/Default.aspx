@@ -28,7 +28,7 @@
                 <tr><td colspan="2" >&nbsp;</td></tr>
                 <tr><td style="vertical-align:top;"></td><td align="center"><img src="http://weixin.luqinwenda.com/dingyue/images/qrcode_dingyue.jpg" width="200" height="200" /> &nbsp; &nbsp; &nbsp; </td></tr>
                 <tr><td colspan="2" >&nbsp;</td></tr>
-                <tr><td style="vertical-align:top;"></td><td>关注卢勤问答订阅号还有惊喜哦。</td></tr>
+                <tr><td style="vertical-align:top;"></td><td>关注悦长大订阅号还有惊喜哦。</td></tr>
             </table>
         </div>
     </div>

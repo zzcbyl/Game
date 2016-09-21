@@ -63,7 +63,7 @@
             <div style="text-align:center; font-size:11pt; color:#808080; font-family:微软雅黑;">已有<span id="spCount"><%=forward_count %></span>人支持</div>
             <div style="text-align:left; margin-top:10px;">
                 　　参与活动说明：我要参加卢勤公益微课堂报名，请大家支持我，这是我盼望已久的事情！<br />
-                　　1. 首次报名在线讲座，请先关注卢勤问答平台微信公号（ID：luqinwendapingtai）<br />
+                　　1. 首次报名在线讲座，请先关注悦长大家庭教育专家问答平台微信公号（ID：luqinwendapingtai）<br />
                     <div style="text-align:center;"><img src="../images/dyh_code_min.jpg" width="40%" /></div>
                 　　2. 在微信公众号直接回复关键词：微课，查询申请入群的方法。<br />
                 　　如果您集满10票，就可以申请加入卢勤微课群。<br />
@@ -97,7 +97,7 @@
     <div id="showShare" style="display:none;" onclick="javascript:document.getElementById('showShare').style.display='none';">
         <div class="bgDiv" style="width:100%; height:100%; background:#ccc; color:#000; position:absolute; top:-10px; left:0px; text-align:center; filter:alpha(opacity=90); -moz-opacity:0.9;-khtml-opacity: 0.9; opacity: 0.9;  z-index:9;"></div>
         <div class="promptDiv" style="font-size:12pt; width:80%; top:20pt; left:10%; background:#fff;">
-            <div style="line-height:20px; text-align:left; padding:10px;">长按指纹识别二维码，关注“卢勤问答平台”，回复邀请码进行支持</div>
+            <div style="line-height:20px; text-align:left; padding:10px;">长按指纹识别二维码，关注“悦长大家庭教育专家问答平台”，回复邀请码进行支持</div>
             <img src="../images/dyh_code1.jpg" style="width:100%; " />
         </div>
     </div>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="卢勤和她的朋友们视频微课堂" Language="C#" MasterPageFile="~/IntegralMall/Master.master" %>
+﻿<%@ Page Title="悦长大视频微课堂" Language="C#" MasterPageFile="~/IntegralMall/Master.master" %>
 
 <script runat="server">
 
@@ -50,7 +50,7 @@
             </div>
             <div class="line_middle">
                 <div>听课资格</div>
-                <div style="font-size:12px;">10积分可以兑换【卢勤视频微课堂】门票</div>
+                <div style="font-size:12px;">10积分可以兑换【悦长大视频微课堂】门票</div>
             </div>
             <div class="line_right">
                 <img src="../images/wkt_icon6.jpg" />
@@ -62,7 +62,7 @@
             </div>
             <div class="line_middle">
                 <div>历史回顾</div>
-                <div style="font-size:12px;">【卢勤和她的朋友们微课堂】精彩微课回顾</div>
+                <div style="font-size:12px;">【悦长大微课堂】精彩微课回顾</div>
             </div>
             <div class="line_right">
                 <img src="../images/wkt_icon6.jpg" />
