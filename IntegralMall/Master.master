@@ -41,9 +41,9 @@
     </form>
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
-        var shareTitle = "卢勤和她的朋友们视频微课堂"; //标题
+        var shareTitle = "悦长大视频微课堂"; //标题
         var shareImg = "http://game.luqinwenda.com/images/wkt_video_share_icon.jpg"; //图片
-        var shareContent = '卢勤和她的朋友们视频微课堂'; //简介
+        var shareContent = '悦长大视频微课堂'; //简介
         var shareLink = 'http://game.luqinwenda.com/IntegralMall/wktDetail.aspx'; //链接
 
         wx.config({

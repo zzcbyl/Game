@@ -161,7 +161,7 @@
         var chat_shareContent = '<%=chatDrow["shareContent"].ToString() %>';
         var chat_shareImage = '<%=chatDrow["shareimage"].ToString() %>';
         $(document).ready(function () {
-            shareTitle = '【卢勤微课教室】';
+            shareTitle = '【悦长大微课教室】';
             if (chat_shareContent != '')
                 shareContent = chat_shareContent;
             if (chat_shareImage != '')

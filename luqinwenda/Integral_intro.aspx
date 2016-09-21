@@ -56,7 +56,7 @@
             <p><b>如何获得积分？</b></p>
             <div>转发签到文章到朋友圈可得1积分；</div>
             <div>邀请朋友转发您的签到文章到朋友圈，您可以再得到1积分。</div>
-            <div>1. 请先关注卢勤问答平台微信公众号（ID：luqinwendapingtai）；</div>
+            <div>1. 请先关注悦长大家庭教育专家问答平台微信公众号（ID：luqinwendapingtai）；</div>
             <div style="text-align:center;">
                 <img src="http://game.luqinwenda.com/dingyue/upload/dyh_code_min.jpg" width="50%" />
             </div>

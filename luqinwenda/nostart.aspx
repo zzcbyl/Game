@@ -46,7 +46,7 @@
             <div style="margin-top:30px; text-align:center;">温馨提示</div>
             <div style="margin-top:15px; line-height:22px; margin-bottom:30px;">
                 该课程将于<%=DateTime.Parse(drow["start_date"].ToString()).ToString("yyyy年MM月dd日HH点mm分") %>开始开播<br />
-                请准时入场，感谢您对卢勤问答平台微课教室的关注。
+                请准时入场，感谢您对悦长大家庭教育专家问答平台微课教室的关注。
             </div>
         </div>
         <div style="margin-top:20px; text-align:center;">

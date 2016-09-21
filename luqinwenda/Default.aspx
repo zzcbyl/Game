@@ -188,7 +188,7 @@
             }
 
             uploadLog();
-            shareTitle = '【卢勤微课教室】<%=(courseDt.Rows.Count > 0 ? courseDt.Rows[0]["course_title"].ToString() : "") %>';
+            shareTitle = '【悦长大微课教室】<%=(courseDt.Rows.Count > 0 ? courseDt.Rows[0]["course_title"].ToString() : "") %>';
             if (chat_shareContent != '')
                 shareContent = chat_shareContent;
             if (chat_shareImage != '')

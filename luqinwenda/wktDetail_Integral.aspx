@@ -79,8 +79,8 @@
         </div>
         <div class="line_main" style="border-bottom:none; padding:10px 20px; height:auto; line-height:22px;">
             <div style="font-size:14px; font-weight:bold; padding:5px 0;">听课须知</div>
-            <div>1、点击最上方大图，进入【卢勤问答平台微课教室】直播间；</div>
-            <div>2、卢勤问答平台微课教室直播间为免费课程，只需花费课程积分即可；</div>
+            <div>1、点击最上方大图，进入【悦长大家庭教育专家问答平台微课教室】直播间；</div>
+            <div>2、悦长大家庭教育专家问答平台微课教室直播间为免费课程，只需花费课程积分即可；</div>
             <div>3、点击确定扣除积分后，进入微课直播间。课程直播中如需提问，点击右下方【我的问题】开始提问，您的问题将显示在这里。如果专家已经回答您的提问，左下方【全部问题】中将会显示您的问题解答。</div>
         </div>
         <div style="height:100px;"></div>

@@ -64,7 +64,7 @@
         </div>
         <div style="line-height:25px; padding:8px 10px; font-size:14px; color:#808080;">
             <div style="color:#e8775c;">如何获得积分？</div>
-            ● 积分可以兑换<span style="color:#e8775c;">【卢勤微课堂】微课门票。</span><br />
+            ● 积分可以兑换<span style="color:#e8775c;">【悦长大微课堂】微课门票。</span><br />
             ● 转发签到文章到朋友圈可得1积分；邀请朋友转发您的签到文章到朋友圈您可以再得到1积分。每位用户每天最多可以获得10积分。<br />
             ● 显示“已转”的签到文章再次分享到朋友圈将不会再增加积分。
         </div>
@@ -105,7 +105,7 @@
         </div>
     </div>
     <script type="text/javascript">
-        var shareTitle = "卢勤问答平台签到"; //标题
+        var shareTitle = "悦长大问答平台签到"; //标题
         var shareImg = "http://game.luqinwenda.com/dingyue/images/qiandao.jpg"; //图片
         var shareContent = '转发签到文章到朋友圈可获得积分'; //简介
         var shareLink = 'http://game.luqinwenda.com/dingyue/default.aspx'; //链接

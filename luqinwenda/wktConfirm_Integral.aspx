@@ -136,7 +136,7 @@
             <div><b>讲师：</b><%=courseDt.Rows[0]["course_lecturer"].ToString() %></div>
         </div>
         <div style="text-align:left; width:70%; margin-left:15%; line-height:25px; margin-top:10px;">
-            <div>欢迎您进入【卢勤问答平台微课教室】</div>
+            <div>欢迎您进入【悦长大家庭教育专家问答平台微课教室】</div>
             <div>需要扣除您 <span style="color:#D69100; font-weight:bold;"><%=drow["integral"].ToString() %></span> 积分</div>
             <div>您目前的积分余额是：<span style="color:#D69100; font-weight:bold;"><%=user.Integral %></span></div>
         </div>

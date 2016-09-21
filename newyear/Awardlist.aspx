@@ -30,12 +30,12 @@
             <div><h4 style="font-weight:bold;">2016夏令营500元抵用券（不限）</h4></div>
             <div><h4 style="font-weight:bold;">2016夏令营100元抵用券（不限）</h4></div>
             <div style="margin-left:20px; text-indent:28px;">
-                <div>1、本优惠券仅限2016年卢勤问答平台组织的夏令营使用。</div>
+                <div>1、本优惠券仅限2016年悦长大家庭教育专家问答平台组织的夏令营使用。</div>
                 <div>2、在支付夏令营费用时，出示代金劵号码，即可使用。</div>
                 <div>3、2016年一个夏令营只限使用一张代金劵。</div>
                 <div>4、本代金劵不可抵扣运费，不设找零，不兑换现金。</div>
                 <div>5、请在有效期内使用，过期作废。</div>
-                <div>6、卢勤问答平台保留对此优惠券的解释权。</div>
+                <div>6、悦长大家庭教育专家问答平台保留对此优惠券的解释权。</div>
             </div>
             <div class="mg15"><img src="images/award3.jpg" /></div>
             <div><h4 style="font-weight:bold;">星空侠儿童安全电话智能手表（价值586元）（共70块）</h4></div>
@@ -63,11 +63,11 @@
             <div><h4 style="font-weight:bold;">2元卢勤书城抵用券（不限）</h4></div>
             <div style="margin-left:20px; text-indent:28px;">
                 <div></div>
-                <div>1、本代金券用于在卢勤问答平台商城购物(点击卢勤问答订阅号菜单栏商城)。</div>
+                <div>1、本代金券用于在悦长大家庭教育专家问答平台商城购物(点击悦长大问答订阅号菜单栏商城)。</div>
                 <div>2、在商城购买商品进入确人订单界面时，输入代金劵号码，提交订单后金额即可使用。</div>
                 <div>3、每个订单仅限使用一张代金券。</div>
                 <div>4、本代金券不设找零，不兑换现金。</div>
-                <div>5、卢勤问答凭条保留对此代金券的解释权。</div>
+                <div>5、悦长大问答凭条保留对此代金券的解释权。</div>
             </div>
         </div>
     </div>
