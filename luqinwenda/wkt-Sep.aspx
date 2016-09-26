@@ -113,7 +113,7 @@
         }
 
         var dayArr = ['2016-09-01', '2016-09-06','2016-9-13', '2016-9-22', '2016-9-29' ];
-        var roomArr = [33, 34, 35, 36];
+        var roomArr = [33, 34, 35, 36, 37];
         function jumpCourse1(num) {
             jumpCourse(roomArr[dayArr.indexOf(num)]);
         }
