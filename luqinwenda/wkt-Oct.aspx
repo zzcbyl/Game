@@ -32,7 +32,7 @@
         <div style="margin-top:-5px; position:relative;">
             <ul class="m-mouth-ul"><li>周日</li><li>周一</li><li>周二</li><li>周三</li><li>周四</li><li>周五</li><li>周六</li></ul>
             <ul class="m-mouth-ul-content">
-                <% for (DateTime i = Convert.ToDateTime("2016-9-25"); i <= Convert.ToDateTime("2016-11-6"); i=i.AddDays(1))
+                <% for (DateTime i = Convert.ToDateTime("2016-9-25"); i <= Convert.ToDateTime("2016-11-5"); i=i.AddDays(1))
                    {
                        string className = "";
                        if (i.Month != 6)
