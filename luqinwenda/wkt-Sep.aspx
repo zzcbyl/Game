@@ -25,7 +25,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="m-mainpage">
         <div class="m-header">
-            <img src="images/m-header-title10.png" style="width:60%;" />
+            <img src="images/m-header-title9.png" style="width:60%;" />
             <a href="wkt-August.aspx?token=<%=token %>" class="m-header-left-icon"></a>
             <a href="wkt-Oct.aspx?token=<%=token %>" class="m-header-right-icon"></a>
         </div>
