@@ -58,7 +58,7 @@
             <a class="m-block-right-icon"></a>
         </div>
 
-        <div class="m-course-block-green" onclick="jumpCourse(39);">
+        <div class="m-course-block-red" onclick="jumpCourse(39);">
             <div class="m-block-left">
                 <img src="images/oct-2.png" />
             </div>
