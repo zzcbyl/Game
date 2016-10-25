@@ -203,8 +203,8 @@
         <img src="../images/draw_banner.jpg" width="100%" />
         <div style="border-radius:5px; background:#fff;">
             <div style="margin-top: 5px;padding: 10px;">
-            　    <div style="text-align:center; font-size:12pt;"><b>卢勤和她的朋友们微课堂</b></div>
-            　    <div>　为感恩广大家长对“卢勤和她的朋友们微课堂”的支持和厚爱，特邀您参加此次抽奖活动，100%中奖！奖品有限，先到先得哦！</div>
+            　    <div style="text-align:center; font-size:12pt;"><b>悦长大微课堂</b></div>
+            　    <div>　为感恩广大家长对“悦长大微课堂”的支持和厚爱，特邀您参加此次抽奖活动，100%中奖！奖品有限，先到先得哦！</div>
             </div>
             <div style="text-indent: 20px; line-height: 28px; padding: 10px; text-align:center;">
                 <a id="ASupported"></a>
