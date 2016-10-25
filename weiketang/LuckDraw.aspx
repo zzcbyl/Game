@@ -200,7 +200,7 @@
         <%--<div style="height:100px; line-height:100px; color:#fff; text-align:center; font-weight:bold; font-family:黑体; font-size:26pt; background:#ff7c79; border-radius:5px;">
             悦长大家庭教育专家问答平台阅读卡
         </div>--%>
-        <img src="../images/draw_banner.jpg" width="100%" />
+        <img src="../images/draw_banner.jpg?new_draw" width="100%" />
         <div style="border-radius:5px; background:#fff;">
             <div style="margin-top: 5px;padding: 10px;">
             　    <div style="text-align:center; font-size:12pt;"><b>悦长大微课堂</b></div>
