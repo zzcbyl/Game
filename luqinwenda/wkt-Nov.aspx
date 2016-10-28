@@ -3,7 +3,7 @@
 <script runat="server">
     public string token = "";
     public int userid = 0;
-    public string[] redDay = {"2016-10-27"};
+    public string[] redDay = {};
     public string[] greenDay = {"2016-10-13"};
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -27,12 +27,12 @@
         <div class="m-header">
             <img src="images/m-header-title10.png" style="width:60%;" />
             <a href="wkt-Sep.aspx?token=<%=token %>" class="m-header-left-icon"></a>
-            <a  href="wkt-Nov.aspx?token=<%=token %>" class="m-header-right-icon"></a>
+            <%--<a class="m-header-right-icon"></a>--%>
         </div>
         <div style="margin-top:-5px; position:relative;">
             <ul class="m-mouth-ul"><li>周日</li><li>周一</li><li>周二</li><li>周三</li><li>周四</li><li>周五</li><li>周六</li></ul>
             <ul class="m-mouth-ul-content">
-                <% for (DateTime i = Convert.ToDateTime("2016-9-25"); i <= Convert.ToDateTime("2016-11-5"); i=i.AddDays(1))
+                <% for (DateTime i = Convert.ToDateTime("2016-10-30"); i <= Convert.ToDateTime("2016-12-3"); i=i.AddDays(1))
                    {
                        string className = "";
                        if (i.Month != 6)
@@ -48,25 +48,16 @@
             <div class="clear"></div>
         </div>
         
-        <div class="m-course-block-green" onclick="jumpCourse(38);">
+        <div class="m-course-block-green" onclick="jumpCourse(40);">
             <div class="m-block-left">
-                <img src="images/oct-1.png" />
+                <img src="images/nov-1.png" />
             </div>
             <div class="m-block-content">
-                <img src="images/oct-course-1.png" />
+                <img src="images/nov-course-1.png" />
             </div>
             <a class="m-block-right-icon"></a>
         </div>
 
-        <div class="m-course-block-red" onclick="jumpCourse(39);">
-            <div class="m-block-left">
-                <img src="images/oct-2.png" />
-            </div>
-            <div class="m-block-content">
-                <img src="images/oct-course-2.png" />
-            </div>
-            <a class="m-block-right-icon"></a>
-        </div>
         
         
     </div>
@@ -89,8 +80,8 @@
             location.href = '/luqinwenda/wktIndex_integral.aspx?roomid=' + num + '&token=<%=token %>';
         }
 
-        var dayArr = ['2016-10-13', '2016-10-27'];
-        var roomArr = [38, 39];
+        var dayArr = ['2016-11-3'];
+        var roomArr = [40];
         function jumpCourse1(num) {
             jumpCourse(roomArr[dayArr.indexOf(num)]);
         }

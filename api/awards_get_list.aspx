@@ -4,7 +4,7 @@
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        int actId = int.Parse(Util.GetSafeRequestValue(Request, "actid", "3"));
+        int actId = int.Parse(Util.GetSafeRequestValue(Request, "actid", "9"));
         DataTable dtCamp = DBHelper.GetDataTable("select * from random_awards where award = '“我要学演说”冬令营免费参营券' "
             + " and act_id = " + actId.ToString() + " and create_date_time < getdate() order by create_date_time desc ", Util.ConnectionString);
         DataTable dtBook = DBHelper.GetDataTable("select * from random_awards where   award not like '%优惠券%' "
