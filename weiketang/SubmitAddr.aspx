@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 
 <script runat="server">
-    public string actid = "9";
+    public string actid = "10";
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Request["openid"] == null || Request["id"] == null)
