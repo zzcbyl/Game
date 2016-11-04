@@ -4,7 +4,7 @@
     public string token = "";
     public int userid = 0;
     public string[] redDay = {};
-    public string[] greenDay = {"2016-11-03"};
+    public string[] greenDay = {"2016-11-03","2016-11-10"};
     protected void Page_Load(object sender, EventArgs e)
     {
         token = Util.GetSafeRequestValue(Request, "token", "");
@@ -57,6 +57,15 @@
             </div>
             <a class="m-block-right-icon"></a>
         </div>
+        <div class="m-course-block-green" onclick="jumpCourse(41);">
+            <div class="m-block-left">
+                <img src="images/nov-2.png" />
+            </div>
+            <div class="m-block-content">
+                <img src="images/nov-course-2.png" />
+            </div>
+            <a class="m-block-right-icon"></a>
+        </div>
 
         
         
@@ -80,8 +89,8 @@
             location.href = '/luqinwenda/wktIndex_integral.aspx?roomid=' + num + '&token=<%=token %>';
         }
 
-        var dayArr = ['2016-11-3'];
-        var roomArr = [40];
+        var dayArr = ['2016-11-03','2016-11-10'];
+        var roomArr = [40,41];
         function jumpCourse1(num) {
             jumpCourse(roomArr[dayArr.indexOf(num)]);
         }
