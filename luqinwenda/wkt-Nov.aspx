@@ -3,7 +3,7 @@
 <script runat="server">
     public string token = "";
     public int userid = 0;
-    public string[] redDay = {"2016-11-17"};
+    public string[] redDay = {"2016-11-17", "2016-11-24"};
     public string[] greenDay = {"2016-11-03","2016-11-10"};
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -75,6 +75,15 @@
             </div>
             <a class="m-block-right-icon"></a>
         </div>
+        <div class="m-course-block-red" onclick="jumpCourse(43);">
+            <div class="m-block-left">
+                <img src="images/nov-4.png" />
+            </div>
+            <div class="m-block-content">
+                <img src="images/nov-course-4.png" />
+            </div>
+            <a class="m-block-right-icon"></a>
+        </div>
         
         
     </div>
@@ -97,8 +106,8 @@
             location.href = '/luqinwenda/wktIndex_integral.aspx?roomid=' + num + '&token=<%=token %>';
         }
 
-        var dayArr = ['2016-11-03','2016-11-10','2016-11-17'];
-        var roomArr = [40,41,42];
+        var dayArr = ['2016-11-03','2016-11-10','2016-11-17','2016-11-24'];
+        var roomArr = [40,41,42,43];
         function jumpCourse1(num) {
             jumpCourse(roomArr[dayArr.indexOf(num)]);
         }
