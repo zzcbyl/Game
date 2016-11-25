@@ -3,8 +3,8 @@
 <script runat="server">
     public string token = "";
     public int userid = 0;
-    public string[] redDay = {"2016-10-27"};
-    public string[] greenDay = {"2016-10-13"};
+    public string[] redDay = {"2016-12-01"};
+    public string[] greenDay = {};
     protected void Page_Load(object sender, EventArgs e)
     {
         token = Util.GetSafeRequestValue(Request, "token", "");
@@ -25,14 +25,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="m-mainpage">
         <div class="m-header">
-            <img src="images/m-header-title10.png" style="width:60%;" />
-            <a href="wkt-Sep.aspx?token=<%=token %>" class="m-header-left-icon"></a>
-            <a href="wkt-Nov.aspx?token=<%=token %>" class="m-header-right-icon"></a>
+            <img src="images/m-header-title11.png" style="width:60%;" />
+            <a href="wkt-Nov.aspx?token=<%=token %>" class="m-header-left-icon"></a>
+            <%--<a class="m-header-right-icon"></a>--%>
         </div>
         <div style="margin-top:-5px; position:relative;">
             <ul class="m-mouth-ul"><li>周日</li><li>周一</li><li>周二</li><li>周三</li><li>周四</li><li>周五</li><li>周六</li></ul>
             <ul class="m-mouth-ul-content">
-                <% for (DateTime i = Convert.ToDateTime("2016-9-25"); i <= Convert.ToDateTime("2016-11-5"); i=i.AddDays(1))
+                <% for (DateTime i = Convert.ToDateTime("2016-11-27"); i <= Convert.ToDateTime("2016-12-31"); i=i.AddDays(1))
                    {
                        string className = "";
                        if (i.Month != 6)
@@ -48,32 +48,20 @@
             <div class="clear"></div>
         </div>
         
-        <div class="m-course-block-green" onclick="jumpCourse(38);">
+        <div class="m-course-block-red" onclick="jumpCourse(44);">
             <div class="m-block-left">
-                <img src="images/oct-1.png" />
+                <img src="images/dec-1.png" />
             </div>
             <div class="m-block-content">
-                <img src="images/oct-course-1.png" />
+                <img src="images/dec-course-1.png" />
             </div>
             <a class="m-block-right-icon"></a>
         </div>
-
-        <div class="m-course-block-red" onclick="jumpCourse(39);">
-            <div class="m-block-left">
-                <img src="images/oct-2.png" />
-            </div>
-            <div class="m-block-content">
-                <img src="images/oct-course-2.png" />
-            </div>
-            <a class="m-block-right-icon"></a>
-        </div>
-        
-        
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
-            shareTitle = "【悦长大家庭教育专家问答平台微课教室】10月精彩微课表！"; //标题
-            shareLink = 'http://game.luqinwenda.com/luqinwenda/wkt-Oct.aspx'; //链接
+            shareTitle = "【悦长大家庭教育专家问答平台微课教室】12月精彩微课表！"; //标题
+            shareLink = 'http://game.luqinwenda.com/luqinwenda/wkt-Dec.aspx'; //链接
 
             var winWidth = $(window).width();
             //alert(winWidth);
@@ -89,8 +77,8 @@
             location.href = '/luqinwenda/wktIndex_integral.aspx?roomid=' + num + '&token=<%=token %>';
         }
 
-        var dayArr = ['2016-10-13', '2016-10-27'];
-        var roomArr = [38, 39];
+        var dayArr = ['2016-12-01'];
+        var roomArr = [44];
         function jumpCourse1(num) {
             jumpCourse(roomArr[dayArr.indexOf(num)]);
         }
