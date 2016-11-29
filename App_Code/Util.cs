@@ -146,6 +146,35 @@ public class Util
         return v.ToString();
     }
 
+    public static string ConvertDataTableToJson(DataTable dt)
+    {
+        string json = "";
+        foreach (DataRow dr in dt.Rows)
+        {
+            string jsonItem = "";
+            foreach (DataColumn dc in dt.Columns)
+            {
+                if (jsonItem.Trim().Equals(""))
+                {
+                    jsonItem = " \"" + dc.Caption.Trim() + "\" : \"" + dr[dc].ToString().Trim() + "\" ";
+                }
+                else
+                {
+                    jsonItem = jsonItem + ", \"" + dc.Caption.Trim() + "\" : \"" + dr[dc].ToString().Trim() + "\" ";
+                }
+            }
+            if (json.Trim().Equals(""))
+            {
+                json = "{" + jsonItem + "}";
+            }
+            else
+            {
+                json = json + ",{" + jsonItem + "}";
+            }
+        }
+        return " [" + json + "] ";
+    }
+
     public static string GetSafeRequestValue(HttpRequest request, string parameterName, string defaultValue)
     {
         return ((request[parameterName] == null || request[parameterName] == "") ? defaultValue : request[parameterName].Trim()).Replace("'", "");
