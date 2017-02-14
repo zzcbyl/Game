@@ -8,6 +8,6 @@
             + "-" + DateTime.Now.Month.ToString() + "-1"));
         DataTable dt = DBHelper.GetDataTable(" select * from chat_room where start_date >= '" + queryMonth.ToString() 
             + "' and start_date < '" + queryMonth.AddMonths(1).ToString() + "'  order by start_date ", Util.ConnectionString );
-        Response.Write("{\"status\": 0, \"lessons\": [" + Util.ConvertDataTableToJson(dt) + "]}");
+        Response.Write("{\"status\": 0, \"lessons_array\": " + Util.ConvertDataTableToJson(dt) + "}");
     }
 </script>
