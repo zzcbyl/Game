@@ -156,11 +156,11 @@ public class Util
             {
                 if (jsonItem.Trim().Equals(""))
                 {
-                    jsonItem = " \"" + dc.Caption.Trim() + "\" : \"" + dr[dc].ToString().Trim() + "\" ";
+                    jsonItem = " \"" + dc.Caption.Trim() + "\" : \"" + dr[dc].ToString().Trim().Replace("\r","").Replace("\n","").Replace("\t","").Replace("\"","\\\"").Trim() + "\" ";
                 }
                 else
                 {
-                    jsonItem = jsonItem + ", \"" + dc.Caption.Trim() + "\" : \"" + dr[dc].ToString().Trim() + "\" ";
+                    jsonItem = jsonItem + ", \"" + dc.Caption.Trim() + "\" : \"" + dr[dc].ToString().Trim().Replace("\r", "").Replace("\n", "").Replace("\t","").Replace("\"", "\\\"").Trim() + "\" ";
                 }
             }
             if (json.Trim().Equals(""))
