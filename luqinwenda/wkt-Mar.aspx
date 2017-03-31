@@ -79,7 +79,7 @@
         }
 
         var dayArr = ['2017-03-30'];
-        var roomArr = [50];
+        var roomArr = [51];
         function jumpCourse1(num) {
             jumpCourse(roomArr[dayArr.indexOf(num)]);
         }
