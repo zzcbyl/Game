@@ -3,7 +3,7 @@
 <script runat="server">
     public string token = "";
     public int userid = 0;
-    public string[] redDay = {"2017-01-10" };
+    public string[] redDay = {"2017-03-30" };
     public string[] greenDay = {};
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -26,8 +26,8 @@
     <div class="m-mainpage">
         <div class="m-header">
             <img src="images/m-header-title01.png" style="width:60%;" />
-            <a href="wkt-Dec.aspx?token=<%=token %>" class="m-header-left-icon"></a>
-            <a href="wkt-Mar.aspx?token=<%=token %>" class="m-header-right-icon"></a>
+            <a href="wkt-Jan.aspx?token=<%=token %>" class="m-header-left-icon"></a>
+            <!--a class="m-header-right-icon"></a-->
         </div>
         <div style="margin-top:-5px; position:relative;">
             <ul class="m-mouth-ul"><li>周日</li><li>周一</li><li>周二</li><li>周三</li><li>周四</li><li>周五</li><li>周六</li></ul>
@@ -48,12 +48,12 @@
             <div class="clear"></div>
         </div>
         
-        <div class="m-course-block-red" onclick="jumpCourse(50);">
+        <div class="m-course-block-red" onclick="jumpCourse(51);">
             <div class="m-block-left">
-                <img src="images/jan-1.png" />
+                <img src="images/mar-1.png" />
             </div>
             <div class="m-block-content">
-                <img src="images/jan-course-1.png" />
+                <img src="images/mar-course-1.png" />
             </div>
             <a class="m-block-right-icon"></a>
         </div>
@@ -78,7 +78,7 @@
             location.href = '/luqinwenda/wktIndex_integral.aspx?roomid=' + num + '&token=<%=token %>';
         }
 
-        var dayArr = ['2017-01-10'];
+        var dayArr = ['2017-03-30'];
         var roomArr = [50];
         function jumpCourse1(num) {
             jumpCourse(roomArr[dayArr.indexOf(num)]);
