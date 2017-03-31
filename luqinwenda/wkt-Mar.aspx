@@ -25,14 +25,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="m-mainpage">
         <div class="m-header">
-            <img src="images/m-header-title01.png" style="width:60%;" />
+            <img src="images/m-header-title03.png" style="width:60%;" />
             <a href="wkt-Jan.aspx?token=<%=token %>" class="m-header-left-icon"></a>
             <!--a class="m-header-right-icon"></a-->
         </div>
         <div style="margin-top:-5px; position:relative;">
             <ul class="m-mouth-ul"><li>周日</li><li>周一</li><li>周二</li><li>周三</li><li>周四</li><li>周五</li><li>周六</li></ul>
             <ul class="m-mouth-ul-content">
-                <% for (DateTime i = Convert.ToDateTime("2016-12-26"); i <= Convert.ToDateTime("2017-2-5"); i=i.AddDays(1))
+                <% for (DateTime i = Convert.ToDateTime("2017-2-26"); i <= Convert.ToDateTime("2017-4-1"); i=i.AddDays(1))
                    {
                        string className = "";
                        if (i.Month != 6)
@@ -61,8 +61,8 @@
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
-            shareTitle = "【悦长大家庭教育专家问答平台微课教室】12月精彩微课表！"; //标题
-            shareLink = 'http://game.luqinwenda.com/luqinwenda/wkt-Dec.aspx'; //链接
+            shareTitle = "【悦长大家庭教育专家问答平台微课教室】3月精彩微课表！"; //标题
+            shareLink = 'http://game.luqinwenda.com/luqinwenda/wkt-Mar.aspx'; //链接
 
             var winWidth = $(window).width();
             //alert(winWidth);
