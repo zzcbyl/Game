@@ -96,7 +96,7 @@
         </div>--%>
         <div class="video_wrap" style="height:210px;">   
 	        <div class="video_inner">
-	   	        <video src="<%=audioUrl %>" controls="controls" id="h5-player" class="video" node-type="mp4" node-id="1034:4a6509cbec79e43929ec444514610864"></video>
+	   	        <video src="http://weixin.luqinwenda.com/go_to_classroom.aspx" controls="controls" id="h5-player" class="video" node-type="mp4" node-id="1034:4a6509cbec79e43929ec444514610864"></video>
     	        <!-- 封面图片 -->
 		        <div class="poster_wrap" style="height: 375px;"><img src="<%=chatDrow["audio_bg"].ToString() %>" alt="" class="poster" style="height: 210px; width: auto;"></div>
 	            <!-- 封面图片 -->
