@@ -199,25 +199,9 @@ src="https://blobsnowmeet.blob.core.chinacloudapi.cn/asset-0a7b93c0-11c0-4fe5-a2
 
 
        
-        function styleInit() {
-            var clientW = document.body.clientWidth;
-            var posterH = poster.height;
-            var posterW = poster.width;
-            posterWrap.style.height = '210px';
-            if (posterH > posterW) {
-                poster.style.width = clientW + 'px';
-                poster.style.height = 'auto';
-            }
-            else if (posterH < posterW) {
-                poster.style.height = clientW + 'px';
-                poster.style.width = 'auto';
-            }
-        }
-        poster.onload = function () {
-            styleInit();
-        }
+       
         window.onresize = function () {
-            styleInit();
+            //styleInit();
             var clientW = document.body.clientWidth;
             var ua = window.navigator.userAgent;
             var ios5 = /iPhone OS 5/g;
