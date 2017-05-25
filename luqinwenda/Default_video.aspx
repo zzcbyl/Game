@@ -260,7 +260,7 @@ src="https://blobsnowmeet.blob.core.chinacloudapi.cn/asset-0a7b93c0-11c0-4fe5-a2
         touch.on(videoWrap, 'tap', function (ev) {
             if (window.navigator.platform !== 'iPhone' && window.navigator.platform !== 'iPad') {
                 var ua = window.navigator.userAgent;
-                var android4_4 = /Android [4-9]\.[4-9]/g;
+                var android4_4 = /Android [4-9]\.[0-9]/g;
                 if (video.getAttribute('node-type') !== 'mp4') {
                     alert('该视频不能播放');
                     return false;
