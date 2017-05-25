@@ -95,12 +95,7 @@ src="https://blobsnowmeet.blob.core.chinacloudapi.cn/asset-0a7b93c0-11c0-4fe5-a2
                        >
                        
 	   	        </video>
-    	        <!-- 封面图片 -->
-		        <div class="poster_wrap" style="height: 375px;"><img src="<%=chatDrow["audio_bg"].ToString() %>" alt="" class="poster" style="height: 210px; width: auto;"></div>
-	            <!-- 封面图片 -->
-	            <!-- 播放按钮 -->
-	            <div class="play_icon"></div>
-	            <!-- 播放按钮 -->
+    	        
 	        </div>    
         </div>
     </div>
@@ -198,33 +193,12 @@ src="https://blobsnowmeet.blob.core.chinacloudapi.cn/asset-0a7b93c0-11c0-4fe5-a2
             $('#mydiv').css("height", ($(window).height() - 275).toString() + "px");
 
             fillList_QA();
-            setInterval("fillList_QA()", 5000);
+            //setInterval("fillList_QA()", 5000);
             setDots();
         });
 
 
-        var videoWrap = document.getElementsByClassName('video_wrap')[0];
-        var video = document.getElementsByClassName('video')[0];
-        var poster = document.getElementsByClassName('poster')[0];
-        var posterURL = poster.src;
-        var posterWrap = document.getElementsByClassName('poster_wrap')[0];
-        var videoURL = video.getAttribute('node-id');
-        function ios5style() {
-            var ua = window.navigator.userAgent;
-            var ios5 = /iPhone OS 5/g;
-            var ipad = /iPad/g;
-            if (ios5.test(ua) || ipad.test(ua)) {
-                posterWrap.style.display = 'none';
-                document.getElementsByClassName('play_icon')[0].style.display = 'none';
-                var clientW = document.body.clientWidth;
-                video.setAttribute('class', 'ios5video');
-                video.setAttribute("id", "ios5_player");
-                video.setAttribute('poster', posterURL);
-                video.style.height = clientW + 'px';
-                video.style.width = clientW + 'px';
-            }
-        }
-        ios5style();
+       
         function styleInit() {
             var clientW = document.body.clientWidth;
             var posterH = poster.height;
@@ -254,37 +228,7 @@ src="https://blobsnowmeet.blob.core.chinacloudapi.cn/asset-0a7b93c0-11c0-4fe5-a2
             }
         }
 
-        touch.on(videoWrap, 'tap', function (ev) {
-            if (window.navigator.platform !== 'iPhone' && window.navigator.platform !== 'iPad') {
-                var ua = window.navigator.userAgent;
-                var android4_4 = /Android [4-9]\.[4-9]/g;
-                if (video.getAttribute('node-type') !== 'mp4') {
-                    alert('该视频不能播放');
-                    return false;
-                } else if (android4_4.test(ua)) {
-                    video.style.display = 'block';
-                    video.webkitRequestFullScreen();
-                    video.play();
-                    setTimeout(function () {
-                        video.onwebkitfullscreenchange = function () {
-                            if (!video.paused) {
-                                video.pause();
-                            }
-                        }
-                    }, 1000);
-                } else {
-                    window.location.href = '<%=audioUrl %>';
-                    return false;
-                }
-            } else {
-                video.style.display = 'block';
-                video.play();
-                if (video.paused) {
-                    video.play();
-                }
-                return false;
-            }
-        });
+        
 
 
 
