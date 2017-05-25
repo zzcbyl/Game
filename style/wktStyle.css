@@ -134,8 +134,11 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { l
 }
 .video_wrap .video {
 	position:absolute;
-	height:1px;
+    /*
+height:1px;
 	width:1px;
+    */
+	
 	top:50%;
 	left:50%;
 	-webkit-transform:translate3d(-50%,-50%,0);
