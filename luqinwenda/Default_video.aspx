@@ -267,6 +267,8 @@ src="https://blobsnowmeet.blob.core.chinacloudapi.cn/asset-0a7b93c0-11c0-4fe5-a2
                 } else if (android4_4.test(ua)) {
                     video.style.display = 'block';
                     video.webkitRequestFullScreen();
+                    var clientW = document.body.clientWidth;
+                    video.style.width = clientW + 'px';
                     video.play();
                     setTimeout(function () {
                         video.onwebkitfullscreenchange = function () {
