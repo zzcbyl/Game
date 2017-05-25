@@ -223,7 +223,7 @@ src="https://blobsnowmeet.blob.core.chinacloudapi.cn/asset-0a7b93c0-11c0-4fe5-a2
                 video.setAttribute('class', 'ios5video');
                 video.setAttribute("id", "ios5_player");
                 video.setAttribute('poster', posterURL);
-                video.style.height = clientW + 'px';
+                //video.style.height = clientW + 'px';
                 video.style.width = clientW + 'px';
             }
         }
