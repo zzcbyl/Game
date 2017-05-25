@@ -140,7 +140,7 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, form, input, textarea, select { l
 	left:50%;
 	-webkit-transform:translate3d(-50%,-50%,0);
 	z-index:5;
-	display:none;
+	
 }
 .video_wrap .ios5video {
 	height:320px;
