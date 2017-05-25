@@ -266,7 +266,7 @@ src="https://blobsnowmeet.blob.core.chinacloudapi.cn/asset-0a7b93c0-11c0-4fe5-a2
                     return false;
                 } else if (android4_4.test(ua)) {
                     video.style.display = 'block';
-                    video.webkitRequestFullScreen();
+                    //video.webkitRequestFullScreen();
                     var clientW = document.body.clientWidth;
                     video.style.width = clientW + 'px';
                     video.play();
