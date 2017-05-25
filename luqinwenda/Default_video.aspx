@@ -189,7 +189,7 @@ src="https://blobsnowmeet.blob.core.chinacloudapi.cn/asset-0a7b93c0-11c0-4fe5-a2
                 video.addEventListener('play', function () {
                     if (paused == false) {
                         window.SUDA && window.SUDA.uaTrack && window.SUDA.uaTrack('video_landing_page', 'play_button');
-
+                        poster.style.display = 'none';
                     }
                 }, false);
             }
@@ -216,7 +216,7 @@ src="https://blobsnowmeet.blob.core.chinacloudapi.cn/asset-0a7b93c0-11c0-4fe5-a2
             var ipad = /iPad/g;
             if (ios5.test(ua) || ipad.test(ua)) {
                 posterWrap.style.display = 'none';
-                poster.style.display = 'none';
+                
                 document.getElementsByClassName('play_icon')[0].style.display = 'none';
                 var clientW = document.body.clientWidth;
                 video.setAttribute('class', 'ios5video');
