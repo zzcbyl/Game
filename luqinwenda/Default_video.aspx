@@ -90,7 +90,7 @@
     <div class="main-header" style="">
         <div class="video_wrap" style="height:210px;">   
 	        <div class="video_inner">
-	   	        <video preload="<%=chatDrow["audio_bg"].ToString() %>"  controls="controls" node-type="mp4" id="h5-player" webkit-playsinline="" playsinline="true" x-webkit-airplay="true"  class="video" autoplay="autoplay" type="video/mp4"  
+	   	        <video preload="<%=chatDrow["audio_bg"].ToString() %>"  controls="controls" node-type="mp4" id="h5-player" webkit-playsinline="" playsinline="true" x-webkit-airplay="true"  class="video"  type="video/mp4"  
 src="https://blobsnowmeet.blob.core.chinacloudapi.cn/asset-0a7b93c0-11c0-4fe5-a2ce-913a9d64b73f/DJI_0001_compress.mp4?sv=2015-07-08&sr=c&si=c778c2b6-fe6a-47ec-a551-1df2dcb0b9ce&sig=DErta5PskNp4wiIeWq7yneafqk%2Fn9YQuFJmSQjI5KJI%3D&st=2017-05-24T03%3A52%3A04Z&se=2117-05-24T03%3A52%3A04Z"                        
                        >
                        
@@ -189,6 +189,7 @@ src="https://blobsnowmeet.blob.core.chinacloudapi.cn/asset-0a7b93c0-11c0-4fe5-a2
                 video.addEventListener('play', function () {
                     if (paused == false) {
                         window.SUDA && window.SUDA.uaTrack && window.SUDA.uaTrack('video_landing_page', 'play_button');
+
                     }
                 }, false);
             }
@@ -215,6 +216,7 @@ src="https://blobsnowmeet.blob.core.chinacloudapi.cn/asset-0a7b93c0-11c0-4fe5-a2
             var ipad = /iPad/g;
             if (ios5.test(ua) || ipad.test(ua)) {
                 posterWrap.style.display = 'none';
+                poster.style.display = 'none';
                 document.getElementsByClassName('play_icon')[0].style.display = 'none';
                 var clientW = document.body.clientWidth;
                 video.setAttribute('class', 'ios5video');
