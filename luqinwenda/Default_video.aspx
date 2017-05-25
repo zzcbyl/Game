@@ -104,7 +104,7 @@ src="http://weixin.luqinwenda.com/go_to_classroom.aspx"
 		        <div class="poster_wrap" style="height: 375px;"><img src="<%=chatDrow["audio_bg"].ToString() %>" alt="" class="poster" style="height: 210px; width: auto;"></div>
 	            <!-- 封面图片 -->
 	            <!-- 播放按钮 -->
-	            <div class="play_icon"></div>
+	            <!--div class="play_icon"></div-->
 	            <!-- 播放按钮 -->
 	        </div>    
         </div>
