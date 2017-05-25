@@ -210,9 +210,10 @@ src="https://blobsnowmeet.blob.core.chinacloudapi.cn/asset-0a7b93c0-11c0-4fe5-a2
         var posterURL = poster.src;
         var posterWrap = document.getElementsByClassName('poster_wrap')[0];
         var videoURL = video.getAttribute('node-id');
+        
         function ios5style() {
             var ua = window.navigator.userAgent;
-            var ios5 = /iPhone OS 5/g;
+            var ios5 = /iPhone OS/g;
             var ipad = /iPad/g;
             if (ios5.test(ua) || ipad.test(ua)) {
                 posterWrap.style.display = 'none';
