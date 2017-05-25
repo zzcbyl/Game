@@ -270,13 +270,14 @@ src="https://blobsnowmeet.blob.core.chinacloudapi.cn/asset-0a7b93c0-11c0-4fe5-a2
                     var clientW = document.body.clientWidth;
                     video.style.width = clientW + 'px';
                     video.play();
+                    /*
                     setTimeout(function () {
                         video.onwebkitfullscreenchange = function () {
                             if (!video.paused) {
                                 video.pause();
                             }
                         }
-                    }, 1000);
+                    }, 1000);*/
                 } else {
                     window.location.href = '<%=audioUrl %>';
                     return false;
