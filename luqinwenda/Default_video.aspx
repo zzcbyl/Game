@@ -96,7 +96,7 @@ src="https://blobsnowmeet.blob.core.chinacloudapi.cn/asset-0a7b93c0-11c0-4fe5-a2
                        
 	   	        </video>
     	        <!-- 封面图片 -->
-		        <!--div class="poster_wrap" style="height: 375px;"><img src="<%=chatDrow["audio_bg"].ToString() %>" alt="" class="poster" style="height: 210px; width: auto;"></div>
+		        <div class="poster_wrap" style="height: 375px;"><img src="<%=chatDrow["audio_bg"].ToString() %>" alt="" class="poster" style="height: 210px; width: auto;"></div>
 	            <!-- 封面图片 -->
 	            <!-- 播放按钮 -->
 	            <div class="play_icon"></div>
