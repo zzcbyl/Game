@@ -96,8 +96,9 @@
         </div>--%>
         <div class="video_wrap" style="height:210px;">   
 	        <div class="video_inner">
-	   	        <video src="http://weixin.luqinwenda.com/go_to_classroom.aspx" controls="controls" id="h5-player" class="video" autoplay="autoplay" >
-                       <source type="video/mp4" src="http://live.huwai114.cn/live/LIVEVH15ACBC36A74/index.m3u8" />
+	   	        <video  controls="controls" node-type="mp4" id="h5-player" webkit-playsinline="" playsinline="true" x-webkit-airplay="true"  class="video" autoplay="autoplay" type="video/mp4"  
+src="https://blobsnowmeet.blob.core.chinacloudapi.cn/asset-0a7b93c0-11c0-4fe5-a2ce-913a9d64b73f/DJI_0001_compress.mp4?sv=2015-07-08&sr=c&si=c778c2b6-fe6a-47ec-a551-1df2dcb0b9ce&sig=DErta5PskNp4wiIeWq7yneafqk%2Fn9YQuFJmSQjI5KJI%3D&st=2017-05-24T03%3A52%3A04Z&se=2117-05-24T03%3A52%3A04Z" >
+                       
 	   	        </video>
     	        <!-- 封面图片 -->
 		        <div class="poster_wrap" style="height: 375px;"><img src="<%=chatDrow["audio_bg"].ToString() %>" alt="" class="poster" style="height: 210px; width: auto;"></div>
