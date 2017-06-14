@@ -104,7 +104,7 @@
             <div style="float:left; width:25%; height:100px; padding:5px 2%; border-right:1px solid #c5593e; line-height:30px;">
                <div style="height:60px; overflow:hidden; font-size:18px; font-family:SimHei; font-weight:bold; text-align:center; color:#fceadd;">
                    <div><%=currentCDt.Rows[0]["course_time"].ToString().Substring(0, currentCDt.Rows[0]["course_time"].ToString().IndexOf('（')).Trim() %></div>
-                   <div style="font-weight:normal; font-size:16px;">20:00</div>
+                   <div style="font-weight:normal; font-size:16px;">09:30</div>
                </div>
                <div style="color:#b65138; font-weight:bold; text-align:center; font-size:12px;">讲课时间</div>
             </div>
